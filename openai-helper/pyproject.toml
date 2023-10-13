@@ -24,7 +24,7 @@ dependencies = [
 ]
 
 [project.urls]
-Home = "https://github.com/rs-kellogg/ocr-tools"
+Home = "https://github.com/rs-kellogg/krs-llm-cookbook"
 
 [project.optional-dependencies]
 test = [
@@ -35,7 +35,7 @@ lint = [
   "flake8"
 ]
 notebook = [
-    "jupyterlab",
+  "jupyterlab",
 ]
 
 [tool.setuptools]
