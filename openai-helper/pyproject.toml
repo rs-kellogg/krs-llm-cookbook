@@ -43,7 +43,7 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 namespaces = true
-where = ["ocrtools"]
+where = ["openaihelper"]
 
 [project.scripts]
 openaihelper = "openaihelper.cli:app"
