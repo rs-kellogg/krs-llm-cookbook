@@ -10,9 +10,24 @@ parts:
 - caption: Large Language Models (LLMs)
   numbered: true
   chapters:
-  - file: what-is-llm
-  - file: what-do-llm
-  
+  - file: llm-defined
+  - file: llm-use-cases
+  - file: setting-up-openai
+- caption: Use Cases
+  numbered: true
+  chapters:
+  - file: coding-assistance
+  - file: extracting-info # geolocation
+  - file: categorizing-text # sentiment analysis
+  - file: speech-to-text # whisper AI
+- caption: Advanced Topics
+  numbered: true
+  chapters:
+  - file: langchain
+  - file: augmented-generation
+  - file: vector-databases
+
+
   
   
 
