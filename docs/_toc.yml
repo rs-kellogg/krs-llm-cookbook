@@ -10,6 +10,9 @@ parts:
 - caption: Large Language Models (LLMs)
   numbered: true
   chapters:
-  - file: history
-  - file: survey
+  - file: what-is-llm
+  - file: what-do-llm
+  
+  
+  
 
