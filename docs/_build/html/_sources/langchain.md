@@ -1,1 +1,1 @@
-# Building Application with LangChain
+# Building Applications with LangChain
