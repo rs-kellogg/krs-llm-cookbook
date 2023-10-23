@@ -20,6 +20,7 @@ parts:
   - file: extracting-info # geolocation
   - file: categorizing-text # sentiment analysis
   - file: speech-to-text # whisper AI
+  - file: process-pdfs # process a pdf collection
 - caption: Advanced Topics
   numbered: true
   chapters:
