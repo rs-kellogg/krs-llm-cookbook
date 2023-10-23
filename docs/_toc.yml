@@ -16,7 +16,7 @@ parts:
 - caption: Use Cases
   numbered: true
   chapters:
-  - file: coding-assistance
+  - file: programming-assistance
   - file: extracting-info # geolocation
   - file: categorizing-text # sentiment analysis
   - file: speech-to-text # whisper AI
