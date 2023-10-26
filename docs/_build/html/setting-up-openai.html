@@ -360,7 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -376,6 +378,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-an-account">3.1. Setting up an Account</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">3.2. ChatGPT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-playground">3.3. OpenAI Playground</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">3.4. OpenAI API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-plugins">3.5. OpenAI Plugins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-cookbook">3.6. OpenAI Cookbook</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -387,11 +402,37 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="setting-up-openai">
 <h1><span class="section-number">3. </span>Setting up OpenAI<a class="headerlink" href="#setting-up-openai" title="Permalink to this heading">#</a></h1>
+<section id="setting-up-an-account">
+<h2><span class="section-number">3.1. </span>Setting up an Account<a class="headerlink" href="#setting-up-an-account" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>ChatGPT</p></li>
 <li><p>OpenAI API</p></li>
-<li><p>OpenAI Cookbook</p></li>
+<li><p>Getting a token</p></li>
+<li><p>Selecting a Model</p></li>
+<li><p>Cost</p></li>
 </ul>
+</section>
+<section id="chatgpt">
+<h2><span class="section-number">3.2. </span>ChatGPT<a class="headerlink" href="#chatgpt" title="Permalink to this heading">#</a></h2>
+<p>Everyone knows this interface already, but did you know about some extensions?</p>
+</section>
+<section id="openai-playground">
+<h2><span class="section-number">3.3. </span>OpenAI Playground<a class="headerlink" href="#openai-playground" title="Permalink to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://platform.openai.com/playground?mode=chat">OpenAI Playground</a> is an excellent place to develop prompts that are tailored to your application. You can also pre-load one of the existing <a class="reference external" href="https://platform.openai.com/examples">example prompts</a>. Once you’re satisfied with the results, you can export the example to code</p>
+<img src="_images/playground-save-to-code.png" alt="Save to Code" style="border: 2px solid  gray;">
+</section>
+<section id="openai-api">
+<h2><span class="section-number">3.4. </span>OpenAI API<a class="headerlink" href="#openai-api" title="Permalink to this heading">#</a></h2>
+<p>The API is the place to go to scale up your jobs.</p>
+</section>
+<section id="openai-plugins">
+<h2><span class="section-number">3.5. </span>OpenAI Plugins<a class="headerlink" href="#openai-plugins" title="Permalink to this heading">#</a></h2>
+<p>Plugins are for extending functionality.</p>
+</section>
+<section id="openai-cookbook">
+<h2><span class="section-number">3.6. </span>OpenAI Cookbook<a class="headerlink" href="#openai-cookbook" title="Permalink to this heading">#</a></h2>
+<p>Loads of example code here.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -448,6 +489,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-an-account">3.1. Setting up an Account</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">3.2. ChatGPT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-playground">3.3. OpenAI Playground</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">3.4. OpenAI API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-plugins">3.5. OpenAI Plugins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-cookbook">3.6. OpenAI Cookbook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -4,10 +4,10 @@
 			"path": "."
 		},
 		{
-			"path": "../krs-workbook"
+			"path": "../lm-hackers"
 		},
 		{
-			"path": "../krs-cookbook"
+			"path": "../gpt_examples"
 		}
 	],
 	"settings": {}
