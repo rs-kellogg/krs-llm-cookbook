@@ -9,6 +9,8 @@
 
 ![alt text](./images/llm-survey-fig-3.png "Fig 3")
 
+![alt text](./images/gpt-book-fig-1.png "Fig 4")
+
 ## OpenAI
 
 - Model zoo
