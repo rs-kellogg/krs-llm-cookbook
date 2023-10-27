@@ -1,0 +1,1099 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Reference &#8212; Kellogg Research Support LLM Cookbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'fine-tuning_news';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="welcome.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="welcome.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Workshop Outline</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">1. What is a Large Language Model?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">2. What can you do with a LLM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-openai.html">3. Setting up OpenAI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">4. Programming Assistance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extracting-info.html">5. Extracting Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="categorizing-text.html">6. Categorizing Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">7. Converting Speech to Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process-pdfs.html">8. Process a PDF Collection</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">9. Fine-Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langchain.html">10. Building Applications with LangChain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">11. Retrieval Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-databases.html">12. Vector Databases</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/rs-kellogg/krs-llm-cookbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/rs-kellogg/krs-llm-cookbook/issues/new?title=Issue%20on%20page%20%2Ffine-tuning_news.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/fine-tuning_news.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reference</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Reference</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-project-formatted-output-from-news-headlines">Fine-tuning project: formatted output from news headlines</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-model">Fine-tuning model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-new-fine-tuned-model">Using the new fine-tuned model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#original-gpt-3-5-turbo-one-shot-prompting">Original GPT-3.5-turbo &amp; one-shot prompting</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">openai</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="c1"># api_file =&quot;__api_file_path__&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">api_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># api_file =&quot;__api_file_path__&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">api_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;api_file&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<section id="reference">
+<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h1>
+<p>Full detailed information about fine-tuning can be found in the OpenAI cookbook for <a class="reference external" href="https://cookbook.openai.com/examples/how_to_finetune_chat_models">“How to fine-tune chat models”</a>.<br />
+This notebook adapts code from the above cookbook and applied it to a new project.</p>
+</section>
+<section id="fine-tuning-project-formatted-output-from-news-headlines">
+<h1>Fine-tuning project: formatted output from news headlines<a class="headerlink" href="#fine-tuning-project-formatted-output-from-news-headlines" title="Permalink to this heading">#</a></h1>
+<p>We demonstrate fine tuning with news headline data from <a class="reference external" href="https://www.kaggle.com/datasets/rmisra/news-category-dataset/">Kaggle</a></p>
+<ul class="simple">
+<li><p>Misra, Rishabh. “News Category Dataset.” arXiv preprint arXiv:2209.11429 (2022).</p></li>
+<li><p>Misra, Rishabh and Jigyasa Grover. “Sculpting Data for ML: The first act of Machine Learning.” ISBN 9798585463570 (2021).</p></li>
+</ul>
+<p>For demonstration purpose, we reduce the data sample size by taking out the first 100 entries in each category of business, politics, travel, sports and wellness. We then shuffle the entries to create the news.csv file for this notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;news.csv&#39;</span>
+<span class="n">news_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">news_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>link</th>
+      <th>headline</th>
+      <th>category</th>
+      <th>short_description</th>
+      <th>authors</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>https://www.huffingtonpost.com/entry/swoon-the...</td>
+      <td>*Swoon*: The Dreamy Italian Villa From ‘Call M...</td>
+      <td>TRAVEL</td>
+      <td>We’re calling our broker ASAP.</td>
+      <td>PureWow, Editorial Partner</td>
+      <td>2018-02-27</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>https://www.huffingtonpost.com/entry/errol-mus...</td>
+      <td>Elon Musk's Estranged Father Has Child With St...</td>
+      <td>BUSINESS</td>
+      <td>The young woman was only 4 years old when Erro...</td>
+      <td>Jenna Amatulli</td>
+      <td>2018-03-26</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>https://www.huffingtonpost.com/entry/toys-r-us...</td>
+      <td>This Sad Version Of The Toys R Us Jingle Will ...</td>
+      <td>BUSINESS</td>
+      <td>Sniff.</td>
+      <td>Ed Mazza</td>
+      <td>2018-03-16</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>https://www.huffpost.com/entry/biden-climate-e...</td>
+      <td>Biden Takes Modest Executive Action After Clim...</td>
+      <td>POLITICS</td>
+      <td>The executive push includes $2.3 billion in cl...</td>
+      <td>Chris D'Angelo</td>
+      <td>2022-07-20</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>https://www.huffingtonpost.com/entry/lonely-pl...</td>
+      <td>Lonely Planet's Top European Destinations Of 2...</td>
+      <td>TRAVEL</td>
+      <td>These underrated travel destinations in Europe...</td>
+      <td>Brittany Nims</td>
+      <td>2018-05-22</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="data-preparation">
+<h2>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Create helper function for composing messages</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create functions for generating messages</span>
+<span class="n">system_message</span> <span class="o">=</span> <span class="s2">&quot;You are a expert news editor. You give author name and sort news headline into 5 categories: BUSINESS, POLITICS, TRAVEL, SPORTS, WELLNESS.&quot;</span>
+
+<span class="k">def</span> <span class="nf">create_user_message</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;Headline: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n\n</span><span class="s2"> Author: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;authors&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">create_assistant_message</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;This is a </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> piece by </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;authors&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> 
+
+<span class="k">def</span> <span class="nf">prepare_example_conversation</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">system_message</span><span class="p">})</span>
+
+    <span class="n">user_message</span> <span class="o">=</span> <span class="n">create_user_message</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user_message</span><span class="p">})</span>
+
+    <span class="n">assist_message</span> <span class="o">=</span> <span class="n">create_assistant_message</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">assist_message</span><span class="p">})</span> 
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">}</span>
+
+<span class="n">pprint</span><span class="p">(</span><span class="n">prepare_example_conversation</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="c1"># pprint(prepare_example_conversation(news_df.iloc[1]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;messages&#39;: [{&#39;content&#39;: &#39;You are a expert news editor. You give author name &#39;
+                          &#39;and sort news headline into 5 categories: BUSINESS, &#39;
+                          &#39;POLITICS, TRAVEL, SPORTS, WELLNESS.&#39;,
+               &#39;role&#39;: &#39;system&#39;},
+              {&#39;content&#39;: &#39;Headline: *Swoon*: The Dreamy Italian Villa From &#39;
+                          &#39;‘Call Me By Your Name’ Is For Sale\n&#39;
+                          &#39;\n&#39;
+                          &#39; Author: PureWow, Editorial Partner\n&#39;
+                          &#39;\n&#39;,
+               &#39;role&#39;: &#39;user&#39;},
+              {&#39;content&#39;: &#39;This is a TRAVEL piece by PureWow, Editorial &#39;
+                          &#39;Partner&#39;,
+               &#39;role&#39;: &#39;assistant&#39;}]}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Create training and validation data set</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the first 21 rows of the dataset for training</span>
+<span class="n">training_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+
+<span class="c1"># apply the prepare_example_conversation function to each row of the training_df</span>
+<span class="n">training_data</span> <span class="o">=</span> <span class="n">training_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">prepare_example_conversation</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">training_data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;messages&#39;: [{&#39;role&#39;: &#39;system&#39;, &#39;content&#39;: &#39;You are a expert news editor. You give author name and sort news headline into 5 categories: BUSINESS, POLITICS, TRAVEL, SPORTS, WELLNESS.&#39;}, {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;Headline: *Swoon*: The Dreamy Italian Villa From ‘Call Me By Your Name’ Is For Sale\n\n Author: PureWow, Editorial Partner\n\n&#39;}, {&#39;role&#39;: &#39;assistant&#39;, &#39;content&#39;: &#39;This is a TRAVEL piece by PureWow, Editorial Partner&#39;}]}
+{&#39;messages&#39;: [{&#39;role&#39;: &#39;system&#39;, &#39;content&#39;: &#39;You are a expert news editor. You give author name and sort news headline into 5 categories: BUSINESS, POLITICS, TRAVEL, SPORTS, WELLNESS.&#39;}, {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &quot;Headline: Elon Musk&#39;s Estranged Father Has Child With Stepdaughter, Says It&#39;s &#39;God&#39;s Plan&#39;\n\n Author: Jenna Amatulli\n\n&quot;}, {&#39;role&#39;: &#39;assistant&#39;, &#39;content&#39;: &#39;This is a BUSINESS piece by Jenna Amatulli&#39;}]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validation_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">21</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
+<span class="n">validation_data</span> <span class="o">=</span> <span class="n">validation_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">prepare_example_conversation</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Write training and validation data to the required jsonl format</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write out data in jsonl format</span>
+<span class="k">def</span> <span class="nf">write_jsonl</span><span class="p">(</span><span class="n">data_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ddict</span> <span class="ow">in</span> <span class="n">data_list</span><span class="p">:</span>
+            <span class="n">jout</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">ddict</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">jout</span><span class="p">)</span>
+
+<span class="n">training_file_name</span> <span class="o">=</span> <span class="s2">&quot;tmp_news_finetune_training.jsonl&quot;</span>
+<span class="n">write_jsonl</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">training_file_name</span><span class="p">)</span>
+
+<span class="n">validation_file_name</span> <span class="o">=</span> <span class="s2">&quot;tmp_news_finetune_validation.jsonl&quot;</span>
+<span class="n">write_jsonl</span><span class="p">(</span><span class="n">validation_data</span><span class="p">,</span> <span class="n">validation_file_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>tmp_news_finetune_training.jsonl
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;messages&quot;: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a expert news editor. You give author name and sort news headline into 5 categories: BUSINESS, POLITICS, TRAVEL, SPORTS, WELLNESS.&quot;}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Headline: *Swoon*: The Dreamy Italian Villa From \u2018Call Me By Your Name\u2019 Is For Sale\n\n Author: PureWow, Editorial Partner\n\n&quot;}, {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;This is a TRAVEL piece by PureWow, Editorial Partner&quot;}]}
+{&quot;messages&quot;: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a expert news editor. You give author name and sort news headline into 5 categories: BUSINESS, POLITICS, TRAVEL, SPORTS, WELLNESS.&quot;}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Headline: Elon Musk&#39;s Estranged Father Has Child With Stepdaughter, Says It&#39;s &#39;God&#39;s Plan&#39;\n\n Author: Jenna Amatulli\n\n&quot;}, {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;This is a BUSINESS piece by Jenna Amatulli&quot;}]}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fine-tuning-model">
+<h2>Fine-tuning model<a class="headerlink" href="#fine-tuning-model" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Upload file</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">training_file_name</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">),</span> <span class="n">purpose</span><span class="o">=</span><span class="s2">&quot;fine-tune&quot;</span>
+<span class="p">)</span>
+<span class="n">training_file_id</span> <span class="o">=</span> <span class="n">training_response</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+
+<span class="n">validation_response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">validation_file_name</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">),</span> <span class="n">purpose</span><span class="o">=</span><span class="s2">&quot;fine-tune&quot;</span>
+<span class="p">)</span>
+<span class="n">validation_file_id</span> <span class="o">=</span> <span class="n">validation_response</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training file ID:&quot;</span><span class="p">,</span> <span class="n">training_file_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation file ID:&quot;</span><span class="p">,</span> <span class="n">validation_file_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training file ID: file-1d0YWGGCxnWLsbGbXc4Gby90
+Validation file ID: file-801xl69X9bSsT7Y4VqUqGjIX
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Create fine-tuning job</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">FineTuningJob</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">training_file</span><span class="o">=</span><span class="n">training_file_id</span><span class="p">,</span>
+    <span class="n">validation_file</span><span class="o">=</span><span class="n">validation_file_id</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span>
+    <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;recipe-ner&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">job_id</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Job ID:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Job ID: ftjob-8n7H3PvtiQz6h4V66n7Xryy0
+Status: validating_files
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Check job status</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">FineTuningJob</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Job ID:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trained Tokens:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;trained_tokens&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Job ID: ftjob-8n7H3PvtiQz6h4V66n7Xryy0
+Status: succeeded
+Trained Tokens: 7136
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Check job running processes after completion</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">FineTuningJob</span><span class="o">.</span><span class="n">list_events</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">job_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">events</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+<span class="n">events</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 37/84: training loss=0.02, validation loss=0.00
+Step 38/84: training loss=0.00, validation loss=0.10
+Step 39/84: training loss=0.00, validation loss=0.00
+Step 40/84: training loss=0.00, validation loss=0.00
+Step 41/84: training loss=0.00, validation loss=0.00
+Step 42/84: training loss=0.00, validation loss=0.00
+Step 43/84: training loss=0.00, validation loss=0.00
+Step 44/84: training loss=0.00, validation loss=0.00
+Step 45/84: training loss=0.00, validation loss=0.00
+Step 46/84: training loss=0.00, validation loss=0.00
+Step 47/84: training loss=0.00, validation loss=0.00
+Step 48/84: training loss=0.00, validation loss=0.01
+Step 49/84: training loss=0.00, validation loss=0.00
+Step 50/84: training loss=0.00, validation loss=0.00
+Step 51/84: training loss=0.00, validation loss=0.00
+Step 52/84: training loss=0.00, validation loss=0.00
+Step 53/84: training loss=0.00, validation loss=0.00
+Step 54/84: training loss=0.00, validation loss=0.00
+Step 55/84: training loss=0.00, validation loss=0.00
+Step 56/84: training loss=0.00, validation loss=0.00
+Step 57/84: training loss=0.00, validation loss=0.00
+Step 58/84: training loss=0.00, validation loss=0.00
+Step 59/84: training loss=0.00, validation loss=0.00
+Step 60/84: training loss=0.00, validation loss=0.00
+Step 61/84: training loss=0.00, validation loss=0.00
+Step 62/84: training loss=0.00, validation loss=0.00
+Step 63/84: training loss=0.00, validation loss=0.00
+Step 64/84: training loss=0.00, validation loss=0.00
+Step 65/84: training loss=0.00, validation loss=0.00
+Step 66/84: training loss=0.00, validation loss=0.00
+Step 67/84: training loss=0.00, validation loss=0.00
+Step 68/84: training loss=0.00, validation loss=0.00
+Step 69/84: training loss=0.00, validation loss=0.00
+Step 70/84: training loss=0.00, validation loss=0.00
+Step 71/84: training loss=0.00, validation loss=0.00
+Step 72/84: training loss=0.00, validation loss=0.00
+Step 73/84: training loss=0.00, validation loss=0.00
+Step 74/84: training loss=0.00, validation loss=0.00
+Step 75/84: training loss=0.00, validation loss=0.00
+Step 76/84: training loss=0.00, validation loss=0.00
+Step 77/84: training loss=0.00, validation loss=0.00
+Step 78/84: training loss=0.00, validation loss=0.01
+Step 79/84: training loss=0.00, validation loss=0.00
+Step 80/84: training loss=0.00, validation loss=0.00
+Step 81/84: training loss=0.00, validation loss=0.00
+Step 82/84: training loss=0.00, validation loss=0.00
+Step 83/84: training loss=0.00, validation loss=0.00
+Step 84/84: training loss=0.00, validation loss=0.00
+New fine-tuned model created: ft:gpt-3.5-turbo-0613:kellogg-research-support:recipe-ner:8DzKAWX8
+The job has successfully completed
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Get fine-tuned model ID</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">FineTuningJob</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+<span class="n">fine_tuned_model_id</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;fine_tuned_model&quot;</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">fine_tuned_model_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> 
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Fine-tuned model ID not found. Your job has likely not been completed yet.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fine-tuned model ID:&quot;</span><span class="p">,</span> <span class="n">fine_tuned_model_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fine-tuned model ID: ft:gpt-3.5-turbo-0613:kellogg-research-support:recipe-ner:8DzKAWX8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-the-new-fine-tuned-model">
+<h2>Using the new fine-tuned model<a class="headerlink" href="#using-the-new-fine-tuned-model" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">31</span><span class="p">:</span><span class="mi">40</span><span class="p">]</span>
+<span class="n">test_row</span> <span class="o">=</span> <span class="n">test_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">test_messages</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">test_messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">system_message</span><span class="p">})</span>
+<span class="n">user_message</span> <span class="o">=</span> <span class="n">create_user_message</span><span class="p">(</span><span class="n">test_row</span><span class="p">)</span>
+<span class="n">test_messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">create_user_message</span><span class="p">(</span><span class="n">test_row</span><span class="p">)})</span>
+
+<span class="n">pprint</span><span class="p">(</span><span class="n">test_messages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;content&#39;: &#39;You are a expert news editor. You give author name and sort news &#39;
+             &#39;headline into 5 categories: BUSINESS, POLITICS, TRAVEL, SPORTS, &#39;
+             &#39;WELLNESS.&#39;,
+  &#39;role&#39;: &#39;system&#39;},
+ {&#39;content&#39;: &quot;Headline: 13 Hand Sanitizer Mistakes You&#39;re Probably Making\n&quot;
+             &#39;\n&#39;
+             &#39; Author: Nicole Pajer\n&#39;
+             &#39;\n&#39;,
+  &#39;role&#39;: &#39;user&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fine_tuned_model_id</span> <span class="o">=</span> <span class="s2">&quot;ft:gpt-3.5-turbo-0613:kellogg-research-support:recipe-ner:8DzKAWX8&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">fine_tuned_model_id</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">test_messages</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1500</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a WELLNESS piece by Nicole Pajer
+-----
+{
+  &quot;id&quot;: &quot;chatcmpl-8E0n57AifHLuXBOmcVtiZey2mQChE&quot;,
+  &quot;object&quot;: &quot;chat.completion&quot;,
+  &quot;created&quot;: 1698350323,
+  &quot;model&quot;: &quot;ft:gpt-3.5-turbo-0613:kellogg-research-support:recipe-ner:8DzKAWX8&quot;,
+  &quot;choices&quot;: [
+    {
+      &quot;index&quot;: 0,
+      &quot;message&quot;: {
+        &quot;role&quot;: &quot;assistant&quot;,
+        &quot;content&quot;: &quot;This is a WELLNESS piece by Nicole Pajer&quot;
+      },
+      &quot;finish_reason&quot;: &quot;stop&quot;
+    }
+  ],
+  &quot;usage&quot;: {
+    &quot;prompt_tokens&quot;: 68,
+    &quot;completion_tokens&quot;: 11,
+    &quot;total_tokens&quot;: 79
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="original-gpt-3-5-turbo-one-shot-prompting">
+<h2>Original GPT-3.5-turbo &amp; one-shot prompting<a class="headerlink" href="#original-gpt-3-5-turbo-one-shot-prompting" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>GPT-3.5-turbo</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### gpt-3.5-turbo</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">test_messages</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1500</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Category: WELLNESS
+-----
+{
+  &quot;id&quot;: &quot;chatcmpl-8E0ocng3le3ad6Mkr7oqtONSxixEC&quot;,
+  &quot;object&quot;: &quot;chat.completion&quot;,
+  &quot;created&quot;: 1698350418,
+  &quot;model&quot;: &quot;gpt-3.5-turbo-0613&quot;,
+  &quot;choices&quot;: [
+    {
+      &quot;index&quot;: 0,
+      &quot;message&quot;: {
+        &quot;role&quot;: &quot;assistant&quot;,
+        &quot;content&quot;: &quot;Category: WELLNESS&quot;
+      },
+      &quot;finish_reason&quot;: &quot;stop&quot;
+    }
+  ],
+  &quot;usage&quot;: {
+    &quot;prompt_tokens&quot;: 68,
+    &quot;completion_tokens&quot;: 4,
+    &quot;total_tokens&quot;: 72
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>One-shot prompting</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># one-shot prompting</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="s1">&#39;You are a expert news editor. You give author name &#39;</span>
+                    <span class="s1">&#39;and sort news headline into 5 categories: BUSINESS, &#39;</span>
+                    <span class="s1">&#39;POLITICS, TRAVEL, SPORTS, WELLNESS.&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;role&#39;</span><span class="p">:</span> <span class="s1">&#39;system&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="s1">&#39;Headline: Olympian Released From Beijing Isolation &#39;</span>
+                    <span class="s1">&#39;Facility After Emotional Video Plea</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="s1">&#39; Author: TIM REYNOLDS, AP</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;role&#39;</span><span class="p">:</span> <span class="s1">&#39;user&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="s1">&#39;This is a SPORTS piece by TIM REYNOLDS, AP&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;role&#39;</span><span class="p">:</span> <span class="s1">&#39;assistant&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="s2">&quot;Headline: 13 Hand Sanitizer Mistakes You&#39;re Probably Making</span><span class="se">\n\n</span><span class="s2"> Author: Nicole Pajer</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span>
+         <span class="s1">&#39;role&#39;</span><span class="p">:</span> <span class="s1">&#39;user&#39;</span><span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a WELLNESS article written by Nicole Pajer.
+-----
+{
+  &quot;id&quot;: &quot;chatcmpl-8E0pF1dGwz0SWUak5O5MFddcZcHAZ&quot;,
+  &quot;object&quot;: &quot;chat.completion&quot;,
+  &quot;created&quot;: 1698350457,
+  &quot;model&quot;: &quot;gpt-3.5-turbo-0613&quot;,
+  &quot;choices&quot;: [
+    {
+      &quot;index&quot;: 0,
+      &quot;message&quot;: {
+        &quot;role&quot;: &quot;assistant&quot;,
+        &quot;content&quot;: &quot;This is a WELLNESS article written by Nicole Pajer.&quot;
+      },
+      &quot;finish_reason&quot;: &quot;stop&quot;
+    }
+  ],
+  &quot;usage&quot;: {
+    &quot;prompt_tokens&quot;: 117,
+    &quot;completion_tokens&quot;: 13,
+    &quot;total_tokens&quot;: 130
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Reference</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-project-formatted-output-from-news-headlines">Fine-tuning project: formatted output from news headlines</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-model">Fine-tuning model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-new-fine-tuned-model">Using the new fine-tuned model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#original-gpt-3-5-turbo-one-shot-prompting">Original GPT-3.5-turbo &amp; one-shot prompting</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kellogg Research Support
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
