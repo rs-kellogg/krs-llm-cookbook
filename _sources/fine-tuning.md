@@ -11,11 +11,12 @@ Fine-tuning improves on few-shot learning by training on many more examples than
 - Lower latency requests  
 
 ## When to fine-tune
-#### Fine-tuning requires time and effort
-#### Recommend attempting the following first
-- Prompt engineering
-- Prompt chaining (breaking complex tasks into multiple prompts)
-- Function calling
+#### Considerations before starting a fine-funing project
+- Fine-tuning requires time and effort
+- Recommend attempting the following first
+  - Prompt engineering
+  - Prompt chaining (breaking complex tasks into multiple prompts)
+  - Function calling
 #### Fine-tuning can improve results for "show, not tell"
 - Setting the style, tone, format, or other qualitative aspects
 - Improving reliability at producing a desired output
