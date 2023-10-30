@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>9. Fine-Tuning &#8212; Kellogg Research Support LLM Cookbook</title>
+    <title>8. Fine-Tuning &#8212; Kellogg Research Support LLM Cookbook</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'fine-tuning';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="10. Building Applications with LangChain" href="langchain.html" />
-    <link rel="prev" title="8. Process a PDF Collection" href="process-pdfs.html" />
+    <link rel="next" title="9. Building Applications with LangChain" href="langchain.html" />
+    <link rel="prev" title="7. Converting Speech to Text" href="speech-to-text.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -146,13 +146,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Kellogg Research Support LLM Cookbook - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Kellogg Research Support LLM Cookbook - Home"/>`);</script>
   
   
 </a></div>
@@ -182,14 +183,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="extracting-info.html">5. Extracting Information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="categorizing-text.html">6. Categorizing Text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">7. Converting Speech to Text</a></li>
-<li class="toctree-l1"><a class="reference internal" href="process-pdfs.html">8. Process a PDF Collection</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Fine-Tuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="langchain.html">10. Building Applications with LangChain</a></li>
-<li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">11. Retrieval Augmented Generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vector-databases.html">12. Vector Databases</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Fine-Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langchain.html">9. Building Applications with LangChain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">10. Retrieval Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-databases.html">11. Vector Databases</a></li>
 </ul>
 
     </div>
@@ -383,19 +383,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-fine-tuning">9.1. Advantages of fine-tuning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-fine-tune">9.2. When to fine-tune</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-requires-time-and-effort">9.2.1. Fine-tuning requires time and effort</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommend-attempting-the-following-first">9.2.2. Recommend attempting the following first</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-can-improve-results-for-show-not-tell">9.2.3. Fine-tuning can improve results for “show, not tell”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-embeddings-with-retrieval">9.2.4. Vs embeddings with retrieval</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-fine-tuning">8.1. Advantages of fine-tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-fine-tune">8.2. When to fine-tune</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-requires-time-and-effort">8.2.1. Fine-tuning requires time and effort</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommend-attempting-the-following-first">8.2.2. Recommend attempting the following first</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-can-improve-results-for-show-not-tell">8.2.3. Fine-tuning can improve results for “show, not tell”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-embeddings-with-retrieval">8.2.4. Vs embeddings with retrieval</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-project">9.3. Fine-tuning project</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-jupyter-notebook">9.3.1. Fine-tuning Jupyter notebook</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-practice">9.3.2. Recommended practice</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-commands">9.3.3. Common commands</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cookbooks-from-openai">9.3.4. More cookbooks from OpenAI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-project">8.3. Fine-tuning project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-jupyter-notebook">8.3.1. Fine-tuning Jupyter notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-practice">8.3.2. Recommended practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-commands">8.3.3. Common commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cookbooks-from-openai">8.3.4. More cookbooks from OpenAI</a></li>
 </ul>
 </li>
 </ul>
@@ -410,11 +410,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fine-tuning">
-<h1><span class="section-number">9. </span>Fine-Tuning<a class="headerlink" href="#fine-tuning" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">8. </span>Fine-Tuning<a class="headerlink" href="#fine-tuning" title="Permalink to this heading">#</a></h1>
 <p>Most of the following information is extracted from the <a class="reference external" href="https://platform.openai.com/docs/guides/fine-tuning">Fine-tuning</a> section on the OpenAI website.
 We strongly recommend checking the official site for the most up-to-date information.</p>
 <section id="advantages-of-fine-tuning">
-<h2><span class="section-number">9.1. </span>Advantages of fine-tuning<a class="headerlink" href="#advantages-of-fine-tuning" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.1. </span>Advantages of fine-tuning<a class="headerlink" href="#advantages-of-fine-tuning" title="Permalink to this heading">#</a></h2>
 <p>Fine-tuning improves on few-shot learning by training on many more examples than can fit in the prompt</p>
 <ul class="simple">
 <li><p>Higher quality results than prompting</p></li>
@@ -424,12 +424,12 @@ We strongly recommend checking the official site for the most up-to-date informa
 </ul>
 </section>
 <section id="when-to-fine-tune">
-<h2><span class="section-number">9.2. </span>When to fine-tune<a class="headerlink" href="#when-to-fine-tune" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2. </span>When to fine-tune<a class="headerlink" href="#when-to-fine-tune" title="Permalink to this heading">#</a></h2>
 <section id="fine-tuning-requires-time-and-effort">
-<h3><span class="section-number">9.2.1. </span>Fine-tuning requires time and effort<a class="headerlink" href="#fine-tuning-requires-time-and-effort" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.2.1. </span>Fine-tuning requires time and effort<a class="headerlink" href="#fine-tuning-requires-time-and-effort" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="recommend-attempting-the-following-first">
-<h3><span class="section-number">9.2.2. </span>Recommend attempting the following first<a class="headerlink" href="#recommend-attempting-the-following-first" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.2.2. </span>Recommend attempting the following first<a class="headerlink" href="#recommend-attempting-the-following-first" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Prompt engineering</p></li>
 <li><p>Prompt chaining (breaking complex tasks into multiple prompts)</p></li>
@@ -437,7 +437,7 @@ We strongly recommend checking the official site for the most up-to-date informa
 </ul>
 </section>
 <section id="fine-tuning-can-improve-results-for-show-not-tell">
-<h3><span class="section-number">9.2.3. </span>Fine-tuning can improve results for “show, not tell”<a class="headerlink" href="#fine-tuning-can-improve-results-for-show-not-tell" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.2.3. </span>Fine-tuning can improve results for “show, not tell”<a class="headerlink" href="#fine-tuning-can-improve-results-for-show-not-tell" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Setting the style, tone, format, or other qualitative aspects</p></li>
 <li><p>Improving reliability at producing a desired output</p></li>
@@ -448,7 +448,7 @@ We strongly recommend checking the official site for the most up-to-date informa
 </ul>
 </section>
 <section id="vs-embeddings-with-retrieval">
-<h3><span class="section-number">9.2.4. </span>Vs embeddings with retrieval<a class="headerlink" href="#vs-embeddings-with-retrieval" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.2.4. </span>Vs embeddings with retrieval<a class="headerlink" href="#vs-embeddings-with-retrieval" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Embeddings with retrieval is best suited for large database of documents with relevant context and information</p>
 <ul>
@@ -461,14 +461,14 @@ We strongly recommend checking the official site for the most up-to-date informa
 </section>
 </section>
 <section id="fine-tuning-project">
-<h2><span class="section-number">9.3. </span>Fine-tuning project<a class="headerlink" href="#fine-tuning-project" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.3. </span>Fine-tuning project<a class="headerlink" href="#fine-tuning-project" title="Permalink to this heading">#</a></h2>
 <section id="fine-tuning-jupyter-notebook">
-<h3><span class="section-number">9.3.1. </span>Fine-tuning Jupyter notebook<a class="headerlink" href="#fine-tuning-jupyter-notebook" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.3.1. </span>Fine-tuning Jupyter notebook<a class="headerlink" href="#fine-tuning-jupyter-notebook" title="Permalink to this heading">#</a></h3>
 <p>We recommend checking the <a class="reference external" href="https://platform.openai.com/docs/guides/fine-tuning">Fine-tuning</a> section on the OpenAI website for the most up-to-date information.
 We prepare a <a class="reference internal" href="fine-tuning_news.html"><span class="doc std std-doc">Jupyter Notebook</span></a> that demonstrates the full cycle of a fine-tuning project.</p>
 </section>
 <section id="recommended-practice">
-<h3><span class="section-number">9.3.2. </span>Recommended practice<a class="headerlink" href="#recommended-practice" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.3.2. </span>Recommended practice<a class="headerlink" href="#recommended-practice" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Experiment on instructions and prompts that work best for the model prior to fine-tuning</p></li>
 <li><p>Required to provide at least 10 examples</p></li>
@@ -477,7 +477,7 @@ We prepare a <a class="reference internal" href="fine-tuning_news.html"><span cl
 </ul>
 </section>
 <section id="common-commands">
-<h3><span class="section-number">9.3.3. </span>Common commands<a class="headerlink" href="#common-commands" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.3.3. </span>Common commands<a class="headerlink" href="#common-commands" title="Permalink to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Upload training file</span>
 <span class="n">openai</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;mydata.jsonl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">),</span><span class="n">purpose</span><span class="o">=</span><span class="s1">&#39;fine-tune&#39;</span><span class="p">)</span>
 
@@ -512,7 +512,7 @@ We prepare a <a class="reference internal" href="fine-tuning_news.html"><span cl
 </div>
 </section>
 <section id="more-cookbooks-from-openai">
-<h3><span class="section-number">9.3.4. </span>More cookbooks from OpenAI<a class="headerlink" href="#more-cookbooks-from-openai" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.3.4. </span>More cookbooks from OpenAI<a class="headerlink" href="#more-cookbooks-from-openai" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://cookbook.openai.com/examples/chat_finetuning_data_prep">https://cookbook.openai.com/examples/chat_finetuning_data_prep</a></p></li>
 <li><p><a class="reference external" href="https://cookbook.openai.com/examples/how_to_finetune_chat_models">https://cookbook.openai.com/examples/how_to_finetune_chat_models</a></p></li>
@@ -556,12 +556,12 @@ We prepare a <a class="reference internal" href="fine-tuning_news.html"><span cl
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="process-pdfs.html"
+       href="speech-to-text.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Process a PDF Collection</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Converting Speech to Text</p>
       </div>
     </a>
     <a class="right-next"
@@ -569,7 +569,7 @@ We prepare a <a class="reference internal" href="fine-tuning_news.html"><span cl
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Building Applications with LangChain</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Building Applications with LangChain</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -588,19 +588,19 @@ We prepare a <a class="reference internal" href="fine-tuning_news.html"><span cl
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-fine-tuning">9.1. Advantages of fine-tuning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-fine-tune">9.2. When to fine-tune</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-requires-time-and-effort">9.2.1. Fine-tuning requires time and effort</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommend-attempting-the-following-first">9.2.2. Recommend attempting the following first</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-can-improve-results-for-show-not-tell">9.2.3. Fine-tuning can improve results for “show, not tell”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-embeddings-with-retrieval">9.2.4. Vs embeddings with retrieval</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-fine-tuning">8.1. Advantages of fine-tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-fine-tune">8.2. When to fine-tune</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-requires-time-and-effort">8.2.1. Fine-tuning requires time and effort</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommend-attempting-the-following-first">8.2.2. Recommend attempting the following first</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-can-improve-results-for-show-not-tell">8.2.3. Fine-tuning can improve results for “show, not tell”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-embeddings-with-retrieval">8.2.4. Vs embeddings with retrieval</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-project">9.3. Fine-tuning project</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-jupyter-notebook">9.3.1. Fine-tuning Jupyter notebook</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-practice">9.3.2. Recommended practice</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-commands">9.3.3. Common commands</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cookbooks-from-openai">9.3.4. More cookbooks from OpenAI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-project">8.3. Fine-tuning project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-jupyter-notebook">8.3.1. Fine-tuning Jupyter notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-practice">8.3.2. Recommended practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-commands">8.3.3. Common commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cookbooks-from-openai">8.3.4. More cookbooks from OpenAI</a></li>
 </ul>
 </li>
 </ul>
@@ -650,8 +650,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>
