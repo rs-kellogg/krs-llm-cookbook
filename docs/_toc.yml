@@ -8,20 +8,20 @@ parts:
   chapters:
   - file: introduction
 - caption: Large Language Models (LLMs)
-  numbered: true
+  numbered: false
   chapters:
   - file: llm-defined
   - file: llm-use-cases
   - file: setting-up-openai
 - caption: Use Cases
-  numbered: true
+  numbered: false
   chapters:
   - file: programming-assistance
   - file: extracting-info # arxive pdfs
   - file: text-classification # sentiment analysis
   - file: speech-to-text # whisper AI
 - caption: Advanced Topics
-  numbered: true
+  numbered: false
   chapters:
   - file: fine-tuning
   - file: langchain

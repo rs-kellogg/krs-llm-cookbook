@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>6. Text Classification &#8212; Kellogg Research Support LLM Cookbook</title>
+    <title>Text Classification &#8212; Kellogg Research Support LLM Cookbook</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'text-classification';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="7. Converting Speech to Text" href="speech-to-text.html" />
-    <link rel="prev" title="5. Extracting Information" href="extracting-info.html" />
+    <link rel="next" title="Converting Speech to Text" href="speech-to-text.html" />
+    <link rel="prev" title="Extracting Information" href="extracting-info.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -146,13 +146,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Kellogg Research Support LLM Cookbook - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Kellogg Research Support LLM Cookbook - Home"/>`);</script>
   
   
 </a></div>
@@ -172,23 +173,23 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">1. What is a Large Language Model?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">2. What can you do with a LLM?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setting-up-openai.html">3. Setting up OpenAI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">What are Language Models?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">What can you do with a LLM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-openai.html">Setting up OpenAI</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">4. Programming Assistance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extracting-info.html">5. Extracting Information</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Text Classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">7. Converting Speech to Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extracting-info.html">Extracting Information</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Text Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Converting Speech to Text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">8. Fine-Tuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="langchain.html">9. Building Applications with LangChain</a></li>
-<li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">10. Retrieval Augmented Generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vector-databases.html">11. Vector Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">Fine-Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langchain.html">Building Applications with LangChain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">Retrieval Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-databases.html">Vector Databases</a></li>
 </ul>
 
     </div>
@@ -382,8 +383,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-walkthrough-labeling-sentiment-of-tweets-regarding-a-specific-event-or-hashtag">6.1. Code walkthrough: labeling sentiment of Tweets regarding a specific event or hashtag</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-template">6.1.1. Prompt template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-walkthrough-labeling-sentiment-of-tweets-regarding-a-specific-event-or-hashtag">Code walkthrough: labeling sentiment of Tweets regarding a specific event or hashtag</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-template">Prompt template</a></li>
 </ul>
 </li>
 </ul>
@@ -398,7 +399,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="text-classification">
-<h1><span class="section-number">6. </span>Text Classification<a class="headerlink" href="#text-classification" title="Permalink to this heading">#</a></h1>
+<h1>Text Classification<a class="headerlink" href="#text-classification" title="Permalink to this heading">#</a></h1>
 <p>LLMs can replace other machine learning tasks for classification of texts. Unlike NLP models that require pre-labeled training data or a pre-defined vocabulary of words or n-grams (i.e., feature engineering), LLMs allow for zero-shot or few-shot learning to label text-like data.</p>
 <p>Examples:</p>
 <ol class="arabic simple">
@@ -409,7 +410,7 @@ document.write(`
 <li><p>Topic identification of articles</p></li>
 </ol>
 <section id="code-walkthrough-labeling-sentiment-of-tweets-regarding-a-specific-event-or-hashtag">
-<h2><span class="section-number">6.1. </span>Code walkthrough: labeling sentiment of Tweets regarding a specific event or hashtag<a class="headerlink" href="#code-walkthrough-labeling-sentiment-of-tweets-regarding-a-specific-event-or-hashtag" title="Permalink to this heading">#</a></h2>
+<h2>Code walkthrough: labeling sentiment of Tweets regarding a specific event or hashtag<a class="headerlink" href="#code-walkthrough-labeling-sentiment-of-tweets-regarding-a-specific-event-or-hashtag" title="Permalink to this heading">#</a></h2>
 <p>For this example, we are going to assume that the Tweets (or x-eets?) have already been mined from the API. The actual process of obtaining/purchacing an API key and interacting with the API for Twitter/X is beyond the scope of this example.</p>
 <p>Below are some tweets pulled from around the time the season finale of Game of Thrones ended on May 19, 2011 that contain the hashtags #GOT or #GameOfThrones. This eight year HBO series was the cultural zeitgeist of the last decade and despite having fantastic reviews the first seven seasons, had a very controversial ending.</p>
 <div class="cell docutils container">
@@ -497,7 +498,7 @@ pip<span class="w"> </span>install<span class="w"> </span>openai
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
-<span class="nn">File ~/miniconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py:286,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/IPython/core/interactiveshell.py:286,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">279</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
 <span class="g g-Whitespace">    </span><span class="mi">280</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">281</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
@@ -506,13 +507,13 @@ pip<span class="w"> </span>install<span class="w"> </span>openai
 <span class="g g-Whitespace">    </span><span class="mi">284</span>     <span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">286</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/peilinliao/openai-key.txt&#39;
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/williamthompson/openai-key.txt&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <section id="prompt-template">
-<h3><span class="section-number">6.1.1. </span>Prompt template<a class="headerlink" href="#prompt-template" title="Permalink to this heading">#</a></h3>
+<h3>Prompt template<a class="headerlink" href="#prompt-template" title="Permalink to this heading">#</a></h3>
 <p>We want to send a prompt to the AI that explains the task and the desired output. The exact format of the output can be a bit unpredictable, so sometimes it can be beneficial to provide the AI with an example or two to show it what we want.</p>
 <p>Langchain provides a nice way of designing a template for prompts with one or more variables to input into the chat.</p>
 <div class="cell docutils container">
@@ -649,7 +650,7 @@ Based on the uproar over the ending I&#39;m glad I never watched #GameOfThrones
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Extracting Information</p>
+        <p class="prev-next-title">Extracting Information</p>
       </div>
     </a>
     <a class="right-next"
@@ -657,7 +658,7 @@ Based on the uproar over the ending I&#39;m glad I never watched #GameOfThrones
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Converting Speech to Text</p>
+        <p class="prev-next-title">Converting Speech to Text</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -676,8 +677,8 @@ Based on the uproar over the ending I&#39;m glad I never watched #GameOfThrones
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-walkthrough-labeling-sentiment-of-tweets-regarding-a-specific-event-or-hashtag">6.1. Code walkthrough: labeling sentiment of Tweets regarding a specific event or hashtag</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-template">6.1.1. Prompt template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-walkthrough-labeling-sentiment-of-tweets-regarding-a-specific-event-or-hashtag">Code walkthrough: labeling sentiment of Tweets regarding a specific event or hashtag</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-template">Prompt template</a></li>
 </ul>
 </li>
 </ul>
@@ -727,8 +728,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>

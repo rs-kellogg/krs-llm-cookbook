@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3. Setting up OpenAI &#8212; Kellogg Research Support LLM Cookbook</title>
+    <title>Setting up OpenAI &#8212; Kellogg Research Support LLM Cookbook</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'setting-up-openai';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Programming Assistance" href="programming-assistance.html" />
-    <link rel="prev" title="2. What can you do with a LLM?" href="llm-use-cases.html" />
+    <link rel="next" title="Programming Assistance" href="programming-assistance.html" />
+    <link rel="prev" title="What can you do with a LLM?" href="llm-use-cases.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -146,13 +146,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Kellogg Research Support LLM Cookbook - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Kellogg Research Support LLM Cookbook - Home"/>`);</script>
   
   
 </a></div>
@@ -172,23 +173,23 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">1. What is a Large Language Model?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">2. What can you do with a LLM?</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Setting up OpenAI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">What are Language Models?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">What can you do with a LLM?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Setting up OpenAI</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">4. Programming Assistance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extracting-info.html">5. Extracting Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="text-classification.html">6. Text Classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">7. Converting Speech to Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extracting-info.html">Extracting Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Converting Speech to Text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">8. Fine-Tuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="langchain.html">9. Building Applications with LangChain</a></li>
-<li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">10. Retrieval Augmented Generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vector-databases.html">11. Vector Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">Fine-Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langchain.html">Building Applications with LangChain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">Retrieval Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-databases.html">Vector Databases</a></li>
 </ul>
 
     </div>
@@ -382,12 +383,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-an-account">3.1. Setting up an Account</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">3.2. ChatGPT</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-playground">3.3. OpenAI Playground</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">3.4. OpenAI API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-plugins">3.5. OpenAI Plugins</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-cookbook">3.6. OpenAI Cookbook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-an-account">Setting up an Account</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-playground">OpenAI Playground</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">OpenAI API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-plugins">OpenAI Plugins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-cookbook">OpenAI Cookbook</a></li>
 </ul>
             </nav>
         </div>
@@ -400,9 +401,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="setting-up-openai">
-<h1><span class="section-number">3. </span>Setting up OpenAI<a class="headerlink" href="#setting-up-openai" title="Permalink to this heading">#</a></h1>
+<h1>Setting up OpenAI<a class="headerlink" href="#setting-up-openai" title="Permalink to this heading">#</a></h1>
 <section id="setting-up-an-account">
-<h2><span class="section-number">3.1. </span>Setting up an Account<a class="headerlink" href="#setting-up-an-account" title="Permalink to this heading">#</a></h2>
+<h2>Setting up an Account<a class="headerlink" href="#setting-up-an-account" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>ChatGPT</p></li>
 <li><p>OpenAI API</p></li>
@@ -412,24 +413,24 @@ document.write(`
 </ul>
 </section>
 <section id="chatgpt">
-<h2><span class="section-number">3.2. </span>ChatGPT<a class="headerlink" href="#chatgpt" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT<a class="headerlink" href="#chatgpt" title="Permalink to this heading">#</a></h2>
 <p>Everyone knows this interface already, but did you know about some extensions?</p>
 </section>
 <section id="openai-playground">
-<h2><span class="section-number">3.3. </span>OpenAI Playground<a class="headerlink" href="#openai-playground" title="Permalink to this heading">#</a></h2>
+<h2>OpenAI Playground<a class="headerlink" href="#openai-playground" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference external" href="https://platform.openai.com/playground?mode=chat">OpenAI Playground</a> is an excellent place to develop prompts that are tailored to your application. You can also pre-load one of the existing <a class="reference external" href="https://platform.openai.com/examples">example prompts</a>. Once you’re satisfied with the results, you can export the example to code</p>
 <img src="_images/playground-save-to-code.png" alt="Save to Code" style="border: 2px solid  gray;">
 </section>
 <section id="openai-api">
-<h2><span class="section-number">3.4. </span>OpenAI API<a class="headerlink" href="#openai-api" title="Permalink to this heading">#</a></h2>
+<h2>OpenAI API<a class="headerlink" href="#openai-api" title="Permalink to this heading">#</a></h2>
 <p>The API is the place to go to scale up your jobs.</p>
 </section>
 <section id="openai-plugins">
-<h2><span class="section-number">3.5. </span>OpenAI Plugins<a class="headerlink" href="#openai-plugins" title="Permalink to this heading">#</a></h2>
+<h2>OpenAI Plugins<a class="headerlink" href="#openai-plugins" title="Permalink to this heading">#</a></h2>
 <p>Plugins are for extending functionality.</p>
 </section>
 <section id="openai-cookbook">
-<h2><span class="section-number">3.6. </span>OpenAI Cookbook<a class="headerlink" href="#openai-cookbook" title="Permalink to this heading">#</a></h2>
+<h2>OpenAI Cookbook<a class="headerlink" href="#openai-cookbook" title="Permalink to this heading">#</a></h2>
 <p>Loads of example code here.</p>
 </section>
 </section>
@@ -470,7 +471,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>What can you do with a LLM?</p>
+        <p class="prev-next-title">What can you do with a LLM?</p>
       </div>
     </a>
     <a class="right-next"
@@ -478,7 +479,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Programming Assistance</p>
+        <p class="prev-next-title">Programming Assistance</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -497,12 +498,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-an-account">3.1. Setting up an Account</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">3.2. ChatGPT</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-playground">3.3. OpenAI Playground</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">3.4. OpenAI API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-plugins">3.5. OpenAI Plugins</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-cookbook">3.6. OpenAI Cookbook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-an-account">Setting up an Account</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-playground">OpenAI Playground</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">OpenAI API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-plugins">OpenAI Plugins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-cookbook">OpenAI Cookbook</a></li>
 </ul>
   </nav></div>
 
@@ -550,8 +551,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>
