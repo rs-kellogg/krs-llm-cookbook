@@ -15,12 +15,14 @@ classifiers = [
 dynamic = ["version", "description"]
 dependencies = [
     "typer[all]",
+    "typer-cli",
     "pyyaml", 
     "pandas",
     "tqdm",
     "openai",
     "tiktoken",
     "tenacity",
+    "PyMuPDF"
 ]
 
 [project.urls]
