@@ -8,6 +8,7 @@ import typer
 import math
 import tiktoken
 import logging
+from typing import Optional
 from tenacity import (
     retry,
     stop_after_attempt,
@@ -20,6 +21,7 @@ from openaihelper import functions as F
 logging.basicConfig(filename="openai-helper.log", encoding="utf-8", level=logging.INFO)
 
 
+# -----------------------------------------------------------------------------
 def check_args(
     data_file_path: Path,
     config_file_path: Path,
@@ -31,11 +33,51 @@ def check_args(
         outdir.mkdir(parents=True)
 
 
+# -----------------------------------------------------------------------------
 app = typer.Typer()
 if __name__ == "__main__":
     app()
 
 
+
+# -----------------------------------------------------------------------------
+@app.command()
+def extract_text(
+    in_dir: Path = typer.Argument(..., help="Path to input PDF files"),
+    out_dir: Optional[Path] = typer.Option(
+        Path("."),
+        "--dir",
+        help="The directory where the extracted output files will be created.",
+    ),
+    start_page: Optional[int] = typer.Option(0, help="Start page"),
+    end_page: Optional[int] = typer.Option(10_000, help="End page"),
+):
+    assert end_page >= start_page
+    if not out_dir.exists():
+        out_dir.mkdir(parents=True)
+        
+    logging.basicConfig(
+        filename=f'{out_dir}/extract.log',           
+        level=logging.INFO,  
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S')
+
+    logger = logging.getLogger()
+
+    for pdf in in_dir.glob("*.pdf"):
+        console.print(f"processing file: {pdf.name}")
+        logger.info(pdf.name)
+        try:
+            doc = fitz.open(pdf)
+            textfile = out_dir / f"{pdf.stem}.txt"
+            pages = [page for page in doc if start_page <= page.number <= end_page]
+            textfile.write_text(chr(12).join([page.get_text(sort=True) for page in pages]))
+        except Exception as e:
+            logger.error(f"exception: {type(e)}")
+            continue
+
+
+# -----------------------------------------------------------------------------
 @app.command()
 def count_tokens(
     data_file_path: Path = typer.Argument(..., help="Data file path name"),
@@ -71,6 +113,7 @@ def count_tokens(
     out_csv.close()
 
 
+# -----------------------------------------------------------------------------
 @app.command()
 def complete_prompt(
     data_file_path: Path = typer.Argument(..., help="Data file path name"),
