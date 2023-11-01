@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -146,14 +146,13 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-  
     
     
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Kellogg Research Support LLM Cookbook - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Kellogg Research Support LLM Cookbook - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -502,7 +501,15 @@ OpenAI Playground</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OPENAI_API_KEY: sk-3...
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span> <span class="c1"># pip install python-dotenv</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># load the .env file containing your API key</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;dotenv&#39;
 </pre></div>
 </div>
 </div>
@@ -537,16 +544,16 @@ OpenAI Playground</div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-  &quot;id&quot;: &quot;chatcmpl-8Fw9qFV5WOG10sKpJyflAFnkeZL68&quot;,
+  &quot;id&quot;: &quot;chatcmpl-8FvYgJXLcTy6pNowMnUDoJzKgc08Z&quot;,
   &quot;object&quot;: &quot;chat.completion&quot;,
-  &quot;created&quot;: 1698809170,
+  &quot;created&quot;: 1698806866,
   &quot;model&quot;: &quot;gpt-3.5-turbo-0613&quot;,
   &quot;choices&quot;: [
     {
       &quot;index&quot;: 0,
       &quot;message&quot;: {
         &quot;role&quot;: &quot;assistant&quot;,
-        &quot;content&quot;: &quot;Being in the same room as a lion is a truly awe-inspiring experience. Lions are magnificent creatures, known for their strength, power, and grace. As a lion tamer and zoologist, I have had the privilege of observing and working closely with lions, and it is an indescribable feeling.\n\nFirst and foremost, it is essential to remember that lions are wild animals, and they should be treated with the utmost respect and caution. When entering a room with a lion, it is crucial to establish a sense of trust and mutual understanding.\n\nLions have a highly-developed social structure, and each individual has unique personality traits and preferences. As an expert in large cat psychology, I have spent years studying their behavior and body language, allowing me to establish a rapport with them.\n\nWhen in the presence of a lion, my senses are heightened, and I am acutely aware of their every movement and expression. I observe their body posture, vocalizations, and eye contact to gauge their mood and reactions. This helps me ensure their welfare and safety, as well as my own.\n\nThrough years of training and understanding, I have established a bond based on trust, positive reinforcement, and mutual respect. This connection enables me to carry out various tasks with the lion, such&quot;
+        &quot;content&quot;: &quot;Being in the same room as a lion can be an incredibly exhilarating and humbling experience. Lions are majestic creatures, and their presence is truly awe-inspiring. They have an undeniable aura of power and grace that can leave you in awe.\n\nAs a lion tamer and zoologist, I have had the privilege of being in close proximity to lions many times. When they are calm and relaxed, you can observe their regal nature and the beauty of their physical attributes up close. From their muscular build to their magnificent mane, lions are built to command respect.\n\nHowever, it&#39;s important to acknowledge that lions are still wild animals, and they possess natural instincts and behaviors that need to be understood and respected. Safety always remains a priority, and strict protocols are followed to ensure that both the lion and the humans are protected.\n\nWhen working with lions, establishing trust and providing a structured environment is crucial. Building a positive relationship based on mutual respect and understanding allows for effective training and management. It involves working closely with the lion, studying their behavior, body language, and individual personalities.\n\nLion tamers develop expertise in reading lion behavior and knowing when a lion is comfortable, anxious, or potentially agitated. This knowledge helps create a harmonious environment while minimizing any risks involved. Training&quot;
       },
       &quot;finish_reason&quot;: &quot;length&quot;
     }
@@ -577,15 +584,15 @@ OpenAI Playground</div>
 </div>
 </details>
 </div>
-<p><span class="pasted-text">Being in the same room as a lion is a truly awe-inspiring experience. Lions are magnificent creatures, known for their strength, power, and grace. As a lion tamer and zoologist, I have had the privilege of observing and working closely with lions, and it is an indescribable feeling.
+<p><span class="pasted-text">Being in the same room as a lion can be an incredibly exhilarating and humbling experience. Lions are majestic creatures, and their presence is truly awe-inspiring. They have an undeniable aura of power and grace that can leave you in awe.
 
-First and foremost, it is essential to remember that lions are wild animals, and they should be treated with the utmost respect and caution. When entering a room with a lion, it is crucial to establish a sense of trust and mutual understanding.
+As a lion tamer and zoologist, I have had the privilege of being in close proximity to lions many times. When they are calm and relaxed, you can observe their regal nature and the beauty of their physical attributes up close. From their muscular build to their magnificent mane, lions are built to command respect.
 
-Lions have a highly-developed social structure, and each individual has unique personality traits and preferences. As an expert in large cat psychology, I have spent years studying their behavior and body language, allowing me to establish a rapport with them.
+However, it’s important to acknowledge that lions are still wild animals, and they possess natural instincts and behaviors that need to be understood and respected. Safety always remains a priority, and strict protocols are followed to ensure that both the lion and the humans are protected.
 
-When in the presence of a lion, my senses are heightened, and I am acutely aware of their every movement and expression. I observe their body posture, vocalizations, and eye contact to gauge their mood and reactions. This helps me ensure their welfare and safety, as well as my own.
+When working with lions, establishing trust and providing a structured environment is crucial. Building a positive relationship based on mutual respect and understanding allows for effective training and management. It involves working closely with the lion, studying their behavior, body language, and individual personalities.
 
-Through years of training and understanding, I have established a bond based on trust, positive reinforcement, and mutual respect. This connection enables me to carry out various tasks with the lion, such</span></p>
+Lion tamers develop expertise in reading lion behavior and knowing when a lion is comfortable, anxious, or potentially agitated. This knowledge helps create a harmonious environment while minimizing any risks involved. Training</span></p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
@@ -726,8 +733,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

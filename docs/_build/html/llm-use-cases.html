@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'llm-use-cases';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Setting up OpenAI" href="setting-up-openai.html" />
+    <link rel="next" title="OpenAI Setup" href="setting-up-openai.html" />
     <link rel="prev" title="What are Language Models?" href="llm-defined.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -146,14 +146,13 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-  
     
     
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Kellogg Research Support LLM Cookbook - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Kellogg Research Support LLM Cookbook - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -175,7 +174,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="llm-defined.html">What are Language Models?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">What can you do with a LLM?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setting-up-openai.html">Setting up OpenAI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-openai.html">OpenAI Setup</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="nav bd-sidenav">
@@ -402,7 +401,7 @@ document.write(`
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>GPT can be adopted for building applications for:</p>
 <ul class="simple">
-<li><p>Compose</p>
+<li><p><strong>Compose</strong></p>
 <ul>
 <li><p>Draft documents</p></li>
 <li><p>Create conversational agents</p></li>
@@ -410,42 +409,48 @@ document.write(`
 <li><p>Tutor in a range of subjects</p></li>
 </ul>
 </li>
-<li><p>Compose: CODE</p>
+<li><p><strong>Compose</strong>: code</p>
 <ul>
 <li><p>Write computer code</p></li>
 <li><p>Give software a natural language interface</p></li>
 </ul>
 </li>
-<li><p>Compose: translate languages</p></li>
-<li><p>Compose: based on retrieved information</p>
+<li><p><strong>Compose</strong>: translate languages</p></li>
+<li><p><strong>Compose</strong>: based on retrieved information</p>
 <ul>
 <li><p>Answer questions about a knowledge base</p></li>
 </ul>
 </li>
-<li><p>Analyze texts</p></li>
+<li><p><strong>Analyze</strong></p>
+<ul>
+<li><p>Classify texts</p></li>
+<li><p>Explain code</p></li>
+</ul>
+</li>
 </ul>
 <p>Here are some interesting use cases:</p>
 <ul class="simple">
-<li><p>Composing</p>
+<li><p><strong>Composing</strong></p>
 <ul>
 <li><p><a class="reference external" href="https://platform.openai.com/examples/default-parse-data">Parse unstructured data</a></p></li>
-<li><p><a class="reference external" href="https://platform.openai.com/examples/default-spreadsheet-gen">Spreadsheet creator</a></p></li>
-<li><p><a class="reference external" href="https://platform.openai.com/examples/default-sql-translate">From natural language to SQL</a></p></li>
+<li><p><a class="reference external" href="https://platform.openai.com/examples/default-sql-translate">Convert natural language into SQL queries</a></p></li>
 <li><p><a class="reference external" href="https://platform.openai.com/examples/default-explain-code">Explain code</a></p></li>
 </ul>
 </li>
-<li><p>Analyze</p>
+<li><p><strong>Analyze</strong></p>
 <ul>
-<li><p><a class="reference external" href="https://platform.openai.com/examples/default-fix-python-bugs">Python bug fixer</a></p></li>
-<li><p><a class="reference external" href="https://platform.openai.com/examples/default-review-classifier">Review classifier</a></p></li>
+<li><p><a class="reference external" href="https://platform.openai.com/examples/default-fix-python-bugs">Find and fix bugs</a></p></li>
+<li><p><a class="reference external" href="https://platform.openai.com/examples/default-review-classifier">Classify user reviews</a></p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
-<p>Highly recommended: <span id="id1">[<a class="reference internal" href="#id4" title="Jeremy Howard. A Hackers' Guide to Language Models. URL: www.youtube.com/watch?v=jkrNMKz9pWU.">JeremyHoward</a>]</span><br />
-Another good reference: <span id="id2">[<a class="reference internal" href="#id5" title="Olivier Caelen and Marie-Alice Blete. Developing Apps with GPT-4 and ChatGPT. O'Reilly Media, Inc., 2023. URL: https://learning.oreilly.com/library/view/developing-apps-with/9781098152475/.">OlivierCaelenMarieABlete23</a>]</span></p>
+<ul class="simple">
+<li><p>Highly recommended: <span id="id1">[<a class="reference internal" href="#id4" title="Jeremy Howard. A Hackers' Guide to Language Models. URL: www.youtube.com/watch?v=jkrNMKz9pWU.">JeremyHoward</a>]</span></p></li>
+<li><p>Another good reference: <span id="id2">[<a class="reference internal" href="#id5" title="Olivier Caelen and Marie-Alice Blete. Developing Apps with GPT-4 and ChatGPT. O'Reilly Media, Inc., 2023. URL: https://learning.oreilly.com/library/view/developing-apps-with/9781098152475/.">OlivierCaelenMarieABlete23</a>]</span></p></li>
+</ul>
 <div class="docutils container" id="id3">
 <div class="citation" id="id4" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">JeremyHoward</a><span class="fn-bracket">]</span></span>
@@ -504,7 +509,7 @@ Another good reference: <span id="id2">[<a class="reference internal" href="#id5
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Setting up OpenAI</p>
+        <p class="prev-next-title">OpenAI Setup</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -572,8 +577,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
