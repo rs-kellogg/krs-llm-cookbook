@@ -3,4 +3,5 @@ ghp-import
 jupyterlab
 Wikipedia-API
 openai
+python-dotenv
 myst_nb
