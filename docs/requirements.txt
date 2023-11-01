@@ -3,3 +3,4 @@ ghp-import
 jupyterlab
 Wikipedia-API
 openai
+myst_nb

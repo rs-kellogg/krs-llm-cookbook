@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Setting up OpenAI &#8212; Kellogg Research Support LLM Cookbook</title>
+    <title>OpenAI Setup &#8212; Kellogg Research Support LLM Cookbook</title>
   
   
   
@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="llm-defined.html">What are Language Models?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">What can you do with a LLM?</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Setting up OpenAI</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">OpenAI Setup</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="nav bd-sidenav">
@@ -291,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/setting-up-openai.md" target="_blank"
+      <li><a href="_sources/setting-up-openai.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +301,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -373,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Setting up OpenAI</h1>
+    <h1>OpenAI Setup</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -383,10 +383,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-an-account">Setting up an Account</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-playground">OpenAI Playground</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">OpenAI API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotated-code-example">Annotated Code Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-plugins">OpenAI Plugins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-cookbook">OpenAI Cookbook</a></li>
 </ul>
@@ -400,30 +399,131 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="setting-up-openai">
-<h1>Setting up OpenAI<a class="headerlink" href="#setting-up-openai" title="Permalink to this heading">#</a></h1>
-<section id="setting-up-an-account">
-<h2>Setting up an Account<a class="headerlink" href="#setting-up-an-account" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>ChatGPT</p></li>
-<li><p>OpenAI API</p></li>
-<li><p>Getting a token</p></li>
-<li><p>Selecting a Model</p></li>
-<li><p>Cost</p></li>
-</ul>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="openai-setup">
+<h1>OpenAI Setup<a class="headerlink" href="#openai-setup" title="Permalink to this heading">#</a></h1>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>Chat vs API</strong></div>
+<p class="sd-card-text">OpenAI provides two services: a web-based chat application, and an API with programmatic access</p>
+</div>
+</div>
+<div class="admonition-take-your-pick admonition">
+<p class="admonition-title">Take your pick</p>
+<figure class="align-default" id="chat-vs-api">
+<a class="reference internal image-reference" href="_images/chat-vs-api.png"><img alt="_images/chat-vs-api.png" src="_images/chat-vs-api.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text"><a class="reference external" href="https://platform.openai.com/apps">Two services, two billing accounts</a></span><a class="headerlink" href="#chat-vs-api" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
 <section id="chatgpt">
 <h2>ChatGPT<a class="headerlink" href="#chatgpt" title="Permalink to this heading">#</a></h2>
-<p>Everyone knows this interface already, but did you know about some extensions?</p>
-</section>
-<section id="openai-playground">
-<h2>OpenAI Playground<a class="headerlink" href="#openai-playground" title="Permalink to this heading">#</a></h2>
-<p>The <a class="reference external" href="https://platform.openai.com/playground?mode=chat">OpenAI Playground</a> is an excellent place to develop prompts that are tailored to your application. You can also pre-load one of the existing <a class="reference external" href="https://platform.openai.com/examples">example prompts</a>. Once you’re satisfied with the results, you can export the example to code</p>
-<img src="_images/playground-save-to-code.png" alt="Save to Code" style="border: 2px solid  gray;">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>ChatGPT</strong></div>
+<p class="sd-card-text">ChatGPT offers a fixed-cost way to try out capabilities. If you buy the “Plus” plan, you can use the most up-to-date models and features.</p>
+</div>
+</div>
+<div class="admonition-chatgpt-plan-and-settings admonition">
+<p class="admonition-title">ChatGPT plan and settings</p>
+<figure class="align-default" id="chatgpt-plan">
+<a class="reference internal image-reference" href="_images/chatgpt-plan.png"><img alt="_images/chatgpt-plan.png" src="_images/chatgpt-plan.png" style="width: 600px;" /></a>
+</figure>
+<figure class="align-default" id="chatgpt-settings">
+<a class="reference internal image-reference" href="_images/chatgpt-settings.png"><img alt="_images/chatgpt-settings.png" src="_images/chatgpt-settings.png" style="width: 600px;" /></a>
+</figure>
+</div>
 </section>
 <section id="openai-api">
 <h2>OpenAI API<a class="headerlink" href="#openai-api" title="Permalink to this heading">#</a></h2>
-<p>The API is the place to go to scale up your jobs.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>OpenAI API</strong></div>
+<p class="sd-card-text">The OpenAI API offers pay as you go service that allows you to write code and automate your interaction with GPT resources. This is the way to go to scale up your jobs to hundreds or thousands of inputs.</p>
+</div>
+</div>
+<div class="admonition-openai-platform admonition">
+<p class="admonition-title">OpenAI Platform</p>
+<figure class="align-default" id="openai-platform">
+<a class="reference internal image-reference" href="_images/openai-platform.png"><img alt="_images/openai-platform.png" src="_images/openai-platform.png" style="width: 600px;" /></a>
+</figure>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+OpenAI Playground</div>
+<p class="sd-card-text">The <a class="reference external" href="https://platform.openai.com/playground?mode=chat">OpenAI Playground</a> is an excellent place to develop prompts that are tailored to your application. You can also pre-load one of the existing <a class="reference external" href="https://platform.openai.com/examples">example prompts</a>. Once you’re satisfied with the results, you can export the example to code</p>
+</div>
+</div>
+<div class="admonition-playground admonition">
+<p class="admonition-title">Playground</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/openai-playground.png"><img alt="_images/openai-playground.png" src="_images/openai-playground.png" style="width: 600px;" /></a>
+</figure>
+</div>
+</section>
+<section id="annotated-code-example">
+<h2>Annotated Code Example<a class="headerlink" href="#annotated-code-example" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;OPENAI_API_KEY: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">)[:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OPENAI_API_KEY: sk-3...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">openai</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+  <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span>
+  <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a lion tamer with a Ph.D. in zoology. You love your job and are an expert in large cat psychology.&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is it like to be in the same room as a lion?&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="n">temperature</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+  <span class="n">max_tokens</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+  <span class="n">top_p</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+  <span class="n">frequency_penalty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+  <span class="n">presence_penalty</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+
+<span class="n">response_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;choices&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;response_text&quot;</span><span class="p">,</span> <span class="n">response_text</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="pasted-text">Being in the same room as a lion is an exhilarating experience that evokes a mix of awe, respect, and a sense of adventure. Lions are incredibly majestic creatures, and their presence can be both intimidating and awe-inspiring. As a lion tamer with a deep understanding of large cat psychology, I have learned to appreciate the beauty and power of these animals while also respecting their wild nature.
+
+When in the presence of a lion, there is a heightened sense of awareness and a recognition that you are in the presence of a top predator. It is important to approach these magnificent animals with caution and a deep understanding of their behavior. Building a trusting relationship with the lion takes time and expertise, and it is based on mutual respect and clear communication.
+
+The room itself must be designed to ensure safety for both the lion and the humans present. Large enclosures with robust barriers are necessary, as well as safety protocols that have been put in place to prevent any accidents or potential harm.
+
+Being in close proximity to a lion allows you to witness their incredible physical attributes up-close, such as their raw power, agility, and grace. Their size and muscular build are truly remarkable, and it is a privilege to observe their behavior and social dynamics firsthand.
+
+At the same time, it’s important</span></p>
 </section>
 <section id="openai-plugins">
 <h2>OpenAI Plugins<a class="headerlink" href="#openai-plugins" title="Permalink to this heading">#</a></h2>
@@ -498,10 +598,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-an-account">Setting up an Account</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-playground">OpenAI Playground</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">OpenAI API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotated-code-example">Annotated Code Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-plugins">OpenAI Plugins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-cookbook">OpenAI Cookbook</a></li>
 </ul>
