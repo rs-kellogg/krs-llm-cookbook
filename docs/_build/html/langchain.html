@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Building Applications with LangChain &#8212; Kellogg Research Support LLM Cookbook</title>
+    <title>Creating Applications with Langchain &#8212; Kellogg Research Support LLM Cookbook</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -146,13 +146,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Kellogg Research Support LLM Cookbook - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Kellogg Research Support LLM Cookbook - Home"/>`);</script>
   
   
 </a></div>
@@ -186,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">Fine-Tuning</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Building Applications with LangChain</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Creating Applications with Langchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">Retrieval Augmented Generation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-databases.html">Vector Databases</a></li>
 </ul>
@@ -290,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/langchain.md" target="_blank"
+      <li><a href="_sources/langchain.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +301,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -359,7 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -370,11 +373,25 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Building Applications with LangChain</h1>
+    <h1>Creating Applications with Langchain</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-resumes">Case Study: Resumes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-stores">Vector stores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-a-similarity-search-on-a-single-document">Conducting a similarity search on a single document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-persistent-vector-database">Creating a persistent vector database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieve-documents-from-the-vector-database-using-an-llm">Retrieve documents from the vector database using an LLM</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,8 +401,1119 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="building-applications-with-langchain">
-<h1>Building Applications with LangChain<a class="headerlink" href="#building-applications-with-langchain" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="creating-applications-with-langchain">
+<h1>Creating Applications with Langchain<a class="headerlink" href="#creating-applications-with-langchain" title="Permalink to this heading">#</a></h1>
+<section id="case-study-resumes">
+<h2>Case Study: Resumes<a class="headerlink" href="#case-study-resumes" title="Permalink to this heading">#</a></h2>
+<p>Suppose we want to extract some meaningful information out of a bunch of resumes. While resumes contain a lot of the same information (e.g., education, experience, skills), they can all be formatted very differently. Therefore, extracting structured data from these files can be very challenging with standard document parsing code. What we can do instead is use a LLM to decipher this information for us.</p>
+<p>We’ll use a publicly-available <a class="reference external" href="https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset?resource=download">set</a> of 2400+ annonymized PDF resumes labeled with the category of the job for which the person applied.</p>
+<p>Before we begin, we will need to install the following packages:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">openai</span> <span class="n">langchain</span> <span class="n">chromadb</span> <span class="n">tiktoken</span> <span class="n">pypdf</span> <span class="n">lark</span><span class="o">&gt;=</span><span class="mf">1.1.5</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">RESUME_ROOT_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/Documents/resume_data/data/data/&#39;</span><span class="p">)</span>
+<span class="n">PERSIST_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/Documents/resume_data/persist/&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">path_to_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/openai-key.txt&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### display the image in the notebook</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/resume.png&#39;</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/70b22d2ec086f46651e5244b7f7f7c1fd2069d87be41c99080ca47ea0b5964c1.png" src="_images/70b22d2ec086f46651e5244b7f7f7c1fd2069d87be41c99080ca47ea0b5964c1.png" />
+</div>
+</div>
+<p>We can load in the text from a PDF document using one of several PDF loaders available from Python libraries (pypdf,pymupdf,pdfplumer,pdfminer). Langchain acts as a wrapper to unite all of the different APIs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.document_loaders</span> <span class="kn">import</span> <span class="n">PyPDFLoader</span>
+<span class="n">loader</span> <span class="o">=</span> <span class="n">PyPDFLoader</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RESUME_ROOT_DIR</span><span class="p">,</span><span class="s1">&#39;FITNESS&#39;</span><span class="p">,</span><span class="s1">&#39;10428916.pdf&#39;</span><span class="p">))</span>
+<span class="n">pages</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load_and_split</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">page_content</span><span class="p">[:</span><span class="mi">550</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RECREATION &amp; SPORTS COORDINATOR
+Objective
+To gain a Recreation Supervisor position so that I can provide support to professional and part time staff. I am looking for the opportunity to guide
+day to day operations of high quality, community recreation facilities. I hope to provide the type of support and management conducive to a healthy
+work environment so that all staff can not only complete their roles &amp; responsibilities, but also provide a facility that runs efficiently and offers
+exceptional service to members.
+Qualifications
+ACSM Exercise
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could potentially submit a prompt containing all the text from the PDF as context and then ask the AI a question. However, a lot of times, the PDF will contain much more text than the maximum number of prompt context tokens (i.e., too long for a single call to the API). This problem becomes even more severe if we want to extract information from all of the PDFs in this dataset. Therefore, we need to come up with another solution.</p>
+<section id="vector-stores">
+<h3>Vector stores<a class="headerlink" href="#vector-stores" title="Permalink to this heading">#</a></h3>
+<p>We can instead take our unstructured text data, embed the tokens into an embedding vector, and then store all of those vectors in a database. When it comes time to query the data, we then embed the query in the same way and find embedding vectors in the database that are ‘most similar’ to the query.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## display image of vector stores</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/vector_stores.jpeg&#39;</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7390f4e8a3dd6e5a00175f79fd6e88420dcad33fcbba78905be257eb6c852c94.jpg" src="_images/7390f4e8a3dd6e5a00175f79fd6e88420dcad33fcbba78905be257eb6c852c94.jpg" />
+</div>
+</div>
+</section>
+<section id="conducting-a-similarity-search-on-a-single-document">
+<h3>Conducting a similarity search on a single document<a class="headerlink" href="#conducting-a-similarity-search-on-a-single-document" title="Permalink to this heading">#</a></h3>
+<p>Let’s take the document we loaded earlier and query it using a vector database. Since we are searching for a specific part of the text that matches our query, we’ll want to break up the PDF into smaller chunks. A simple way to to this is to break up the text into discrete chunks, separated by the characther “\n”. We’ll see why in a later example why that might not be ideal in all cases, but for now, we’ll go with it. There is also a parameter that allows for some overlap between the chunks so that any relevant part of our search doesn’t get cut into two pieces.</p>
+<p>The first element of docs is the vector with the highest similarity score. When we print out the context, we see that it does in fact contain the text that shows the person’s education.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.vectorstores</span> <span class="kn">import</span> <span class="n">Chroma</span>
+<span class="kn">from</span> <span class="nn">langchain.embeddings.openai</span> <span class="kn">import</span> <span class="n">OpenAIEmbeddings</span>
+<span class="kn">from</span> <span class="nn">langchain.text_splitter</span> <span class="kn">import</span> <span class="n">CharacterTextSplitter</span>
+
+<span class="n">text_splitter</span> <span class="o">=</span> <span class="n">CharacterTextSplitter</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">chunk_overlap</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">separator</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">chunks</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">split_documents</span><span class="p">(</span><span class="n">pages</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">Chroma</span><span class="o">.</span><span class="n">from_documents</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span><span class="n">OpenAIEmbeddings</span><span class="p">())</span>
+
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;What is the highest level of education listed in this resume?&quot;</span>
+<span class="n">docs</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">similarity_search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">docs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">page_content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ACSM Exercise Physiologist
+TRX Qualified Instructor
+Â 
+Personal Trainer
+AHA CPR/AED &amp; First Aid
+Experience
+Company Name
+ 
+City
+ 
+, 
+State
+ 
+Recreation &amp; Sports Coordinator
+ 
+03/2015
+ 
+to 
+Current
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s important to note that we didn’t actually submit any query to OpenAI. We only used their embeddings to create our vector database. In this case, Chroma (the third-party module we used in this example) computed the similarity score mathematically and only returned the text. This can be a useful way of searching a lot of documents for information without needing to send a bunch of API calls to an AI.</p>
+<p>Of course, we can get a more sophisticated and structured response if we instead point an AI toward our vector database as context for answering our query.</p>
+</section>
+<section id="creating-a-persistent-vector-database">
+<h3>Creating a persistent vector database<a class="headerlink" href="#creating-a-persistent-vector-database" title="Permalink to this heading">#</a></h3>
+<p>If we want to conduct searches on multiple documents, it will be beneficial for us to instead place the documents into a persistent storage database rather than one in memory. That way, we only have to embed each document a single time and save the database to disk.</p>
+<p>We’ll use the directory loader to import and embed several PDFs from the same root directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.document_loaders</span> <span class="kn">import</span> <span class="n">DirectoryLoader</span>
+
+<span class="k">def</span> <span class="nf">fetch_and_load_documents</span><span class="p">(</span><span class="n">category</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">loader</span> <span class="o">=</span> <span class="n">DirectoryLoader</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RESUME_ROOT_DIR</span><span class="p">,</span><span class="n">category</span><span class="p">),</span>
+                             <span class="n">glob</span><span class="o">=</span><span class="s1">&#39;*.pdf&#39;</span><span class="p">,</span>
+                             <span class="n">loader_cls</span><span class="o">=</span><span class="n">PyPDFLoader</span><span class="p">,</span>
+                             <span class="n">show_progress</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="n">resumes</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">resumes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just as before, we’ll have to split the documents up into smaller chunks. The model we are using for OpenAI is limited to a context window of ~4k tokens. To be safe, let’s split the text up into chunks that are slightly smaller than that. This time, we’ll use a slightly more sophisticated text splitter: recursive character text splitter. We’ll set a maximum length for the text we want to embed as a vector and start by splitting the document up by sections (e.g., string split on “\n\n”). If any of those chunks are too big, we’ll go to that chunk and split it up by paragraphs (e.g., string split on “\n”). We’ll continue this strategy down to individual words and then characters (e.g., string split on ” ” and “”, respectively.) While all the resumes are formatted differently, we do know that they tend to be split up into sections in this manner, with each section being a semantically meaningful chunk of information.</p>
+<p>Again, we’ll include some overlap between the chunks to help tie them together. As we are using an AI this time, we’ll want to actually define the unit of the “chunk” to be tokens, as defined by the tokenization function used in model we’ve selected. We’ll be using OpenAI’s gpt-3.5-turbo. The first bit of the code below is a helper function that we can use to define the length of any text in tokens using the tiktoken module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tiktoken</span>
+<span class="k">def</span> <span class="nf">num_tokens_from_string</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the number of tokens in a text string.&quot;&quot;&quot;</span>
+    <span class="n">encoding</span> <span class="o">=</span> <span class="n">tiktoken</span><span class="o">.</span><span class="n">encoding_for_model</span><span class="p">(</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">)</span>
+    <span class="n">num_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoding</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">num_tokens</span>
+
+<span class="c1">## split the text up into smaller chunks that the API can handle</span>
+<span class="kn">from</span> <span class="nn">langchain.text_splitter</span> <span class="kn">import</span> <span class="n">RecursiveCharacterTextSplitter</span>
+<span class="n">text_splitter</span> <span class="o">=</span> <span class="n">RecursiveCharacterTextSplitter</span><span class="p">(</span>
+    <span class="n">chunk_size</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+    <span class="n">chunk_overlap</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+    <span class="n">length_function</span><span class="o">=</span><span class="n">num_tokens_from_string</span><span class="p">,</span>
+    <span class="n">separators</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we’ll want to write a function that creates a “document” out of every chunk of text from each PDF. In addition to the text itself, we can add metadata about the document itself. In this example, the only other information we have about each document is the job category for which the resume was submitted. If we had other identifying information, such as candidate name, gender, race, ethnicity, applying company, date submitted, etc., we could add those lines into the metadata dictionary as well.</p>
+<p>We will also need to create a unique identifier for each document. Each resume PDF has a unique file name, so let’s start by using that as the ID. Next, whenever we load in a PDF, it is automatically split up by pages, so the page number will become the second part of the ID. Finally, we need to index each individual chunk of text uniquely, so we’ll create a third piece to the ID which is the chunk number on the page.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.schema</span> <span class="kn">import</span> <span class="n">Document</span>
+<span class="k">def</span> <span class="nf">create_chroma_document</span><span class="p">(</span><span class="n">resume</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1">## the source is the filename of the document</span>
+    <span class="c1">## extract the file name w/o extension as the first part of the ID</span>
+    <span class="n">file_num</span> <span class="o">=</span> <span class="n">resume</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">resume</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;page&#39;</span><span class="p">]</span>
+    <span class="n">resume</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;job_category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">category</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">chunks</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">split_text</span><span class="p">(</span><span class="n">resume</span><span class="o">.</span><span class="n">page_content</span><span class="p">)</span>
+    
+    <span class="n">documents</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunks</span><span class="p">):</span>
+        <span class="n">documents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">Document</span><span class="p">(</span><span class="n">page_content</span><span class="o">=</span><span class="n">chunk</span><span class="p">,</span>
+                     <span class="n">metadata</span><span class="o">=</span><span class="n">resume</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="n">ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">file_num</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">documents</span><span class="p">,</span> <span class="n">ids</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## creates a vector database from all of the resumes in the data directory</span>
+<span class="k">def</span> <span class="nf">create_vector_database</span><span class="p">():</span>
+    <span class="n">all_documents</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">all_ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">categories</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">RESUME_ROOT_DIR</span><span class="p">))</span>    
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">category</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">categories</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Processing </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s1">...</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">resumes</span> <span class="o">=</span> <span class="n">fetch_and_load_documents</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">resume</span> <span class="ow">in</span> <span class="n">resumes</span><span class="p">:</span>
+            <span class="n">documents</span><span class="p">,</span> <span class="n">ids</span> <span class="o">=</span> <span class="n">create_chroma_document</span><span class="p">(</span><span class="n">resume</span><span class="p">,</span><span class="n">category</span><span class="p">)</span>
+            <span class="n">all_documents</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+            <span class="n">all_ids</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+            
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Creating vector database...&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">vector_db</span> <span class="o">=</span> <span class="n">Chroma</span><span class="o">.</span><span class="n">from_documents</span><span class="p">(</span><span class="n">all_documents</span><span class="p">,</span>
+                                      <span class="n">ids</span><span class="o">=</span><span class="n">all_ids</span><span class="p">,</span>
+                                      <span class="n">embedding</span><span class="o">=</span><span class="n">OpenAIEmbeddings</span><span class="p">(),</span>
+                                      <span class="n">persist_directory</span><span class="o">=</span><span class="n">PERSIST_DIR</span><span class="p">)</span>
+
+    <span class="n">vector_db</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done.&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">vector_db</span>
+            
+<span class="c1">## here&#39;s a helper function that will load the vector database from disk if it exists</span>
+<span class="c1">## or will create it if it doesn&#39;t or if we want to refresh it</span>
+<span class="k">def</span> <span class="nf">load_vector_database</span><span class="p">(</span><span class="n">refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">PERSIST_DIR</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">refresh</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading vector database from disk...&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">vector_db</span> <span class="o">=</span> <span class="n">Chroma</span><span class="o">.</span><span class="n">load_from_disk</span><span class="p">(</span><span class="n">PERSIST_DIR</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done.&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">vector_db</span> <span class="o">=</span> <span class="n">create_vector_database</span><span class="p">()</span>
+        
+    <span class="k">return</span> <span class="n">vector_db</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector_db</span> <span class="o">=</span> <span class="n">create_vector_database</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing AGRICULTURE...1/24
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                          | 0/63 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2%|█                                                                 | 1/63 [00:00&lt;00:06,  9.93it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|███▏                                                              | 3/63 [00:00&lt;00:04, 12.56it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8%|█████▏                                                            | 5/63 [00:00&lt;00:04, 13.03it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|███████▎                                                          | 7/63 [00:00&lt;00:04, 13.05it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|█████████▍                                                        | 9/63 [00:00&lt;00:04, 12.26it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|███████████▎                                                     | 11/63 [00:00&lt;00:04, 11.74it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|█████████████▍                                                   | 13/63 [00:01&lt;00:04, 10.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24%|███████████████▍                                                 | 15/63 [00:01&lt;00:04, 10.48it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|█████████████████▌                                               | 17/63 [00:01&lt;00:04, 10.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|███████████████████▌                                             | 19/63 [00:01&lt;00:03, 12.42it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|█████████████████████▋                                           | 21/63 [00:01&lt;00:03, 12.98it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|███████████████████████▋                                         | 23/63 [00:01&lt;00:03, 12.12it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|█████████████████████████▊                                       | 25/63 [00:02&lt;00:02, 12.73it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|███████████████████████████▊                                     | 27/63 [00:02&lt;00:03, 11.91it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 46%|█████████████████████████████▉                                   | 29/63 [00:02&lt;00:02, 12.64it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|███████████████████████████████▉                                 | 31/63 [00:02&lt;00:02, 14.02it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|███████████████████████████████████                              | 34/63 [00:02&lt;00:01, 14.99it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|█████████████████████████████████████▏                           | 36/63 [00:02&lt;00:01, 15.21it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|███████████████████████████████████████▏                         | 38/63 [00:03&lt;00:01, 12.93it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 63%|█████████████████████████████████████████▎                       | 40/63 [00:03&lt;00:02, 11.10it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|███████████████████████████████████████████▎                     | 42/63 [00:03&lt;00:01, 11.36it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|█████████████████████████████████████████████▍                   | 44/63 [00:03&lt;00:01, 11.26it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 73%|███████████████████████████████████████████████▍                 | 46/63 [00:03&lt;00:01, 11.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|█████████████████████████████████████████████████▌               | 48/63 [00:03&lt;00:01, 11.73it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|███████████████████████████████████████████████████▌             | 50/63 [00:04&lt;00:01, 11.95it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|█████████████████████████████████████████████████████▋           | 52/63 [00:04&lt;00:00, 12.09it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|███████████████████████████████████████████████████████▋         | 54/63 [00:04&lt;00:00, 12.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 89%|█████████████████████████████████████████████████████████▊       | 56/63 [00:04&lt;00:00, 10.13it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 92%|███████████████████████████████████████████████████████████▊     | 58/63 [00:04&lt;00:00, 10.68it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|█████████████████████████████████████████████████████████████▉   | 60/63 [00:05&lt;00:00, 11.38it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 98%|███████████████████████████████████████████████████████████████▉ | 62/63 [00:05&lt;00:00, 12.52it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████| 63/63 [00:05&lt;00:00, 12.12it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing ARTS...2/24
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                         | 0/103 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2%|█▎                                                               | 2/103 [00:00&lt;00:07, 14.18it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4%|██▌                                                              | 4/103 [00:00&lt;00:09, 10.53it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7%|████▍                                                            | 7/103 [00:00&lt;00:05, 16.20it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|█████▋                                                           | 9/103 [00:00&lt;00:06, 13.79it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|██████▊                                                         | 11/103 [00:00&lt;00:07, 12.89it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 13%|████████                                                        | 13/103 [00:01&lt;00:07, 12.34it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|█████████▎                                                      | 15/103 [00:01&lt;00:06, 13.05it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|██████████▌                                                     | 17/103 [00:01&lt;00:06, 13.02it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|███████████▊                                                    | 19/103 [00:01&lt;00:06, 13.63it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|█████████████▋                                                  | 22/103 [00:01&lt;00:05, 14.38it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 23%|██████████████▉                                                 | 24/103 [00:01&lt;00:06, 12.60it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 25%|████████████████▏                                               | 26/103 [00:02&lt;00:06, 12.22it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|█████████████████▍                                              | 28/103 [00:02&lt;00:06, 11.38it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|██████████████████▋                                             | 30/103 [00:02&lt;00:06, 11.61it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|███████████████████▉                                            | 32/103 [00:02&lt;00:05, 12.46it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|█████████████████████▏                                          | 34/103 [00:02&lt;00:05, 11.82it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|██████████████████████▎                                         | 36/103 [00:02&lt;00:05, 11.49it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|███████████████████████▌                                        | 38/103 [00:03&lt;00:05, 12.29it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 39%|████████████████████████▊                                       | 40/103 [00:03&lt;00:04, 13.42it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 41%|██████████████████████████                                      | 42/103 [00:03&lt;00:04, 14.35it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|███████████████████████████▎                                    | 44/103 [00:03&lt;00:04, 14.05it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|████████████████████████████▌                                   | 46/103 [00:03&lt;00:04, 12.80it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 47%|█████████████████████████████▊                                  | 48/103 [00:03&lt;00:04, 13.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|███████████████████████████████                                 | 50/103 [00:03&lt;00:04, 12.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|████████████████████████████████▎                               | 52/103 [00:04&lt;00:04, 12.59it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 52%|█████████████████████████████████▌                              | 54/103 [00:04&lt;00:03, 13.23it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|██████████████████████████████████▊                             | 56/103 [00:04&lt;00:03, 13.50it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|████████████████████████████████████                            | 58/103 [00:04&lt;00:03, 13.40it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|█████████████████████████████████████▎                          | 60/103 [00:04&lt;00:02, 14.45it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|██████████████████████████████████████▌                         | 62/103 [00:04&lt;00:02, 13.74it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62%|███████████████████████████████████████▊                        | 64/103 [00:04&lt;00:02, 14.20it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|█████████████████████████████████████████                       | 66/103 [00:05&lt;00:02, 12.86it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 66%|██████████████████████████████████████████▎                     | 68/103 [00:05&lt;00:02, 11.96it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 68%|███████████████████████████████████████████▍                    | 70/103 [00:05&lt;00:02, 12.50it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|████████████████████████████████████████████▋                   | 72/103 [00:05&lt;00:02, 13.80it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|█████████████████████████████████████████████▉                  | 74/103 [00:05&lt;00:01, 14.61it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 74%|███████████████████████████████████████████████▏                | 76/103 [00:05&lt;00:01, 14.01it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|████████████████████████████████████████████████▍               | 78/103 [00:05&lt;00:01, 13.15it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 78%|█████████████████████████████████████████████████▋              | 80/103 [00:06&lt;00:01, 14.09it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|██████████████████████████████████████████████████▉             | 82/103 [00:06&lt;00:01, 15.44it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|████████████████████████████████████████████████████▊           | 85/103 [00:06&lt;00:01, 16.88it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|██████████████████████████████████████████████████████          | 87/103 [00:06&lt;00:01, 15.56it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|███████████████████████████████████████████████████████▎        | 89/103 [00:06&lt;00:00, 15.34it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 88%|████████████████████████████████████████████████████████▌       | 91/103 [00:06&lt;00:00, 12.49it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|█████████████████████████████████████████████████████████▊      | 93/103 [00:07&lt;00:00, 13.05it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 92%|███████████████████████████████████████████████████████████     | 95/103 [00:07&lt;00:00, 13.54it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|████████████████████████████████████████████████████████████▉   | 98/103 [00:07&lt;00:00, 14.47it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 97%|█████████████████████████████████████████████████████████████▏ | 100/103 [00:07&lt;00:00, 14.43it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|██████████████████████████████████████████████████████████████▍| 102/103 [00:07&lt;00:00, 13.90it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████████████████████████| 103/103 [00:07&lt;00:00, 13.39it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing SALES...3/24
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                         | 0/116 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1%|▌                                                                | 1/116 [00:00&lt;00:15,  7.66it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3%|█▋                                                               | 3/116 [00:00&lt;00:10, 10.73it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|███▎                                                             | 6/116 [00:00&lt;00:06, 16.60it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8%|█████                                                            | 9/116 [00:00&lt;00:06, 17.22it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|██████                                                          | 11/116 [00:00&lt;00:06, 15.83it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|███████▏                                                        | 13/116 [00:00&lt;00:07, 13.66it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 13%|████████▎                                                       | 15/116 [00:01&lt;00:06, 14.88it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|█████████▍                                                      | 17/116 [00:01&lt;00:07, 14.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|██████████▍                                                     | 19/116 [00:01&lt;00:06, 14.23it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|███████████▌                                                    | 21/116 [00:01&lt;00:07, 13.37it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|█████████████▏                                                  | 24/116 [00:01&lt;00:06, 15.18it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 22%|██████████████▎                                                 | 26/116 [00:01&lt;00:06, 14.00it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24%|███████████████▍                                                | 28/116 [00:01&lt;00:06, 13.56it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|█████████████████                                               | 31/116 [00:02&lt;00:05, 15.82it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|██████████████████▊                                             | 34/116 [00:02&lt;00:05, 16.11it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|███████████████████▊                                            | 36/116 [00:02&lt;00:05, 15.21it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|████████████████████▉                                           | 38/116 [00:02&lt;00:06, 11.24it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 34%|██████████████████████                                          | 40/116 [00:02&lt;00:06, 12.56it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 36%|███████████████████████▏                                        | 42/116 [00:03&lt;00:05, 12.72it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 38%|████████████████████████▎                                       | 44/116 [00:03&lt;00:05, 12.96it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|█████████████████████████▍                                      | 46/116 [00:03&lt;00:05, 11.70it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 41%|██████████████████████████▍                                     | 48/116 [00:03&lt;00:05, 12.85it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|███████████████████████████▌                                    | 50/116 [00:03&lt;00:04, 13.30it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|████████████████████████████▋                                   | 52/116 [00:03&lt;00:04, 13.23it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 47%|█████████████████████████████▊                                  | 54/116 [00:03&lt;00:04, 13.10it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 48%|██████████████████████████████▉                                 | 56/116 [00:04&lt;00:04, 12.76it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|████████████████████████████████                                | 58/116 [00:04&lt;00:04, 13.11it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 52%|█████████████████████████████████                               | 60/116 [00:04&lt;00:04, 13.90it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|██████████████████████████████████▊                             | 63/116 [00:04&lt;00:03, 16.47it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|███████████████████████████████████▊                            | 65/116 [00:04&lt;00:03, 16.21it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 59%|█████████████████████████████████████▌                          | 68/116 [00:04&lt;00:02, 16.59it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|██████████████████████████████████████▌                         | 70/116 [00:04&lt;00:02, 15.43it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|████████████████████████████████████████▊                       | 74/116 [00:05&lt;00:02, 17.93it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 66%|█████████████████████████████████████████▉                      | 76/116 [00:05&lt;00:02, 17.24it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 68%|███████████████████████████████████████████▌                    | 79/116 [00:05&lt;00:02, 17.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|████████████████████████████████████████████▋                   | 81/116 [00:05&lt;00:02, 14.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|██████████████████████████████████████████████▎                 | 84/116 [00:05&lt;00:01, 16.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 75%|████████████████████████████████████████████████                | 87/116 [00:05&lt;00:01, 15.73it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 77%|█████████████████████████████████████████████████               | 89/116 [00:06&lt;00:01, 16.52it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 78%|██████████████████████████████████████████████████▏             | 91/116 [00:06&lt;00:01, 16.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|███████████████████████████████████████████████████▎            | 93/116 [00:06&lt;00:01, 15.78it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 82%|████████████████████████████████████████████████████▍           | 95/116 [00:06&lt;00:01, 14.13it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|█████████████████████████████████████████████████████▌          | 97/116 [00:06&lt;00:01, 14.21it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 85%|██████████████████████████████████████████████████████▌         | 99/116 [00:06&lt;00:01, 14.13it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 87%|██████████████████████████████████████████████████████▊        | 101/116 [00:07&lt;00:01, 12.91it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|████████████████████████████████████████████████████████▍      | 104/116 [00:07&lt;00:00, 15.76it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 92%|██████████████████████████████████████████████████████████     | 107/116 [00:07&lt;00:00, 17.70it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 94%|███████████████████████████████████████████████████████████▏   | 109/116 [00:07&lt;00:00, 17.31it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 97%|████████████████████████████████████████████████████████████▊  | 112/116 [00:07&lt;00:00, 17.86it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|██████████████████████████████████████████████████████████████▍| 115/116 [00:07&lt;00:00, 18.92it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████████████████████████| 116/116 [00:07&lt;00:00, 14.99it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing CONSULTANT...4/24
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                         | 0/115 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2%|█▏                                                               | 2/115 [00:00&lt;00:09, 11.77it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3%|██▎                                                              | 4/115 [00:00&lt;00:11,  9.61it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|███▍                                                             | 6/115 [00:00&lt;00:09, 11.07it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7%|████▌                                                            | 8/115 [00:00&lt;00:08, 12.58it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|█████▌                                                          | 10/115 [00:00&lt;00:07, 13.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 10%|██████▋                                                         | 12/115 [00:00&lt;00:08, 12.65it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 12%|███████▊                                                        | 14/115 [00:01&lt;00:07, 13.94it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|████████▉                                                       | 16/115 [00:01&lt;00:07, 14.05it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|██████████                                                      | 18/115 [00:01&lt;00:07, 13.36it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|███████████▏                                                    | 20/115 [00:01&lt;00:07, 13.24it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|████████████▏                                                   | 22/115 [00:01&lt;00:06, 13.52it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|█████████████▎                                                  | 24/115 [00:01&lt;00:06, 14.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 23%|██████████████▍                                                 | 26/115 [00:01&lt;00:06, 14.31it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24%|███████████████▌                                                | 28/115 [00:02&lt;00:05, 14.99it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 26%|████████████████▋                                               | 30/115 [00:02&lt;00:05, 14.44it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 28%|█████████████████▊                                              | 32/115 [00:02&lt;00:06, 12.05it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|██████████████████▉                                             | 34/115 [00:02&lt;00:06, 12.42it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|████████████████████                                            | 36/115 [00:02&lt;00:05, 13.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|█████████████████████▏                                          | 38/115 [00:03&lt;00:07, 10.64it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|██████████████████████▎                                         | 40/115 [00:03&lt;00:07, 10.36it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|███████████████████████▎                                        | 42/115 [00:03&lt;00:08,  8.67it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 38%|████████████████████████▍                                       | 44/115 [00:03&lt;00:07,  9.53it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|█████████████████████████▌                                      | 46/115 [00:03&lt;00:06, 10.49it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|██████████████████████████▋                                     | 48/115 [00:04&lt;00:06,  9.83it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|███████████████████████████▊                                    | 50/115 [00:04&lt;00:06, 10.78it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|████████████████████████████▉                                   | 52/115 [00:04&lt;00:05, 10.96it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 47%|██████████████████████████████                                  | 54/115 [00:04&lt;00:04, 12.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|███████████████████████████████▏                                | 56/115 [00:04&lt;00:04, 12.73it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 51%|████████████████████████████████▊                               | 59/115 [00:04&lt;00:03, 14.98it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 53%|█████████████████████████████████▉                              | 61/115 [00:04&lt;00:03, 14.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 55%|███████████████████████████████████                             | 63/115 [00:05&lt;00:04, 12.92it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|████████████████████████████████████▏                           | 65/115 [00:05&lt;00:03, 12.78it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|█████████████████████████████████████▎                          | 67/115 [00:05&lt;00:04, 11.06it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|██████████████████████████████████████▍                         | 69/115 [00:05&lt;00:04, 11.13it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62%|███████████████████████████████████████▌                        | 71/115 [00:05&lt;00:04,  9.56it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 63%|████████████████████████████████████████▋                       | 73/115 [00:06&lt;00:04, 10.00it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 65%|█████████████████████████████████████████▋                      | 75/115 [00:06&lt;00:03, 10.59it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|██████████████████████████████████████████▊                     | 77/115 [00:06&lt;00:03, 11.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 69%|███████████████████████████████████████████▉                    | 79/115 [00:06&lt;00:03, 10.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|█████████████████████████████████████████████                   | 81/115 [00:06&lt;00:03,  9.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|██████████████████████████████████████████████▏                 | 83/115 [00:07&lt;00:03, 10.11it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 74%|███████████████████████████████████████████████▎                | 85/115 [00:07&lt;00:02, 11.00it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|████████████████████████████████████████████████▍               | 87/115 [00:07&lt;00:02, 10.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 77%|█████████████████████████████████████████████████▌              | 89/115 [00:07&lt;00:02, 11.23it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|██████████████████████████████████████████████████▋             | 91/115 [00:07&lt;00:02, 11.80it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 81%|███████████████████████████████████████████████████▊            | 93/115 [00:07&lt;00:01, 12.46it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|████████████████████████████████████████████████████▊           | 95/115 [00:08&lt;00:01, 12.11it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|█████████████████████████████████████████████████████▉          | 97/115 [00:08&lt;00:01, 12.37it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|███████████████████████████████████████████████████████         | 99/115 [00:08&lt;00:01, 11.47it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 88%|███████████████████████████████████████████████████████▎       | 101/115 [00:08&lt;00:01, 11.78it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|████████████████████████████████████████████████████████▍      | 103/115 [00:08&lt;00:00, 12.14it/s]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">vector_db</span> <span class="o">=</span> <span class="n">create_vector_database</span><span class="p">()</span>
+
+<span class="nn">Cell In[9], line 8,</span> in <span class="ni">create_vector_database</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">category</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">categories</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Processing </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s1">...</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">resumes</span> <span class="o">=</span> <span class="n">fetch_and_load_documents</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">for</span> <span class="n">resume</span> <span class="ow">in</span> <span class="n">resumes</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">documents</span><span class="p">,</span> <span class="n">ids</span> <span class="o">=</span> <span class="n">create_chroma_document</span><span class="p">(</span><span class="n">resume</span><span class="p">,</span><span class="n">category</span><span class="p">)</span>
+
+<span class="nn">Cell In[6], line 8,</span> in <span class="ni">fetch_and_load_documents</span><span class="nt">(category, verbose)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">fetch_and_load_documents</span><span class="p">(</span><span class="n">category</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">loader</span> <span class="o">=</span> <span class="n">DirectoryLoader</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RESUME_ROOT_DIR</span><span class="p">,</span><span class="n">category</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                              <span class="n">glob</span><span class="o">=</span><span class="s1">&#39;*.pdf&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>                              <span class="n">loader_cls</span><span class="o">=</span><span class="n">PyPDFLoader</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>                              <span class="n">show_progress</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">resumes</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">return</span> <span class="n">resumes</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/directory.py:156,</span> in <span class="ni">DirectoryLoader.load</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">156</span>         <span class="bp">self</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">docs</span><span class="p">,</span> <span class="n">pbar</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span> <span class="k">if</span> <span class="n">pbar</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span>     <span class="n">pbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/directory.py:99,</span> in <span class="ni">DirectoryLoader.load_file</span><span class="nt">(self, item, path, docs, pbar)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing file: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="n">sub_docs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loader_cls</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">),</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">loader_kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="n">docs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sub_docs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/pdf.py:162,</span> in <span class="ni">PyPDFLoader.load</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Document</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">161</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Load given path as pages.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">162</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lazy_load</span><span class="p">())</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/pdf.py:169,</span> in <span class="ni">PyPDFLoader.lazy_load</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Lazy load given path as pages.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span> <span class="n">blob</span> <span class="o">=</span> <span class="n">Blob</span><span class="o">.</span><span class="n">from_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">169</span> <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">blob</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/base.py:95,</span> in <span class="ni">BaseBlobParser.parse</span><span class="nt">(self, blob)</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blob</span><span class="p">:</span> <span class="n">Blob</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Document</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Eagerly parse the blob into a document or documents.</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="sd">     This is a convenience method for interactive development environment.</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="sd">         List of documents</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">95</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lazy_parse</span><span class="p">(</span><span class="n">blob</span><span class="p">))</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/parsers/pdf.py:95,</span> in <span class="ni">PyPDFParser.lazy_parse</span><span class="nt">(self, blob)</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="k">with</span> <span class="n">blob</span><span class="o">.</span><span class="n">as_bytes_io</span><span class="p">()</span> <span class="k">as</span> <span class="n">pdf_file_obj</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">pdf_reader</span> <span class="o">=</span> <span class="n">pypdf</span><span class="o">.</span><span class="n">PdfReader</span><span class="p">(</span><span class="n">pdf_file_obj</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">95</span>     <span class="k">yield from</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">Document</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>             <span class="n">page_content</span><span class="o">=</span><span class="n">page</span><span class="o">.</span><span class="n">extract_text</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>             <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_images_from_page</span><span class="p">(</span><span class="n">page</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>             <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">blob</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="n">page_number</span><span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="p">)</span>
+<span class="nn">    101         for page_number, page</span> in <span class="ni">enumerate</span><span class="nt">(pdf_reader.pages)</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="p">]</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/parsers/pdf.py:97,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="k">with</span> <span class="n">blob</span><span class="o">.</span><span class="n">as_bytes_io</span><span class="p">()</span> <span class="k">as</span> <span class="n">pdf_file_obj</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">pdf_reader</span> <span class="o">=</span> <span class="n">pypdf</span><span class="o">.</span><span class="n">PdfReader</span><span class="p">(</span><span class="n">pdf_file_obj</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">yield from</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">Document</span><span class="p">(</span>
+<span class="ne">---&gt; </span><span class="mi">97</span>             <span class="n">page_content</span><span class="o">=</span><span class="n">page</span><span class="o">.</span><span class="n">extract_text</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>             <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_images_from_page</span><span class="p">(</span><span class="n">page</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>             <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">blob</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="n">page_number</span><span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="p">)</span>
+<span class="nn">    101         for page_number, page</span> in <span class="ni">enumerate</span><span class="nt">(pdf_reader.pages)</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="p">]</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/_page.py:2284,</span> in <span class="ni">PageObject.extract_text</span><span class="nt">(self, Tj_sep, TJ_sep, orientations, space_width, visitor_operand_before, visitor_operand_after, visitor_text, *args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2281</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orientations</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2282</span>     <span class="n">orientations</span> <span class="o">=</span> <span class="p">(</span><span class="n">orientations</span><span class="p">,)</span>
+<span class="ne">-&gt; </span><span class="mi">2284</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_text</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2285</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2286</span>     <span class="bp">self</span><span class="o">.</span><span class="n">pdf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2287</span>     <span class="n">orientations</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2288</span>     <span class="n">space_width</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2289</span>     <span class="n">PG</span><span class="o">.</span><span class="n">CONTENTS</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2290</span>     <span class="n">visitor_operand_before</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2291</span>     <span class="n">visitor_operand_after</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2292</span>     <span class="n">visitor_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2293</span> <span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/_page.py:2114,</span> in <span class="ni">PageObject._extract_text</span><span class="nt">(self, obj, pdf, orientations, space_width, content_key, visitor_operand_before, visitor_operand_after, visitor_text)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2111</span>         <span class="k">except</span> <span class="n">OrientationNotFoundError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2112</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">2114</span> <span class="k">for</span> <span class="n">operands</span><span class="p">,</span> <span class="n">operator</span> <span class="ow">in</span> <span class="n">content</span><span class="o">.</span><span class="n">operations</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2115</span>     <span class="k">if</span> <span class="n">visitor_operand_before</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2116</span>         <span class="n">visitor_operand_before</span><span class="p">(</span><span class="n">operator</span><span class="p">,</span> <span class="n">operands</span><span class="p">,</span> <span class="n">cm_matrix</span><span class="p">,</span> <span class="n">tm_matrix</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/generic/_data_structures.py:1241,</span> in <span class="ni">ContentStream.operations</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1238</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">   </span><span class="mi">1239</span> <span class="k">def</span> <span class="nf">operations</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1240</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operations</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1241</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_parse_content_stream</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">b_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1242</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1243</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operations</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/generic/_data_structures.py:1112,</span> in <span class="ni">ContentStream._parse_content_stream</span><span class="nt">(self, stream)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1110</span> <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1111</span> <span class="k">if</span> <span class="n">peek</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="ow">or</span> <span class="n">peek</span> <span class="ow">in</span> <span class="p">(</span><span class="sa">b</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;&quot;&#39;</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1112</span>     <span class="n">operator</span> <span class="o">=</span> <span class="n">read_until_regex</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">NameObject</span><span class="o">.</span><span class="n">delimiter_pattern</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1113</span>     <span class="k">if</span> <span class="n">operator</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&quot;BI&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1114</span>         <span class="c1"># begin inline image - a completely different parsing</span>
+<span class="g g-Whitespace">   </span><span class="mi">1115</span>         <span class="c1"># mechanism is required, of course... thanks buddy...</span>
+<span class="g g-Whitespace">   </span><span class="mi">1116</span>         <span class="k">assert</span> <span class="n">operands</span> <span class="o">==</span> <span class="p">[]</span>
+
+<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/_utils.py:217,</span> in <span class="ni">read_until_regex</span><span class="nt">(stream, regex)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">tok</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">return</span> <span class="n">name</span>
+<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">m</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="n">tok</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">tok</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="retrieve-documents-from-the-vector-database-using-an-llm">
+<h3>Retrieve documents from the vector database using an LLM<a class="headerlink" href="#retrieve-documents-from-the-vector-database-using-an-llm" title="Permalink to this heading">#</a></h3>
+<p>We’ve been able so far just use a similarity search between the query and document contents. But what if we wanted to do something more complicated, such as searching over all of our documents with an unstructured query. We would need a LLM to interpret the query and translate it into a more structured query language (i.e., SQL-like) so that it can not only compute a similarity score but also filter based on any metadata criteria. We can do this using the self query retriever. We can give context to the LLM by providing descriptions of the data set (i.e., the documents are resumes) and the metadata fields (i.e., we pre-labeled each resume with a job category).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.chains.query_constructor.base</span> <span class="kn">import</span> <span class="n">AttributeInfo</span>
+<span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.retrievers.self_query.base</span> <span class="kn">import</span> <span class="n">SelfQueryRetriever</span>
+
+<span class="k">def</span> <span class="nf">get_retriever</span><span class="p">(</span><span class="n">vectorstore</span><span class="p">):</span>
+    <span class="n">metadata_field_info</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">AttributeInfo</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;job_category&#39;</span><span class="p">,</span>
+            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="n">is_categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">is_searchable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The category of the job for which the resume was submitted.&#39;</span>
+        <span class="p">),</span>
+        <span class="n">AttributeInfo</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;source&#39;</span><span class="p">,</span>
+            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="n">is_categorical</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">is_searchable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The PDF file name of the resume.&#39;</span>
+        <span class="p">),</span>  
+    <span class="p">]</span>
+
+    <span class="n">retriever</span> <span class="o">=</span> <span class="n">SelfQueryRetriever</span><span class="o">.</span><span class="n">from_llm</span><span class="p">(</span>
+        <span class="n">llm</span><span class="o">=</span><span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;gpt-3.5-turbo&#39;</span><span class="p">),</span>
+        <span class="n">vectorstore</span><span class="o">=</span><span class="n">vectorstore</span><span class="p">,</span>
+        <span class="n">document_contents</span><span class="o">=</span><span class="s1">&#39;Annonymized resumes for job applications in various categories.&#39;</span><span class="p">,</span>
+        <span class="n">metadata_field_info</span><span class="o">=</span><span class="n">metadata_field_info</span>
+    <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">retriever</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Find me job candidates for an auto-repair shop with at least a bachelor&#39;s degree.</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">get_retriever</span><span class="p">(</span><span class="n">vector_db</span><span class="p">)</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">page_content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AUTOMOBILE SERVICE MANAGER
+Summary
+Attentive Automobile Service Manager with comprehensive knowledge of the automobile industry. Adept at providing an optimal level of customer
+support that includes speedy resolutions to customer service issues. Specialize in managing an able staff to meet customer expectations.
+Experience
+05/2013
+ 
+to 
+Current
+Automobile Service Manager
+ 
+Company Name
+ 
+ï¼​ 
+City
+ 
+, 
+State
+Ensured that warranty specifications were upheld when work was performed Managed vehicle repair requests and regular service
+appointments Maintained inventory of replacement parts and prepared purchase orders Prepared shop displays of auto parts Inspected
+vehicle repairs Provided regular employee evaluations Ensured compliance with shop standards.
+06/2011
+ 
+to 
+05/2013
+Automobile Service Manager
+ 
+Company Name
+ 
+ï¼​ 
+City
+ 
+, 
+State
+Clearly defined employee responsibilities and tracked performance.
+Assisted with initial diagnostics and supervised vehicle work.
+Ensured that customer and employee areas were kept clean and organized.
+Managed service requests and prepared a database listing such requests.
+Ensured timely completion of vehicle services.
+Coordinated with sales team to prepare marketing strategies.
+Education and Training
+2011
+Bachelor&#39;s Degree
+ 
+: 
+Automotive Technology
+ 
+University of California
+ 
+ï¼​ 
+City
+ 
+, 
+State
+ 
+Automotive Technology
+2014
+Associate&#39;s Degree
+ 
+: 
+Business Management
+ 
+University of California
+ 
+ï¼​ 
+City
+ 
+, 
+State
+ 
+Business Management Want more? Check out our other
+examples. 
+See More Examples
+Skills
+vehicle repairs, database, inventory, marketing strategies, sales
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the retriver returned actual documents instead of a text-based response that fulfill the critera of the query. Indeed the first document does mention that the person has a bachelor’s degree in automotive technology and lists vehicle repair in past work experience.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -443,6 +1571,26 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-resumes">Case Study: Resumes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-stores">Vector stores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-a-similarity-search-on-a-single-document">Conducting a similarity search on a single document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-persistent-vector-database">Creating a persistent vector database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieve-documents-from-the-vector-database-using-an-llm">Retrieve documents from the vector database using an LLM</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -485,8 +1633,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>

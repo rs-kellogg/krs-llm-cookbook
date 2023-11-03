@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -146,13 +146,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Kellogg Research Support LLM Cookbook - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Kellogg Research Support LLM Cookbook - Home"/>`);</script>
   
   
 </a></div>
@@ -186,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">Fine-Tuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="langchain.html">Building Applications with LangChain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langchain.html">Creating Applications with Langchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">Retrieval Augmented Generation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-databases.html">Vector Databases</a></li>
 </ul>
@@ -501,15 +502,7 @@ OpenAI Playground</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span> <span class="c1"># pip install python-dotenv</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># load the .env file containing your API key</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">load_dotenv</span><span class="p">()</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;dotenv&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OPENAI_API_KEY: sk-3...
 </pre></div>
 </div>
 </div>
@@ -544,16 +537,16 @@ OpenAI Playground</div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-  &quot;id&quot;: &quot;chatcmpl-8FvYgJXLcTy6pNowMnUDoJzKgc08Z&quot;,
+  &quot;id&quot;: &quot;chatcmpl-8GpEGCCbQyISg1ZVD6XdJa5UIw43n&quot;,
   &quot;object&quot;: &quot;chat.completion&quot;,
-  &quot;created&quot;: 1698806866,
+  &quot;created&quot;: 1699020864,
   &quot;model&quot;: &quot;gpt-3.5-turbo-0613&quot;,
   &quot;choices&quot;: [
     {
       &quot;index&quot;: 0,
       &quot;message&quot;: {
         &quot;role&quot;: &quot;assistant&quot;,
-        &quot;content&quot;: &quot;Being in the same room as a lion can be an incredibly exhilarating and humbling experience. Lions are majestic creatures, and their presence is truly awe-inspiring. They have an undeniable aura of power and grace that can leave you in awe.\n\nAs a lion tamer and zoologist, I have had the privilege of being in close proximity to lions many times. When they are calm and relaxed, you can observe their regal nature and the beauty of their physical attributes up close. From their muscular build to their magnificent mane, lions are built to command respect.\n\nHowever, it&#39;s important to acknowledge that lions are still wild animals, and they possess natural instincts and behaviors that need to be understood and respected. Safety always remains a priority, and strict protocols are followed to ensure that both the lion and the humans are protected.\n\nWhen working with lions, establishing trust and providing a structured environment is crucial. Building a positive relationship based on mutual respect and understanding allows for effective training and management. It involves working closely with the lion, studying their behavior, body language, and individual personalities.\n\nLion tamers develop expertise in reading lion behavior and knowing when a lion is comfortable, anxious, or potentially agitated. This knowledge helps create a harmonious environment while minimizing any risks involved. Training&quot;
+        &quot;content&quot;: &quot;Being in the same room as a lion is an incredibly exhilarating and awe-inspiring experience. These magnificent creatures are the kings of the animal kingdom, and their presence commands respect and admiration. However, it is crucial to remember that lions are wild animals with powerful instincts, so caution and expertise are essential when interacting with them.\n\nWhen I step into the room with a lion, my senses are heightened, and there is always a sense of excitement in the air. The sheer size and strength of a lion can be quite intimidating, but as an experienced lion tamer, I am trained to understand their behavior and communicate with them effectively.\n\nEach lion has its own personality and temperament, so being observant and attuned to their body language is vital to assess their mood and ensure everyone&#39;s safety. Building trust and a strong bond with the lion is crucial to establish a cooperative relationship. This may involve years of training and positive reinforcement techniques to teach the lion specific behaviors like sitting, lying down, or jumping through hoops.\n\nWhile working with lions, it is important to maintain a calm and focused demeanor. Lions respond well to confident and assertive individuals, so projecting a sense of authority is key. Establishing clear boundaries and communicating expectations is also essential for managing their behavior. Additionally, understanding their&quot;
       },
       &quot;finish_reason&quot;: &quot;length&quot;
     }
@@ -584,15 +577,13 @@ OpenAI Playground</div>
 </div>
 </details>
 </div>
-<p><span class="pasted-text">Being in the same room as a lion can be an incredibly exhilarating and humbling experience. Lions are majestic creatures, and their presence is truly awe-inspiring. They have an undeniable aura of power and grace that can leave you in awe.
+<p><span class="pasted-text">Being in the same room as a lion is an incredibly exhilarating and awe-inspiring experience. These magnificent creatures are the kings of the animal kingdom, and their presence commands respect and admiration. However, it is crucial to remember that lions are wild animals with powerful instincts, so caution and expertise are essential when interacting with them.
 
-As a lion tamer and zoologist, I have had the privilege of being in close proximity to lions many times. When they are calm and relaxed, you can observe their regal nature and the beauty of their physical attributes up close. From their muscular build to their magnificent mane, lions are built to command respect.
+When I step into the room with a lion, my senses are heightened, and there is always a sense of excitement in the air. The sheer size and strength of a lion can be quite intimidating, but as an experienced lion tamer, I am trained to understand their behavior and communicate with them effectively.
 
-However, it’s important to acknowledge that lions are still wild animals, and they possess natural instincts and behaviors that need to be understood and respected. Safety always remains a priority, and strict protocols are followed to ensure that both the lion and the humans are protected.
+Each lion has its own personality and temperament, so being observant and attuned to their body language is vital to assess their mood and ensure everyone’s safety. Building trust and a strong bond with the lion is crucial to establish a cooperative relationship. This may involve years of training and positive reinforcement techniques to teach the lion specific behaviors like sitting, lying down, or jumping through hoops.
 
-When working with lions, establishing trust and providing a structured environment is crucial. Building a positive relationship based on mutual respect and understanding allows for effective training and management. It involves working closely with the lion, studying their behavior, body language, and individual personalities.
-
-Lion tamers develop expertise in reading lion behavior and knowing when a lion is comfortable, anxious, or potentially agitated. This knowledge helps create a harmonious environment while minimizing any risks involved. Training</span></p>
+While working with lions, it is important to maintain a calm and focused demeanor. Lions respond well to confident and assertive individuals, so projecting a sense of authority is key. Establishing clear boundaries and communicating expectations is also essential for managing their behavior. Additionally, understanding their</span></p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
@@ -733,8 +724,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>
