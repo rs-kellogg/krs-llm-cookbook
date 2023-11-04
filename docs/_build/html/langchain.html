@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -424,6 +424,28 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">path_to_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/openai-key.txt&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="nn">File /kellogg/software/miniconda3-python311/envs/llm-env/lib/python3.11/site-packages/IPython/core/interactiveshell.py:308,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">308</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/home/wkt406/openai-key.txt&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -651,731 +673,171 @@ Current
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing AGRICULTURE...1/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                          | 0/63 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/63 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2%|█                                                                 | 1/63 [00:00&lt;00:06,  9.91it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|███▏                                                              | 3/63 [00:00&lt;00:04, 12.67it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8%|█████▏                                                            | 5/63 [00:00&lt;00:04, 13.09it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|███████▎                                                          | 7/63 [00:00&lt;00:04, 13.13it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|█████████▍                                                        | 9/63 [00:00&lt;00:04, 12.46it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|███████████▎                                                     | 11/63 [00:00&lt;00:04, 11.88it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|█████████████▍                                                   | 13/63 [00:01&lt;00:04, 10.50it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24%|███████████████▍                                                 | 15/63 [00:01&lt;00:04, 10.53it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|█████████████████▌                                               | 17/63 [00:01&lt;00:04, 10.88it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|███████████████████▌                                             | 19/63 [00:01&lt;00:03, 12.37it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|█████████████████████▋                                           | 21/63 [00:01&lt;00:03, 13.01it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|███████████████████████▋                                         | 23/63 [00:01&lt;00:03, 12.20it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|█████████████████████████▊                                       | 25/63 [00:02&lt;00:02, 12.81it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|███████████████████████████▊                                     | 27/63 [00:02&lt;00:03, 11.91it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 46%|█████████████████████████████▉                                   | 29/63 [00:02&lt;00:02, 12.67it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|███████████████████████████████▉                                 | 31/63 [00:02&lt;00:02, 14.07it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|███████████████████████████████████                              | 34/63 [00:02&lt;00:01, 15.06it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|█████████████████████████████████████▏                           | 36/63 [00:02&lt;00:01, 15.26it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|███████████████████████████████████████▏                         | 38/63 [00:03&lt;00:01, 13.05it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 63%|█████████████████████████████████████████▎                       | 40/63 [00:03&lt;00:02, 11.28it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|███████████████████████████████████████████▎                     | 42/63 [00:03&lt;00:01, 11.66it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|█████████████████████████████████████████████▍                   | 44/63 [00:03&lt;00:01, 11.55it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 73%|███████████████████████████████████████████████▍                 | 46/63 [00:03&lt;00:01, 12.11it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|█████████████████████████████████████████████████▌               | 48/63 [00:03&lt;00:01, 11.93it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|███████████████████████████████████████████████████▌             | 50/63 [00:04&lt;00:01, 12.10it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|█████████████████████████████████████████████████████▋           | 52/63 [00:04&lt;00:00, 12.32it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|███████████████████████████████████████████████████████▋         | 54/63 [00:04&lt;00:00, 12.39it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 89%|█████████████████████████████████████████████████████████▊       | 56/63 [00:04&lt;00:00, 10.17it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 92%|███████████████████████████████████████████████████████████▊     | 58/63 [00:04&lt;00:00, 10.73it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|█████████████████████████████████████████████████████████████▉   | 60/63 [00:04&lt;00:00, 11.43it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 98%|███████████████████████████████████████████████████████████████▉ | 62/63 [00:05&lt;00:00, 12.58it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████| 63/63 [00:05&lt;00:00, 12.22it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 63/63 [00:05&lt;00:00, 11.71it/s]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing ARTS...2/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                         | 0/103 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2%|█▎                                                               | 2/103 [00:00&lt;00:07, 14.18it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4%|██▌                                                              | 4/103 [00:00&lt;00:09, 10.57it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7%|████▍                                                            | 7/103 [00:00&lt;00:05, 16.30it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|█████▋                                                           | 9/103 [00:00&lt;00:06, 14.05it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|██████▊                                                         | 11/103 [00:00&lt;00:06, 13.16it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 13%|████████                                                        | 13/103 [00:00&lt;00:07, 12.52it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|█████████▎                                                      | 15/103 [00:01&lt;00:06, 13.14it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|██████████▌                                                     | 17/103 [00:01&lt;00:06, 13.06it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|███████████▊                                                    | 19/103 [00:01&lt;00:06, 13.60it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|█████████████▋                                                  | 22/103 [00:01&lt;00:05, 14.32it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 23%|██████████████▉                                                 | 24/103 [00:01&lt;00:06, 12.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 25%|████████████████▏                                               | 26/103 [00:02&lt;00:06, 12.19it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|█████████████████▍                                              | 28/103 [00:02&lt;00:06, 11.36it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|██████████████████▋                                             | 30/103 [00:02&lt;00:06, 11.70it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|███████████████████▉                                            | 32/103 [00:02&lt;00:05, 12.52it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|█████████████████████▏                                          | 34/103 [00:02&lt;00:05, 11.87it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|██████████████████████▎                                         | 36/103 [00:02&lt;00:05, 11.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|███████████████████████▌                                        | 38/103 [00:03&lt;00:05, 12.37it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 39%|████████████████████████▊                                       | 40/103 [00:03&lt;00:04, 13.48it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 41%|██████████████████████████                                      | 42/103 [00:03&lt;00:04, 14.42it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|███████████████████████████▎                                    | 44/103 [00:03&lt;00:04, 14.12it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|████████████████████████████▌                                   | 46/103 [00:03&lt;00:04, 12.86it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 47%|█████████████████████████████▊                                  | 48/103 [00:03&lt;00:04, 13.46it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|███████████████████████████████                                 | 50/103 [00:03&lt;00:04, 12.08it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|████████████████████████████████▎                               | 52/103 [00:04&lt;00:04, 12.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 52%|█████████████████████████████████▌                              | 54/103 [00:04&lt;00:03, 13.20it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|██████████████████████████████████▊                             | 56/103 [00:04&lt;00:03, 13.48it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|████████████████████████████████████                            | 58/103 [00:04&lt;00:03, 13.37it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|█████████████████████████████████████▎                          | 60/103 [00:04&lt;00:02, 14.46it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|██████████████████████████████████████▌                         | 62/103 [00:04&lt;00:02, 13.77it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62%|███████████████████████████████████████▊                        | 64/103 [00:04&lt;00:02, 14.20it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|█████████████████████████████████████████                       | 66/103 [00:05&lt;00:02, 12.88it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 66%|██████████████████████████████████████████▎                     | 68/103 [00:05&lt;00:02, 11.98it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 68%|███████████████████████████████████████████▍                    | 70/103 [00:05&lt;00:02, 12.41it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|████████████████████████████████████████████▋                   | 72/103 [00:05&lt;00:02, 13.68it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|█████████████████████████████████████████████▉                  | 74/103 [00:05&lt;00:01, 14.52it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 74%|███████████████████████████████████████████████▏                | 76/103 [00:05&lt;00:01, 13.89it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|████████████████████████████████████████████████▍               | 78/103 [00:05&lt;00:01, 13.05it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 78%|█████████████████████████████████████████████████▋              | 80/103 [00:06&lt;00:01, 14.00it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|██████████████████████████████████████████████████▉             | 82/103 [00:06&lt;00:01, 15.37it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|████████████████████████████████████████████████████▊           | 85/103 [00:06&lt;00:01, 16.85it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|██████████████████████████████████████████████████████          | 87/103 [00:06&lt;00:01, 15.55it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|███████████████████████████████████████████████████████▎        | 89/103 [00:06&lt;00:00, 15.37it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 88%|████████████████████████████████████████████████████████▌       | 91/103 [00:06&lt;00:00, 12.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|█████████████████████████████████████████████████████████▊      | 93/103 [00:07&lt;00:00, 13.12it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 92%|███████████████████████████████████████████████████████████     | 95/103 [00:07&lt;00:00, 13.61it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|████████████████████████████████████████████████████████████▉   | 98/103 [00:07&lt;00:00, 14.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 97%|█████████████████████████████████████████████████████████████▏ | 100/103 [00:07&lt;00:00, 14.45it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|██████████████████████████████████████████████████████████████▍| 102/103 [00:07&lt;00:00, 13.92it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████████████████████████| 103/103 [00:07&lt;00:00, 13.41it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 103/103 [00:08&lt;00:00, 12.80it/s]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing SALES...3/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                         | 0/116 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1%|▌                                                                | 1/116 [00:00&lt;00:14,  7.83it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3%|█▋                                                               | 3/116 [00:00&lt;00:10, 10.87it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|███▎                                                             | 6/116 [00:00&lt;00:06, 16.80it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8%|█████                                                            | 9/116 [00:00&lt;00:06, 17.17it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|██████                                                          | 11/116 [00:00&lt;00:06, 15.81it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|███████▏                                                        | 13/116 [00:00&lt;00:07, 13.63it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 13%|████████▎                                                       | 15/116 [00:01&lt;00:06, 14.86it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|█████████▍                                                      | 17/116 [00:01&lt;00:06, 14.22it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|██████████▍                                                     | 19/116 [00:01&lt;00:06, 14.29it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|███████████▌                                                    | 21/116 [00:01&lt;00:07, 13.45it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|█████████████▏                                                  | 24/116 [00:01&lt;00:06, 15.28it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 22%|██████████████▎                                                 | 26/116 [00:01&lt;00:06, 14.09it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24%|███████████████▍                                                | 28/116 [00:01&lt;00:06, 13.67it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|█████████████████                                               | 31/116 [00:02&lt;00:05, 15.95it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|██████████████████▊                                             | 34/116 [00:02&lt;00:05, 16.26it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|███████████████████▊                                            | 36/116 [00:02&lt;00:05, 15.34it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|████████████████████▉                                           | 38/116 [00:02&lt;00:06, 11.35it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 34%|██████████████████████                                          | 40/116 [00:02&lt;00:05, 12.69it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 36%|███████████████████████▏                                        | 42/116 [00:03&lt;00:05, 12.80it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 38%|████████████████████████▎                                       | 44/116 [00:03&lt;00:05, 13.04it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|█████████████████████████▍                                      | 46/116 [00:03&lt;00:05, 11.77it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 41%|██████████████████████████▍                                     | 48/116 [00:03&lt;00:05, 12.92it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|███████████████████████████▌                                    | 50/116 [00:03&lt;00:04, 13.28it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|████████████████████████████▋                                   | 52/116 [00:03&lt;00:04, 13.23it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 47%|█████████████████████████████▊                                  | 54/116 [00:03&lt;00:04, 13.13it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 48%|██████████████████████████████▉                                 | 56/116 [00:04&lt;00:04, 12.83it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|████████████████████████████████                                | 58/116 [00:04&lt;00:04, 13.19it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 52%|█████████████████████████████████                               | 60/116 [00:04&lt;00:03, 14.00it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|██████████████████████████████████▊                             | 63/116 [00:04&lt;00:03, 16.62it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|███████████████████████████████████▊                            | 65/116 [00:04&lt;00:03, 16.34it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 59%|█████████████████████████████████████▌                          | 68/116 [00:04&lt;00:02, 16.71it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|██████████████████████████████████████▌                         | 70/116 [00:04&lt;00:02, 15.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|████████████████████████████████████████▊                       | 74/116 [00:05&lt;00:02, 18.02it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 66%|█████████████████████████████████████████▉                      | 76/116 [00:05&lt;00:02, 17.28it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 68%|███████████████████████████████████████████▌                    | 79/116 [00:05&lt;00:02, 17.74it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|████████████████████████████████████████████▋                   | 81/116 [00:05&lt;00:02, 14.87it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|██████████████████████████████████████████████▎                 | 84/116 [00:05&lt;00:01, 16.30it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 75%|████████████████████████████████████████████████                | 87/116 [00:05&lt;00:01, 15.77it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 77%|█████████████████████████████████████████████████               | 89/116 [00:06&lt;00:01, 16.53it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 78%|██████████████████████████████████████████████████▏             | 91/116 [00:06&lt;00:01, 16.12it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|███████████████████████████████████████████████████▎            | 93/116 [00:06&lt;00:01, 15.80it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 82%|████████████████████████████████████████████████████▍           | 95/116 [00:06&lt;00:01, 14.17it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|█████████████████████████████████████████████████████▌          | 97/116 [00:06&lt;00:01, 14.24it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 85%|██████████████████████████████████████████████████████▌         | 99/116 [00:06&lt;00:01, 14.20it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 87%|██████████████████████████████████████████████████████▊        | 101/116 [00:06&lt;00:01, 13.02it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|████████████████████████████████████████████████████████▍      | 104/116 [00:07&lt;00:00, 16.01it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 92%|██████████████████████████████████████████████████████████     | 107/116 [00:07&lt;00:00, 18.04it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 94%|███████████████████████████████████████████████████████████▏   | 109/116 [00:07&lt;00:00, 17.61it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 97%|████████████████████████████████████████████████████████████▊  | 112/116 [00:07&lt;00:00, 18.13it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|██████████████████████████████████████████████████████████████▍| 115/116 [00:07&lt;00:00, 18.96it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████████████████████████| 116/116 [00:07&lt;00:00, 15.07it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 116/116 [00:07&lt;00:00, 14.60it/s]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing CONSULTANT...4/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                         | 0/115 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 115/115 [00:10&lt;00:00, 11.43it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2%|█▏                                                               | 2/115 [00:00&lt;00:09, 11.55it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing DIGITAL-MEDIA...5/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3%|██▎                                                              | 4/115 [00:00&lt;00:11,  9.39it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 96/96 [00:07&lt;00:00, 12.71it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|███▍                                                             | 6/115 [00:00&lt;00:09, 10.92it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing CHEF...6/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7%|████▌                                                            | 8/115 [00:00&lt;00:08, 12.48it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 118/118 [00:08&lt;00:00, 13.42it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|█████▌                                                          | 10/115 [00:00&lt;00:07, 13.77it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing HEALTHCARE...7/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 10%|██████▋                                                         | 12/115 [00:00&lt;00:07, 13.30it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 115/115 [00:10&lt;00:00, 11.11it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 12%|███████▊                                                        | 14/115 [00:01&lt;00:07, 13.74it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing PUBLIC-RELATIONS...8/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|████████▉                                                       | 16/115 [00:01&lt;00:07, 13.97it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 111/111 [00:09&lt;00:00, 11.27it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|██████████                                                      | 18/115 [00:01&lt;00:07, 13.33it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing AVIATION...9/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|███████████▏                                                    | 20/115 [00:01&lt;00:07, 13.30it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 117/117 [00:09&lt;00:00, 12.51it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|████████████▏                                                   | 22/115 [00:01&lt;00:06, 13.66it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing BANKING...10/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|█████████████▎                                                  | 24/115 [00:01&lt;00:06, 14.23it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 115/115 [00:09&lt;00:00, 12.47it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 23%|██████████████▍                                                 | 26/115 [00:01&lt;00:06, 14.41it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing ACCOUNTANT...11/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24%|███████████████▌                                                | 28/115 [00:02&lt;00:05, 15.10it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 118/118 [00:09&lt;00:00, 12.17it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 26%|████████████████▋                                               | 30/115 [00:02&lt;00:05, 14.53it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing INFORMATION-TECHNOLOGY...12/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 28%|█████████████████▊                                              | 32/115 [00:02&lt;00:06, 12.11it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 120/120 [00:11&lt;00:00, 10.68it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|██████████████████▉                                             | 34/115 [00:02&lt;00:06, 12.51it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing HR...13/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|████████████████████                                            | 36/115 [00:02&lt;00:05, 13.94it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 110/110 [00:09&lt;00:00, 11.34it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|█████████████████████▏                                          | 38/115 [00:02&lt;00:07, 10.72it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing CONSTRUCTION...14/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|██████████████████████▎                                         | 40/115 [00:03&lt;00:07, 10.35it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 112/112 [00:09&lt;00:00, 11.54it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|███████████████████████▎                                        | 42/115 [00:03&lt;00:08,  8.66it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing DESIGNER...15/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 38%|████████████████████████▍                                       | 44/115 [00:03&lt;00:07,  9.54it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 107/107 [00:08&lt;00:00, 13.28it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|█████████████████████████▌                                      | 46/115 [00:03&lt;00:06, 10.49it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing FINANCE...16/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|██████████████████████████▋                                     | 48/115 [00:04&lt;00:06,  9.80it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 118/118 [00:09&lt;00:00, 12.12it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|███████████████████████████▊                                    | 50/115 [00:04&lt;00:06, 10.72it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing FITNESS...17/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|████████████████████████████▉                                   | 52/115 [00:04&lt;00:05, 10.92it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 117/117 [00:08&lt;00:00, 13.47it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 47%|██████████████████████████████                                  | 54/115 [00:04&lt;00:04, 12.22it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing BUSINESS-DEVELOPMENT...18/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|███████████████████████████████▏                                | 56/115 [00:04&lt;00:04, 12.71it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 120/120 [00:09&lt;00:00, 12.49it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 51%|████████████████████████████████▊                               | 59/115 [00:04&lt;00:03, 15.01it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing APPAREL...19/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 53%|█████████████████████████████████▉                              | 61/115 [00:04&lt;00:03, 14.78it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 97/97 [00:07&lt;00:00, 12.38it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 55%|███████████████████████████████████                             | 63/115 [00:05&lt;00:04, 12.96it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing ADVOCATE...20/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|████████████████████████████████████▏                           | 65/115 [00:05&lt;00:03, 12.81it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 118/118 [00:10&lt;00:00, 11.42it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|█████████████████████████████████████▎                          | 67/115 [00:05&lt;00:04, 11.12it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing BPO...21/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|██████████████████████████████████████▍                         | 69/115 [00:05&lt;00:04, 11.18it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 22/22 [00:02&lt;00:00, 10.43it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62%|███████████████████████████████████████▌                        | 71/115 [00:05&lt;00:04,  9.65it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing TEACHER...22/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 63%|████████████████████████████████████████▋                       | 73/115 [00:06&lt;00:04, 10.23it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 102/102 [00:07&lt;00:00, 13.42it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 65%|█████████████████████████████████████████▋                      | 75/115 [00:06&lt;00:03, 10.84it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing ENGINEERING...23/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|██████████████████████████████████████████▊                     | 77/115 [00:06&lt;00:03, 11.39it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 118/118 [00:10&lt;00:00, 11.70it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 69%|███████████████████████████████████████████▉                    | 79/115 [00:06&lt;00:03, 10.57it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing AUTOMOBILE...24/24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|█████████████████████████████████████████████                   | 81/115 [00:06&lt;00:03,  9.86it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 36/36 [00:03&lt;00:00, 11.93it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|██████████████████████████████████████████████▏                 | 83/115 [00:07&lt;00:03, 10.11it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating vector database...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 74%|███████████████████████████████████████████████▎                | 85/115 [00:07&lt;00:02, 10.98it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 490247 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 408775 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 790740 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 708757 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 623859 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 8.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 541920 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 10.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 389765 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 718911 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 639001 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 554672 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 8.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 473002 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 811506 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 730298 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 4.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 641775 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
+Retrying langchain.embeddings.openai.embed_with_retry.&lt;locals&gt;._embed_with_retry in 8.0 seconds as it raised RateLimitError: Rate limit reached for text-embedding-ada-002 in organization org-EqQCXPlo5dygueWmKaAZPpPN on tokens per min. Limit: 1000000 / min. Current: 562517 / min. Visit https://platform.openai.com/account/rate-limits to learn more..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|████████████████████████████████████████████████▍               | 87/115 [00:07&lt;00:02, 10.50it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 77%|█████████████████████████████████████████████████▌              | 89/115 [00:07&lt;00:02, 11.06it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|██████████████████████████████████████████████████▋             | 91/115 [00:07&lt;00:02, 11.67it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 81%|███████████████████████████████████████████████████▊            | 93/115 [00:07&lt;00:01, 12.38it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|████████████████████████████████████████████████████▊           | 95/115 [00:08&lt;00:01, 12.03it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|█████████████████████████████████████████████████████▉          | 97/115 [00:08&lt;00:01, 12.31it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|███████████████████████████████████████████████████████         | 99/115 [00:08&lt;00:01, 11.55it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 88%|███████████████████████████████████████████████████████▎       | 101/115 [00:08&lt;00:01, 11.83it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|████████████████████████████████████████████████████████▍      | 103/115 [00:08&lt;00:00, 12.16it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 91%|█████████████████████████████████████████████████████████▌     | 105/115 [00:08&lt;00:00, 11.94it/s]
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">vector_db</span> <span class="o">=</span> <span class="n">create_vector_database</span><span class="p">()</span>
-
-<span class="nn">Cell In[9], line 8,</span> in <span class="ni">create_vector_database</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">category</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">categories</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Processing </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s1">...</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">resumes</span> <span class="o">=</span> <span class="n">fetch_and_load_documents</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">for</span> <span class="n">resume</span> <span class="ow">in</span> <span class="n">resumes</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">documents</span><span class="p">,</span> <span class="n">ids</span> <span class="o">=</span> <span class="n">create_chroma_document</span><span class="p">(</span><span class="n">resume</span><span class="p">,</span><span class="n">category</span><span class="p">)</span>
-
-<span class="nn">Cell In[6], line 8,</span> in <span class="ni">fetch_and_load_documents</span><span class="nt">(category, verbose)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">fetch_and_load_documents</span><span class="p">(</span><span class="n">category</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">loader</span> <span class="o">=</span> <span class="n">DirectoryLoader</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RESUME_ROOT_DIR</span><span class="p">,</span><span class="n">category</span><span class="p">),</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                              <span class="n">glob</span><span class="o">=</span><span class="s1">&#39;*.pdf&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>                              <span class="n">loader_cls</span><span class="o">=</span><span class="n">PyPDFLoader</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>                              <span class="n">show_progress</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">resumes</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">return</span> <span class="n">resumes</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/directory.py:156,</span> in <span class="ni">DirectoryLoader.load</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">155</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">156</span>         <span class="bp">self</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">docs</span><span class="p">,</span> <span class="n">pbar</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">158</span> <span class="k">if</span> <span class="n">pbar</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">159</span>     <span class="n">pbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/directory.py:99,</span> in <span class="ni">DirectoryLoader.load_file</span><span class="nt">(self, item, path, docs, pbar)</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing file: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="n">sub_docs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loader_cls</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">),</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">loader_kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="n">docs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sub_docs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/pdf.py:162,</span> in <span class="ni">PyPDFLoader.load</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Document</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">161</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Load given path as pages.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">162</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lazy_load</span><span class="p">())</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/pdf.py:169,</span> in <span class="ni">PyPDFLoader.lazy_load</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Lazy load given path as pages.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span> <span class="n">blob</span> <span class="o">=</span> <span class="n">Blob</span><span class="o">.</span><span class="n">from_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">169</span> <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">blob</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/base.py:95,</span> in <span class="ni">BaseBlobParser.parse</span><span class="nt">(self, blob)</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blob</span><span class="p">:</span> <span class="n">Blob</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Document</span><span class="p">]:</span>
-<span class="g g-Whitespace">     </span><span class="mi">81</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Eagerly parse the blob into a document or documents.</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="sd">     This is a convenience method for interactive development environment.</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="sd">         List of documents</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">95</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lazy_parse</span><span class="p">(</span><span class="n">blob</span><span class="p">))</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/parsers/pdf.py:95,</span> in <span class="ni">PyPDFParser.lazy_parse</span><span class="nt">(self, blob)</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="k">with</span> <span class="n">blob</span><span class="o">.</span><span class="n">as_bytes_io</span><span class="p">()</span> <span class="k">as</span> <span class="n">pdf_file_obj</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">pdf_reader</span> <span class="o">=</span> <span class="n">pypdf</span><span class="o">.</span><span class="n">PdfReader</span><span class="p">(</span><span class="n">pdf_file_obj</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">95</span>     <span class="k">yield from</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">Document</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>             <span class="n">page_content</span><span class="o">=</span><span class="n">page</span><span class="o">.</span><span class="n">extract_text</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span>             <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_images_from_page</span><span class="p">(</span><span class="n">page</span><span class="p">),</span>
-<span class="g g-Whitespace">     </span><span class="mi">99</span>             <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">blob</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="n">page_number</span><span class="p">},</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="p">)</span>
-<span class="nn">    101         for page_number, page</span> in <span class="ni">enumerate</span><span class="nt">(pdf_reader.pages)</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="p">]</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/langchain/document_loaders/parsers/pdf.py:97,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="k">with</span> <span class="n">blob</span><span class="o">.</span><span class="n">as_bytes_io</span><span class="p">()</span> <span class="k">as</span> <span class="n">pdf_file_obj</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">pdf_reader</span> <span class="o">=</span> <span class="n">pypdf</span><span class="o">.</span><span class="n">PdfReader</span><span class="p">(</span><span class="n">pdf_file_obj</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">yield from</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">Document</span><span class="p">(</span>
-<span class="ne">---&gt; </span><span class="mi">97</span>             <span class="n">page_content</span><span class="o">=</span><span class="n">page</span><span class="o">.</span><span class="n">extract_text</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span>             <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_images_from_page</span><span class="p">(</span><span class="n">page</span><span class="p">),</span>
-<span class="g g-Whitespace">     </span><span class="mi">99</span>             <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">blob</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="n">page_number</span><span class="p">},</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="p">)</span>
-<span class="nn">    101         for page_number, page</span> in <span class="ni">enumerate</span><span class="nt">(pdf_reader.pages)</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="p">]</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/_page.py:2284,</span> in <span class="ni">PageObject.extract_text</span><span class="nt">(self, Tj_sep, TJ_sep, orientations, space_width, visitor_operand_before, visitor_operand_after, visitor_text, *args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2281</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orientations</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2282</span>     <span class="n">orientations</span> <span class="o">=</span> <span class="p">(</span><span class="n">orientations</span><span class="p">,)</span>
-<span class="ne">-&gt; </span><span class="mi">2284</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_text</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2285</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2286</span>     <span class="bp">self</span><span class="o">.</span><span class="n">pdf</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2287</span>     <span class="n">orientations</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2288</span>     <span class="n">space_width</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2289</span>     <span class="n">PG</span><span class="o">.</span><span class="n">CONTENTS</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2290</span>     <span class="n">visitor_operand_before</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2291</span>     <span class="n">visitor_operand_after</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2292</span>     <span class="n">visitor_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2293</span> <span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/_page.py:2114,</span> in <span class="ni">PageObject._extract_text</span><span class="nt">(self, obj, pdf, orientations, space_width, content_key, visitor_operand_before, visitor_operand_after, visitor_text)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2111</span>         <span class="k">except</span> <span class="n">OrientationNotFoundError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2112</span>             <span class="k">return</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">2114</span> <span class="k">for</span> <span class="n">operands</span><span class="p">,</span> <span class="n">operator</span> <span class="ow">in</span> <span class="n">content</span><span class="o">.</span><span class="n">operations</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2115</span>     <span class="k">if</span> <span class="n">visitor_operand_before</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2116</span>         <span class="n">visitor_operand_before</span><span class="p">(</span><span class="n">operator</span><span class="p">,</span> <span class="n">operands</span><span class="p">,</span> <span class="n">cm_matrix</span><span class="p">,</span> <span class="n">tm_matrix</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/generic/_data_structures.py:1241,</span> in <span class="ni">ContentStream.operations</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1238</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">   </span><span class="mi">1239</span> <span class="k">def</span> <span class="nf">operations</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1240</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operations</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1241</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_parse_content_stream</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">b_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1242</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1243</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operations</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/generic/_data_structures.py:1131,</span> in <span class="ni">ContentStream._parse_content_stream</span><span class="nt">(self, stream)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1129</span>         <span class="n">peek</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1130</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1131</span>     <span class="n">operands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">read_object</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">forced_encoding</span><span class="p">))</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/generic/_data_structures.py:1313,</span> in <span class="ni">read_object</span><span class="nt">(stream, pdf, forced_encoding)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1311</span>         <span class="k">return</span> <span class="n">IndirectObject</span><span class="o">.</span><span class="n">read_from_stream</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">pdf</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1312</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1313</span>         <span class="k">return</span> <span class="n">NumberObject</span><span class="o">.</span><span class="n">read_from_stream</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1314</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1315</span>     <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/generic/_base.py:483,</span> in <span class="ni">NumberObject.read_from_stream</span><span class="nt">(stream)</span>
-<span class="g g-Whitespace">    </span><span class="mi">481</span> <span class="nd">@staticmethod</span>
-<span class="g g-Whitespace">    </span><span class="mi">482</span> <span class="k">def</span> <span class="nf">read_from_stream</span><span class="p">(</span><span class="n">stream</span><span class="p">:</span> <span class="n">StreamType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s2">&quot;NumberObject&quot;</span><span class="p">,</span> <span class="s2">&quot;FloatObject&quot;</span><span class="p">]:</span>
-<span class="ne">--&gt; </span><span class="mi">483</span>     <span class="n">num</span> <span class="o">=</span> <span class="n">read_until_regex</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">NumberObject</span><span class="o">.</span><span class="n">NumberPattern</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">484</span>     <span class="k">if</span> <span class="n">num</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">485</span>         <span class="k">return</span> <span class="n">FloatObject</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/openai/lib/python3.11/site-packages/pypdf/_utils.py:201,</span> in <span class="ni">read_until_regex</span><span class="nt">(stream, regex)</span>
-<span class="g g-Whitespace">    </span><span class="mi">197</span>         <span class="k">while</span> <span class="n">tok</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span>             <span class="n">tok</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">201</span> <span class="k">def</span> <span class="nf">read_until_regex</span><span class="p">(</span><span class="n">stream</span><span class="p">:</span> <span class="n">StreamType</span><span class="p">,</span> <span class="n">regex</span><span class="p">:</span> <span class="n">Pattern</span><span class="p">[</span><span class="nb">bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">202</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">203</span><span class="sd">     Read until the regular expression pattern matched (ignore the match).</span>
-<span class="g g-Whitespace">    </span><span class="mi">204</span><span class="sd">     Treats EOF on the underlying stream as the end of the token to be matched.</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span><span class="sd">         The read bytes.</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span>     <span class="n">name</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done.
 </pre></div>
 </div>
 </div>
@@ -1651,8 +1113,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
