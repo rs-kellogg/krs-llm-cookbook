@@ -8,6 +8,8 @@ import typer
 import math
 import tiktoken
 import logging
+import fitz
+from rich import console as cons
 from typing import Optional
 from tenacity import (
     retry,
@@ -17,6 +19,7 @@ from tenacity import (
 from typing import Dict
 from openaihelper import functions as F
 
+console = cons.Console(style="green on black")
 
 logging.basicConfig(filename="openai-helper.log", encoding="utf-8", level=logging.INFO)
 
@@ -39,7 +42,6 @@ if __name__ == "__main__":
     app()
 
 
-
 # -----------------------------------------------------------------------------
 @app.command()
 def extract_text(
@@ -52,7 +54,7 @@ def extract_text(
     start_page: Optional[int] = typer.Option(0, help="Start page"),
     end_page: Optional[int] = typer.Option(10_000, help="End page"),
 ):
-    assert end_page >= start_page
+    assert end_page > start_page
     if not out_dir.exists():
         out_dir.mkdir(parents=True)
         
@@ -65,7 +67,7 @@ def extract_text(
     logger = logging.getLogger()
 
     for pdf in in_dir.glob("*.pdf"):
-        console.print(f"processing file: {pdf.name}")
+        console.print(f"processing pdf file: {pdf.name}")
         logger.info(pdf.name)
         try:
             doc = fitz.open(pdf)
@@ -73,7 +75,7 @@ def extract_text(
             pages = [page for page in doc if start_page <= page.number <= end_page]
             textfile.write_text(chr(12).join([page.get_text(sort=True) for page in pages]))
         except Exception as e:
-            logger.error(f"exception: {type(e)}")
+            logger.error(f"exception: {type(e)}: {e}")
             continue
 
 
