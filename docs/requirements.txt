@@ -5,3 +5,5 @@ Wikipedia-API
 openai
 python-dotenv
 myst_nb
+leafmap
+ipyleaflet

@@ -22,7 +22,8 @@ dependencies = [
     "openai",
     "tiktoken",
     "tenacity",
-    "PyMuPDF"
+    "PyMuPDF",
+    "datasets"
 ]
 
 [project.urls]
