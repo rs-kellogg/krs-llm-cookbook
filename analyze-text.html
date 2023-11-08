@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Workshop Outline &#8212; Kellogg Research Support LLM Cookbook</title>
+    <title>Analyze Text &#8212; Kellogg Research Support LLM Cookbook</title>
   
   
   
@@ -62,11 +62,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analyze-text';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="What are Language Models?" href="llm-defined.html" />
-    <link rel="prev" title="Welcome" href="welcome.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,8 +166,8 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Workshop Outline</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Workshop Outline</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="nav bd-sidenav">
@@ -261,7 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/rs-kellogg/krs-llm-cookbook/issues/new?title=Issue%20on%20page%20%2Fintroduction.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/rs-kellogg/krs-llm-cookbook/issues/new?title=Issue%20on%20page%20%2Fanalyze-text.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -291,7 +289,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/introduction.ipynb" target="_blank"
+      <li><a href="_sources/analyze-text.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,7 +369,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Workshop Outline</h1>
+    <h1>Analyze Text</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -385,15 +383,125 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="workshop-outline">
-<span id="introduction"></span><h1>Workshop Outline<a class="headerlink" href="#workshop-outline" title="Permalink to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Focus on OpenAI offerings</p></li>
-</ul>
-<p>This book was compiled with the following version of Python:</p>
-<div class="cell tag_remove-input docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="analyze-text">
+<h1>Analyze Text<a class="headerlink" href="#analyze-text" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">openai</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+
+<span class="c1"># load the .env file containing your API key</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openai</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># Example dummy function hard coded to return the same weather</span>
+<span class="c1"># In production, this could be your backend API or an external API</span>
+<span class="k">def</span> <span class="nf">get_current_weather</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;fahrenheit&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the current weather in a given location&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s2">&quot;tokyo&quot;</span> <span class="ow">in</span> <span class="n">location</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;celsius&quot;</span><span class="p">})</span>
+    <span class="k">elif</span> <span class="s2">&quot;san francisco&quot;</span> <span class="ow">in</span> <span class="n">location</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;72&quot;</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;fahrenheit&quot;</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;celsius&quot;</span><span class="p">})</span>
+
+<span class="k">def</span> <span class="nf">run_conversation</span><span class="p">():</span>
+    <span class="c1"># Step 1: send the conversation and available functions to the model</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What&#39;s the weather like in San Francisco, Tokyo, and Paris?&quot;</span><span class="p">}]</span>
+    <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_current_weather&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Get the current weather in a given location&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The city and state, e.g. San Francisco, CA&quot;</span><span class="p">,</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;celsius&quot;</span><span class="p">,</span> <span class="s2">&quot;fahrenheit&quot;</span><span class="p">]},</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">],</span>
+                <span class="p">},</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-1106&quot;</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
+        <span class="n">tool_choice</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>  <span class="c1"># auto is default, but we&#39;ll be explicit</span>
+    <span class="p">)</span>
+    <span class="n">response_message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span>
+    <span class="n">tool_calls</span> <span class="o">=</span> <span class="n">response_message</span><span class="o">.</span><span class="n">tool_calls</span>
+    <span class="c1"># Step 2: check if the model wanted to call a function</span>
+    <span class="k">if</span> <span class="n">tool_calls</span><span class="p">:</span>
+        <span class="c1"># Step 3: call the function</span>
+        <span class="c1"># Note: the JSON response may not always be valid; be sure to handle errors</span>
+        <span class="n">available_functions</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;get_current_weather&quot;</span><span class="p">:</span> <span class="n">get_current_weather</span><span class="p">,</span>
+        <span class="p">}</span>  <span class="c1"># only one function in this example, but you can have multiple</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_message</span><span class="p">)</span>  <span class="c1"># extend conversation with assistant&#39;s reply</span>
+        <span class="c1"># Step 4: send the info for each function call and function response to the model</span>
+        <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">tool_calls</span><span class="p">:</span>
+            <span class="n">function_name</span> <span class="o">=</span> <span class="n">tool_call</span><span class="o">.</span><span class="n">function</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">function_to_call</span> <span class="o">=</span> <span class="n">available_functions</span><span class="p">[</span><span class="n">function_name</span><span class="p">]</span>
+            <span class="n">function_args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="o">.</span><span class="n">function</span><span class="o">.</span><span class="n">arguments</span><span class="p">)</span>
+            <span class="n">function_response</span> <span class="o">=</span> <span class="n">function_to_call</span><span class="p">(</span>
+                <span class="n">location</span><span class="o">=</span><span class="n">function_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;location&quot;</span><span class="p">),</span>
+                <span class="n">unit</span><span class="o">=</span><span class="n">function_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;unit&quot;</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;tool_call_id&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;tool&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span>
+                    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">function_response</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>  <span class="c1"># extend conversation with function response</span>
+        <span class="n">second_response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-1106&quot;</span><span class="p">,</span>
+            <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="p">)</span>  <span class="c1"># get a new response from the model where it can see the function response</span>
+        <span class="k">return</span> <span class="n">second_response</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">run_conversation</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compiled with Python version: 3.11.5 (main, Sep 11 2023, 08:31:25) [Clang 14.0.6 ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+  &quot;id&quot;: &quot;chatcmpl-8IROSWajJo9sPev7bcwZ756IcoJmE&quot;,
+  &quot;object&quot;: &quot;chat.completion&quot;,
+  &quot;created&quot;: 1699405896,
+  &quot;model&quot;: &quot;gpt-3.5-turbo-1106&quot;,
+  &quot;choices&quot;: [
+    {
+      &quot;index&quot;: 0,
+      &quot;message&quot;: {
+        &quot;role&quot;: &quot;assistant&quot;,
+        &quot;content&quot;: &quot;Currently, the weather in San Francisco, CA is sunny with a temperature of 72\u00b0F. In Tokyo, Japan, the weather is cloudy with a temperature of 10\u00b0C. In Paris, France, the weather is also cloudy with a temperature of 22\u00b0C.&quot;
+      },
+      &quot;finish_reason&quot;: &quot;stop&quot;
+    }
+  ],
+  &quot;usage&quot;: {
+    &quot;prompt_tokens&quot;: 181,
+    &quot;completion_tokens&quot;: 54,
+    &quot;total_tokens&quot;: 235
+  },
+  &quot;system_fingerprint&quot;: &quot;fp_eeff13170a&quot;
+}
 </pre></div>
 </div>
 </div>
@@ -430,24 +538,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="welcome.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="llm-defined.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">What are Language Models?</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
