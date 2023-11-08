@@ -178,7 +178,6 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extracting-info.html">Extracting Information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Converting Speech to Text</a></li>
 </ul>
@@ -385,6 +384,21 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analyze-text">
 <h1>Analyze Text<a class="headerlink" href="#analyze-text" title="Permalink to this heading">#</a></h1>
+<div class="admonition-process admonition">
+<p class="admonition-title">Process</p>
+<ul class="simple">
+<li><p>Get data and specify precisely what you want to extract</p></li>
+<li><p>Develop prompt (use OpenAI Playground)</p></li>
+<li><p>Develop (tested) code to extract information</p></li>
+<li><p>Run on (sample) corpus</p></li>
+<li><p>Evaluate performance</p>
+<ul>
+<li><p>If performance is unacceptable, try further prompt engineering, functions, etc.</p></li>
+<li><p>If performance is still not good enough, try fine-tuning</p></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -480,28 +494,34 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-  &quot;id&quot;: &quot;chatcmpl-8IROSWajJo9sPev7bcwZ756IcoJmE&quot;,
-  &quot;object&quot;: &quot;chat.completion&quot;,
-  &quot;created&quot;: 1699405896,
-  &quot;model&quot;: &quot;gpt-3.5-turbo-1106&quot;,
-  &quot;choices&quot;: [
-    {
-      &quot;index&quot;: 0,
-      &quot;message&quot;: {
-        &quot;role&quot;: &quot;assistant&quot;,
-        &quot;content&quot;: &quot;Currently, the weather in San Francisco, CA is sunny with a temperature of 72\u00b0F. In Tokyo, Japan, the weather is cloudy with a temperature of 10\u00b0C. In Paris, France, the weather is also cloudy with a temperature of 22\u00b0C.&quot;
-      },
-      &quot;finish_reason&quot;: &quot;stop&quot;
-    }
-  ],
-  &quot;usage&quot;: {
-    &quot;prompt_tokens&quot;: 181,
-    &quot;completion_tokens&quot;: 54,
-    &quot;total_tokens&quot;: 235
-  },
-  &quot;system_fingerprint&quot;: &quot;fp_eeff13170a&quot;
-}
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">76</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>         <span class="n">second_response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-1106&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>             <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>         <span class="p">)</span>  <span class="c1"># get a new response from the model where it can see the function response</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="k">return</span> <span class="n">second_response</span>
+<span class="ne">---&gt; </span><span class="mi">76</span> <span class="nb">print</span><span class="p">(</span><span class="n">run_conversation</span><span class="p">())</span>
+
+<span class="nn">Cell In[2], line 38,</span> in <span class="ni">run_conversation</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What&#39;s the weather like in San Francisco, Tokyo, and Paris?&quot;</span><span class="p">}]</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="p">{</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="p">}</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-1106&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="n">tool_choice</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>  <span class="c1"># auto is default, but we&#39;ll be explicit</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">response_message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="n">tool_calls</span> <span class="o">=</span> <span class="n">response_message</span><span class="o">.</span><span class="n">tool_calls</span>
+
+<span class="ne">AttributeError</span>: module &#39;openai&#39; has no attribute &#39;ChatCompletion&#39;
 </pre></div>
 </div>
 </div>

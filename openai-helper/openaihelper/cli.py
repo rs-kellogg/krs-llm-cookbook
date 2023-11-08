@@ -54,7 +54,7 @@ def extract_text(
     start_page: Optional[int] = typer.Option(0, help="Start page"),
     end_page: Optional[int] = typer.Option(10_000, help="End page"),
 ):
-    assert end_page > start_page
+    assert end_page >= start_page
     if not out_dir.exists():
         out_dir.mkdir(parents=True)
         
