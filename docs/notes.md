@@ -18,7 +18,7 @@
 ## Setup
 
 - Set up an account (different for ChatGPT and API)
-- Explore costs, data usage policy
+- Explore [costs](https://openai.com/pricing), [data usage policy](https://openai.com/enterprise-privacy)
 - Setup python and install openai package
 - Create an API key and store in a private location
 - [model updates](https://platform.openai.com/docs/models/continuous-model-upgrades)
