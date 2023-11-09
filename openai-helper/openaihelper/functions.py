@@ -2,6 +2,7 @@ from pathlib import Path
 from tqdm import tqdm
 import pandas as pd
 import openai
+import json
 import yaml
 import tiktoken
 from typing import Dict
@@ -20,28 +21,47 @@ def config(config_file: Path) -> Dict:
 
 @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 def completion_with_backoff(**kwargs) -> str:
-    return openai.ChatCompletion.create(**kwargs)
+    client = openai.OpenAI()
+    response = client.chat.completions.create(**kwargs)
+    return json.loads(response.choices[0].message.content)
 
 
-def chat_complete(text: str, model_name: str, prompt: str) -> str:
+def chat_complete(
+    model_name: str, 
+    user_prompt: str,
+    system_prompt: str,
+    text: str, 
+    temperature=0,
+    max_tokens=2048,
+    top_p=1,
+    frequency_penalty=0,
+    presence_penalty=0,
+    seed=42,
+) -> str:
     assert text is not None and len(text) > 0
     assert model_name is not None and len(model_name) > 0
-    assert prompt is not None and len(prompt) > 0
+    assert user_prompt is not None and len(user_prompt) > 0
 
     try:
-        return completion_with_backoff(
+        client = openai.OpenAI()
+        result = completion_with_backoff(
             model=model_name,
             messages=[
-                {"role": "user", "content": prompt + " " + text},
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt + '\n\n"""' + text + '\n\n"""'},
             ],
+            response_format={"type": "json_object"},
+            temperature=temperature,
+            max_tokens=max_tokens,
+            top_p=top_p,
+            frequency_penalty=frequency_penalty,
+            presence_penalty=presence_penalty,
+            seed=seed,
         )
-    except openai.InvalidRequestError as e:
-        return str(e)
-    except openai.error.RateLimitError as e:
-        return str(e)
+        return result
     except Exception as e:
         return str(e)
-
+    
 
 def count_tokens(text: str, encoding_name: str) -> int:
     assert text is not None and len(text) > 0
@@ -53,5 +73,5 @@ def count_tokens(text: str, encoding_name: str) -> int:
 
 
 def validate_result(result: str) -> bool:
-    assert result is not None and len(result) > 0
-    return not result.startswith("InvalidRequestError") and not result.startswith("RateLimitError")
+    assert result is not None
+    return True

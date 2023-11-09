@@ -4,6 +4,7 @@ import pandas as pd
 import openai
 import time
 import csv
+import os
 import typer
 import math
 import tiktoken
@@ -54,6 +55,9 @@ def extract_text(
     start_page: Optional[int] = typer.Option(0, help="Start page"),
     end_page: Optional[int] = typer.Option(10_000, help="End page"),
 ):
+    """
+    Extract text from a collection of PDF files and write each output to a text file.
+    """
     assert end_page >= start_page
     if not out_dir.exists():
         out_dir.mkdir(parents=True)
@@ -129,13 +133,12 @@ def complete_prompt(
 
     # Read config file and setup OpenAI
     config = F.config(config_file_path)
-    api_key = Path(config["openai_api_key_file"]).read_text()
     encoding_name = config["encoding_name"]
     max_token_len = config["max_token_len"]
     model_name = config["model_name"]
-    prompt = config["prompt"]
-    n_prompt_tokens = F.count_tokens(prompt, encoding_name)
-    openai.api_key = api_key
+    user_prompt = config["user_prompt"]
+    system_prompt = config["system_prompt"]
+    n_prompt_tokens = F.count_tokens(system_prompt + user_prompt, encoding_name)
 
     # Read data file
     df = pd.read_csv(data_file_path)
@@ -145,19 +148,27 @@ def complete_prompt(
     ids = list(df["id"])
 
     # Complete prompt and write results to csv file
+    out_csv_path = outdir/f"{data_file_path.stem}_responses.csv"
+    if not out_csv_path.exists():
+        out_csv = open(out_csv_path, "w")
+        writer = csv.writer(out_csv)
+        writer.writerow(["id", "response"])
+        out_csv.close()
     out_csv = open(f"{outdir}/{data_file_path.stem}_responses.csv", "a")
     writer = csv.writer(out_csv)
-    writer.writerow(["id", "response"])
     for i in tqdm(range(len(texts))):
         n_tokens = F.count_tokens(texts[i], encoding_name)
         if (n_tokens + n_prompt_tokens) > max_token_len:
             writer.writerow([ids[i], "TOO_LONG"])
             logging.warn(f"Data point {ids[i]} not completed")
         else:
-            response = str(
-                F.chat_complete(texts[i], model_name=model_name, prompt=prompt)
+            response = F.chat_complete (
+                model_name=model_name, 
+                user_prompt=user_prompt,
+                system_prompt=system_prompt,
+                text=texts[i], 
             )
-            writer.writerow([ids[i], response])
+            writer.writerow([ids[i], str(response)])
             valid = F.validate_result(response)
             if valid:
                 logging.info(f"Data point {ids[i]} completed")

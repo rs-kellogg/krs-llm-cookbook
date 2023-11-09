@@ -45,6 +45,11 @@ def test_count_tokens(config, sample_100):
             assert num_tokens > max_token_len
 
 
+def test_user_prompt(config):
+    user_prompt = config["user_prompt"]
+    print(user_prompt)
+
+
 @pytest.mark.skipif(
     "not config.getoption('--use-api')",
     reason="Only run when --use-api is given",

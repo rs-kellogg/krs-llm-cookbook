@@ -1,6 +1,28 @@
-prompt: "Read through the newspaper text and identify the following: environmental movement organization (EMO) involved, action taken by EMO, target of the action, which of the following strategies is being used- verbal statements, political tactic, education/raising awareness, juridicial tactics, disruptive protests, lifestyle/culture tactics, direct environmental protection, nondisruptive protest, and affecting business-, whether it is collaborative or contentious action, and where the event/interaction is happening. Answer in the following format. EMO: ; action: ; target: ; strategy: ; collaborative/contentious: ; city: ; county: ; state: . If the article is an advertisement, editorial, or opinions, or if it reports multiple unrelated events or non-local, international ones, return NA and specify why. Newspaper text: "
-
 max_token_len: 4097
-model_name: "gpt-3.5-turbo"
+model_name: "gpt-4-1106-preview"
 encoding_name: "cl100k_base"
-openai_api_key_file: ".env"
+
+system_prompt: |
+  You are an expert research librarian. You are precise and can analyze the structure of papers very well. You return information in json format.
+
+
+user_prompt: |
+  Extract the title and authors and affiliations from the first page of a scientific paper. 
+
+  Use the following step-by-step instructions to respond to user inputs.
+
+  Extract the title and authors from the first page of a scientific paper. The paper text will snipped will be delimited by triple quotes. Geolocate each author affiliation with latitude and longitude.
+
+  The output should have the following format:
+
+  { "title": "The paper's title",
+    "authors": [
+      {
+        "name": "Yong Ren",
+        "email": null,
+        "affiliations": [ "list of indices" ]
+      }
+    ],
+  "affiliations": [ {"index": "the index", "name": "The affiliation name", "longitude": "the longitude", "latitude": "the latitude" } ]
+  ]
+  }

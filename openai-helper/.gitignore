@@ -34,3 +34,4 @@ MANIFEST
 **/pdf/
 **/*.log
 **/.env
+**/openai-key.txt
