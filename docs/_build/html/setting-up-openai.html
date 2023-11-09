@@ -384,7 +384,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#playground">Playground</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example">Code Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>
@@ -463,28 +462,6 @@ document.write(`
 </figure>
 </div>
 </section>
-<section id="playground">
-<h2>Playground<a class="headerlink" href="#playground" title="Permalink to this heading">#</a></h2>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-OpenAI Playground</div>
-<p class="sd-card-text">The <a class="reference external" href="https://platform.openai.com/playground?mode=chat">OpenAI Playground</a> is an excellent place to develop prompts that are tailored to your application. You can also pre-load one of the existing <a class="reference external" href="https://platform.openai.com/examples">example prompts</a>. Once you’re satisfied with the results, you can export the example to code</p>
-</div>
-</div>
-<div class="admonition-prompt-engineering admonition">
-<p class="admonition-title">Prompt Engineering</p>
-<figure class="align-default" id="openai-playground">
-<a class="reference internal image-reference" href="_images/openai-playground.png"><img alt="_images/openai-playground.png" src="_images/openai-playground.png" style="width: 600px;" /></a>
-</figure>
-</div>
-<div class="admonition-generate-code admonition">
-<p class="admonition-title">Generate Code</p>
-<figure class="align-default" id="playground-save-to-code">
-<a class="reference internal image-reference" href="_images/playground-save-to-code.png"><img alt="_images/playground-save-to-code.png" src="_images/playground-save-to-code.png" style="width: 600px;" /></a>
-</figure>
-</div>
-</section>
 <section id="code-example">
 <h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -537,7 +514,7 @@ OpenAI Playground</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8IgfcHAhLsYw9gubwgSDK96mZaSgh&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&#39;{\n  &quot;response&quot;: {\n    &quot;description&quot;: &quot;Being in the same room as a lion can be an awe-inspiring and humbling experience. As a zoologist specialized in large cat psychology and a lion tamer, I am accustomed to observing and interacting with these majestic creatures with respect. However, for most individuals, the encounter can provoke a mix of emotions ranging from exhilaration to fear.&quot;,\n    &quot;sensory_experience&quot;: {\n      &quot;visual&quot;: &quot;The sight of a fully grown lion up close is striking. The animal\&#39;s size, muscle definition, and the intensity in its eyes are captivating.&quot;,\n      &quot;auditory&quot;: &quot;Lions can produce a variety of sounds. You might hear a deep, resonating roar that displays their power, purring, or other vocal communications.&quot;,\n      &quot;olfactory&quot;: &quot;Being in proximity to a lion, one might notice a musky scent, which is characteristic of many large predators.&quot;,\n      &quot;tactile&quot;: &quot;While direct physical contact with lions is generally not advisable without extensive training and understanding, the texture of their fur is coarse to the touch.&quot;,\n      &quot;emotional&quot;: &quot;In the presence of a lion, one can feel a sense of respect and caution due to the lion\&#39;s potential for power and aggression. Tr&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699464620, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=64, total_tokens=320))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8ImsrQqFJ9Hf9uulPty56W91TB4uA&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&#39;{\n  &quot;experience_description&quot;: {\n    &quot;initial_feelings&quot;: &quot;Being in the same room as a lion can be awe-inspiring and humbling due to the lion\&#39;s majestic presence and sheer size. The lion\&#39;s muscular build and the power that emanates from it command respect.&quot;,\n    &quot;safety_precautions&quot;: &quot;As a lion tamer and zoologist, I am always aware of the safety protocols and the need for heightened alertness. The room must be secure, and an emergency plan should be in place.&quot;,\n    &quot;lion_behavior&quot;: &quot;Lion behavior can be complex and unpredictable. Observing their body language and vocalizations is crucial. Movements such as tail twitching, ear positioning, and vocal growls must be interpreted correctly to gauge their mood and intentions.&quot;,\n    &quot;psychological_state&quot;: &quot;In the presence of a lion, one may feel a mix of adrenaline, fear, respect, and fascination. Training and experience can help manage these emotions to focus on interaction strategies that promote calm and obedience.&quot;,\n    &quot;professional_interaction&quot;: &quot;Professional interaction with lions involves a deep understanding of their psychology. Using this knowledge, I approach lions with confidence and establish clear commands and signals to maintain control of the situation.&quot;,\n    &quot;personal_reward&quot;: &quot;There is a&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699488505, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=64, total_tokens=320))
 </pre></div>
 </div>
 </div>
@@ -559,14 +536,13 @@ OpenAI Playground</div>
 </details>
 </div>
 <p><span class="pasted-text">{
-  “response”: {
-    “description”: “Being in the same room as a lion can be an awe-inspiring and humbling experience. As a zoologist specialized in large cat psychology and a lion tamer, I am accustomed to observing and interacting with these majestic creatures with respect. However, for most individuals, the encounter can provoke a mix of emotions ranging from exhilaration to fear.”,
-    “sensory_experience”: {
-      “visual”: “The sight of a fully grown lion up close is striking. The animal’s size, muscle definition, and the intensity in its eyes are captivating.”,
-      “auditory”: “Lions can produce a variety of sounds. You might hear a deep, resonating roar that displays their power, purring, or other vocal communications.”,
-      “olfactory”: “Being in proximity to a lion, one might notice a musky scent, which is characteristic of many large predators.”,
-      “tactile”: “While direct physical contact with lions is generally not advisable without extensive training and understanding, the texture of their fur is coarse to the touch.”,
-      “emotional”: “In the presence of a lion, one can feel a sense of respect and caution due to the lion’s potential for power and aggression. Tr</span></p>
+  “experience_description”: {
+    “initial_feelings”: “Being in the same room as a lion can be awe-inspiring and humbling due to the lion’s majestic presence and sheer size. The lion’s muscular build and the power that emanates from it command respect.”,
+    “safety_precautions”: “As a lion tamer and zoologist, I am always aware of the safety protocols and the need for heightened alertness. The room must be secure, and an emergency plan should be in place.”,
+    “lion_behavior”: “Lion behavior can be complex and unpredictable. Observing their body language and vocalizations is crucial. Movements such as tail twitching, ear positioning, and vocal growls must be interpreted correctly to gauge their mood and intentions.”,
+    “psychological_state”: “In the presence of a lion, one may feel a mix of adrenaline, fear, respect, and fascination. Training and experience can help manage these emotions to focus on interaction strategies that promote calm and obedience.”,
+    “professional_interaction”: “Professional interaction with lions involves a deep understanding of their psychology. Using this knowledge, I approach lions with confidence and establish clear commands and signals to maintain control of the situation.”,
+    “personal_reward”: “There is a</span></p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
@@ -657,7 +633,6 @@ OpenAI Playground</div>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#playground">Playground</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example">Code Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>

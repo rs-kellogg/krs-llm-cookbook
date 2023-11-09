@@ -17,7 +17,7 @@ parts:
   numbered: false
   chapters:
   - file: programming-assistance
-  - file: extracting-info # arxive pdfs
+  - file: analyze-text # arxive pdfs
   - file: text-classification # sentiment analysis
   - file: speech-to-text # whisper AI
 - caption: Advanced Topics

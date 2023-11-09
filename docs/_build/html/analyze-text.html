@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'analyze-text';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Text Classification" href="text-classification.html" />
+    <link rel="prev" title="Programming Assistance" href="programming-assistance.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,8 +178,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="setting-up-openai.html">OpenAI Setup</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Analyze Text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Converting Speech to Text</a></li>
 </ul>
@@ -357,7 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -373,6 +378,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-data">Get Data</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,8 +397,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analyze-text">
 <h1>Analyze Text<a class="headerlink" href="#analyze-text" title="Permalink to this heading">#</a></h1>
-<div class="admonition-process admonition">
-<p class="admonition-title">Process</p>
+<div class="admonition-goal admonition">
+<p class="admonition-title">Goal</p>
+<p>Extract authors, affiliations, geolocate. Visualize on a map.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Process</p>
 <ul class="simple">
 <li><p>Get data and specify precisely what you want to extract</p></li>
 <li><p>Develop prompt (use OpenAI Playground)</p></li>
@@ -399,7 +417,44 @@ document.write(`
 </li>
 </ul>
 </div>
-<div class="cell docutils container">
+<section id="get-data">
+<h2>Get Data<a class="headerlink" href="#get-data" title="Permalink to this heading">#</a></h2>
+<div class="admonition-arxive-https-arxiv-org admonition">
+<p class="admonition-title"><a class="reference external" href="https://arxiv.org/">arXive</a></p>
+<p>PDF files available, as well as <a class="reference external" href="https://www.kaggle.com/datasets/Cornell-University/arxiv/">metadata</a></p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openaihelper<span class="w"> </span>extract-text<span class="w"> </span>pdf/<span class="w"> </span>--dir<span class="w"> </span>text<span class="w"> </span>--end-page<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<div class="admonition-prompt-engineering-https-platform-openai-com-docs-guides-prompt-engineering-strategy-write-clear-instructions admonition">
+<p class="admonition-title"><a class="reference external" href="https://platform.openai.com/docs/guides/prompt-engineering/strategy-write-clear-instructions">Prompt Engineering</a></p>
+<p><a class="reference external" href="https://platform.openai.com/playground">OpenAI playground</a></p>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<a class="reference external" href="https://platform.openai.com/playground">OpenAI playground</a></div>
+<p class="sd-card-text">The <a class="reference external" href="https://platform.openai.com/playground?mode=chat">OpenAI Playground</a> is an excellent place to develop prompts that are tailored to your application. You can also pre-load one of the existing <a class="reference external" href="https://platform.openai.com/examples">example prompts</a>. Once you’re satisfied with the results, you can export the example to code</p>
+</div>
+</div>
+<!-- :::{admonition} Prompt Engineering
+```{figure} ./images/openai-playground.png
+---
+width: 600px
+name: openai-playground
+---
+```
+:::
+
+
+:::{admonition} Generate Code
+```{figure} ./images/playground-save-to-code.png
+---
+width: 600px
+name: playground-save-to-code
+---
+```
+::: --><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">openai</span>
@@ -412,120 +467,7 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openai</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="c1"># Example dummy function hard coded to return the same weather</span>
-<span class="c1"># In production, this could be your backend API or an external API</span>
-<span class="k">def</span> <span class="nf">get_current_weather</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;fahrenheit&quot;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the current weather in a given location&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="s2">&quot;tokyo&quot;</span> <span class="ow">in</span> <span class="n">location</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;celsius&quot;</span><span class="p">})</span>
-    <span class="k">elif</span> <span class="s2">&quot;san francisco&quot;</span> <span class="ow">in</span> <span class="n">location</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;72&quot;</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;fahrenheit&quot;</span><span class="p">})</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;celsius&quot;</span><span class="p">})</span>
-
-<span class="k">def</span> <span class="nf">run_conversation</span><span class="p">():</span>
-    <span class="c1"># Step 1: send the conversation and available functions to the model</span>
-    <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What&#39;s the weather like in San Francisco, Tokyo, and Paris?&quot;</span><span class="p">}]</span>
-    <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_current_weather&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Get the current weather in a given location&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
-                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The city and state, e.g. San Francisco, CA&quot;</span><span class="p">,</span>
-                        <span class="p">},</span>
-                        <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;celsius&quot;</span><span class="p">,</span> <span class="s2">&quot;fahrenheit&quot;</span><span class="p">]},</span>
-                    <span class="p">},</span>
-                    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">],</span>
-                <span class="p">},</span>
-            <span class="p">},</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-1106&quot;</span><span class="p">,</span>
-        <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
-        <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
-        <span class="n">tool_choice</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>  <span class="c1"># auto is default, but we&#39;ll be explicit</span>
-    <span class="p">)</span>
-    <span class="n">response_message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span>
-    <span class="n">tool_calls</span> <span class="o">=</span> <span class="n">response_message</span><span class="o">.</span><span class="n">tool_calls</span>
-    <span class="c1"># Step 2: check if the model wanted to call a function</span>
-    <span class="k">if</span> <span class="n">tool_calls</span><span class="p">:</span>
-        <span class="c1"># Step 3: call the function</span>
-        <span class="c1"># Note: the JSON response may not always be valid; be sure to handle errors</span>
-        <span class="n">available_functions</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;get_current_weather&quot;</span><span class="p">:</span> <span class="n">get_current_weather</span><span class="p">,</span>
-        <span class="p">}</span>  <span class="c1"># only one function in this example, but you can have multiple</span>
-        <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_message</span><span class="p">)</span>  <span class="c1"># extend conversation with assistant&#39;s reply</span>
-        <span class="c1"># Step 4: send the info for each function call and function response to the model</span>
-        <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">tool_calls</span><span class="p">:</span>
-            <span class="n">function_name</span> <span class="o">=</span> <span class="n">tool_call</span><span class="o">.</span><span class="n">function</span><span class="o">.</span><span class="n">name</span>
-            <span class="n">function_to_call</span> <span class="o">=</span> <span class="n">available_functions</span><span class="p">[</span><span class="n">function_name</span><span class="p">]</span>
-            <span class="n">function_args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="o">.</span><span class="n">function</span><span class="o">.</span><span class="n">arguments</span><span class="p">)</span>
-            <span class="n">function_response</span> <span class="o">=</span> <span class="n">function_to_call</span><span class="p">(</span>
-                <span class="n">location</span><span class="o">=</span><span class="n">function_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;location&quot;</span><span class="p">),</span>
-                <span class="n">unit</span><span class="o">=</span><span class="n">function_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;unit&quot;</span><span class="p">),</span>
-            <span class="p">)</span>
-            <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="p">{</span>
-                    <span class="s2">&quot;tool_call_id&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-                    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;tool&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span>
-                    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">function_response</span><span class="p">,</span>
-                <span class="p">}</span>
-            <span class="p">)</span>  <span class="c1"># extend conversation with function response</span>
-        <span class="n">second_response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-            <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-1106&quot;</span><span class="p">,</span>
-            <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
-        <span class="p">)</span>  <span class="c1"># get a new response from the model where it can see the function response</span>
-        <span class="k">return</span> <span class="n">second_response</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">run_conversation</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">76</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span>         <span class="n">second_response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-1106&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span>             <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span>         <span class="p">)</span>  <span class="c1"># get a new response from the model where it can see the function response</span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="k">return</span> <span class="n">second_response</span>
-<span class="ne">---&gt; </span><span class="mi">76</span> <span class="nb">print</span><span class="p">(</span><span class="n">run_conversation</span><span class="p">())</span>
-
-<span class="nn">Cell In[2], line 38,</span> in <span class="ni">run_conversation</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What&#39;s the weather like in San Francisco, Tokyo, and Paris?&quot;</span><span class="p">}]</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="p">{</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="p">}</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-1106&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="n">tool_choice</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>  <span class="c1"># auto is default, but we&#39;ll be explicit</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">response_message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="n">tool_calls</span> <span class="o">=</span> <span class="n">response_message</span><span class="o">.</span><span class="n">tool_calls</span>
-
-<span class="ne">AttributeError</span>: module &#39;openai&#39; has no attribute &#39;ChatCompletion&#39;
-</pre></div>
-</div>
-</div>
-</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -558,12 +500,44 @@ document.write(`
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="programming-assistance.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Programming Assistance</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="text-classification.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Text Classification</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-data">Get Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
