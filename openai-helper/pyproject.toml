@@ -23,7 +23,8 @@ dependencies = [
     "tiktoken",
     "tenacity",
     "PyMuPDF",
-    "datasets"
+    "datasets",
+    "pytest"
 ]
 
 [project.urls]
