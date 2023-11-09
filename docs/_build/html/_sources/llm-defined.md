@@ -1,6 +1,6 @@
-# Generative Pre-Trained Transfomer Large Language Models (GPTs)
+# GPT Large Language Models
 
-:::{admonition} Breaking this down
+:::{admonition} Examine each Piece
 :class: note
 - Language Models
 - Large

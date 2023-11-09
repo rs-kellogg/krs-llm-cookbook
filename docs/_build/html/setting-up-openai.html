@@ -173,7 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">Generative Pre-Trained Transfomer Large Language Models (GPTs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">GPT Large Language Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">What can you do with a LLM?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">OpenAI Setup</a></li>
 </ul>
@@ -520,7 +520,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8J4Hf1puYTxdnCf7sgp1FJYG4umrG&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of my expertise, requires a deep understanding of lion behavior, meticulous attention to safety protocols, and a profound respect for the animal&#39;s power and natural instincts.\n\nHere&#39;s an insight into what it&#39;s like to be in the same space as one of these majestic creatures:\n\n**Sensory Experience:**\n- **Visual:** Lions are visually striking creatures; their size, strength, and beauty are incredibly impressive up close.\n- **Auditory:** Hearing a lion&#39;s roar in proximity can be both awe-inspiring and intimidating. The variety of vocalizations—growls, snarls, purring—provides insight into the lion&#39;s current state of mind.\n- **Olfactory:** Lions have a distinct odor, which can be quite strong and musky. This smell is a key part of their presence and helps them establish territory.\n\n**Emotional Response:**\n- There&#39;s often a thrilling rush of adrenaline, knowing you are sharing space with a predator of such power.\n- There can also be a sense of mutual respect that develops from working closely&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699555391, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8J4frs2g1gLzyUNqCtciL62RQ11n2&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of my expertise, requires a high degree of awareness and understanding of lion behavior.\n\nHere are a few aspects of the experience:\n\n1. **Respect for Power**: Being in close proximity to such a formidable predator is an immediate reminder of their strength and potential for danger. A lion is an apex predator and possesses incredible power, agility, and instincts honed for hunting.\n\n2. **Sensory Overload**: Lions have a distinct presence. The smell of the lion, which is musky and intense, fills the room. Their vocalizations, like roars or growls, can resonate through your body due to the sheer volume and depth of the sounds. Seeing a lion up close allows you to appreciate their size and the details of their majestic appearance—their muscular build, their expressive eyes, and the iconic mane (in males).\n\n3. **Observing Behavior**: With expertise in large cat psychology, I continuously monitor the lion&#39;s behavior. This includes watching for subtle cues such as ear positions, tail movements, and body posture that can indicate the&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699556891, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
 </pre></div>
 </div>
 </div>
@@ -541,18 +541,15 @@ document.write(`
 </div>
 </details>
 </div>
-<p><span class="pasted-text">As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of my expertise, requires a deep understanding of lion behavior, meticulous attention to safety protocols, and a profound respect for the animal’s power and natural instincts.
+<p><span class="pasted-text">As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of my expertise, requires a high degree of awareness and understanding of lion behavior.
 
-Here’s an insight into what it’s like to be in the same space as one of these majestic creatures:
+Here are a few aspects of the experience:
 
-**Sensory Experience:**
-- **Visual:** Lions are visually striking creatures; their size, strength, and beauty are incredibly impressive up close.
-- **Auditory:** Hearing a lion’s roar in proximity can be both awe-inspiring and intimidating. The variety of vocalizations—growls, snarls, purring—provides insight into the lion’s current state of mind.
-- **Olfactory:** Lions have a distinct odor, which can be quite strong and musky. This smell is a key part of their presence and helps them establish territory.
+1. **Respect for Power**: Being in close proximity to such a formidable predator is an immediate reminder of their strength and potential for danger. A lion is an apex predator and possesses incredible power, agility, and instincts honed for hunting.
 
-**Emotional Response:**
-- There’s often a thrilling rush of adrenaline, knowing you are sharing space with a predator of such power.
-- There can also be a sense of mutual respect that develops from working closely</span></p>
+2. **Sensory Overload**: Lions have a distinct presence. The smell of the lion, which is musky and intense, fills the room. Their vocalizations, like roars or growls, can resonate through your body due to the sheer volume and depth of the sounds. Seeing a lion up close allows you to appreciate their size and the details of their majestic appearance—their muscular build, their expressive eyes, and the iconic mane (in males).
+
+3. **Observing Behavior**: With expertise in large cat psychology, I continuously monitor the lion’s behavior. This includes watching for subtle cues such as ear positions, tail movements, and body posture that can indicate the</span></p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
