@@ -16,7 +16,7 @@ def test_config(config):
 
 
 def test_key(openai_api_key):
-    assert len(openai_api_key) == 51
+    assert len(openai_api_key) == 52
     openai.api_key = openai_api_key
 
 

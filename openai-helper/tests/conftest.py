@@ -33,9 +33,9 @@ def openai_api_key(config) -> str:
 
 @pytest.fixture(scope="session")
 def sample_1() -> pd.DataFrame:
-    return pd.read_csv(dir_path / "sample-1.csv")
+    return pd.read_csv(dir_path / "data/sample-1.csv")
 
 
 @pytest.fixture(scope="session")
 def sample_100() -> pd.DataFrame:
-    return pd.read_csv(dir_path / "sample-100.csv")
+    return pd.read_csv(dir_path / "data/sample-100.csv")
