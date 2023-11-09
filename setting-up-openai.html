@@ -402,7 +402,7 @@ document.write(`
 <h1>OpenAI Setup<a class="headerlink" href="#openai-setup" title="Permalink to this heading">#</a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>OpenAI provides two services: a web-based chat application, and an API with programmatic access</p>
+<p><a class="reference external" href="https://platform.openai.com/apps">OpenAI</a> provides two services: a web-based chat application, and an API with programmatic access</p>
 </div>
 <div class="admonition-take-your-pick admonition">
 <p class="admonition-title">Take your pick</p>
@@ -419,7 +419,7 @@ document.write(`
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 <strong>ChatGPT</strong></div>
-<p class="sd-card-text">ChatGPT offers a fixed-cost way to try out capabilities. If you buy the “Plus” plan, you can use the most up-to-date models and features.</p>
+<p class="sd-card-text">OpenAI’s <code class="docutils literal notranslate"><span class="pre">ChatGPT</span></code> offers a fixed-cost way to try out capabilities. If you buy the <code class="docutils literal notranslate"><span class="pre">Plus</span></code> plan, you can use the most up-to-date models and features, and OpenAI not use your data for training. If you use the free option, your data will be used to improve their models.</p>
 </div>
 </div>
 <div class="admonition-plan admonition">
@@ -450,9 +450,15 @@ document.write(`
 <a class="reference internal image-reference" href="_images/openai-platform.png"><img alt="_images/openai-platform.png" src="_images/openai-platform.png" style="width: 600px;" /></a>
 </figure>
 </div>
+<div class="admonition-usage admonition">
+<p class="admonition-title">Usage</p>
+<figure class="align-default" id="openai-billing">
+<a class="reference internal image-reference" href="_images/openai-api-usage.png"><img alt="_images/openai-api-usage.png" src="_images/openai-api-usage.png" style="width: 600px;" /></a>
+</figure>
+</div>
 <div class="admonition-billing admonition">
 <p class="admonition-title">Billing</p>
-<figure class="align-default" id="openai-billing">
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="_images/openai-api-billing.png"><img alt="_images/openai-api-billing.png" src="_images/openai-api-billing.png" style="width: 600px;" /></a>
 </figure>
 </div>
@@ -494,14 +500,13 @@ document.write(`
   <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a lion tamer with a Ph.D. in zoology. You love your job and are an expert in large cat psychology. You also like to return your answers in json format.&quot;</span>
+      <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a lion tamer with a Ph.D. in zoology. You love your job and are an expert in large cat psychology.&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
       <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is it like to be in the same room as a lion?&quot;</span>
     <span class="p">}</span>
   <span class="p">],</span>
-  <span class="n">response_format</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;json_object&quot;</span><span class="p">},</span>
   <span class="n">temperature</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
   <span class="n">max_tokens</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
   <span class="n">top_p</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -515,7 +520,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8J20s41BNNdSJMJY8dTp5vLXLM2bg&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&#39;{\n  &quot;experience_description&quot;: {\n    &quot;initial_feelings&quot;: &quot;Being in the same room as a lion can be awe-inspiring and humbling due to the lion\&#39;s majestic presence and sheer size. The lion\&#39;s strength and predatory instincts demand respect and can evoke a sense of vulnerability in humans.&quot;,\n    &quot;sensory_impressions&quot;: {\n      &quot;visual&quot;: &quot;The lion\&#39;s imposing physique, with well-defined muscles and a thick mane, is often the first thing you notice. Their expressive eyes can appear calm or intense depending on their mood.&quot;,\n      &quot;auditory&quot;: &quot;Hearing a lion\&#39;s roar from up close is a powerful and unforgettable experience. The sound can resonate through your body. Other vocalizations, such as growls or purrs, may also be audible depending on their state of relaxation or agitation.&quot;,\n      &quot;olfactory&quot;: &quot;Lions have a distinct musky scent, which can be strong and sometimes overpower their surroundings, especially in an enclosed space.&quot;\n    },\n    &quot;safety_precautions&quot;: {\n      &quot;physical_barriers&quot;: &quot;Safety barriers, such as reinforced fencing or enclosures, are essential when sharing a space with a lion.&quot;,\n      &quot;behavioral_knowledge&quot;: &quot;Understanding and interpreting lion behavior is crucial for predicting their actions and&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699546662, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=64, total_tokens=320))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8J4Hf1puYTxdnCf7sgp1FJYG4umrG&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of my expertise, requires a deep understanding of lion behavior, meticulous attention to safety protocols, and a profound respect for the animal&#39;s power and natural instincts.\n\nHere&#39;s an insight into what it&#39;s like to be in the same space as one of these majestic creatures:\n\n**Sensory Experience:**\n- **Visual:** Lions are visually striking creatures; their size, strength, and beauty are incredibly impressive up close.\n- **Auditory:** Hearing a lion&#39;s roar in proximity can be both awe-inspiring and intimidating. The variety of vocalizations—growls, snarls, purring—provides insight into the lion&#39;s current state of mind.\n- **Olfactory:** Lions have a distinct odor, which can be quite strong and musky. This smell is a key part of their presence and helps them establish territory.\n\n**Emotional Response:**\n- There&#39;s often a thrilling rush of adrenaline, knowing you are sharing space with a predator of such power.\n- There can also be a sense of mutual respect that develops from working closely&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699555391, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
 </pre></div>
 </div>
 </div>
@@ -536,17 +541,18 @@ document.write(`
 </div>
 </details>
 </div>
-<p><span class="pasted-text">{
-  “experience_description”: {
-    “initial_feelings”: “Being in the same room as a lion can be awe-inspiring and humbling due to the lion’s majestic presence and sheer size. The lion’s strength and predatory instincts demand respect and can evoke a sense of vulnerability in humans.”,
-    “sensory_impressions”: {
-      “visual”: “The lion’s imposing physique, with well-defined muscles and a thick mane, is often the first thing you notice. Their expressive eyes can appear calm or intense depending on their mood.”,
-      “auditory”: “Hearing a lion’s roar from up close is a powerful and unforgettable experience. The sound can resonate through your body. Other vocalizations, such as growls or purrs, may also be audible depending on their state of relaxation or agitation.”,
-      “olfactory”: “Lions have a distinct musky scent, which can be strong and sometimes overpower their surroundings, especially in an enclosed space.”
-    },
-    “safety_precautions”: {
-      “physical_barriers”: “Safety barriers, such as reinforced fencing or enclosures, are essential when sharing a space with a lion.”,
-      “behavioral_knowledge”: “Understanding and interpreting lion behavior is crucial for predicting their actions and</span></p>
+<p><span class="pasted-text">As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of my expertise, requires a deep understanding of lion behavior, meticulous attention to safety protocols, and a profound respect for the animal’s power and natural instincts.
+
+Here’s an insight into what it’s like to be in the same space as one of these majestic creatures:
+
+**Sensory Experience:**
+- **Visual:** Lions are visually striking creatures; their size, strength, and beauty are incredibly impressive up close.
+- **Auditory:** Hearing a lion’s roar in proximity can be both awe-inspiring and intimidating. The variety of vocalizations—growls, snarls, purring—provides insight into the lion’s current state of mind.
+- **Olfactory:** Lions have a distinct odor, which can be quite strong and musky. This smell is a key part of their presence and helps them establish territory.
+
+**Emotional Response:**
+- There’s often a thrilling rush of adrenaline, knowing you are sharing space with a predator of such power.
+- There can also be a sense of mutual respect that develops from working closely</span></p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
