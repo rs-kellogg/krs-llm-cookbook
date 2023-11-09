@@ -173,7 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">What are Language Models?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">Generative Pre-Trained Transfomer Large Language Models (GPTs)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">What can you do with a LLM?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">OpenAI Setup</a></li>
 </ul>
@@ -409,7 +409,7 @@ document.write(`
 <figure class="align-default" id="chat-vs-api">
 <a class="reference internal image-reference" href="_images/chat-vs-api.png"><img alt="_images/chat-vs-api.png" src="_images/chat-vs-api.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text"><a class="reference external" href="https://platform.openai.com/apps">Two services, two billing accounts</a></span><a class="headerlink" href="#chat-vs-api" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text"><a class="reference external" href="https://platform.openai.com/apps">Two services, two billing accounts</a></span><a class="headerlink" href="#chat-vs-api" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -515,7 +515,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8IzvihuC7bePgowzBalMNAfpKCy2f&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&#39;{\n  &quot;experience_description&quot;: {\n    &quot;initial_feelings&quot;: &quot;Being in the same room as a lion can be awe-inspiring and humbling due to the lion\&#39;s majestic presence and sheer size. The lion\&#39;s reputation as a formidable predator can also trigger a sense of apprehension or fear.&quot;,\n    &quot;sensory_impressions&quot;: {\n      &quot;visual&quot;: &quot;Lions are impressive to observe up close, with their muscular build, deep chest, and large head adorned with a mane in the case of males. Their golden-brown fur and piercing eyes command attention.&quot;,\n      &quot;auditory&quot;: &quot;The sound of a lion\&#39;s roar can be deeply resonant and rumbling, capable of being heard up to 5 miles away. Even the subtle sounds, like purring or the padding of their paws, can be impressive.&quot;,\n      &quot;olfactory&quot;: &quot;Lions have a distinct animal scent that may be more noticeable in an enclosed space. The smell can be musky and is part of their natural biology.&quot;\n    },\n    &quot;safety&quot;: {\n      &quot;precautions&quot;: &quot;Safety is paramount. Professional lion tamers and handlers should be present with safety measures in place, such as barriers or escape routes. It is also important to understand and recognize the&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699538654, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=64, total_tokens=320))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8J20s41BNNdSJMJY8dTp5vLXLM2bg&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&#39;{\n  &quot;experience_description&quot;: {\n    &quot;initial_feelings&quot;: &quot;Being in the same room as a lion can be awe-inspiring and humbling due to the lion\&#39;s majestic presence and sheer size. The lion\&#39;s strength and predatory instincts demand respect and can evoke a sense of vulnerability in humans.&quot;,\n    &quot;sensory_impressions&quot;: {\n      &quot;visual&quot;: &quot;The lion\&#39;s imposing physique, with well-defined muscles and a thick mane, is often the first thing you notice. Their expressive eyes can appear calm or intense depending on their mood.&quot;,\n      &quot;auditory&quot;: &quot;Hearing a lion\&#39;s roar from up close is a powerful and unforgettable experience. The sound can resonate through your body. Other vocalizations, such as growls or purrs, may also be audible depending on their state of relaxation or agitation.&quot;,\n      &quot;olfactory&quot;: &quot;Lions have a distinct musky scent, which can be strong and sometimes overpower their surroundings, especially in an enclosed space.&quot;\n    },\n    &quot;safety_precautions&quot;: {\n      &quot;physical_barriers&quot;: &quot;Safety barriers, such as reinforced fencing or enclosures, are essential when sharing a space with a lion.&quot;,\n      &quot;behavioral_knowledge&quot;: &quot;Understanding and interpreting lion behavior is crucial for predicting their actions and&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699546662, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=64, total_tokens=320))
 </pre></div>
 </div>
 </div>
@@ -538,14 +538,15 @@ document.write(`
 </div>
 <p><span class="pasted-text">{
   “experience_description”: {
-    “initial_feelings”: “Being in the same room as a lion can be awe-inspiring and humbling due to the lion’s majestic presence and sheer size. The lion’s reputation as a formidable predator can also trigger a sense of apprehension or fear.”,
+    “initial_feelings”: “Being in the same room as a lion can be awe-inspiring and humbling due to the lion’s majestic presence and sheer size. The lion’s strength and predatory instincts demand respect and can evoke a sense of vulnerability in humans.”,
     “sensory_impressions”: {
-      “visual”: “Lions are impressive to observe up close, with their muscular build, deep chest, and large head adorned with a mane in the case of males. Their golden-brown fur and piercing eyes command attention.”,
-      “auditory”: “The sound of a lion’s roar can be deeply resonant and rumbling, capable of being heard up to 5 miles away. Even the subtle sounds, like purring or the padding of their paws, can be impressive.”,
-      “olfactory”: “Lions have a distinct animal scent that may be more noticeable in an enclosed space. The smell can be musky and is part of their natural biology.”
+      “visual”: “The lion’s imposing physique, with well-defined muscles and a thick mane, is often the first thing you notice. Their expressive eyes can appear calm or intense depending on their mood.”,
+      “auditory”: “Hearing a lion’s roar from up close is a powerful and unforgettable experience. The sound can resonate through your body. Other vocalizations, such as growls or purrs, may also be audible depending on their state of relaxation or agitation.”,
+      “olfactory”: “Lions have a distinct musky scent, which can be strong and sometimes overpower their surroundings, especially in an enclosed space.”
     },
-    “safety”: {
-      “precautions”: “Safety is paramount. Professional lion tamers and handlers should be present with safety measures in place, such as barriers or escape routes. It is also important to understand and recognize the</span></p>
+    “safety_precautions”: {
+      “physical_barriers”: “Safety barriers, such as reinforced fencing or enclosures, are essential when sharing a space with a lion.”,
+      “behavioral_knowledge”: “Understanding and interpreting lion behavior is crucial for predicting their actions and</span></p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
