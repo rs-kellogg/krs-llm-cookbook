@@ -167,11 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Workshop Outline</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="llm-defined.html">What are Language Models?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">What can you do with a LLM?</a></li>
@@ -515,7 +511,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8IoFe9Ch0oY8zsU4K4yRPoP2GIP2i&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&#39;{\n  &quot;response&quot;: {\n    &quot;description&quot;: &quot;Being in the same room as a lion can be an awe-inspiring and humbling experience. As a zoologist specialized in large cat psychology and a lion tamer, I am accustomed to observing and interacting with these majestic creatures with respect. However, for most individuals, the presence of a lion may evoke a mixture of fear, excitement, and admiration.&quot;,\n    &quot;sensory_experience&quot;: {\n      &quot;visual&quot;: &quot;Lions are impressive animals to observe up close. Their size, muscular build, and presence command attention. The sight of their golden fur, piercing eyes, and occasionally a display of those formidable teeth and claws can be mesmerizing.&quot;,\n      &quot;auditory&quot;: &quot;Lions have a variety of vocalizations, from deep, resonating roars to soft grunts and moans. A lion\&#39;s roar is particularly powerful and can be heard up to 5 miles away, serving as a means of communication and territoriality.&quot;,\n      &quot;olfactory&quot;: &quot;Lions have a distinct smell, which is a combination of the natural odor of their fur, the scents from their environment, and from the marks they leave to establish territorial boundaries.&quot;,\n      &quot;tactile&quot;: &quot;Interactions are limited and cautious due&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699493762, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=64, total_tokens=320))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8J20s41BNNdSJMJY8dTp5vLXLM2bg&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&#39;{\n  &quot;experience_description&quot;: {\n    &quot;initial_feelings&quot;: &quot;Being in the same room as a lion can be awe-inspiring and humbling due to the lion\&#39;s majestic presence and sheer size. The lion\&#39;s strength and predatory instincts demand respect and can evoke a sense of vulnerability in humans.&quot;,\n    &quot;sensory_impressions&quot;: {\n      &quot;visual&quot;: &quot;The lion\&#39;s imposing physique, with well-defined muscles and a thick mane, is often the first thing you notice. Their expressive eyes can appear calm or intense depending on their mood.&quot;,\n      &quot;auditory&quot;: &quot;Hearing a lion\&#39;s roar from up close is a powerful and unforgettable experience. The sound can resonate through your body. Other vocalizations, such as growls or purrs, may also be audible depending on their state of relaxation or agitation.&quot;,\n      &quot;olfactory&quot;: &quot;Lions have a distinct musky scent, which can be strong and sometimes overpower their surroundings, especially in an enclosed space.&quot;\n    },\n    &quot;safety_precautions&quot;: {\n      &quot;physical_barriers&quot;: &quot;Safety barriers, such as reinforced fencing or enclosures, are essential when sharing a space with a lion.&quot;,\n      &quot;behavioral_knowledge&quot;: &quot;Understanding and interpreting lion behavior is crucial for predicting their actions and&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699546662, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=64, total_tokens=320))
 </pre></div>
 </div>
 </div>
@@ -537,13 +533,16 @@ document.write(`
 </details>
 </div>
 <p><span class="pasted-text">{
-  “response”: {
-    “description”: “Being in the same room as a lion can be an awe-inspiring and humbling experience. As a zoologist specialized in large cat psychology and a lion tamer, I am accustomed to observing and interacting with these majestic creatures with respect. However, for most individuals, the presence of a lion may evoke a mixture of fear, excitement, and admiration.”,
-    “sensory_experience”: {
-      “visual”: “Lions are impressive animals to observe up close. Their size, muscular build, and presence command attention. The sight of their golden fur, piercing eyes, and occasionally a display of those formidable teeth and claws can be mesmerizing.”,
-      “auditory”: “Lions have a variety of vocalizations, from deep, resonating roars to soft grunts and moans. A lion’s roar is particularly powerful and can be heard up to 5 miles away, serving as a means of communication and territoriality.”,
-      “olfactory”: “Lions have a distinct smell, which is a combination of the natural odor of their fur, the scents from their environment, and from the marks they leave to establish territorial boundaries.”,
-      “tactile”: “Interactions are limited and cautious due</span></p>
+  “experience_description”: {
+    “initial_feelings”: “Being in the same room as a lion can be awe-inspiring and humbling due to the lion’s majestic presence and sheer size. The lion’s strength and predatory instincts demand respect and can evoke a sense of vulnerability in humans.”,
+    “sensory_impressions”: {
+      “visual”: “The lion’s imposing physique, with well-defined muscles and a thick mane, is often the first thing you notice. Their expressive eyes can appear calm or intense depending on their mood.”,
+      “auditory”: “Hearing a lion’s roar from up close is a powerful and unforgettable experience. The sound can resonate through your body. Other vocalizations, such as growls or purrs, may also be audible depending on their state of relaxation or agitation.”,
+      “olfactory”: “Lions have a distinct musky scent, which can be strong and sometimes overpower their surroundings, especially in an enclosed space.”
+    },
+    “safety_precautions”: {
+      “physical_barriers”: “Safety barriers, such as reinforced fencing or enclosures, are essential when sharing a space with a lion.”,
+      “behavioral_knowledge”: “Understanding and interpreting lion behavior is crucial for predicting their actions and</span></p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
