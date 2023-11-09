@@ -359,9 +359,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -377,14 +375,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-data">Get Data</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -396,70 +386,57 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analyze-text">
 <h1>Analyze Text<a class="headerlink" href="#analyze-text" title="Permalink to this heading">#</a></h1>
-<div class="admonition-goal admonition">
-<p class="admonition-title">Goal</p>
-<p>Extract authors, affiliations, geolocate. Visualize on a map.</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Process</p>
+<div class="important admonition">
+<p class="admonition-title">Development Process</p>
 <ul class="simple">
-<li><p>Get data and specify precisely what you want to extract</p></li>
-<li><p>Develop prompt (use OpenAI Playground)</p></li>
-<li><p>Develop (tested) code to extract information</p></li>
-<li><p>Run on (sample) corpus</p></li>
-<li><p>Evaluate performance</p>
+<li><p>Come up with an idea 😀</p></li>
+<li><p>Identify a dataset and specify precisely what you want to extract</p></li>
+<li><p>Engineer a prompt (use OpenAI Playground)</p></li>
+<li><p>Evaluate performance on a sample</p>
 <ul>
 <li><p>If performance is unacceptable, try further prompt engineering, functions, etc.</p></li>
 <li><p>If performance is still not good enough, try fine-tuning</p></li>
 </ul>
 </li>
+<li><p>Deploy</p></li>
 </ul>
-</div>
-<div class="highlight-figure notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
 </div>
 <figure class="align-default" id="gpt-dev-cycle">
 <a class="reference internal image-reference" href="_images/gpt-dev-cycle.png"><img alt="_images/gpt-dev-cycle.png" src="_images/gpt-dev-cycle.png" style="width: 600px;" /></a>
 </figure>
-<section id="get-data">
-<h2>Get Data<a class="headerlink" href="#get-data" title="Permalink to this heading">#</a></h2>
-<div class="admonition-arxive-https-arxiv-org admonition">
-<p class="admonition-title"><a class="reference external" href="https://arxiv.org/">arXive</a></p>
-<p>PDF files available, as well as <a class="reference external" href="https://www.kaggle.com/datasets/Cornell-University/arxiv/">metadata</a></p>
+<div class="tip admonition">
+<p class="admonition-title">An Idea</p>
+<p>Identify clusters of people who are collaborating on Large Language Model research.</p>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openaihelper<span class="w"> </span>extract-text<span class="w"> </span>pdf/<span class="w"> </span>--dir<span class="w"> </span>text<span class="w"> </span>--end-page<span class="w"> </span><span class="m">0</span>
-</pre></div>
+<figure class="align-default" id="map-blank">
+<a class="reference internal image-reference" href="_images/map-blank.png"><img alt="_images/map-blank.png" src="_images/map-blank.png" style="width: 600px;" /></a>
+</figure>
+<div class="tip admonition">
+<p class="admonition-title">Gather Data</p>
+<p>Promising dataset: <a class="reference external" href="https://arxiv.org/">arXive</a>
+PDF files available, as well as <a class="reference external" href="https://www.kaggle.com/datasets/Cornell-University/arxiv/">metadata</a></p>
 </div>
-<div class="admonition-prompt-engineering-https-platform-openai-com-docs-guides-prompt-engineering-strategy-write-clear-instructions admonition">
-<p class="admonition-title"><a class="reference external" href="https://platform.openai.com/docs/guides/prompt-engineering/strategy-write-clear-instructions">Prompt Engineering</a></p>
+<div class="tip admonition">
+<p class="admonition-title">Specify what information to extract</p>
+<p>TBD</p>
+</div>
+<div class="admonition-develop-a-prompt admonition">
+<p class="admonition-title">Develop a Prompt</p>
 <p><a class="reference external" href="https://platform.openai.com/playground">OpenAI playground</a></p>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-<a class="reference external" href="https://platform.openai.com/playground">OpenAI playground</a></div>
-<p class="sd-card-text">The <a class="reference external" href="https://platform.openai.com/playground?mode=chat">OpenAI Playground</a> is an excellent place to develop prompts that are tailored to your application. You can also pre-load one of the existing <a class="reference external" href="https://platform.openai.com/examples">example prompts</a>. Once you’re satisfied with the results, you can export the example to code</p>
+Prompt engineering</div>
+<p class="sd-card-text">There are various prompting strategies you can use to improve performance. [OpenAI](<a class="reference external" href="https://platform.openai.com/docs/guides/prompt-engineering/strategy-write-clear-instructions">Prompt Engineering</a> has a very good guide to help you out. They also provide lots of examples to look at.</p>
 </div>
 </div>
-<!-- :::{admonition} Prompt Engineering
-```{figure} ./images/openai-playground.png
----
-width: 600px
-name: openai-playground
----
-```
-:::
-
-
-:::{admonition} Generate Code
-```{figure} ./images/playground-save-to-code.png
----
-width: 600px
-name: playground-save-to-code
----
-```
-::: --><div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">openai</span>
@@ -471,8 +448,20 @@ name: playground-save-to-code
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-</section>
+<div class="tip admonition">
+<p class="admonition-title">Evaluate on a sample</p>
+<p>TBD</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Deploy</p>
+<p>TBD</p>
+</div>
+<div class="important admonition">
+<p class="admonition-title">Payoff</p>
+<p>Map video</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -529,20 +518,6 @@ name: playground-save-to-code
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-data">Get Data</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
