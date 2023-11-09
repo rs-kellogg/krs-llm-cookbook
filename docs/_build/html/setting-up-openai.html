@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'setting-up-openai';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Programming Assistance" href="programming-assistance.html" />
-    <link rel="prev" title="What can you do with a LLM?" href="llm-use-cases.html" />
+    <link rel="next" title="Text Classification" href="text-classification.html" />
+    <link rel="prev" title="What can you do a GPT?" href="llm-use-cases.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,23 +173,22 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">GPT Large Language Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">What can you do with a LLM?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm-defined.html">Generative Pre-Trained Transformer (GPT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm-use-cases.html">What can you do a GPT?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">OpenAI Setup</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Analyze Text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Analyze Text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Converting Speech to Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">Fine-Tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="langchain.html">Creating Applications with Langchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">Retrieval Augmented Generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vector-databases.html">Vector Databases</a></li>
 </ul>
 
     </div>
@@ -520,7 +519,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8J4frs2g1gLzyUNqCtciL62RQ11n2&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of my expertise, requires a high degree of awareness and understanding of lion behavior.\n\nHere are a few aspects of the experience:\n\n1. **Respect for Power**: Being in close proximity to such a formidable predator is an immediate reminder of their strength and potential for danger. A lion is an apex predator and possesses incredible power, agility, and instincts honed for hunting.\n\n2. **Sensory Overload**: Lions have a distinct presence. The smell of the lion, which is musky and intense, fills the room. Their vocalizations, like roars or growls, can resonate through your body due to the sheer volume and depth of the sounds. Seeing a lion up close allows you to appreciate their size and the details of their majestic appearance—their muscular build, their expressive eyes, and the iconic mane (in males).\n\n3. **Observing Behavior**: With expertise in large cat psychology, I continuously monitor the lion&#39;s behavior. This includes watching for subtle cues such as ear positions, tail movements, and body posture that can indicate the&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699556891, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8J5POskP5kPTOhQL5dvzGLgYt7jef&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of how well-trained the animal might be, requires a deep understanding of its behavior, mood, and instincts.\n\nThe physical presence of a lion is commanding. Adult lions are massive animals, with males ranging between 420 and 500 pounds or more, and the sheer size of the animal can be imposing. The sound of a lion’s roar can reverberate through your chest, and the power behind every movement they make is palpable.\n\nThe emotional experience of being near a lion is intense. The anticipation of their reaction, the knowledge of their potential for swift and powerful action, and the trust established through rigorous training all contribute to an environment that demands constant vigilance.\n\nAs a professional, understanding large cat psychology is critical to my safety and the well-being of the lion. Observing body language is key; tail twitches, ear positions, pupil dilation, and overall posture can indicate a lion&#39;s mood and intentions. By interpreting these signs, I can predict the lion&#39;s behavior and respond accordingly.\n\nWorking with lions involves mutual respect. I must always remember&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699559714, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
 </pre></div>
 </div>
 </div>
@@ -541,15 +540,15 @@ document.write(`
 </div>
 </details>
 </div>
-<p><span class="pasted-text">As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of my expertise, requires a high degree of awareness and understanding of lion behavior.
+<p><span class="pasted-text">As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of how well-trained the animal might be, requires a deep understanding of its behavior, mood, and instincts.
 
-Here are a few aspects of the experience:
+The physical presence of a lion is commanding. Adult lions are massive animals, with males ranging between 420 and 500 pounds or more, and the sheer size of the animal can be imposing. The sound of a lion’s roar can reverberate through your chest, and the power behind every movement they make is palpable.
 
-1. **Respect for Power**: Being in close proximity to such a formidable predator is an immediate reminder of their strength and potential for danger. A lion is an apex predator and possesses incredible power, agility, and instincts honed for hunting.
+The emotional experience of being near a lion is intense. The anticipation of their reaction, the knowledge of their potential for swift and powerful action, and the trust established through rigorous training all contribute to an environment that demands constant vigilance.
 
-2. **Sensory Overload**: Lions have a distinct presence. The smell of the lion, which is musky and intense, fills the room. Their vocalizations, like roars or growls, can resonate through your body due to the sheer volume and depth of the sounds. Seeing a lion up close allows you to appreciate their size and the details of their majestic appearance—their muscular build, their expressive eyes, and the iconic mane (in males).
+As a professional, understanding large cat psychology is critical to my safety and the well-being of the lion. Observing body language is key; tail twitches, ear positions, pupil dilation, and overall posture can indicate a lion’s mood and intentions. By interpreting these signs, I can predict the lion’s behavior and respond accordingly.
 
-3. **Observing Behavior**: With expertise in large cat psychology, I continuously monitor the lion’s behavior. This includes watching for subtle cues such as ear positions, tail movements, and body posture that can indicate the</span></p>
+Working with lions involves mutual respect. I must always remember</span></p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
@@ -611,15 +610,15 @@ Here are a few aspects of the experience:
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">What can you do with a LLM?</p>
+        <p class="prev-next-title">What can you do a GPT?</p>
       </div>
     </a>
     <a class="right-next"
-       href="programming-assistance.html"
+       href="text-classification.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Programming Assistance</p>
+        <p class="prev-next-title">Text Classification</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

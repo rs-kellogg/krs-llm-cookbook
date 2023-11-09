@@ -1,4 +1,4 @@
-# What can you do with a LLM?
+# What can you do a GPT?
 
 ### Overview
 GPT can be adopted for building applications for:

@@ -1,7 +1,9 @@
-# GPT Large Language Models
+# Generative Pre-Trained Transformer (GPT)
 
-:::{admonition} Examine each Piece
+:::{admonition} GPT is a type of Language Model
 :class: note
+Let's break this down piece-by-piece in reverse order:
+
 - Language Models
 - Large
 - Transformer

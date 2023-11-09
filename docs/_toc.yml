@@ -16,17 +16,16 @@ parts:
 - caption: Use Cases
   numbered: false
   chapters:
+  - file: text-classification
+  - file: analyze-text
+  - file: speech-to-text
   - file: programming-assistance
-  - file: analyze-text # arxive pdfs
-  - file: text-classification # sentiment analysis
-  - file: speech-to-text # whisper AI
 - caption: Advanced Topics
   numbered: false
   chapters:
   - file: fine-tuning
   - file: langchain
   - file: augmented-generation
-  - file: vector-databases
 
 
   
