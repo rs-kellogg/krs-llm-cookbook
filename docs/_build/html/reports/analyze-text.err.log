@@ -1,128 +1,36 @@
 Traceback (most recent call last):
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/asyncio/base_events.py", line 664, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/nbclient/client.py", line 1058, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import openai
-import json
-
-# Example dummy function hard coded to return the same weather
-# In production, this could be your backend API or an external API
-def get_current_weather(location, unit="fahrenheit"):
-    """Get the current weather in a given location"""
-    if "tokyo" in location.lower():
-        return json.dumps({"location": location, "temperature": "10", "unit": "celsius"})
-    elif "san francisco" in location.lower():
-        return json.dumps({"location": location, "temperature": "72", "unit": "fahrenheit"})
-    else:
-        return json.dumps({"location": location, "temperature": "22", "unit": "celsius"})
-
-def run_conversation():
-    # Step 1: send the conversation and available functions to the model
-    messages = [{"role": "user", "content": "What's the weather like in San Francisco, Tokyo, and Paris?"}]
-    tools = [
-        {
-            "type": "function",
-            "function": {
-                "name": "get_current_weather",
-                "description": "Get the current weather in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city and state, e.g. San Francisco, CA",
-                        },
-                        "unit": {"type": "string", "enum": ["celsius", "fahrenheit"]},
-                    },
-                    "required": ["location"],
-                },
-            },
-        }
-    ]
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-1106",
-        messages=messages,
-        tools=tools,
-        tool_choice="auto",  # auto is default, but we'll be explicit
-    )
-    response_message = response.choices[0].message
-    tool_calls = response_message.tool_calls
-    # Step 2: check if the model wanted to call a function
-    if tool_calls:
-        # Step 3: call the function
-        # Note: the JSON response may not always be valid; be sure to handle errors
-        available_functions = {
-            "get_current_weather": get_current_weather,
-        }  # only one function in this example, but you can have multiple
-        messages.append(response_message)  # extend conversation with assistant's reply
-        # Step 4: send the info for each function call and function response to the model
-        for tool_call in tool_calls:
-            function_name = tool_call.function.name
-            function_to_call = available_functions[function_name]
-            function_args = json.loads(tool_call.function.arguments)
-            function_response = function_to_call(
-                location=function_args.get("location"),
-                unit=function_args.get("unit"),
-            )
-            messages.append(
-                {
-                    "tool_call_id": tool_call.id,
-                    "role": "tool",
-                    "name": function_name,
-                    "content": function_response,
-                }
-            )  # extend conversation with function response
-        second_response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-1106",
-            messages=messages,
-        )  # get a new response from the model where it can see the function response
-        return second_response
-print(run_conversation())
+import leafmap
+map = leafmap.Map()
+# Need data! : map.add_xy_data(df, x="longitude", y="latitude", layer_name="World Cities")
+map
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mAttributeError[0m                            Traceback (most recent call last)
-Cell [0;32mIn[2], line 76[0m
-[1;32m     71[0m         second_response [38;5;241m=[39m openai[38;5;241m.[39mChatCompletion[38;5;241m.[39mcreate(
-[1;32m     72[0m             model[38;5;241m=[39m[38;5;124m"[39m[38;5;124mgpt-3.5-turbo-1106[39m[38;5;124m"[39m,
-[1;32m     73[0m             messages[38;5;241m=[39mmessages,
-[1;32m     74[0m         )  [38;5;66;03m# get a new response from the model where it can see the function response[39;00m
-[1;32m     75[0m         [38;5;28;01mreturn[39;00m second_response
-[0;32m---> 76[0m [38;5;28mprint[39m([43mrun_conversation[49m[43m([49m[43m)[49m)
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mleafmap[39;00m
+[1;32m      2[0m [38;5;28mmap[39m [38;5;241m=[39m leafmap[38;5;241m.[39mMap()
+[1;32m      3[0m [38;5;66;03m# Need data! : map.add_xy_data(df, x="longitude", y="latitude", layer_name="World Cities")[39;00m
 
-Cell [0;32mIn[2], line 38[0m, in [0;36mrun_conversation[0;34m()[0m
-[1;32m     17[0m messages [38;5;241m=[39m [{[38;5;124m"[39m[38;5;124mrole[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124muser[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mcontent[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124mWhat[39m[38;5;124m'[39m[38;5;124ms the weather like in San Francisco, Tokyo, and Paris?[39m[38;5;124m"[39m}]
-[1;32m     18[0m tools [38;5;241m=[39m [
-[1;32m     19[0m     {
-[1;32m     20[0m         [38;5;124m"[39m[38;5;124mtype[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124mfunction[39m[38;5;124m"[39m,
-[0;32m   (...)[0m
-[1;32m     36[0m     }
-[1;32m     37[0m ]
-[0;32m---> 38[0m response [38;5;241m=[39m [43mopenai[49m[38;5;241;43m.[39;49m[43mChatCompletion[49m[38;5;241m.[39mcreate(
-[1;32m     39[0m     model[38;5;241m=[39m[38;5;124m"[39m[38;5;124mgpt-3.5-turbo-1106[39m[38;5;124m"[39m,
-[1;32m     40[0m     messages[38;5;241m=[39mmessages,
-[1;32m     41[0m     tools[38;5;241m=[39mtools,
-[1;32m     42[0m     tool_choice[38;5;241m=[39m[38;5;124m"[39m[38;5;124mauto[39m[38;5;124m"[39m,  [38;5;66;03m# auto is default, but we'll be explicit[39;00m
-[1;32m     43[0m )
-[1;32m     44[0m response_message [38;5;241m=[39m response[38;5;241m.[39mchoices[[38;5;241m0[39m][38;5;241m.[39mmessage
-[1;32m     45[0m tool_calls [38;5;241m=[39m response_message[38;5;241m.[39mtool_calls
-
-[0;31mAttributeError[0m: module 'openai' has no attribute 'ChatCompletion'
+[0;31mModuleNotFoundError[0m: No module named 'leafmap'
 
