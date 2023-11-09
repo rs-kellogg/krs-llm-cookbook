@@ -2,12 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../lm-hackers"
-		},
-		{
-			"path": "../gpt_examples"
 		}
 	],
 	"settings": {}
