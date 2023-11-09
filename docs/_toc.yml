@@ -23,6 +23,7 @@ parts:
 - caption: Advanced Topics
   numbered: false
   chapters:
+  - file: function-calling
   - file: fine-tuning
   - file: langchain
   - file: augmented-generation
