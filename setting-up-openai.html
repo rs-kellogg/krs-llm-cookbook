@@ -180,7 +180,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extracting-info.html">Extracting Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Analyze Text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Converting Speech to Text</a></li>
 </ul>
@@ -385,7 +385,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#playground">Playground</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example">Code Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>
@@ -464,28 +463,6 @@ document.write(`
 </figure>
 </div>
 </section>
-<section id="playground">
-<h2>Playground<a class="headerlink" href="#playground" title="Permalink to this heading">#</a></h2>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-OpenAI Playground</div>
-<p class="sd-card-text">The <a class="reference external" href="https://platform.openai.com/playground?mode=chat">OpenAI Playground</a> is an excellent place to develop prompts that are tailored to your application. You can also pre-load one of the existing <a class="reference external" href="https://platform.openai.com/examples">example prompts</a>. Once you’re satisfied with the results, you can export the example to code</p>
-</div>
-</div>
-<div class="admonition-prompt-engineering admonition">
-<p class="admonition-title">Prompt Engineering</p>
-<figure class="align-default" id="openai-playground">
-<a class="reference internal image-reference" href="_images/openai-playground.png"><img alt="_images/openai-playground.png" src="_images/openai-playground.png" style="width: 600px;" /></a>
-</figure>
-</div>
-<div class="admonition-generate-code admonition">
-<p class="admonition-title">Generate Code</p>
-<figure class="align-default" id="playground-save-to-code">
-<a class="reference internal image-reference" href="_images/playground-save-to-code.png"><img alt="_images/playground-save-to-code.png" src="_images/playground-save-to-code.png" style="width: 600px;" /></a>
-</figure>
-</div>
-</section>
 <section id="code-example">
 <h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -509,26 +486,28 @@ OpenAI Playground</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">openai</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">()</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-  <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+  <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4-1106-preview&quot;</span><span class="p">,</span>
   <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a lion tamer with a Ph.D. in zoology. You love your job and are an expert in large cat psychology.&quot;</span>
+      <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a lion tamer with a Ph.D. in zoology. You love your job and are an expert in large cat psychology. You also like to return your answers in json format.&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
       <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is it like to be in the same room as a lion?&quot;</span>
     <span class="p">}</span>
   <span class="p">],</span>
+  <span class="n">response_format</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;json_object&quot;</span><span class="p">},</span>
   <span class="n">temperature</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
   <span class="n">max_tokens</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
   <span class="n">top_p</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
   <span class="n">frequency_penalty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-  <span class="n">presence_penalty</span><span class="o">=</span><span class="mi">0</span>
+  <span class="n">presence_penalty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+  <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
@@ -536,27 +515,7 @@ OpenAI Playground</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-  &quot;id&quot;: &quot;chatcmpl-8IROXNT4tAl8abuRn2hAM5kfqeIgk&quot;,
-  &quot;object&quot;: &quot;chat.completion&quot;,
-  &quot;created&quot;: 1699405901,
-  &quot;model&quot;: &quot;gpt-3.5-turbo-0613&quot;,
-  &quot;choices&quot;: [
-    {
-      &quot;index&quot;: 0,
-      &quot;message&quot;: {
-        &quot;role&quot;: &quot;assistant&quot;,
-        &quot;content&quot;: &quot;Being in the same room as a lion is an incredible experience. It evokes a mix of awe, respect, and admiration for these magnificent creatures. As a lion tamer, I rely on my expertise in large cat psychology to navigate these interactions safely.\n\nWhen entering a lion&#39;s presence, it is important to remain calm and confident, as these animals are highly perceptive and can sense even the slightest hint of fear or insecurity. Lions are apex predators, and their presence exudes power and authority. But when approached with the right techniques and respect, they can also display a remarkable degree of trust and cooperation.\n\nBuilding a strong bond and mutual understanding with captive lions takes time and patience. It involves establishing clear communication, consistency, and positive reinforcement. Training sessions focus on stimulating the lion&#39;s natural instincts through activities such as target training, agility exercises, and puzzle-solving. These activities help keep their minds engaged and provide both mental and physical stimulation.\n\nDuring these interactions, it is important to remember that lions are still wild animals, and careful observation is necessary to interpret their body language and respond accordingly. Each lion has its own unique personality, and understanding their individual behavior patterns and preferences is crucial for fostering a harmonious environment.\n\nOverall, being in the same room as a lion is an absolute&quot;
-      },
-      &quot;finish_reason&quot;: &quot;length&quot;
-    }
-  ],
-  &quot;usage&quot;: {
-    &quot;prompt_tokens&quot;: 53,
-    &quot;completion_tokens&quot;: 256,
-    &quot;total_tokens&quot;: 309
-  }
-}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8IoFe9Ch0oY8zsU4K4yRPoP2GIP2i&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&#39;{\n  &quot;response&quot;: {\n    &quot;description&quot;: &quot;Being in the same room as a lion can be an awe-inspiring and humbling experience. As a zoologist specialized in large cat psychology and a lion tamer, I am accustomed to observing and interacting with these majestic creatures with respect. However, for most individuals, the presence of a lion may evoke a mixture of fear, excitement, and admiration.&quot;,\n    &quot;sensory_experience&quot;: {\n      &quot;visual&quot;: &quot;Lions are impressive animals to observe up close. Their size, muscular build, and presence command attention. The sight of their golden fur, piercing eyes, and occasionally a display of those formidable teeth and claws can be mesmerizing.&quot;,\n      &quot;auditory&quot;: &quot;Lions have a variety of vocalizations, from deep, resonating roars to soft grunts and moans. A lion\&#39;s roar is particularly powerful and can be heard up to 5 miles away, serving as a means of communication and territoriality.&quot;,\n      &quot;olfactory&quot;: &quot;Lions have a distinct smell, which is a combination of the natural odor of their fur, the scents from their environment, and from the marks they leave to establish territorial boundaries.&quot;,\n      &quot;tactile&quot;: &quot;Interactions are limited and cautious due&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699493762, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=64, total_tokens=320))
 </pre></div>
 </div>
 </div>
@@ -570,22 +529,21 @@ OpenAI Playground</div>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
-<span class="n">response_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;choices&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+<span class="n">response_text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;response_text&quot;</span><span class="p">,</span> <span class="n">response_text</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<p><span class="pasted-text">Being in the same room as a lion is an incredible experience. It evokes a mix of awe, respect, and admiration for these magnificent creatures. As a lion tamer, I rely on my expertise in large cat psychology to navigate these interactions safely.
-
-When entering a lion’s presence, it is important to remain calm and confident, as these animals are highly perceptive and can sense even the slightest hint of fear or insecurity. Lions are apex predators, and their presence exudes power and authority. But when approached with the right techniques and respect, they can also display a remarkable degree of trust and cooperation.
-
-Building a strong bond and mutual understanding with captive lions takes time and patience. It involves establishing clear communication, consistency, and positive reinforcement. Training sessions focus on stimulating the lion’s natural instincts through activities such as target training, agility exercises, and puzzle-solving. These activities help keep their minds engaged and provide both mental and physical stimulation.
-
-During these interactions, it is important to remember that lions are still wild animals, and careful observation is necessary to interpret their body language and respond accordingly. Each lion has its own unique personality, and understanding their individual behavior patterns and preferences is crucial for fostering a harmonious environment.
-
-Overall, being in the same room as a lion is an absolute</span></p>
+<p><span class="pasted-text">{
+  “response”: {
+    “description”: “Being in the same room as a lion can be an awe-inspiring and humbling experience. As a zoologist specialized in large cat psychology and a lion tamer, I am accustomed to observing and interacting with these majestic creatures with respect. However, for most individuals, the presence of a lion may evoke a mixture of fear, excitement, and admiration.”,
+    “sensory_experience”: {
+      “visual”: “Lions are impressive animals to observe up close. Their size, muscular build, and presence command attention. The sight of their golden fur, piercing eyes, and occasionally a display of those formidable teeth and claws can be mesmerizing.”,
+      “auditory”: “Lions have a variety of vocalizations, from deep, resonating roars to soft grunts and moans. A lion’s roar is particularly powerful and can be heard up to 5 miles away, serving as a means of communication and territoriality.”,
+      “olfactory”: “Lions have a distinct smell, which is a combination of the natural odor of their fur, the scents from their environment, and from the marks they leave to establish territorial boundaries.”,
+      “tactile”: “Interactions are limited and cautious due</span></p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
@@ -676,7 +634,6 @@ Overall, being in the same room as a lion is an absolute</span></p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#playground">Playground</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example">Code Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>

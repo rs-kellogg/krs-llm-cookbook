@@ -31,13 +31,12 @@ with open(api_file, 'r') as f:
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 4[0m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mopenai[39;00m
-[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mos[39;00m
-[0;32m----> 4[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[1], line 8[0m
 [1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpprint[39;00m [38;5;28;01mimport[39;00m pprint
 [1;32m      7[0m [38;5;66;03m# api_file ="__api_file_path__"[39;00m
+[0;32m----> 8[0m [38;5;28;01mwith[39;00m [38;5;28mopen[39m([43mapi_file[49m, [38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m) [38;5;28;01mas[39;00m f:
+[1;32m      9[0m     openai[38;5;241m.[39mapi_key [38;5;241m=[39m f[38;5;241m.[39mread()[38;5;241m.[39mstrip()
 
-[0;31mModuleNotFoundError[0m: No module named 'pandas'
+[0;31mNameError[0m: name 'api_file' is not defined
 

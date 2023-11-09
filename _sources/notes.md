@@ -26,3 +26,7 @@
   >GPT-4 is a large multimodal model (accepting text inputs and emitting text outputs today, with image inputs coming in the future) that can solve difficult problems with greater accuracy than any of our previous models
 - [Data usage](https://platform.openai.com/docs/models/how-we-use-your-data)
 - [Terms and policies](https://openai.com/policies)
+
+## [Prompt Engineering](https://platform.openai.com/docs/guides/prompt-engineering)
+- Write clear instructions, ask for what you want
+- 
