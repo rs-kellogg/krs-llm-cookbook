@@ -4,6 +4,7 @@ import pandas as pd
 import openai
 import time
 import csv
+import json
 import os
 import typer
 import math
@@ -168,7 +169,7 @@ def complete_prompt(
                 system_prompt=system_prompt,
                 text=texts[i], 
             )
-            writer.writerow([ids[i], str(response)])
+            writer.writerow([ids[i], json.dumps(response)])
             valid = F.validate_result(response)
             if valid:
                 logging.info(f"Data point {ids[i]} completed")
