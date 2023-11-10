@@ -16,6 +16,20 @@ Let's break this down piece-by-piece in reverse order:
 A Language Model (LM) is a just model that assigns probabilities to sequences of words. Probabilities are estimated (the models are trained) using collections of naturally ocurring text, called a corpus. You can use a LM to select the most probable next word given a context of a preceding series of words. 
 :::
 
+:::{card} [Animated Transfomer](https://prvnsmpth.github.io/animated-transformer/)
+<video width="99%" height="540" autoplay loop muted markdown="1">
+    <source src="_images/animated-transfomer.mp4" type="video/mp4" markdown="1" >
+</video>
+:::
+
+<!-- ```{figure} ./images/animated-transfomer.mp4
+---
+width: 600px
+name: animated-transfomer
+---
+[Animated Transfomer](https://prvnsmpth.github.io/animated-transformer/)
+``` -->
+
 ```{figure} ./images/lm-hist.png
 ---
 width: 600px
@@ -56,14 +70,6 @@ name: attention
 ---
 [Attention Paper](https://arxiv.org/abs/1706.03762)
 [Annotated Version](https://nlp.seas.harvard.edu/2018/04/03/attention.html)
-```
-
-```{figure} ./images/animated-transfomer.mp4
----
-width: 600px
-name: attention
----
-[Animated Transfomer](https://prvnsmpth.github.io/animated-transformer/)
 ```
 
 :::{admonition} **Pre-trained**
