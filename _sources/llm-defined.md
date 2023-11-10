@@ -40,7 +40,7 @@ name: lm-hist
 
 :::{admonition} **[Large](https://en.wikipedia.org/wiki/Large_language_model#List)**
 :class: tip
-Large means both model size (number of parameter) and the amount of data the model is trained on 
+Calling a language model `Large` refers both to model size (the number of parameters) and the amount of data the model is trained on 
 :::
 
 ```{figure} ./images/wikipedia-list.png
