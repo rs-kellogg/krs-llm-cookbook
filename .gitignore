@@ -3,7 +3,8 @@
 
 # misc
 Papers/
-*.log
+**/*.log
+**/.env
 
 # jupyterbook
 _build/**
