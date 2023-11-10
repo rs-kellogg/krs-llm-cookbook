@@ -36,6 +36,8 @@ name: lm-hist
 We call a language model `large` when:
 - The model has billions of parameters
 - The model has been trained on billions of words/tokens
+
+Why the focus on large language models (LLMs)? Because as scale increases new `emergent` capabilities have appeared, such as complex reasoning. Smaller language models gave no indication that this would happen.
 :::
 
 ```{figure} ./images/wikipedia-list.png
