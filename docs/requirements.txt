@@ -7,3 +7,10 @@ python-dotenv
 myst_nb
 leafmap
 ipyleaflet
+requests
+faiss
+pickle
+opeanai-whisper
+wave
+pyaudio
+transformers
