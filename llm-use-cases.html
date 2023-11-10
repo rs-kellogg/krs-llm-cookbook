@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>What can you do with GPT? &#8212; Kellogg Research Support LLM Cookbook</title>
+    <title>What can you do a GPT? &#8212; Kellogg Research Support LLM Cookbook</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -174,13 +174,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="llm-defined.html">Generative Pre-Trained Transformer (GPT)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">What can you do with GPT?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">What can you do a GPT?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setting-up-openai.html">OpenAI Setup</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Analyze Text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Converting Speech to Text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
 </ul>
@@ -373,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>What can you do with GPT?</h1>
+    <h1>What can you do a GPT?</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -396,8 +396,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="what-can-you-do-with-gpt">
-<h1>What can you do with GPT?<a class="headerlink" href="#what-can-you-do-with-gpt" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="what-can-you-do-a-gpt">
+<h1>What can you do a GPT?<a class="headerlink" href="#what-can-you-do-a-gpt" title="Permalink to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>GPT can be adopted for building applications for:</p>
@@ -412,7 +412,7 @@ document.write(`
 </li>
 <li><p><strong>Compose</strong>: code</p>
 <ul>
-<li><p>Write computer code <a class="reference external" href="https://platform.openai.com/examples/default-sql-translate">(Example)</a></p></li>
+<li><p>Write computer code</p></li>
 <li><p>Give software a natural language interface</p></li>
 </ul>
 </li>
@@ -424,21 +424,45 @@ document.write(`
 </li>
 <li><p><strong>Analyze</strong></p>
 <ul>
-<li><p>Classify texts <a class="reference external" href="https://platform.openai.com/examples/default-review-classifier">(Example)</a></p></li>
-<li><p>Parse unstructured data <a class="reference external" href="https://platform.openai.com/examples/default-parse-data">(Example)</a></p></li>
-<li><p>Explain code <a class="reference external" href="https://platform.openai.com/examples/default-explain-code">(Example)</a></p></li>
-<li><p>Find and fix bugs <a class="reference external" href="https://platform.openai.com/examples/default-fix-python-bugs">(Example)</a></p></li>
+<li><p>Classify texts</p></li>
+<li><p>Explain code</p></li>
 </ul>
 </li>
 </ul>
-<p>More examples can be found on the <a class="reference external" href="https://platform.openai.com/examples">OpenAI examples page</a>.</p>
+<p>Here are some interesting use cases:</p>
+<ul class="simple">
+<li><p><strong>Composing</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://platform.openai.com/examples/default-parse-data">Parse unstructured data</a></p></li>
+<li><p><a class="reference external" href="https://platform.openai.com/examples/default-sql-translate">Convert natural language into SQL queries</a></p></li>
+<li><p><a class="reference external" href="https://platform.openai.com/examples/default-explain-code">Explain code</a></p></li>
+</ul>
+</li>
+<li><p><strong>Analyze</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://platform.openai.com/examples/default-fix-python-bugs">Find and fix bugs</a></p></li>
+<li><p><a class="reference external" href="https://platform.openai.com/examples/default-review-classifier">Classify user reviews</a></p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Video by Jeremy Howard, <a class="reference external" href="https://www.youtube.com/watch?v=jkrNMKz9pWU">A Hackers’ Guide to Language Models</a>.</p></li>
-<li><p>O’Reilly Book by Olivier Caelen and Marie-Alice Blete (2023), <a class="reference external" href="https://learning.oreilly.com/library/view/developing-apps-with/9781098152475/">Developing Apps with GPT-4 and ChatGPT</a>.</p></li>
+<li><p>Highly recommended: <span id="id1">[<a class="reference internal" href="#id4" title="Jeremy Howard. A Hackers' Guide to Language Models. URL: www.youtube.com/watch?v=jkrNMKz9pWU.">JeremyHoward</a>]</span></p></li>
+<li><p>Another good reference: <span id="id2">[<a class="reference internal" href="#id5" title="Olivier Caelen and Marie-Alice Blete. Developing Apps with GPT-4 and ChatGPT. O'Reilly Media, Inc., 2023. URL: https://learning.oreilly.com/library/view/developing-apps-with/9781098152475/.">OlivierCaelenMarieABlete23</a>]</span></p></li>
 </ul>
+<div class="docutils container" id="id3">
+<div class="citation" id="id4" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">JeremyHoward</a><span class="fn-bracket">]</span></span>
+<p>Jeremy Howard. A Hackers' Guide to Language Models. URL: <a class="reference external" href="www.youtube.com/watch?v=jkrNMKz9pWU">www.youtube.com/watch?v=jkrNMKz9pWU</a>.</p>
+</div>
+<div class="citation" id="id5" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">OlivierCaelenMarieABlete23</a><span class="fn-bracket">]</span></span>
+<p>Olivier Caelen and Marie-Alice Blete. <em>Developing Apps with GPT-4 and ChatGPT</em>. O'Reilly Media, Inc., 2023. URL: <a class="reference external" href="https://learning.oreilly.com/library/view/developing-apps-with/9781098152475/">https://learning.oreilly.com/library/view/developing-apps-with/9781098152475/</a>.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -554,8 +578,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>
