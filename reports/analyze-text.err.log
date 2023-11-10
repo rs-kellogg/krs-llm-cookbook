@@ -1,71 +1,36 @@
 Traceback (most recent call last):
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/asyncio/base_events.py", line 664, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/nbclient/client.py", line 1058, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "/Users/peilinliao/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/pythonenv/jupyterbook/lib/python3.12/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# This code is for v1 of the openai package: pypi.org/project/openai
-from openai import OpenAI
-client = OpenAI()
-
-response = client.chat.completions.create(
-  model="gpt-4-1106-preview",
-  messages=[
-    {
-      "role": "system",
-      "content": "You are an expert research librarian. You are precise and can analyze the structure of papers very well. You return information in json format."
-    },
-    {
-      "role": "user",
-      "content": "Extract the title and authors and affiliations from the first page of a scientific paper. \n\nUse the following step-by-step instructions to respond to user inputs.\n\nExtract the title and authors from the first page of a scientific paper. The paper text will snipped will be delimited by triple quotes. Geolocate each author affiliation with latitude and longitude.\n\nThe output should have the following format:\n\n{ \"title\": \"The paper's title\",\n  \"authors\": [\n    {\n      \"name\": \"Yong Ren\",\n      \"email\": null,\n      \"affiliations\": [ \"list of indices\" ]\n    }\n  ],\n \"affiliations\": [ {\"index\": \"the index\", \"name\": \"The affiliation name\", \"longitude\": \"the longitude\", \"latitude\": \"the latitude\" } ]\n ]\n}\n\n\"\"\"\nFEWER-TOKEN NEURAL SPEECH CODEC WITH TIME-INVARIANT CODES\nYong Ren1,2, Tao Wang1, Jiangyan Yi1, Le Xu1,2, Jianhua Tao3, Chuyuan Zhang1,2, Junzuo Zhou1,2\n1Institute of Automation, Chinese Academy of Sciences, China\n2University of Chinese Academy of Sciences, China\n3Department of Automation, Tsinghua University, China\nABSTRACT\nLanguage model based text-to-speech (TTS) models, like VALL-E,\nhave gained attention for their outstanding in-context learning capa-\nbility in zero-shot scenarios. Neural speech codec is a critical com-\nponent of these models, which can convert speech into discrete token\nrepresentations. However, excessive token sequences from the codec\nmay negatively affect prediction accuracy and restrict the progres-\nsion of Language model based TTS models. To address this issue,\nthis paper proposes a novel neural speech codec with time-invariant\ncodes named TiCodec. By encoding and quantizing time-invariant\ninformation into a separate code, TiCodec can reduce the amount of\nframe-level information that needs encoding, effectively decreasing\nthe number of tokens as codes of speech. Furthermore, this paper\nintroduces a time-invariant encoding consistency loss to enhance the\nconsistency of time-invariant code within an utterance and force it\nto capture more global information, which can benefit the zero-shot\nTTS task. Experimental results demonstrate that TiCodec can not\nonly enhance the quality of reconstruction speech with fewer tokens\nbut also increase the similarity and naturalness, as well as reduce the\nword error rate of the synthesized speech by the TTS model.\nIndex Terms— speech codec, fewer tokens, time-invariant, lan-\nguage model, text-to-speech\n\"\"\"\n "
-    }
-  ],
-  response_format={"type": "json_object"},
-  temperature=0,
-  max_tokens=2048,
-  top_p=1,
-  frequency_penalty=0,
-  presence_penalty=0,
-  seed=42,
-)
+import leafmap
+map = leafmap.Map()
+# Need data! : map.add_xy_data(df, x="longitude", y="latitude", layer_name="World Cities")
+map
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mOpenAIError[0m                               Traceback (most recent call last)
-Cell [0;32mIn[3], line 3[0m
-[1;32m      1[0m [38;5;66;03m# This code is for v1 of the openai package: pypi.org/project/openai[39;00m
-[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mopenai[39;00m [38;5;28;01mimport[39;00m OpenAI
-[0;32m----> 3[0m client [38;5;241m=[39m [43mOpenAI[49m[43m([49m[43m)[49m
-[1;32m      5[0m response [38;5;241m=[39m client[38;5;241m.[39mchat[38;5;241m.[39mcompletions[38;5;241m.[39mcreate(
-[1;32m      6[0m   model[38;5;241m=[39m[38;5;124m"[39m[38;5;124mgpt-4-1106-preview[39m[38;5;124m"[39m,
-[1;32m      7[0m   messages[38;5;241m=[39m[
-[0;32m   (...)[0m
-[1;32m     23[0m   seed[38;5;241m=[39m[38;5;241m42[39m,
-[1;32m     24[0m )
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mleafmap[39;00m
+[1;32m      2[0m [38;5;28mmap[39m [38;5;241m=[39m leafmap[38;5;241m.[39mMap()
+[1;32m      3[0m [38;5;66;03m# Need data! : map.add_xy_data(df, x="longitude", y="latitude", layer_name="World Cities")[39;00m
 
-File [0;32m/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/_client.py:93[0m, in [0;36mOpenAI.__init__[0;34m(self, api_key, organization, base_url, timeout, max_retries, default_headers, default_query, http_client, _strict_response_validation)[0m
-[1;32m     91[0m     api_key [38;5;241m=[39m os[38;5;241m.[39menviron[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mOPENAI_API_KEY[39m[38;5;124m"[39m)
-[1;32m     92[0m [38;5;28;01mif[39;00m api_key [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[0;32m---> 93[0m     [38;5;28;01mraise[39;00m OpenAIError(
-[1;32m     94[0m         [38;5;124m"[39m[38;5;124mThe api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable[39m[38;5;124m"[39m
-[1;32m     95[0m     )
-[1;32m     96[0m [38;5;28mself[39m[38;5;241m.[39mapi_key [38;5;241m=[39m api_key
-[1;32m     98[0m [38;5;28;01mif[39;00m organization [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-
-[0;31mOpenAIError[0m: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+[0;31mModuleNotFoundError[0m: No module named 'leafmap'
 
