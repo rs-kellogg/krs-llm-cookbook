@@ -22,13 +22,6 @@ A `Language Model` (LM) is a model that assigns probabilities to sequences of wo
 </video>
 :::
 
-<!-- ```{figure} ./images/animated-transfomer.mp4
----
-width: 600px
-name: animated-transfomer
----
-[Animated Transfomer](https://prvnsmpth.github.io/animated-transformer/)
-``` -->
 
 ```{figure} ./images/lm-hist.png
 ---
@@ -40,9 +33,9 @@ name: lm-hist
 
 :::{admonition} **[Large](https://en.wikipedia.org/wiki/Large_language_model#List)**
 :class: tip
-We call a language model `large` when it has 
-- Many parameters (billions)
-- And has been trained on large quantities of language data (billions of words/tokens)
+We call a language model `large` when:
+- The model has billions of parameters
+- The model has been trained on billions of words/tokens
 :::
 
 ```{figure} ./images/wikipedia-list.png
@@ -55,7 +48,7 @@ name: wikipedia-list
 
 :::{admonition} **Transformer**
 :class: tip
-Transformers were the key innovation that allowed language models to get large. They are a deep learning architecture that allow massive parallelization of training and inference on GPUs
+`Transformers` were the key innovation that allowed language models to get large. They are a deep learning architecture that allow massive parallelization of training and inference on GPUs
 :::
 
 ```{figure} ./images/ai-2-transformer.png
@@ -76,12 +69,12 @@ name: attention
 
 :::{admonition} **Pre-trained**
 :class: tip
-Pre-trained language models have been trained via self-supervision on vast quantities of text. These are also called [`foundation`](https://en.wikipedia.org/wiki/Foundation_models) models. They are not typically useful until...
+`Pre-trained` language models have been trained via self-supervision on vast quantities of text. These are also called [`foundation`](https://en.wikipedia.org/wiki/Foundation_models) models. They are not typically useful until...
 :::
 
 :::{admonition} **Generative**
 :class: tip
-Generative models are foundation models that have been further trained via supervised fine-tuning and reinforcement learning from human feedback (RLHF) to behave in a useful and safe manner, for example by responding to questions with answers like a chat assistant.
+`Generative` models are foundation models that have been further trained via supervised fine-tuning and reinforcement learning from human feedback (RLHF) to behave in a useful and safe manner, for example by responding to questions with answers like a chat assistant.
 :::
 
 :::{card} [OpenAI](https://en.wikipedia.org/wiki/OpenAI):
