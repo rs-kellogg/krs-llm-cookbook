@@ -13,7 +13,7 @@ Let's break this down piece-by-piece in reverse order:
 
 :::{admonition} **[Language Model](https://en.wikipedia.org/wiki/Language_model)**
 :class: tip
-A Language Model (LM) is a just model that assigns probabilities to sequences of words. Probabilities are estimated (the models are trained) using collections of naturally ocurring text, called a corpus. You can use a LM to select the most probable next word given a context of a preceding series of words. 
+A `Language Model` (LM) is a model that assigns probabilities to sequences of words. Probabilities are estimated (the models are trained) using collections of naturally ocurring text, called a corpus. You can use a LM to select the most probable next word given a context of a preceding series of words. 
 :::
 
 :::{card} [Animated Transfomer](https://prvnsmpth.github.io/animated-transformer/)
@@ -40,7 +40,9 @@ name: lm-hist
 
 :::{admonition} **[Large](https://en.wikipedia.org/wiki/Large_language_model#List)**
 :class: tip
-Calling a language model `Large` refers both to model size (the number of parameters) and the amount of data the model is trained on 
+We call a language model `large` when it has 
+- Many parameters (billions)
+- And has been trained on large quantities of language data (billions of words/tokens)
 :::
 
 ```{figure} ./images/wikipedia-list.png
