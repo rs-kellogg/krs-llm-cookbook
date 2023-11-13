@@ -596,7 +596,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transcribe the polite review</span>
-<span class="n">audio</span> <span class="o">=</span> <span class="s1">&#39;person_polite.wav&#39;</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="s1">&#39;./person_polite.wav&#39;</span>
 <span class="n">audio_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
 <span class="n">transcript</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> 
@@ -617,7 +617,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># record and transcribe the honest review</span>
-<span class="n">audio</span> <span class="o">=</span> <span class="s1">&#39;person_sarcasm.wav&#39;</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="s1">&#39;./person_sarcasm.wav&#39;</span>
 <span class="n">audio_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
 <span class="n">transcript</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> 
@@ -800,7 +800,7 @@ excitement 🎉: 0.01284793484956026
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transcription(text=&quot;As-salamu alaykum chocolate-covered stuff family! Today&#39;s call is sweeter than the rumor of free chocolate bars. Our profits have surged faster than admiration for an Allama Iqbal poem. As we celebrate our success, it&#39;s with a heavy heart that we have to bid farewell to our esteemed CFO Mr. Choco Khan, who&#39;s been as sweet as our treat. His dedication has been integral to our growth, much like the chocolate covering our unique confections. And now, the moment that marks a new chapter for us, introducing our delightful line of chocolate-covered rickshaws with Kashmiri chai sprinkles. Hum duniya ko chocolate se muskarate hue banate hain. Let&#39;s keep shaping the world with a chocolate-covered smile.&quot;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transcription(text=&quot;As-salamu alaykum chocolate-covered-stuff family! Today&#39;s call is sweeter than the rumor of free chocolate bars. Our profits have surged faster than admiration for an Allama Iqbal poem. As we celebrate our success, it&#39;s with a heavy heart that we have to bid farewell to our esteemed CFO Mr. Choco Khan, who&#39;s been as sweet as our treat. His dedication has been integral to our growth, much like the chocolate covering our unique confections. And now, the moment that marks a new chapter for us, introducing our delightful line of chocolate-covered rickshaws with Kashmiri chai sprinkles. Hum duniya ko chocolate se muskarate hue banate hain. Let&#39;s keep shaping the world with a chocolate-covered smile.&quot;)
 </pre></div>
 </div>
 </div>

@@ -449,7 +449,9 @@ This blending of retrieval and generation enhances the richness and relevance of
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">faiss</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">wrap</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">DistilBertModel</span><span class="p">,</span> <span class="n">DistilBertTokenizer</span>
 </pre></div>
 </div>
 </div>
@@ -462,14 +464,11 @@ This blending of retrieval and generation enhances the richness and relevance of
 
 <span class="c1"># load the .env file containing your API key</span>
 <span class="n">load_dotenv</span><span class="p">()</span>
-
-<span class="c1"># display (obfuscated) API key</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;OPENAI_API_KEY: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">)[:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OPENAI_API_KEY: sk-2...
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -512,13 +511,23 @@ This blending of retrieval and generation enhances the richness and relevance of
 ```python
 from selenium import webdriver
 
+# Start a new browser session
 driver = webdriver.Chrome()
-driver.get(&#39;https://example.com&#39;)
 
-element = driver.find_element_by_class_name(&#39;example-class-name&#39;)
+# Open a webpage
+driver.get(&#39;https://www.example.com&#39;)
+
+# Find an element by class name
+element = driver.find_element_by_class_name(&#39;example-class&#39;)
+
+# Interact with the element
+element.click()
+
+# Close the browser
+driver.quit()
 ```
 
-This will find the first element with the specified class name on the page and store it in the `element` variable.
+In this example, the `find_element_by_class_name` method is used to locate an element with a specific class name on a webpage. You can then interact with the element as needed.
 </pre></div>
 </div>
 </div>
@@ -538,37 +547,61 @@ This will find the first element with the specified class name on the page and s
 </div>
 <p>To resolve this, we can use RAG to feed GPT details on the newest version of Selenium. The code below will take the contents of a webpage, chunk it, and save it in a pickle file.</p>
 <p><font color='blue'><em>Note that the RAG code was summarized from this post: <a class="reference external" href="https://www.shruggingface.com/blog/langchain-cloudflare-qa-agent">https://www.shruggingface.com/blog/langchain-cloudflare-qa-agent</a>.  Please see the original post for additional details.</em></font></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the content from the Selenium troubleshooting webpage</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the content from the Selenium troubleshooting webpage</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.selenium.dev/documentation/webdriver/troubleshooting/upgrade_to_selenium_4/&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">webpage_content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> 
 
 <span class="c1"># Split the content into smaller chunks</span>
-<span class="n">text_splitter</span> <span class="o">=</span> <span class="n">CharacterTextSplitter</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">chunks</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">split_text</span><span class="p">(</span><span class="n">webpage_content</span><span class="p">)</span>
+<span class="n">chunks</span> <span class="o">=</span> <span class="n">wrap</span><span class="p">(</span><span class="n">webpage_content</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+
+<span class="c1"># Initialize the tokenizer and model</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">DistilBertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;distilbert-base-uncased&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">DistilBertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;distilbert-base-uncased&#39;</span><span class="p">)</span>
 
 <span class="c1"># Generate vector representations</span>
-<span class="n">embeddings</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">))</span>
-<span class="n">metadata</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">))]</span>  <span class="c1"># Metadata for each chunk</span>
+<span class="c1"># Generate vector representations</span>
+<span class="n">vectors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">:</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;max_length&#39;</span><span class="p">)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">vectors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">last_hidden_state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
 
-<span class="c1"># Create a FAISS vector store and save it</span>
-<span class="n">store</span> <span class="o">=</span> <span class="n">FAISS</span><span class="o">.</span><span class="n">from_texts</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">,</span> <span class="n">metadatas</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
-<span class="n">faiss</span><span class="o">.</span><span class="n">write_index</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;selenium_docs.index&quot;</span><span class="p">)</span>
-<span class="n">store</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./selenium_docs.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="c1"># Convert list of vectors to numpy array</span>
+<span class="n">vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+
+<span class="c1"># Build the index</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexFlatL2</span><span class="p">(</span><span class="n">vectors</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
+
+<span class="c1"># Save the index</span>
+<span class="n">faiss</span><span class="o">.</span><span class="n">write_index</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;selenium_docs.index&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create metadata for each chunk</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">))]</span>
+
+<span class="c1"># Create a dictionary to store the index and metadata</span>
+<span class="n">store</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="n">index</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="n">metadata</span><span class="p">}</span>
+
+<span class="c1"># Save the store object</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;selenium_docs.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
 <p>We can then feed GPT that index and pickle file as a vector store. After posing the same question, you can see the up-to-date response.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the FAISS index</span>
-<span class="n">index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">read_index</span><span class="p">(</span><span class="s2">&quot;selenium_docs.index&quot;</span><span class="p">)</span>  <span class="c1"># Assuming the name of the index file is &#39;selenium_docs.index&#39;</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">read_index</span><span class="p">(</span><span class="s2">&quot;selenium_docs.index&quot;</span><span class="p">)</span>
 
 <span class="c1"># Load the vector store</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./selenium_docs.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;selenium_docs.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">store</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
 <span class="c1"># Merge the index and store</span>
-<span class="n">store</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+<span class="n">store</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>
 
 <span class="c1"># Build the question answering chain</span>
 <span class="n">chain</span> <span class="o">=</span> <span class="n">VectorDBQAWithSourcesChain</span><span class="o">.</span><span class="n">from_llm</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">OpenAI</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;text-davinci-003&#39;</span><span class="p">),</span> <span class="n">vectorstore</span><span class="o">=</span><span class="n">store</span><span class="p">)</span>
@@ -581,6 +614,7 @@ This will find the first element with the specified class name on the page and s
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Answer: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;answer&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Answer:  In the latest version of python selenium, you can find an element by class name using the following syntax: driver.findElement(By.className(“className”)) or driver.findElement(By.cssSelector(“.className”)).</p>
 </section>
 <section id="example-b-preventing-hallucinations">
 <h2><em>Example B: Preventing Hallucinations</em><a class="headerlink" href="#example-b-preventing-hallucinations" title="Permalink to this heading">#</a></h2>
@@ -600,77 +634,45 @@ This will find the first element with the specified class name on the page and s
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Answer: </span><span class="si">{</span><span class="n">generated_text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Just note that the newest version of the GPT model will not produce this same hallucination.</p>
 <p>Answer:</p>
 <p>The first elephant to land on the moon was a female elephant named Ellie. She was born in captivity in Africa and was brought to the United States when she was two years old. Ellie spent the majority of her life performing in circuses and zoos. In 1962, she was sent to the National Zoo in Washington, D.C. where she lived for the rest of her life. Ellie died in 1988 at the age of 36.</p>
+<p>Just note that the newest version of the GPT model will not produce this same hallucination.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span> 
-    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4-0613&quot;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask GPT about the Python version</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Can you tell me more about the first elephant that landed on the moon?&quot;</span>
+
+<span class="c1"># Generate response using GPT-3</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">OpenAI</span><span class="p">()</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4-0613&quot;</span><span class="p">,</span>
     <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Answer the following question the best you can.&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Can you tell me more about the first elephant that landed on the moon?&quot;</span><span class="p">}</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a helfpul assistant.&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">prompt</span>
+        <span class="p">}</span>
     <span class="p">],</span>
-    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  
-    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>  
 <span class="p">)</span>
 
 <span class="c1"># Display the generated text</span>
-<span class="n">generated_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generated Text:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">generated_text</span><span class="p">)</span>
+<span class="n">generated_text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Answer: </span><span class="si">{</span><span class="n">generated_text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
-APIRemovedInV1                            Traceback (most recent call last)
-Cell In[5], line 1
-----&gt; 1 response = openai.ChatCompletion.create( 
-      2     model=&quot;gpt-4-0613&quot;, 
-      3     messages=[
-      4         {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;Answer the following question the best you can.&quot;},
-      5         {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Can you tell me more about the first elephant that landed on the moon?&quot;}
-      6     ],
-      7     max_tokens=100,  
-      8     temperature=0.0,  
-      9 )
-     11 # Display the generated text
-     12 generated_text = response[&quot;choices&quot;][0][&quot;message&quot;][&quot;content&quot;]
-
-File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/_utils/_proxy.py:22, in LazyProxy.__getattr__(self, attr)
-     21 def __getattr__(self, attr: str) -&gt; object:
----&gt; 22     return getattr(self.__get_proxied__(), attr)
-
-File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/_utils/_proxy.py:43, in LazyProxy.__get_proxied__(self)
-     41 def __get_proxied__(self) -&gt; T:
-     42     if not self.should_cache:
----&gt; 43         return self.__load__()
-     45     proxied = self.__proxied
-     46     if proxied is not None:
-
-File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/lib/_old_api.py:33, in APIRemovedInV1Proxy.__load__(self)
-     31 @override
-     32 def __load__(self) -&gt; None:
----&gt; 33     raise APIRemovedInV1(symbol=self._symbol)
-
-APIRemovedInV1: 
-
-You tried to access openai.ChatCompletion, but this is no longer supported in openai&gt;=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
-
-You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
-
-Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
-
-A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: I apologize for any confusion, but no elephant has ever landed on the moon. The only living beings that have been to the moon are humans, and that first took place during the Apollo missions run by NASA. The Apollo 11 mission in 1969 was the first to successfully land humans, specifically astronauts Neil Armstrong and Buzz Aldrin, on the moon.
 </pre></div>
 </div>
 </div>
 </div>
 <p>In order to check or correct this hallucination, we can use RAG to upload a text file to GPT.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the content from a page we create.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the content from a page we create.</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/rs-kellogg/Research_the_Right_Way/blob/main/elephants.txt&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">webpage_content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> 
@@ -690,8 +692,6 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;elephant_docs.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the FAISS index</span>
 <span class="n">index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">read_index</span><span class="p">(</span><span class="s2">&quot;elephant_docs.index&quot;</span><span class="p">)</span> 
