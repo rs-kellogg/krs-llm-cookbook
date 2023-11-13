@@ -16,3 +16,8 @@ pyaudio
 transformers
 pandas
 bs4
+langchain
+chromadb
+tiktoken
+pypdf
+lark>=1.1.5
