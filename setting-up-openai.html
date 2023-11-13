@@ -463,15 +463,21 @@ document.write(`
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Steps</div>
-<ul class="simple">
+<ul>
 <li><p class="sd-card-text">Create API key</p></li>
 <li><p class="sd-card-text">Save to disk</p></li>
 <li><p class="sd-card-text"><font color='purple'><strong>Keep it safe!</strong></font></p>
-<ul>
+<ul class="simple">
 <li><p class="sd-card-text">Don’t put it in your source code</p></li>
 <li><p class="sd-card-text">Don’t add it to a github repository</p></li>
 <li><p class="sd-card-text">Be careful about emailing, sharing via dropbox, one drive, etc.</p></li>
 </ul>
+<figure class="align-default" id="gitignore">
+<a class="reference internal image-reference" href="_images/gitignore.png"><img alt="_images/gitignore.png" src="_images/gitignore.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text"><a class="reference external" href="https://github.com/rs-kellogg/krs-llm-cookbook/tree/main">use .gitignore file</a></span><a class="headerlink" href="#gitignore" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </li>
 </ul>
 <video width="99%" height="600" controls muted markdown="1">
@@ -530,7 +536,7 @@ Create an API key
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KaIVDTnx7KrS3ixglkPLtCy5HarP&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of my expertise, requires a high degree of awareness and understanding of lion behavior.\n\nHere are a few aspects of the experience:\n\n1. **Respect for Power**: Being in close proximity to such a formidable predator is an immediate reminder of their strength, agility, and potential for danger. Lions are apex predators with powerful jaws, large teeth, and muscular bodies capable of great force.\n\n2. **Understanding Behaviors**: My background in large cat psychology allows me to interpret the lion&#39;s body language, sounds, and movements. I’m constantly observing signs of agitation, relaxation, curiosity, or playfulness, which dictate how I interact with the animal.\n\n3. **Safety Measures**: Although I have a close relationship with the lions under my care, safety is always a priority. This would involve having protocols in place, such as barriers or escape routes, and never becoming complacent, no matter how well I think I understand the individual animal.\n\n4. **Bonding and Trust**: Building a relationship with a lion relies on trust and positive reinforcement. Lions, like&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699916779, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8Kb4SwlV6xYrKhC1QrpIALDyXoH6D&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. Each interaction with a lion, regardless of my expertise, requires a high degree of awareness and understanding of lion behavior.\n\nHere are a few aspects of the experience:\n\n1. **Respect for Power**: Being in close proximity to such a formidable predator is an immediate reminder of their strength, agility, and potential for danger. Lions are apex predators with powerful jaws, large teeth, and muscular bodies capable of great bursts of speed.\n\n2. **Heightened Senses**: Engaging with lions means being hyper-vigilant. Observing every subtle movement, twitch of the ear, flick of the tail, and understanding these cues as communication about the lion&#39;s mood and intentions. As a zoologist, I rely on my knowledge of lion behavior to stay safe and to understand their state of mind.\n\n3. **Communication**: Lions communicate through vocalizations, body language, and even scent-marking. As an expert, interpreting these signals is crucial. I would continually monitor the dynamics of their behavior, adjusting my own behavior and cues to maintain a position of respectful dominance and control.\n\n4. **&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699919752, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
 </pre></div>
 </div>
 </div>
@@ -555,13 +561,13 @@ Create an API key
 
 Here are a few aspects of the experience:
 
-1. **Respect for Power**: Being in close proximity to such a formidable predator is an immediate reminder of their strength, agility, and potential for danger. Lions are apex predators with powerful jaws, large teeth, and muscular bodies capable of great force.
+1. **Respect for Power**: Being in close proximity to such a formidable predator is an immediate reminder of their strength, agility, and potential for danger. Lions are apex predators with powerful jaws, large teeth, and muscular bodies capable of great bursts of speed.
 
-2. **Understanding Behaviors**: My background in large cat psychology allows me to interpret the lion’s body language, sounds, and movements. I’m constantly observing signs of agitation, relaxation, curiosity, or playfulness, which dictate how I interact with the animal.
+2. **Heightened Senses**: Engaging with lions means being hyper-vigilant. Observing every subtle movement, twitch of the ear, flick of the tail, and understanding these cues as communication about the lion’s mood and intentions. As a zoologist, I rely on my knowledge of lion behavior to stay safe and to understand their state of mind.
 
-3. **Safety Measures**: Although I have a close relationship with the lions under my care, safety is always a priority. This would involve having protocols in place, such as barriers or escape routes, and never becoming complacent, no matter how well I think I understand the individual animal.
+3. **Communication**: Lions communicate through vocalizations, body language, and even scent-marking. As an expert, interpreting these signals is crucial. I would continually monitor the dynamics of their behavior, adjusting my own behavior and cues to maintain a position of respectful dominance and control.
 
-4. **Bonding and Trust**: Building a relationship with a lion relies on trust and positive reinforcement. Lions, like</span></p>
+4. **</span></p>
 <div class="admonition-usage-https-platform-openai-com-usage admonition">
 <p class="admonition-title"><a class="reference external" href="https://platform.openai.com/usage">Usage</a></p>
 <figure class="align-default" id="openai-billing">
