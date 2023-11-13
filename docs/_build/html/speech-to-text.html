@@ -460,11 +460,19 @@ document.write(`
 <p>Don’t forget to reference your API Key.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set api key</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;openai.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">api_key</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span> <span class="c1"># pip install python-dotenv</span>
 
-<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+<span class="c1"># load the .env file containing your API key</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="c1"># display (obfuscated) API key</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;OPENAI_API_KEY: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">)[:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OPENAI_API_KEY: sk-2...
 </pre></div>
 </div>
 </div>
@@ -524,7 +532,7 @@ document.write(`
     <span class="k">return</span> <span class="n">audio_file_name</span>
 
 <span class="c1"># set output directory</span>
-<span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -533,45 +541,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># honest</span>
-<span class="n">audio</span> <span class="o">=</span> <span class="n">record_audio</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;gross&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Recording audio...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Finished recording.
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># honest</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">audio</span> <span class="o">=</span> <span class="n">record_audio</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;gross&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="nn">Cell In[5], line 37,</span> in <span class="ni">record_audio</span><span class="nt">(output_dir, participant_name, candy_name, duration)</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="n">audio_file_name</span> <span class="o">=</span> <span class="n">output_file</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="c1"># Use wave module to write the frames to a WAV file</span>
-<span class="ne">---&gt; </span><span class="mi">37</span> <span class="k">with</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">audio_file_name</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">wf</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="n">wf</span><span class="o">.</span><span class="n">setnchannels</span><span class="p">(</span><span class="n">channels</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="n">wf</span><span class="o">.</span><span class="n">setsampwidth</span><span class="p">(</span><span class="n">audio</span><span class="o">.</span><span class="n">get_sample_size</span><span class="p">(</span><span class="nb">format</span><span class="p">))</span>
-
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/wave.py:633,</span> in <span class="ni">open</span><span class="nt">(f, mode)</span>
-<span class="g g-Whitespace">    </span><span class="mi">631</span>     <span class="k">return</span> <span class="n">Wave_read</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">632</span> <span class="k">elif</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">633</span>     <span class="k">return</span> <span class="n">Wave_write</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">634</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">635</span>     <span class="k">raise</span> <span class="n">Error</span><span class="p">(</span><span class="s2">&quot;mode must be &#39;r&#39;, &#39;rb&#39;, &#39;w&#39;, or &#39;wb&#39;&quot;</span><span class="p">)</span>
-
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/wave.py:425,</span> in <span class="ni">Wave_write.__init__</span><span class="nt">(self, f)</span>
-<span class="g g-Whitespace">    </span><span class="mi">423</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i_opened_the_file</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">424</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">425</span>     <span class="n">f</span> <span class="o">=</span> <span class="n">builtins</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">426</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_i_opened_the_file</span> <span class="o">=</span> <span class="n">f</span>
-<span class="g g-Whitespace">    </span><span class="mi">427</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="ne">OSError</span>: [Errno 30] Read-only file system: &#39;/person_gross.wav&#39;
+<span class="c1"># audio = record_audio(output_dir, &quot;person&quot;, &quot;gross&quot;, duration=10)</span>
 </pre></div>
 </div>
 </div>
@@ -579,7 +549,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># polite</span>
-<span class="n">audio</span> <span class="o">=</span> <span class="n">record_audio</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;polite&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># audio = record_audio(output_dir, &quot;person&quot;, &quot;polite&quot;, duration=10)</span>
 </pre></div>
 </div>
 </div>
@@ -587,7 +557,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sarcastic</span>
-<span class="n">audio</span> <span class="o">=</span> <span class="n">record_audio</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;sarcasm&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># audio = record_audio(output_dir, &quot;person&quot;, &quot;sarcasm&quot;, duration=10)</span>
 </pre></div>
 </div>
 </div>
@@ -599,10 +569,18 @@ document.write(`
 <p>Here’s the honest review:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transcribe the honest review</span>
-<span class="n">audio</span> <span class="o">=</span> <span class="s1">&#39;person_gross.wav&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">OpenAI</span><span class="p">()</span>
+
+
+<span class="c1"># transcribe the honest review</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="s1">&#39;./person_gross.wav&#39;</span>
 <span class="n">audio_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
-<span class="n">transcript</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Audio</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">)</span>
+<span class="n">transcript</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> 
+    <span class="n">file</span><span class="o">=</span><span class="n">audio_file</span>
+    <span class="p">)</span>
+
+<span class="c1"># transcript = openai.Audio.transcribe(&quot;whisper-1&quot;, audio_file)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">transcript</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 <span class="n">honest</span> <span class="o">=</span> <span class="n">transcript</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
@@ -620,7 +598,10 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transcribe the polite review</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="s1">&#39;person_polite.wav&#39;</span>
 <span class="n">audio_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
-<span class="n">transcript</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Audio</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">)</span>
+<span class="n">transcript</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> 
+    <span class="n">file</span><span class="o">=</span><span class="n">audio_file</span>
+    <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">transcript</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 <span class="n">polite</span> <span class="o">=</span> <span class="n">transcript</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
@@ -638,7 +619,10 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># record and transcribe the honest review</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="s1">&#39;person_sarcasm.wav&#39;</span>
 <span class="n">audio_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
-<span class="n">transcript</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Audio</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">)</span>
+<span class="n">transcript</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> 
+    <span class="n">file</span><span class="o">=</span><span class="n">audio_file</span>
+    <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">transcript</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 <span class="n">sarcastic</span> <span class="o">=</span> <span class="n">transcript</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
@@ -747,9 +731,11 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Um, that was, um, the wrapper, the wrapper was pretty, um, the taste was, um, interesting.
-admiration 😌: 0.6466174721717834
-approval 👍: 0.15136630833148956
-excitement 🎉: 0.09307003766298294
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>admiration 😌: 0.6466179490089417
+approval 👍: 0.15136606991291046
+excitement 🎉: 0.09306973963975906
 </pre></div>
 </div>
 </div>
@@ -763,9 +749,9 @@ excitement 🎉: 0.09307003766298294
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ugh, that was gross.
-disgust 🤢: 0.8205028772354126
-annoyance 😠: 0.10063143074512482
-neutral 😐: 0.06488494575023651
+disgust 🤢: 0.8205026984214783
+annoyance 😠: 0.10063128918409348
+neutral 😐: 0.06488493829965591
 </pre></div>
 </div>
 </div>
@@ -780,8 +766,8 @@ neutral 😐: 0.06488494575023651
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Oh, that was so good!
 admiration 😌: 0.9531673192977905
-approval 👍: 0.03131398558616638
-excitement 🎉: 0.012847959995269775
+approval 👍: 0.03131399303674698
+excitement 🎉: 0.01284793484956026
 </pre></div>
 </div>
 </div>
@@ -794,8 +780,8 @@ excitement 🎉: 0.012847959995269775
 <p>Let’s take another toy example. I asked GPT to create a 20-second earnings call transcript for a Pakistani company called <strong>Chocolate Covered Stuff</strong>. I then recorded that transcript using the audio code provided earlier. You can do something similar and record it below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audio</span> <span class="o">=</span> <span class="n">record_audio</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;choco_stuff&quot;</span><span class="p">,</span> <span class="s2">&quot;earnings_call&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">audio</span> <span class="o">=</span> <span class="n">record_audio</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;urdu_hindi_line&quot;</span><span class="p">,</span> <span class="s2">&quot;earnings_call&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># audio = record_audio(output_dir, &quot;choco_stuff&quot;, &quot;earnings_call&quot;, duration=45)</span>
+<span class="c1"># audio = record_audio(output_dir, &quot;urdu_hindi_line&quot;, &quot;earnings_call&quot;, duration=5)</span>
 </pre></div>
 </div>
 </div>
@@ -803,17 +789,18 @@ excitement 🎉: 0.012847959995269775
 <p>We can see a transcription of this earnings call here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">earings_audio</span> <span class="o">=</span> <span class="s1">&#39;choco_stuff_earnings_call.wav&#39;</span>
-<span class="n">audio_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">earings_audio</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
-<span class="n">transcript</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Audio</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">earnings_audio</span> <span class="o">=</span> <span class="s1">&#39;choco_stuff_earnings_call.wav&#39;</span>
+<span class="n">audio_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">earnings_audio</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">transcript</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> 
+    <span class="n">file</span><span class="o">=</span><span class="n">audio_file</span>
+    <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">transcript</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-  &quot;text&quot;: &quot;As-salamu alaykum chocolate-covered-stuff family! Today&#39;s call is sweeter than the rumor of free chocolate bars. Our profits have surged faster than admiration for an Allama Iqbal poem. As we celebrate our success, it&#39;s with a heavy heart that we have to bid farewell to our esteemed CFO Mr. Choco Khan, who&#39;s been as sweet as our treat. His dedication has been integral to our growth, much like the chocolate covering our unique confections. And now, the moment that marks a new chapter for us, introducing our delightful line of chocolate-covered rickshaws with Kashmiri chai sprinkles. Hum duniya ko chocolate se muskarate hue banate hain. Let&#39;s keep shaping the world with a chocolate-covered smile.&quot;
-}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transcription(text=&quot;As-salamu alaykum chocolate-covered stuff family! Today&#39;s call is sweeter than the rumor of free chocolate bars. Our profits have surged faster than admiration for an Allama Iqbal poem. As we celebrate our success, it&#39;s with a heavy heart that we have to bid farewell to our esteemed CFO Mr. Choco Khan, who&#39;s been as sweet as our treat. His dedication has been integral to our growth, much like the chocolate covering our unique confections. And now, the moment that marks a new chapter for us, introducing our delightful line of chocolate-covered rickshaws with Kashmiri chai sprinkles. Hum duniya ko chocolate se muskarate hue banate hain. Let&#39;s keep shaping the world with a chocolate-covered smile.&quot;)
 </pre></div>
 </div>
 </div>
@@ -834,12 +821,12 @@ excitement 🎉: 0.012847959995269775
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a wrapper function for seeing how prompts affect transcriptions</span>
 <span class="k">def</span> <span class="nf">transcribe</span><span class="p">(</span><span class="n">audio_filepath</span><span class="p">,</span> <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a prompt, transcribe the audio file.&quot;&quot;&quot;</span>
-    <span class="n">transcript</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Audio</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span>
+    <span class="n">transcript</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
         <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">audio_filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">),</span>
         <span class="n">model</span><span class="o">=</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span>
         <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="k">return</span> <span class="n">transcript</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">transcript</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
 </div>
 </div>
@@ -847,17 +834,22 @@ excitement 🎉: 0.012847959995269775
 <p>Now, let’s transcribe the earnings call with a prompt.  Let’s also conduct a sentiment analysis on the call text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">earnings_call</span> <span class="o">=</span> <span class="n">transcribe</span><span class="p">(</span><span class="n">earings_audio</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Allama Iqbal was a great poet. Translate one line into Urdu text.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># earnings_call = transcribe(earnings_audio, prompt=&quot;Allama Iqbal was a great poet. Translate one line into Urdu text.&quot;)</span>
+<span class="n">earnings_call</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Allama Iqbal was a great poet. Translate one line into Urdu text.&quot;</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;whisper-1&quot;</span><span class="p">,</span> 
+    <span class="n">file</span><span class="o">=</span><span class="n">audio_file</span>
+    <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">earnings_call</span><span class="p">)</span>
-<span class="n">display_sentiment_results</span><span class="p">(</span><span class="n">earnings_call</span><span class="p">)</span>
+<span class="n">display_sentiment_results</span><span class="p">(</span><span class="n">earnings_call</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Assalamu alaikum chocolate covered stuff family! Today&#39;s call is sweeter than the rumor of free chocolate bars. Our profits have surged faster than admiration for an Allama Iqbal poem. As we celebrate our success, it&#39;s with a heavy heart that we have to bid farewell to our esteemed CFO, Mr. Chacko Khan, who&#39;s been as sweet as our treat. His dedication has been integral to our growth, much like the chocolate covering our unique confections. And now, the moment that marks a new chapter for us, introducing our delightful line of chocolate-covered rickshaws with Kashmiri chai sprinkles. Hum duniya ko chocolate se muskarate hue banate hain. Let&#39;s keep shaping the world with a chocolate-covered smile.
-joy 😄: 0.419696569442749
-admiration 😌: 0.3140272796154022
-excitement 🎉: 0.09640135616064072
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transcription(text=&quot;Assalamu alaikum chocolate covered stuff family! Today&#39;s call is sweeter than the rumor of free chocolate bars. Our profits have surged faster than admiration for an Allama Iqbal poem. As we celebrate our success, it&#39;s with a heavy heart that we have to bid farewell to our esteemed CFO, Mr. Chacko Khan, who&#39;s been as sweet as our treat. His dedication has been integral to our growth, much like the chocolate covering our unique confections. And now, the moment that marks a new chapter for us, introducing our delightful line of chocolate-covered rickshaws with Kashmiri chai sprinkles. Hum duniya ko chocolate se muskarate hue banate hain. Let&#39;s keep shaping the world with a chocolate-covered smile.&quot;)
+joy 😄: 0.4196963310241699
+admiration 😌: 0.3140278458595276
+excitement 🎉: 0.09640142321586609
 </pre></div>
 </div>
 </div>
@@ -866,7 +858,7 @@ excitement 🎉: 0.09640135616064072
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s keep shaping the world with a chocolate-covered smile!); Hum duniya ko chocolate se muskuratay hue banatay hain</span>
-<span class="n">urdu_hindi_audio</span> <span class="o">=</span> <span class="s1">&#39;/Users/ambreenchaudhri/Desktop/open_ai_materials/urdu_hindi_earnings_call.wav&#39;</span>
+<span class="n">urdu_hindi_audio</span> <span class="o">=</span> <span class="s1">&#39;./urdu_hindi_earnings_call.wav&#39;</span>
 <span class="n">transcribe</span><span class="p">(</span><span class="n">urdu_hindi_audio</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
