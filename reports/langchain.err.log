@@ -18,33 +18,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import os
-RESUME_ROOT_DIR = os.path.expanduser('~/Documents/resume_data/data/data/')
-PERSIST_DIR = os.path.expanduser("~/Documents/resume_data/persist/")
+from langchain.document_loaders import PyPDFLoader
+loader = PyPDFLoader(os.path.join(RESUME_ROOT_DIR,'FITNESS','10428916.pdf'))
+pages = loader.load_and_split()
 
-import os
-path_to_file = os.path.expanduser('~/openai-key.txt')
-with open(path_to_file, 'r') as f:
-    os.environ['OPENAI_API_KEY'] = f.read().strip()
+print(pages[0].page_content[:550])
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[1], line 7[0m
-[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mos[39;00m
-[1;32m      6[0m path_to_file [38;5;241m=[39m os[38;5;241m.[39mpath[38;5;241m.[39mexpanduser([38;5;124m'[39m[38;5;124m~/openai-key.txt[39m[38;5;124m'[39m)
-[0;32m----> 7[0m [38;5;28;01mwith[39;00m [38;5;28;43mopen[39;49m[43m([49m[43mpath_to_file[49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mr[39;49m[38;5;124;43m'[39;49m[43m)[49m [38;5;28;01mas[39;00m f:
-[1;32m      8[0m     os[38;5;241m.[39menviron[[38;5;124m'[39m[38;5;124mOPENAI_API_KEY[39m[38;5;124m'[39m] [38;5;241m=[39m f[38;5;241m.[39mread()[38;5;241m.[39mstrip()
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[2], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mlangchain[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdocument_loaders[39;00m [38;5;28;01mimport[39;00m PyPDFLoader
+[1;32m      2[0m loader [38;5;241m=[39m PyPDFLoader(os[38;5;241m.[39mpath[38;5;241m.[39mjoin(RESUME_ROOT_DIR,[38;5;124m'[39m[38;5;124mFITNESS[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124m10428916.pdf[39m[38;5;124m'[39m))
+[1;32m      3[0m pages [38;5;241m=[39m loader[38;5;241m.[39mload_and_split()
 
-File [0;32m/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/IPython/core/interactiveshell.py:286[0m, in [0;36m_modified_open[0;34m(file, *args, **kwargs)[0m
-[1;32m    279[0m [38;5;28;01mif[39;00m file [38;5;129;01min[39;00m {[38;5;241m0[39m, [38;5;241m1[39m, [38;5;241m2[39m}:
-[1;32m    280[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
-[1;32m    281[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mIPython won[39m[38;5;124m'[39m[38;5;124mt let you open fd=[39m[38;5;132;01m{[39;00mfile[38;5;132;01m}[39;00m[38;5;124m by default [39m[38;5;124m"[39m
-[1;32m    282[0m         [38;5;124m"[39m[38;5;124mas it is likely to crash IPython. If you know what you are doing, [39m[38;5;124m"[39m
-[1;32m    283[0m         [38;5;124m"[39m[38;5;124myou can use builtins[39m[38;5;124m'[39m[38;5;124m open.[39m[38;5;124m"[39m
-[1;32m    284[0m     )
-[0;32m--> 286[0m [38;5;28;01mreturn[39;00m [43mio_open[49m[43m([49m[43mfile[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
-
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/williamthompson/openai-key.txt'
+[0;31mModuleNotFoundError[0m: No module named 'langchain'
 

@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'speech-to-text';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Programming Assistance" href="programming-assistance.html" />
-    <link rel="prev" title="Text Analysis" href="analyze-text.html" />
+    <link rel="next" title="Text Analysis" href="analyze-text.html" />
+    <link rel="prev" title="Text Classification" href="text-classification.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,8 +180,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Speech-to-text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
@@ -437,9 +437,9 @@ document.write(`
 <p>We also use the following libraries in our examples:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install wave</span>
-<span class="c1">#pip install pyaudio</span>
-<span class="c1">#pip install transformers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pip install wave</span>
+<span class="c1"># pip install pyaudio</span>
+<span class="c1"># pip install transformers</span>
 </pre></div>
 </div>
 </div>
@@ -485,7 +485,7 @@ document.write(`
 </section>
 <section id="example-a-toy-marketing-study-for-new-candy-reviews">
 <h2><em>Example A: Toy Marketing Study for New Candy Reviews</em><a class="headerlink" href="#example-a-toy-marketing-study-for-new-candy-reviews" title="Permalink to this heading">#</a></h2>
-<p>Before we got started today, we offered everyone the option to try some candy they never had before. Then we asked for a review. We recorded the audio using our computer’s microphones with the code below.</p>
+<p>Before we got started today, we offered everyone the option to try some candy they never had before. If this was a real marketing study we could record the audio using our computer’s microphones with the code below.</p>
 <section id="font-color-purple-audio-recording-font">
 <h3><font color='purple'><strong>AUDIO RECORDING</strong></font><a class="headerlink" href="#font-color-purple-audio-recording-font" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -499,7 +499,7 @@ document.write(`
     <span class="n">channels</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">rate</span> <span class="o">=</span> <span class="mi">44100</span>
     <span class="n">frames_per_buffer</span> <span class="o">=</span> <span class="mi">1024</span>
-    <span class="n">audio_duration_seconds</span> <span class="o">=</span> <span class="n">duration</span>  <span class="c1"># Adjust this based on the audio length</span>
+    <span class="n">audio_duration_seconds</span> <span class="o">=</span> <span class="n">duration</span> 
 
     <span class="n">stream</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
                         <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
@@ -640,7 +640,7 @@ document.write(`
   <span class="s2">&quot;sentiment-analysis&quot;</span><span class="p">,</span>
   <span class="n">framework</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">,</span>
   <span class="n">model</span><span class="o">=</span><span class="s2">&quot;SamLowe/roberta-base-go_emotions&quot;</span><span class="p">,</span>
-  <span class="n">top_k</span><span class="o">=</span><span class="mi">3</span>
+  <span class="n">top_k</span><span class="o">=</span><span class="mi">3</span> <span class="c1"># change this number to retrieve more than 3  sentiments</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -660,7 +660,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This function takes in a sentiment label and returns the corresponding emoji</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># return the corresponding emoji for the sentiment</span>
 <span class="k">def</span> <span class="nf">get_sentiment_emoji</span><span class="p">(</span><span class="n">sentiment</span><span class="p">):</span>
   <span class="c1"># Define the mapping of sentiments to emojis</span>
   <span class="n">emoji_mapping</span> <span class="o">=</span> <span class="p">{</span>
@@ -700,7 +700,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this function takes in the sentiment analysis results and returns the corresponding emojis and scores:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put it altogether</span>
 <span class="k">def</span> <span class="nf">display_sentiment_results</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">sentiment_results</span> <span class="o">=</span> <span class="n">analyze_sentiment</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">sentiment</span> <span class="ow">in</span> <span class="n">sentiment_results</span><span class="p">:</span>
@@ -765,12 +765,12 @@ excitement 🎉: 0.012847959995269775
 </section>
 <section id="example-b-earnings-call-transcript-for-the-chocolate-covered-stuff-company">
 <h2><em>Example B: Earnings Call Transcript for the `Chocolate Covered Stuff’ company</em><a class="headerlink" href="#example-b-earnings-call-transcript-for-the-chocolate-covered-stuff-company" title="Permalink to this heading">#</a></h2>
-<p><font color='blue'><em>Note that this example and explanation builds off the one provided here: <a class="reference external" href="https://cookbook.openai.com/examples/whisper_prompting_guide">https://cookbook.openai.com/examples/whisper_prompting_guide</a>.  Please see the original post for additional details.</em></font></p>
-<p>Let’s take another toy example. I asked GPT to create an 20-second earnings call transcript for a Pakistani company called <strong>Chocolate Covered Stuff</strong>. I then recorded that transcript using the audio code provided earlier. You can do something similar and record it below:</p>
+<p><font color='blue'><em>Note that this example and explanation builds off the one provided here: <a class="reference external" href="https://cookbook.openai.com/examples/whisper_prompting_guide">https://cookbook.openai.com/examples/whisper_prompting_guide</a>. Please see the original post for additional details.</em></font></p>
+<p>Let’s take another toy example. I asked GPT to create a 20-second earnings call transcript for a Pakistani company called <strong>Chocolate Covered Stuff</strong>. I then recorded that transcript using the audio code provided earlier. You can do something similar and record it below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audio</span> <span class="o">=</span> <span class="n">record_audio</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;choco_stuff&quot;</span><span class="p">,</span> <span class="s2">&quot;earnings_call&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">audio</span> <span class="o">=</span> <span class="n">record_audio</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;urdu_hindi&quot;</span><span class="p">,</span> <span class="s2">&quot;earnings_call&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="n">record_audio</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;urdu_hindi_line&quot;</span><span class="p">,</span> <span class="s2">&quot;earnings_call&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -796,14 +796,14 @@ excitement 🎉: 0.012847959995269775
 <p>If we want to improve this transcription, we can use <strong>prompts</strong>.</p>
 <section id="font-color-purple-prompts-font">
 <h3><font color='purple'><strong>PROMPTS</strong></font><a class="headerlink" href="#font-color-purple-prompts-font" title="Permalink to this heading">#</a></h3>
-<p><font color='purple'><strong>Whisper</strong></font> also has an optional parameter called <strong>prompt</strong>.  Prompts can be used for the following:</p>
+<p><font color='purple'><strong>Whisper</strong></font> has an optional parameter called a <strong>prompt</strong>.  Prompts can be used for the following:</p>
 <ul class="simple">
-<li><p><strong>Provide Context for Transcription</strong> - It was designed to stitch together multiple audio segments by providing the text of a previous one to give context to the next one.</p></li>
-<li><p><strong>Make Spelling Corrections</strong> - It can also be used to spell specific words and names mentioned in the audio clip, like Famke Janssen or Lupita Nyong’o.</p></li>
+<li><p><strong>Provide Context for Transcription</strong> - stitch together multiple audio segments by providing the text of a previous one to give context to the next one.</p></li>
+<li><p><strong>Make Spelling Corrections</strong> - spell specific words and names mentioned in the audio clip, like Famke Janssen or Lupita Nyong’o.</p></li>
 <li><p><strong>Specify which Language is Used</strong></p></li>
 </ul>
-<p>Unlike GPT prompting, however these prompts cannot instruct the model to perform specific tasks. For instance “Format listed items into Markdown format” or “Translate French phrase to English” will not work within the Whisper prompts.</p>
-<p>The function shows how to use prompts with Whisper.</p>
+<p>Unlike GPT prompting, these prompts cannot instruct the model to perform specific tasks. For instance “Format listed items into Markdown format” or “Translate a French phrase to English” will not work within the Whisper prompts.</p>
+<p>The function below shows how to use prompts with Whisper.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a wrapper function for seeing how prompts affect transcriptions</span>
@@ -837,11 +837,11 @@ excitement 🎉: 0.09640135616064072
 </div>
 </div>
 </div>
-<p>If you notice, one line in the earnings call was in Urdu.  However, Whisper did not translate it or write it in Nastaliq or Perso-Arabic script. Let’s take that foreign-language Audio clip itself and see what Whisper does.</p>
+<p>If you notice, one line in the earnings call was in Urdu.  However, Whisper did not translate it or write it in <em>Nastaliq</em> or Perso-Arabic script. Let’s take that foreign-language Audio clip itself and see what Whisper does.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s keep shaping the world with a chocolate-covered smile!); Hum duniya ko chocolate se muskuratay hue banatay hain</span>
-<span class="n">urdu_hindi_audio</span> <span class="o">=</span> <span class="s1">&#39;urdu_hindi_earnings_call.wav&#39;</span>
+<span class="n">urdu_hindi_audio</span> <span class="o">=</span> <span class="s1">&#39;/Users/ambreenchaudhri/Desktop/open_ai_materials/urdu_hindi_earnings_call.wav&#39;</span>
 <span class="n">transcribe</span><span class="p">(</span><span class="n">urdu_hindi_audio</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -855,7 +855,7 @@ excitement 🎉: 0.09640135616064072
 <p>Even without a prompt, it seemed to know it was Urdu.  However, we can use prompts to tell Whisper it is Hindi instead.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transcribe</span><span class="p">(</span><span class="n">urdu_hindi_audio</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;hindi&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transcribe</span><span class="p">(</span><span class="n">urdu_hindi_audio</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;This is in Hindi.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -865,15 +865,15 @@ excitement 🎉: 0.09640135616064072
 </div>
 </div>
 </div>
-<p>This time it wrote the words in Devanagari script. Now what happens if we prompt Whisper to translate it to English?</p>
+<p>This time it wrote the words in <em>Devanagari</em> script. Now what happens if we prompt Whisper to translate it to English?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transcribe</span><span class="p">(</span><span class="n">urdu_hindi_audio</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;translate this Urdu line to English&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transcribe</span><span class="p">(</span><span class="n">urdu_hindi_audio</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Translate this Urdu line to English&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ہم دنیا کو چاکلیٹ سے مسکراتے ہوئے بناتے ہیں&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ہم دنیا کو چاکولیٹ سے مسکراتے ہوئے بناتے ہیں&#39;
 </pre></div>
 </div>
 </div>
@@ -914,20 +914,20 @@ excitement 🎉: 0.09640135616064072
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="analyze-text.html"
+       href="text-classification.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Text Analysis</p>
+        <p class="prev-next-title">Text Classification</p>
       </div>
     </a>
     <a class="right-next"
-       href="programming-assistance.html"
+       href="analyze-text.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Programming Assistance</p>
+        <p class="prev-next-title">Text Analysis</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

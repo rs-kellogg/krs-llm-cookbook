@@ -180,8 +180,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Speech-to-text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
@@ -417,55 +417,20 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">RESUME_ROOT_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/Documents/resume_data/data/data/&#39;</span><span class="p">)</span>
-<span class="n">PERSIST_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/Documents/resume_data/persist/&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">path_to_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/openai-key.txt&#39;</span><span class="p">)</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="c1"># load the .env file containing your API key</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">path_to_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/openai-key.txt&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/IPython/core/interactiveshell.py:286,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">279</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
-<span class="g g-Whitespace">    </span><span class="mi">280</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">281</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">283</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">284</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">286</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/williamthompson/openai-key.txt&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### display the image in the notebook</span>
-
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/resume.png&#39;</span><span class="p">)</span>
-<span class="n">fig</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/70b22d2ec086f46651e5244b7f7f7c1fd2069d87be41c99080ca47ea0b5964c1.png" src="_images/70b22d2ec086f46651e5244b7f7f7c1fd2069d87be41c99080ca47ea0b5964c1.png" />
-</div>
-</div>
-<p>We can load in the text from a PDF document using one of several PDF loaders available from Python libraries (pypdf,pymupdf,pdfplumer,pdfminer). Langchain acts as a wrapper to unite all of the different APIs.</p>
+<img src="images/resume.png" width="500pix"><p>We can load in the text from a PDF document using one of several PDF loaders available from Python libraries (pypdf,pymupdf,pdfplumer,pdfminer). Langchain acts as a wrapper to unite all of the different APIs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.document_loaders</span> <span class="kn">import</span> <span class="n">PyPDFLoader</span>
@@ -477,14 +442,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RECREATION &amp; SPORTS COORDINATOR
-Objective
-To gain a Recreation Supervisor position so that I can provide support to professional and part time staff. I am looking for the opportunity to guide
-day to day operations of high quality, community recreation facilities. I hope to provide the type of support and management conducive to a healthy
-work environment so that all staff can not only complete their roles &amp; responsibilities, but also provide a facility that runs efficiently and offers
-exceptional service to members.
-Qualifications
-ACSM Exercise
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">langchain.document_loaders</span> <span class="kn">import</span> <span class="n">PyPDFLoader</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">PyPDFLoader</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RESUME_ROOT_DIR</span><span class="p">,</span><span class="s1">&#39;FITNESS&#39;</span><span class="p">,</span><span class="s1">&#39;10428916.pdf&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load_and_split</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;langchain&#39;
 </pre></div>
 </div>
 </div>
@@ -493,21 +458,7 @@ ACSM Exercise
 <section id="vector-stores">
 <h3>Vector stores<a class="headerlink" href="#vector-stores" title="Permalink to this heading">#</a></h3>
 <p>We can instead take our unstructured text data, embed the tokens into an embedding vector, and then store all of those vectors in a database. When it comes time to query the data, we then embed the query in the same way and find embedding vectors in the database that are ‘most similar’ to the query.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## display image of vector stores</span>
-
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/vector_stores.jpeg&#39;</span><span class="p">)</span>
-<span class="n">fig</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/7390f4e8a3dd6e5a00175f79fd6e88420dcad33fcbba78905be257eb6c852c94.jpg" src="_images/7390f4e8a3dd6e5a00175f79fd6e88420dcad33fcbba78905be257eb6c852c94.jpg" />
-</div>
-</div>
-</section>
+<img src="images/vector_stores.jpeg" width="600pix"></section>
 <section id="conducting-a-similarity-search-on-a-single-document">
 <h3>Conducting a similarity search on a single document<a class="headerlink" href="#conducting-a-similarity-search-on-a-single-document" title="Permalink to this heading">#</a></h3>
 <p>Let’s take the document we loaded earlier and query it using a vector database. Since we are searching for a specific part of the text that matches our query, we’ll want to break up the PDF into smaller chunks. A simple way to to this is to break up the text into discrete chunks, separated by the characther “\n”. We’ll see why in a later example why that might not be ideal in all cases, but for now, we’ll go with it. There is also a parameter that allows for some overlap between the chunks so that any relevant part of our search doesn’t get cut into two pieces.</p>

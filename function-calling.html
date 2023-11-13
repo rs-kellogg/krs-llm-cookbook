@@ -180,8 +180,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Speech-to-text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
@@ -469,6 +469,9 @@ document.write(`
 
 <span class="c1"># Python code for flight status is adapted from </span>
 <span class="c1"># https://www.tutorialspoint.com/get-flight-status-using-python</span>
+<span class="c1">#</span>
+<span class="c1"># Note: Tracking is available for flights scheduled 3 days before or after today.</span>
+<span class="c1">#</span>
 <span class="k">def</span> <span class="nf">get_flight_status</span><span class="p">(</span><span class="n">airline_code</span><span class="p">,</span> <span class="n">flight_number</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -486,7 +489,7 @@ document.write(`
         <span class="n">item</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;text-helper__TextHelper-sc-8bko4a-0 kbHzdx&quot;</span><span class="p">)</span>
     <span class="p">]</span>
 
-    <span class="k">return</span> <span class="n">statuses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;; Departing at &quot;</span> <span class="o">+</span> <span class="n">time_statuses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;; Arriving at &quot;</span> <span class="o">+</span> <span class="n">time_statuses</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">statuses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;; Departing at &quot;</span> <span class="o">+</span> <span class="n">time_statuses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;; Arriving at &quot;</span> <span class="o">+</span> <span class="n">time_statuses</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -501,7 +504,7 @@ document.write(`
   <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the flight status of UA 792 for Nov 9, 2023?&quot;</span>
+      <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the flight status of UA 792 for Nov 12, 2023?&quot;</span>
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="n">functions</span> <span class="o">=</span> <span class="p">[</span>
@@ -542,7 +545,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KViQElNeTfeHE6G6VtlKOCflkDJj&#39;, choices=[Choice(finish_reason=&#39;function_call&#39;, index=0, message=ChatCompletionMessage(content=None, role=&#39;assistant&#39;, function_call=FunctionCall(arguments=&#39;{\n  &quot;airline_code&quot;: &quot;UA&quot;,\n  &quot;flight_number&quot;: 792,\n  &quot;day&quot;: 9,\n  &quot;month&quot;: 11,\n  &quot;year&quot;: 2023\n}&#39;, name=&#39;get_flight_status&#39;), tool_calls=None))], created=1699899166, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=48, prompt_tokens=119, total_tokens=167))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KXEC61w3wYBTMYjjxR1FFwHod9Vu&#39;, choices=[Choice(finish_reason=&#39;function_call&#39;, index=0, message=ChatCompletionMessage(content=None, role=&#39;assistant&#39;, function_call=FunctionCall(arguments=&#39;{\n  &quot;airline_code&quot;: &quot;UA&quot;,\n  &quot;flight_number&quot;: 792,\n  &quot;day&quot;: 12,\n  &quot;month&quot;: 11,\n  &quot;year&quot;: 2023\n}&#39;, name=&#39;get_flight_status&#39;), tool_calls=None))], created=1699904980, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=48, prompt_tokens=119, total_tokens=167))
 </pre></div>
 </div>
 </div>
@@ -564,24 +567,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">arguments</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Call helper function</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">function_response_msg</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()[</span><span class="n">function_name</span><span class="p">](</span><span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;airline_code&quot;</span><span class="p">],</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;flight_number&quot;</span><span class="p">],</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">],</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">],</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">function_response_msg</span><span class="p">)</span>
-
-<span class="nn">Cell In[2], line 24,</span> in <span class="ni">get_flight_status</span><span class="nt">(airline_code, flight_number, day, month, year)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">statuses</span> <span class="o">=</span> <span class="p">[</span>
-<span class="nn">     18     item.get_text() for item</span> in <span class="ni">soup.find_all</span><span class="nt">(&quot;div&quot;, class_=&quot;text-helper__TextHelper-sc-8bko4a-0 feVjck&quot;)</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">time_statuses</span> <span class="o">=</span> <span class="p">[</span>
-<span class="nn">     21     item.get_text() for item</span> in <span class="ni">soup.find_all</span><span class="nt">(&quot;div&quot;, class_=&quot;text-helper__TextHelper-sc-8bko4a-0 kbHzdx&quot;)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="k">return</span> <span class="n">statuses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;; Departing at &quot;</span> <span class="o">+</span> <span class="n">time_statuses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;; Arriving at &quot;</span> <span class="o">+</span> <span class="n">time_statuses</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="ne">IndexError</span>: list index out of range
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On time; Departing at 06:00 CST; Arriving at 09:06 EST
 </pre></div>
 </div>
 </div>
@@ -596,7 +582,7 @@ document.write(`
   <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the flight status of UA 792 for Nov 9, 2023?&quot;</span>
+      <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the flight status of UA 792 for Nov 12, 2023?&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span>
@@ -642,7 +628,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8JSS6qstcU6tVKUB3JkZ2yIUbq5KW&#39;, choices=[Choice(finish_reason=&#39;stop&#39;, index=0, message=ChatCompletionMessage(content=&#39;The flight status of UA 792 for Nov 9, 2023 is on time. The flight is departing at 06:00 CST and arriving at 09:06 EST.&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699648294, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=39, prompt_tokens=150, total_tokens=189))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KXEDwef8KCMxxSnot4Zhkg6TXXPE&#39;, choices=[Choice(finish_reason=&#39;stop&#39;, index=0, message=ChatCompletionMessage(content=&#39;The flight status of UA 792 for Nov 12, 2023 is on time. The flight is scheduled to depart at 06:00 CST and arrive at 09:06 EST.&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699904981, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=41, prompt_tokens=150, total_tokens=191))
 </pre></div>
 </div>
 </div>
@@ -657,7 +643,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The flight status of UA 792 for Nov 9, 2023 is on time. The flight is departing at 06:00 CST and arriving at 09:06 EST.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The flight status of UA 792 for Nov 12, 2023 is on time. The flight is scheduled to depart at 06:00 CST and arrive at 09:06 EST.
 </pre></div>
 </div>
 </div>
