@@ -14,6 +14,7 @@ wave
 pyaudio
 transformers
 pandas
+pyarrow
 bs4
 langchain
 chromadb
