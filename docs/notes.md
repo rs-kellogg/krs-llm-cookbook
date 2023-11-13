@@ -29,7 +29,12 @@
 
 ## [Prompt Engineering](https://platform.openai.com/docs/guides/prompt-engineering)
 - Write clear instructions, ask for what you want
-- 
+
+## Replicability
+- Source control + conda
+- Save all prompts and completions (can't necessarily guarantee you can reproduce)
+- Make models as deterministic as possible
+  
 
 # TODO:
 
