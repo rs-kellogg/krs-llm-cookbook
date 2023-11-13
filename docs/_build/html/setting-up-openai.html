@@ -180,8 +180,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use Cases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Speech-to-text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
@@ -389,7 +389,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example">Code Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>
             </nav>
@@ -423,7 +422,7 @@ document.write(`
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 <strong>ChatGPT</strong></div>
-<p class="sd-card-text">OpenAI’s <code class="docutils literal notranslate"><span class="pre">ChatGPT</span></code> offers a fixed-cost way to try out capabilities. If you buy the <code class="docutils literal notranslate"><span class="pre">Plus</span></code> plan, you can use the most up-to-date models and features, and OpenAI not use your data for training. If you use the free option, your data will be used to improve their models.</p>
+<p class="sd-card-text"><a class="reference external" href="https://chat.openai.com/">ChatGPT</a> offers a fixed-cost way to try out capabilities. If you buy the <code class="docutils literal notranslate"><span class="pre">Plus</span></code> plan, you can use the most up-to-date models and features, and OpenAI not use your data for training. If you use the free option, your data can be used to improve their models.</p>
 </div>
 </div>
 <div class="admonition-plan admonition">
@@ -432,8 +431,8 @@ document.write(`
 <a class="reference internal image-reference" href="_images/chatgpt-plan.png"><img alt="_images/chatgpt-plan.png" src="_images/chatgpt-plan.png" style="width: 600px;" /></a>
 </figure>
 </div>
-<div class="admonition-settings admonition">
-<p class="admonition-title">Settings</p>
+<div class="admonition-capabilities admonition">
+<p class="admonition-title">Capabilities</p>
 <figure class="align-default" id="chatgpt-settings">
 <a class="reference internal image-reference" href="_images/chatgpt-settings.png"><img alt="_images/chatgpt-settings.png" src="_images/chatgpt-settings.png" style="width: 600px;" /></a>
 </figure>
@@ -445,7 +444,7 @@ document.write(`
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 <strong>OpenAI API</strong></div>
-<p class="sd-card-text">The OpenAI API offers pay as you go service that allows you to write code and automate your interaction with GPT resources. This is the way to go to scale up your jobs to hundreds or thousands of inputs.</p>
+<p class="sd-card-text">The <a class="reference external" href="https://platform.openai.com/">OpenAI API</a> offers pay as you go service that allows you to write code and automate your interaction with GPT resources. This is the way to go to scale up your jobs to hundreds or thousands of inputs.</p>
 </div>
 </div>
 <div class="admonition-platform-offerings admonition">
@@ -454,28 +453,35 @@ document.write(`
 <a class="reference internal image-reference" href="_images/openai-platform.png"><img alt="_images/openai-platform.png" src="_images/openai-platform.png" style="width: 600px;" /></a>
 </figure>
 </div>
-<div class="admonition-usage admonition">
-<p class="admonition-title">Usage</p>
-<figure class="align-default" id="openai-billing">
-<a class="reference internal image-reference" href="_images/openai-api-usage.png"><img alt="_images/openai-api-usage.png" src="_images/openai-api-usage.png" style="width: 600px;" /></a>
-</figure>
-</div>
-<div class="admonition-billing admonition">
-<p class="admonition-title">Billing</p>
-<figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="_images/openai-api-billing.png"><img alt="_images/openai-api-billing.png" src="_images/openai-api-billing.png" style="width: 600px;" /></a>
-</figure>
-</div>
-<div class="admonition-api-keys admonition">
-<p class="admonition-title">API Keys</p>
+<div class="admonition-create-an-api-key-https-platform-openai-com-api-keys admonition">
+<p class="admonition-title">1. <a class="reference external" href="https://platform.openai.com/api-keys">Create an API key</a></p>
 <figure class="align-default" id="openai-keys">
 <a class="reference internal image-reference" href="_images/openai-api-keys.png"><img alt="_images/openai-api-keys.png" src="_images/openai-api-keys.png" style="width: 600px;" /></a>
 </figure>
 </div>
-</section>
-<section id="code-example">
-<h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Steps</div>
+<ul class="simple">
+<li><p class="sd-card-text">Create API key</p></li>
+<li><p class="sd-card-text">Save to disk</p></li>
+<li><p class="sd-card-text"><font color='purple'><strong>Keep it safe!</strong></font></p>
+<ul>
+<li><p class="sd-card-text">Don’t put it in your source code</p></li>
+<li><p class="sd-card-text">Don’t add it to a github repository</p></li>
+<li><p class="sd-card-text">Be careful about emailing, sharing via dropbox, one drive, etc.</p></li>
+</ul>
+</li>
+</ul>
+<video width="99%" height="600" controls muted markdown="1">
+    <source src="_images/openai-api-create-api-key.mp4" type="video/mp4" markdown="1" >
+</video>
+</div>
+</div>
+<!-- ```{figure} ./images/openai-api-create-api-key.mp4
+Create an API key
+``` --><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span> <span class="c1"># pip install python-dotenv</span>
@@ -483,20 +489,20 @@ document.write(`
 <span class="c1"># load the .env file containing your API key</span>
 <span class="n">load_dotenv</span><span class="p">()</span>
 
-<span class="c1"># print (obfuscated) API key</span>
+<span class="c1"># display (obfuscated) API key</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;OPENAI_API_KEY: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">)[:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OPENAI_API_KEY: sk-3...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OPENAI_API_KEY: sk-2...
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span> <span class="c1"># pip install openai</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">()</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
@@ -524,7 +530,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KViUYnhlo4kguzGMcm2YjZqMGEUD&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;Being in the same room as a lion is an exhilarating and intense experience, requiring a deep understanding of lion behavior, a high level of alertness, and an unwavering respect for the animal&#39;s power and instincts. As a lion tamer with a Ph.D. in zoology and an expertise in large cat psychology, I approach interactions with lions with a scientific mindset while prioritizing safety and ethical treatment.\n\nHere are some sensations and considerations I experience when sharing a space with a lion:\n\n1. **Respect for Power**: The immediate recognition of the lion&#39;s strength and potential for danger is palpable. These powerful predators command respect through their sheer size—adult male lions can weigh over 400 pounds (about 180 kilograms) and their muscular build, sharp claws, and formidable teeth serve as constant reminders of their status as apex predators.\n\n2. **Observation**: My knowledge of zoology and animal psychology comes into play as I closely observe the lion&#39;s body language and vocalizations. Understanding tail movements, ear positions, eye contact, and other non-verbal cues is critical to judging the lion&#39;s mood and intentions.\n\n3. **Calm and Control**: Maintaining a calm demeanor is essential. Lions, like many animals, can pick up on anxiety or fear&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699899170, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KX4NhSsY5k0tdnerrhOsKVTeqt2H&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. My academic background and practical experience help me understand lion behavior, which is crucial for safe interactions. The following aspects play into the experience:\n\n1. **Understanding Lion Behavior**: Being familiar with lion psychology and behavioral cues is essential. I am vigilant and attentive to the lion&#39;s body language, vocalizations, and movements, which can indicate its mood and intentions.\n\n2. **Safety Precautions**: Safety is paramount, and I always ensure that protocols are in place to manage risks. This may involve barriers, an escape route, and having trained staff on hand.\n\n3. **Respect for the Animal**: I approach with a deep respect for the lion&#39;s power and wild nature. I never forget that the lion is a top predator and that I must treat it with the caution and respect it deserves.\n\n4. **Building Trust**: Over time, I work to establish a bond of trust with the lions I work with. This does not make them any less dangerous, but it helps facilitate our interactions and reduces stress for the animals.\n\n5. **Emotional State**: I have to be in&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699904371, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
 </pre></div>
 </div>
 </div>
@@ -545,15 +551,35 @@ document.write(`
 </div>
 </details>
 </div>
-<p><span class="pasted-text">Being in the same room as a lion is an exhilarating and intense experience, requiring a deep understanding of lion behavior, a high level of alertness, and an unwavering respect for the animal’s power and instincts. As a lion tamer with a Ph.D. in zoology and an expertise in large cat psychology, I approach interactions with lions with a scientific mindset while prioritizing safety and ethical treatment.
+<p><span class="pasted-text">As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. My academic background and practical experience help me understand lion behavior, which is crucial for safe interactions. The following aspects play into the experience:
 
-Here are some sensations and considerations I experience when sharing a space with a lion:
+1. **Understanding Lion Behavior**: Being familiar with lion psychology and behavioral cues is essential. I am vigilant and attentive to the lion’s body language, vocalizations, and movements, which can indicate its mood and intentions.
 
-1. **Respect for Power**: The immediate recognition of the lion’s strength and potential for danger is palpable. These powerful predators command respect through their sheer size—adult male lions can weigh over 400 pounds (about 180 kilograms) and their muscular build, sharp claws, and formidable teeth serve as constant reminders of their status as apex predators.
+2. **Safety Precautions**: Safety is paramount, and I always ensure that protocols are in place to manage risks. This may involve barriers, an escape route, and having trained staff on hand.
 
-2. **Observation**: My knowledge of zoology and animal psychology comes into play as I closely observe the lion’s body language and vocalizations. Understanding tail movements, ear positions, eye contact, and other non-verbal cues is critical to judging the lion’s mood and intentions.
+3. **Respect for the Animal**: I approach with a deep respect for the lion’s power and wild nature. I never forget that the lion is a top predator and that I must treat it with the caution and respect it deserves.
 
-3. **Calm and Control**: Maintaining a calm demeanor is essential. Lions, like many animals, can pick up on anxiety or fear</span></p>
+4. **Building Trust**: Over time, I work to establish a bond of trust with the lions I work with. This does not make them any less dangerous, but it helps facilitate our interactions and reduces stress for the animals.
+
+5. **Emotional State**: I have to be in</span></p>
+<div class="admonition-usage-https-platform-openai-com-usage admonition">
+<p class="admonition-title"><a class="reference external" href="https://platform.openai.com/usage">Usage</a></p>
+<figure class="align-default" id="openai-billing">
+<a class="reference internal image-reference" href="_images/openai-api-usage.png"><img alt="_images/openai-api-usage.png" src="_images/openai-api-usage.png" style="width: 600px;" /></a>
+</figure>
+</div>
+<div class="admonition-limits-https-platform-openai-com-account-limits admonition">
+<p class="admonition-title"><a class="reference external" href="https://platform.openai.com/account/limits">Limits</a></p>
+<figure class="align-default" id="openai-limits">
+<a class="reference internal image-reference" href="_images/openai-api-limits.png"><img alt="_images/openai-api-limits.png" src="_images/openai-api-limits.png" style="width: 600px;" /></a>
+</figure>
+</div>
+<div class="admonition-billing-https-platform-openai-com-account-billing-overview admonition">
+<p class="admonition-title"><a class="reference external" href="https://platform.openai.com/account/billing/overview">Billing</a></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/openai-api-billing.png"><img alt="_images/openai-api-billing.png" src="_images/openai-api-billing.png" style="width: 600px;" /></a>
+</figure>
+</div>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
@@ -644,7 +670,6 @@ Here are some sensations and considerations I experience when sharing a space wi
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example">Code Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>
   </nav></div>
