@@ -27,7 +27,7 @@ parts:
   - file: fine-tuning
   - file: langchain
   - file: augmented-generation
-- caption: Takeaways
+- caption: Summary
   numbered: false
   chapters:
   - file: takeaways

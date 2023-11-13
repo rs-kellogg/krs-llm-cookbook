@@ -8,9 +8,8 @@ myst_nb
 leafmap
 ipyleaflet
 requests
-faiss
-pickle
-opeanai-whisper
+# faiss-cpu
+# opeanai-whisper
 wave
 pyaudio
 transformers

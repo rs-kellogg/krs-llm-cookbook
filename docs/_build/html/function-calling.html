@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -191,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="langchain.html">Creating Applications with Langchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">Retrieval Augmented Generation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Takeaways</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="takeaways.html">Takeaways</a></li>
 </ul>
@@ -545,7 +545,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KXEC61w3wYBTMYjjxR1FFwHod9Vu&#39;, choices=[Choice(finish_reason=&#39;function_call&#39;, index=0, message=ChatCompletionMessage(content=None, role=&#39;assistant&#39;, function_call=FunctionCall(arguments=&#39;{\n  &quot;airline_code&quot;: &quot;UA&quot;,\n  &quot;flight_number&quot;: 792,\n  &quot;day&quot;: 12,\n  &quot;month&quot;: 11,\n  &quot;year&quot;: 2023\n}&#39;, name=&#39;get_flight_status&#39;), tool_calls=None))], created=1699904980, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=48, prompt_tokens=119, total_tokens=167))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KXbKtKMrFX92k4dL8e5HjrQFo9k5&#39;, choices=[Choice(finish_reason=&#39;function_call&#39;, index=0, message=ChatCompletionMessage(content=None, role=&#39;assistant&#39;, function_call=FunctionCall(arguments=&#39;{\n  &quot;airline_code&quot;: &quot;UA&quot;,\n  &quot;flight_number&quot;: 792,\n  &quot;day&quot;: 12,\n  &quot;month&quot;: 11,\n  &quot;year&quot;: 2023\n}&#39;, name=&#39;get_flight_status&#39;), tool_calls=None))], created=1699906414, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=48, prompt_tokens=119, total_tokens=167))
 </pre></div>
 </div>
 </div>
@@ -628,7 +628,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KXEDwef8KCMxxSnot4Zhkg6TXXPE&#39;, choices=[Choice(finish_reason=&#39;stop&#39;, index=0, message=ChatCompletionMessage(content=&#39;The flight status of UA 792 for Nov 12, 2023 is on time. The flight is scheduled to depart at 06:00 CST and arrive at 09:06 EST.&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699904981, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=41, prompt_tokens=150, total_tokens=191))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KXbLwBNm08Mc1ztwntEBYiQvNeEn&#39;, choices=[Choice(finish_reason=&#39;stop&#39;, index=0, message=ChatCompletionMessage(content=&#39;The flight status of UA 792 for Nov 12, 2023 is on time. The flight is departing at 06:00 CST and arriving at 09:06 EST.&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699906415, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=39, prompt_tokens=150, total_tokens=189))
 </pre></div>
 </div>
 </div>
@@ -643,7 +643,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The flight status of UA 792 for Nov 12, 2023 is on time. The flight is scheduled to depart at 06:00 CST and arrive at 09:06 EST.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The flight status of UA 792 for Nov 12, 2023 is on time. The flight is departing at 06:00 CST and arriving at 09:06 EST.
 </pre></div>
 </div>
 </div>
@@ -765,8 +765,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
