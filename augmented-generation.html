@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -191,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="langchain.html">Creating Applications with Langchain</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Retrieval Augmented Generation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Takeaways</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="takeaways.html">Takeaways</a></li>
 </ul>
@@ -453,20 +453,6 @@ This blending of retrieval and generation enhances the richness and relevance of
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># primary libraries to import</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">openai</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">langchain.embeddings</span> <span class="kn">import</span> <span class="n">OpenAIEmbeddings</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">langchain.text_splitter</span> <span class="kn">import</span> <span class="n">CharacterTextSplitter</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">langchain.vectorstores</span> <span class="kn">import</span> <span class="n">FAISS</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;langchain&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Remember to set your API key.</p>
 <div class="cell docutils container">
@@ -504,11 +490,45 @@ This blending of retrieval and generation enhances the richness and relevance of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: 
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+APIRemovedInV1                            Traceback (most recent call last)
+Cell In[3], line 5
+      2 prompt = &quot;How do I find an element by class name in the latest version of python selenium?&quot;
+      4 # Generate response using GPT-3
+----&gt; 5 response = openai.Completion.create(
+      6     engine=&quot;text-davinci-003&quot;,  # Choose the appropriate engine
+      7     prompt=prompt,
+      8     max_tokens=100,  
+      9     temperature=0.7, 
+     10 )
+     12 # Display the generated text
+     13 generated_text = response[&quot;choices&quot;][0][&quot;text&quot;]
 
-You can find an element by class name using the find_element_by_class_name() method in the latest version of Python Selenium. An example of this usage is as follows:
+File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/_utils/_proxy.py:22, in LazyProxy.__getattr__(self, attr)
+     21 def __getattr__(self, attr: str) -&gt; object:
+---&gt; 22     return getattr(self.__get_proxied__(), attr)
 
-element = driver.find_element_by_class_name(&quot;class_name&quot;)
+File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/_utils/_proxy.py:43, in LazyProxy.__get_proxied__(self)
+     41 def __get_proxied__(self) -&gt; T:
+     42     if not self.should_cache:
+---&gt; 43         return self.__load__()
+     45     proxied = self.__proxied
+     46     if proxied is not None:
+
+File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/lib/_old_api.py:33, in APIRemovedInV1Proxy.__load__(self)
+     31 @override
+     32 def __load__(self) -&gt; None:
+---&gt; 33     raise APIRemovedInV1(symbol=self._symbol)
+
+APIRemovedInV1: 
+
+You tried to access openai.Completion, but this is no longer supported in openai&gt;=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
 </pre></div>
 </div>
 </div>
@@ -826,8 +846,8 @@ By Kellogg Research Support
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

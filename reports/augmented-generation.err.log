@@ -18,32 +18,61 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# primary libraries to import
-import openai
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import FAISS
-from langchain import OpenAI
-from langchain.chains import VectorDBQAWithSourcesChain
+# Ask GPT-3 about the Python version
+prompt = "How do I find an element by class name in the latest version of python selenium?"
 
+# Generate response using GPT-3
+response = openai.Completion.create(
+    engine="text-davinci-003",  # Choose the appropriate engine
+    prompt=prompt,
+    max_tokens=100,  
+    temperature=0.7, 
+)
 
-# also need
-import requests
-import faiss
-import pickle
-from pathlib import Path
-
+# Display the generated text
+generated_text = response["choices"][0]["text"]
+print(f"Answer: {generated_text}")
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 3[0m
-[1;32m      1[0m [38;5;66;03m# primary libraries to import[39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mopenai[39;00m
-[0;32m----> 3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mlangchain[39;00m[38;5;21;01m.[39;00m[38;5;21;01membeddings[39;00m [38;5;28;01mimport[39;00m OpenAIEmbeddings
-[1;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mlangchain[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtext_splitter[39;00m [38;5;28;01mimport[39;00m CharacterTextSplitter
-[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mlangchain[39;00m[38;5;21;01m.[39;00m[38;5;21;01mvectorstores[39;00m [38;5;28;01mimport[39;00m FAISS
+[0;31mAPIRemovedInV1[0m                            Traceback (most recent call last)
+Cell [0;32mIn[3], line 5[0m
+[1;32m      2[0m prompt [38;5;241m=[39m [38;5;124m"[39m[38;5;124mHow do I find an element by class name in the latest version of python selenium?[39m[38;5;124m"[39m
+[1;32m      4[0m [38;5;66;03m# Generate response using GPT-3[39;00m
+[0;32m----> 5[0m response [38;5;241m=[39m [43mopenai[49m[38;5;241;43m.[39;49m[43mCompletion[49m[38;5;241;43m.[39;49m[43mcreate[49m(
+[1;32m      6[0m     engine[38;5;241m=[39m[38;5;124m"[39m[38;5;124mtext-davinci-003[39m[38;5;124m"[39m,  [38;5;66;03m# Choose the appropriate engine[39;00m
+[1;32m      7[0m     prompt[38;5;241m=[39mprompt,
+[1;32m      8[0m     max_tokens[38;5;241m=[39m[38;5;241m100[39m,  
+[1;32m      9[0m     temperature[38;5;241m=[39m[38;5;241m0.7[39m, 
+[1;32m     10[0m )
+[1;32m     12[0m [38;5;66;03m# Display the generated text[39;00m
+[1;32m     13[0m generated_text [38;5;241m=[39m response[[38;5;124m"[39m[38;5;124mchoices[39m[38;5;124m"[39m][[38;5;241m0[39m][[38;5;124m"[39m[38;5;124mtext[39m[38;5;124m"[39m]
 
-[0;31mModuleNotFoundError[0m: No module named 'langchain'
+File [0;32m/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/_utils/_proxy.py:22[0m, in [0;36mLazyProxy.__getattr__[0;34m(self, attr)[0m
+[1;32m     21[0m [38;5;28;01mdef[39;00m [38;5;21m__getattr__[39m([38;5;28mself[39m, attr: [38;5;28mstr[39m) [38;5;241m-[39m[38;5;241m>[39m [38;5;28mobject[39m:
+[0;32m---> 22[0m     [38;5;28;01mreturn[39;00m [38;5;28mgetattr[39m([38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m__get_proxied__[49m[43m([49m[43m)[49m, attr)
+
+File [0;32m/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/_utils/_proxy.py:43[0m, in [0;36mLazyProxy.__get_proxied__[0;34m(self)[0m
+[1;32m     41[0m [38;5;28;01mdef[39;00m [38;5;21m__get_proxied__[39m([38;5;28mself[39m) [38;5;241m-[39m[38;5;241m>[39m T:
+[1;32m     42[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39mshould_cache:
+[0;32m---> 43[0m         [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m__load__[49m[43m([49m[43m)[49m
+[1;32m     45[0m     proxied [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m__proxied
+[1;32m     46[0m     [38;5;28;01mif[39;00m proxied [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [0;32m/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/lib/_old_api.py:33[0m, in [0;36mAPIRemovedInV1Proxy.__load__[0;34m(self)[0m
+[1;32m     31[0m [38;5;129m@override[39m
+[1;32m     32[0m [38;5;28;01mdef[39;00m [38;5;21m__load__[39m([38;5;28mself[39m) [38;5;241m-[39m[38;5;241m>[39m [38;5;28;01mNone[39;00m:
+[0;32m---> 33[0m     [38;5;28;01mraise[39;00m APIRemovedInV1(symbol[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39m_symbol)
+
+[0;31mAPIRemovedInV1[0m: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
 
