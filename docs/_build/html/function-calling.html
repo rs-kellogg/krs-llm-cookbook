@@ -181,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Converting Speech to Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Speech-to-text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
@@ -542,7 +542,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KVcMxbkBOxE9mg3m5F4qwcwzmukc&#39;, choices=[Choice(finish_reason=&#39;function_call&#39;, index=0, message=ChatCompletionMessage(content=None, role=&#39;assistant&#39;, function_call=FunctionCall(arguments=&#39;{\n&quot;airline_code&quot;: &quot;UA&quot;,\n&quot;flight_number&quot;: 792,\n&quot;day&quot;: 9,\n&quot;month&quot;: 11,\n&quot;year&quot;: 2023\n}&#39;, name=&#39;get_flight_status&#39;), tool_calls=None))], created=1699898790, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=43, prompt_tokens=119, total_tokens=162))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KViQElNeTfeHE6G6VtlKOCflkDJj&#39;, choices=[Choice(finish_reason=&#39;function_call&#39;, index=0, message=ChatCompletionMessage(content=None, role=&#39;assistant&#39;, function_call=FunctionCall(arguments=&#39;{\n  &quot;airline_code&quot;: &quot;UA&quot;,\n  &quot;flight_number&quot;: 792,\n  &quot;day&quot;: 9,\n  &quot;month&quot;: 11,\n  &quot;year&quot;: 2023\n}&#39;, name=&#39;get_flight_status&#39;), tool_calls=None))], created=1699899166, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=48, prompt_tokens=119, total_tokens=167))
 </pre></div>
 </div>
 </div>
