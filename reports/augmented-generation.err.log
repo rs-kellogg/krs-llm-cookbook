@@ -18,36 +18,38 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Ask GPT-3 about the Python version
-prompt = "How do I find an element by class name in the latest version of python selenium?"
-
-# Generate response using GPT-3
-response = openai.Completion.create(
-    engine="text-davinci-003",  # Choose the appropriate engine
-    prompt=prompt,
+response = openai.ChatCompletion.create( 
+    model="gpt-4-0613", 
+    messages=[
+        {"role": "system", "content": "Answer the following question the best you can."},
+        {"role": "user", "content": "Can you tell me more about the first elephant that landed on the moon?"}
+    ],
     max_tokens=100,  
-    temperature=0.7, 
+    temperature=0.0,  
 )
 
 # Display the generated text
-generated_text = response["choices"][0]["text"]
-print(f"Answer: {generated_text}")
+generated_text = response["choices"][0]["message"]["content"]
+print("Generated Text:")
+print(generated_text)
+
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAPIRemovedInV1[0m                            Traceback (most recent call last)
-Cell [0;32mIn[3], line 5[0m
-[1;32m      2[0m prompt [38;5;241m=[39m [38;5;124m"[39m[38;5;124mHow do I find an element by class name in the latest version of python selenium?[39m[38;5;124m"[39m
-[1;32m      4[0m [38;5;66;03m# Generate response using GPT-3[39;00m
-[0;32m----> 5[0m response [38;5;241m=[39m [43mopenai[49m[38;5;241;43m.[39;49m[43mCompletion[49m[38;5;241;43m.[39;49m[43mcreate[49m(
-[1;32m      6[0m     engine[38;5;241m=[39m[38;5;124m"[39m[38;5;124mtext-davinci-003[39m[38;5;124m"[39m,  [38;5;66;03m# Choose the appropriate engine[39;00m
-[1;32m      7[0m     prompt[38;5;241m=[39mprompt,
-[1;32m      8[0m     max_tokens[38;5;241m=[39m[38;5;241m100[39m,  
-[1;32m      9[0m     temperature[38;5;241m=[39m[38;5;241m0.7[39m, 
-[1;32m     10[0m )
-[1;32m     12[0m [38;5;66;03m# Display the generated text[39;00m
-[1;32m     13[0m generated_text [38;5;241m=[39m response[[38;5;124m"[39m[38;5;124mchoices[39m[38;5;124m"[39m][[38;5;241m0[39m][[38;5;124m"[39m[38;5;124mtext[39m[38;5;124m"[39m]
+Cell [0;32mIn[5], line 1[0m
+[0;32m----> 1[0m response [38;5;241m=[39m [43mopenai[49m[38;5;241;43m.[39;49m[43mChatCompletion[49m[38;5;241;43m.[39;49m[43mcreate[49m( 
+[1;32m      2[0m     model[38;5;241m=[39m[38;5;124m"[39m[38;5;124mgpt-4-0613[39m[38;5;124m"[39m, 
+[1;32m      3[0m     messages[38;5;241m=[39m[
+[1;32m      4[0m         {[38;5;124m"[39m[38;5;124mrole[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124msystem[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mcontent[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124mAnswer the following question the best you can.[39m[38;5;124m"[39m},
+[1;32m      5[0m         {[38;5;124m"[39m[38;5;124mrole[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124muser[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mcontent[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124mCan you tell me more about the first elephant that landed on the moon?[39m[38;5;124m"[39m}
+[1;32m      6[0m     ],
+[1;32m      7[0m     max_tokens[38;5;241m=[39m[38;5;241m100[39m,  
+[1;32m      8[0m     temperature[38;5;241m=[39m[38;5;241m0.0[39m,  
+[1;32m      9[0m )
+[1;32m     11[0m [38;5;66;03m# Display the generated text[39;00m
+[1;32m     12[0m generated_text [38;5;241m=[39m response[[38;5;124m"[39m[38;5;124mchoices[39m[38;5;124m"[39m][[38;5;241m0[39m][[38;5;124m"[39m[38;5;124mmessage[39m[38;5;124m"[39m][[38;5;124m"[39m[38;5;124mcontent[39m[38;5;124m"[39m]
 
 File [0;32m/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/openai/_utils/_proxy.py:22[0m, in [0;36mLazyProxy.__getattr__[0;34m(self, attr)[0m
 [1;32m     21[0m [38;5;28;01mdef[39;00m [38;5;21m__getattr__[39m([38;5;28mself[39m, attr: [38;5;28mstr[39m) [38;5;241m-[39m[38;5;241m>[39m [38;5;28mobject[39m:
@@ -67,7 +69,7 @@ File [0;32m/opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/si
 
 [0;31mAPIRemovedInV1[0m: 
 
-You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
 
 You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
 
