@@ -29,4 +29,18 @@
 
 ## [Prompt Engineering](https://platform.openai.com/docs/guides/prompt-engineering)
 - Write clear instructions, ask for what you want
-- 
+
+## Replicability
+- Source control + conda
+- Save all prompts and completions (can't necessarily guarantee you can reproduce)
+- Make models as deterministic as possible
+  
+
+# TODO:
+
+- Fixup Introduction and Setup
+- Fixup text analysis notebook
+- Cleanup code base
+- Incorporate code examples into notebook (testing, conda, github)
+- Add conclusion notes
+-  Record video on setting up and using Copilot

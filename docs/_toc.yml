@@ -27,7 +27,10 @@ parts:
   - file: fine-tuning
   - file: langchain
   - file: augmented-generation
-
+- caption: Takeaways
+  numbered: false
+  chapters:
+  - file: takeaways
 
   
   

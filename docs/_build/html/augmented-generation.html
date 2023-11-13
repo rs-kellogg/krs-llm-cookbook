@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'augmented-generation';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Takeaways" href="takeaways.html" />
     <link rel="prev" title="Creating Applications with Langchain" href="langchain.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -168,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Workshop Outline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Workshop</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="nav bd-sidenav">
@@ -189,6 +190,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">Fine-Tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="langchain.html">Creating Applications with Langchain</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Retrieval Augmented Generation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Takeaways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="takeaways.html">Takeaways</a></li>
 </ul>
 
     </div>
@@ -382,10 +387,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it Works</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-uses-cases">Sample Uses Cases</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improve-coding-request">Improve Coding Request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition"><em>Definition</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works"><em>How it Works</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-uses-cases"><em>Sample Uses Cases</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started"><em>Getting Started</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-updating-knowledge-on-recent-python-selenium-library"><em>Example A: Updating Knowledge on Recent Python Selenium Library</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-b-preventing-hallucinations"><em>Example B: Preventing Hallucinations</em></a></li>
 </ul>
             </nav>
         </div>
@@ -399,109 +406,314 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="retrieval-augmented-generation">
 <h1>Retrieval Augmented Generation<a class="headerlink" href="#retrieval-augmented-generation" title="Permalink to this heading">#</a></h1>
-<p>Retrieval Augmented Generation (RAG) is a powerful paradigm in natural language processing that combines the strengths of information retrieval and language generation. In the context of the OpenAI API, this approach involves retrieving relevant information from a large dataset and using that information to enhance the generation of human-like text.  It can be used as another method to fine-tune your models.</p>
+<p><font color='purple'><strong>Retrieval Augmented Generation (RAG)</strong></font> is a powerful paradigm in natural language processing that combines the strengths of information retrieval and language generation. In the context of the <strong>OpenAI API</strong>, this approach involves retrieving relevant information from a large dataset and using that information to enhance the generation of accurate text. It can be used as another method to fine-tune your models.</p>
 <section id="definition">
-<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h2>
-<p>Retrieval Augmented Generation (RAG) is a method that leverages pre-existing knowledge by retrieving pertinent information from a knowledge base and using it to inform the generation of coherent and contextually relevant text. In the OpenAI API, RAG is exemplified by models that integrate the retrieval of information to augment the output of the language generation process.  The phrase Retrieval Augmented Generation (RAG) comes from a recent paper by Lewis et al. from Facebook AI. The idea is to use a pre-trained language model (LM) to generate text, but to use a separate retrieval system to find relevant documents to condition the LM on.</p>
+<h2><em>Definition</em><a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h2>
+<p><font color='purple'><strong>RAG</strong></font> is a method that leverages pre-existing knowledge by retrieving pertinent information from a knowledge base and using it to inform the generation of coherent and contextually relevant text. In the OpenAI API, <font color='purple'><strong>RAG</strong></font> is exemplified by models that integrate the retrieval of information to augment the output of the language generation process.  The phrase <font color='purple'><strong>Retrieval Augmented Generation</strong></font> comes from a recent paper by Lewis et al. from Facebook AI (<a class="reference external" href="https://research.facebook.com/publications/retrieval-augmented-generation-for-knowledge-intensive-nlp-tasks/">https://research.facebook.com/publications/retrieval-augmented-generation-for-knowledge-intensive-nlp-tasks/</a>). The idea is to use a pre-trained language model (LM) to generate text, but to use a separate retrieval system to find relevant documents to condition the LM on.</p>
 </section>
 <section id="how-it-works">
-<h2>How it Works<a class="headerlink" href="#how-it-works" title="Permalink to this heading">#</a></h2>
-<p>1.) Retrieval Process:</p>
-<p>The model retrieves information from a designated knowledge base or dataset based on the input prompt.
+<h2><em>How it Works</em><a class="headerlink" href="#how-it-works" title="Permalink to this heading">#</a></h2>
+<p>1.) <strong>Retrieval Process</strong>:</p>
+<p>The model retrieves information from a designated knowledge base or dataset from the input prompt.
 The retrieved information serves as context for the subsequent language generation.</p>
-<p>2.) Generation Process:</p>
+<p>2.) <strong>Generation Process</strong>:</p>
 <p>The model generates text, incorporating the retrieved information to produce more informed and context-aware responses.
 This blending of retrieval and generation enhances the richness and relevance of the generated content.</p>
 </section>
 <section id="sample-uses-cases">
-<h2>Sample Uses Cases<a class="headerlink" href="#sample-uses-cases" title="Permalink to this heading">#</a></h2>
-<p>– Question Answering Systems: RAG can be employed to build question answering systems that retrieve information from vast knowledge bases to generate accurate and contextually appropriate answers.</p>
-<p>– Content Creation: In content creation applications, RAG can enhance the generation of creative and informative text by pulling in relevant details from a wide range of sources.</p>
-<p>– Conversational Agents: Chatbots and conversational agents benefit from RAG by incorporating external knowledge into their responses, making interactions more natural and contextually aware.</p>
-<p>– Educational Tools: RAG models can be used to develop educational tools that provide detailed and contextually relevant explanations by pulling information from educational databases.</p>
-<p>– Code Generation: In software development, RAG can assist in generating code snippets by retrieving information from programming knowledge bases, ensuring the produced code is accurate and contextually fitting.</p>
+<h2><em>Sample Uses Cases</em><a class="headerlink" href="#sample-uses-cases" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Question Answering Systems</strong>: RAG can be employed to build question answering systems that retrieve information from vast knowledge bases to generate accurate and contextually appropriate answers.</p></li>
+<li><p><strong>Content Creation</strong>: In content creation applications, RAG can enhance the generation of creative and informative text by pulling in relevant details from a wide range of sources.</p></li>
+<li><p><strong>Conversational Agents</strong>: Chatbots and conversational agents benefit from RAG by incorporating external knowledge into their responses, making interactions more natural and contextually aware.</p></li>
+<li><p><strong>Educational Tools</strong>: RAG models can be used to develop educational tools that provide detailed and contextually relevant explanations by pulling information from educational databases.</p></li>
+<li><p><strong>Code Generation</strong>: In software development, RAG can assist in generating code snippets by retrieving information from programming knowledge bases, ensuring the produced code is accurate and contextually fitting. (example today)</p></li>
+<li><p><strong>Prevent Hallucinations</strong>: Finally, RAG can be used to bring in external knowledge to check whether a GPT response is an hallucination. (example provided)</p></li>
+</ul>
 </section>
-<section id="improve-coding-request">
-<h2>Improve Coding Request<a class="headerlink" href="#improve-coding-request" title="Permalink to this heading">#</a></h2>
-<p>Let’s ask GPT a question about the latest selenium python library, while feeding it the library.</p>
+<section id="getting-started">
+<h2><em>Getting Started</em><a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
+<p>Please install and import libraries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openai</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># primary libraries to import</span>
+<span class="kn">import</span> <span class="nn">openai</span>
+<span class="kn">from</span> <span class="nn">langchain.embeddings</span> <span class="kn">import</span> <span class="n">OpenAIEmbeddings</span>
+<span class="kn">from</span> <span class="nn">langchain.text_splitter</span> <span class="kn">import</span> <span class="n">CharacterTextSplitter</span>
+<span class="kn">from</span> <span class="nn">langchain.vectorstores</span> <span class="kn">import</span> <span class="n">FAISS</span>
+<span class="kn">from</span> <span class="nn">langchain</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">VectorDBQAWithSourcesChain</span>
+
+
+<span class="c1"># also need</span>
 <span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-
-<span class="c1"># Set your OpenAI API key</span>
-<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_API_KEY&gt;&quot;</span>
-
-<span class="c1"># Function to scrape information about the latest version of a Python package</span>
-<span class="k">def</span> <span class="nf">scrape_latest_package_version</span><span class="p">(</span><span class="n">package_name</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># Send a GET request to the PyPI website</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://pypi.org/project/</span><span class="si">{</span><span class="n">package_name</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">)</span>
-        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-
-        <span class="c1"># Parse the HTML content using BeautifulSoup</span>
-        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
-
-        <span class="c1"># Extract relevant information (modify this based on your needs)</span>
-        <span class="n">version_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;package-header__version&quot;</span><span class="p">)</span>
-        <span class="n">latest_version</span> <span class="o">=</span> <span class="n">version_tag</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">version_tag</span> <span class="k">else</span> <span class="s2">&quot;N/A&quot;</span>
-
-        <span class="c1"># Additional details can be extracted as needed</span>
-
-        <span class="k">return</span> <span class="n">latest_version</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error scraping package information: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">None</span>
-
-<span class="c1"># Specify the Python package (in this case, Selenium)</span>
-<span class="n">package_name</span> <span class="o">=</span> <span class="s2">&quot;selenium&quot;</span>
-
-<span class="c1"># Scrape information about the latest version of the package</span>
-<span class="n">latest_version</span> <span class="o">=</span> <span class="n">scrape_latest_package_version</span><span class="p">(</span><span class="n">package_name</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">latest_version</span><span class="p">:</span>
-    <span class="c1"># Specify the document for retrieval</span>
-    <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;selenium_doc&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;The latest version of </span><span class="si">{</span><span class="n">package_name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">latest_version</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">}</span>
-
-    <span class="c1"># Define a prompt for Retrieval Augmented Generation</span>
-    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Provide information about the most recent version of </span><span class="si">{</span><span class="n">package_name</span><span class="si">}</span><span class="s2"> for Python:&quot;</span>
-
-    <span class="c1"># Generate response using Retrieval Augmented Generation</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Completion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-        <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;text-davinci-002&quot;</span><span class="p">,</span>  <span class="c1"># Choose the appropriate engine</span>
-        <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
-        <span class="n">documents</span><span class="o">=</span><span class="p">[</span><span class="n">document</span><span class="p">],</span>
-        <span class="n">max_tokens</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>  <span class="c1"># Adjust as needed</span>
-        <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>  <span class="c1"># Adjust as needed</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Display the generated text</span>
-    <span class="n">generated_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generated Text:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">generated_text</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unable to retrieve information about </span><span class="si">{</span><span class="n">package_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">faiss</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">43</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Provide information about the most recent version of </span><span class="si">{</span><span class="n">package_name</span><span class="si">}</span><span class="s2"> for Python:&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="c1"># Generate response using Retrieval Augmented Generation</span>
-<span class="ne">---&gt; </span><span class="mi">43</span> <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Completion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;text-davinci-002&quot;</span><span class="p">,</span>  <span class="c1"># Choose the appropriate engine</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">documents</span><span class="o">=</span><span class="p">[</span><span class="n">document</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="n">max_tokens</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>  <span class="c1"># Adjust as needed</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span>     <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>  <span class="c1"># Adjust as needed</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="c1"># Display the generated text</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">generated_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># primary libraries to import</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">openai</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">langchain.embeddings</span> <span class="kn">import</span> <span class="n">OpenAIEmbeddings</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">langchain.text_splitter</span> <span class="kn">import</span> <span class="n">CharacterTextSplitter</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">langchain.vectorstores</span> <span class="kn">import</span> <span class="n">FAISS</span>
 
-<span class="ne">AttributeError</span>: module &#39;openai&#39; has no attribute &#39;Completion&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;langchain&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember to set your API key.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set api key</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;openai.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">api_key</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-a-updating-knowledge-on-recent-python-selenium-library">
+<h2><em>Example A: Updating Knowledge on Recent Python Selenium Library</em><a class="headerlink" href="#example-a-updating-knowledge-on-recent-python-selenium-library" title="Permalink to this heading">#</a></h2>
+<p>One way to use RAG is to feed it an external knowledge source to help improve your code. Over the summer, the Python Selenium library was upgraded from version 3 to version 4. Let’s ask GPT a question about how to find a class element using Python Selenium.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask GPT-3 about the Python version</span>
+<span class="c1">#prompt = &quot;What is the lastest version of Python&#39;s selenium library that you know?&quot;</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;How do I find an element by class name in the latest version of python selenium?&quot;</span>
+
+<span class="c1"># Generate response using GPT-3</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Completion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;text-davinci-002&quot;</span><span class="p">,</span>  <span class="c1"># Choose the appropriate engine</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># Adjust as needed</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>  <span class="c1"># Adjust as needed</span>
+<span class="p">)</span>
+
+<span class="c1"># Display the generated text</span>
+<span class="n">generated_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generated Text:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generated_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generated Text:
+
+
+The latest version of Python Selenium (3.141.0) uses the same method to find elements by class name as previous versions:
+
+driver.find_element_by_class_name(&quot;some-class&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This code for finding elements by class name no longer works in newer version of selenium found here: <a class="reference external" href="https://www.selenium.dev/documentation/webdriver/troubleshooting/upgrade_to_selenium_4/">https://www.selenium.dev/documentation/webdriver/troubleshooting/upgrade_to_selenium_4/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;selenium.png&#39;</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">image_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b69837633c6db37f9b19b2ed5b2904c81e344dbd3c967d49402f970367f5ec48.png" src="_images/b69837633c6db37f9b19b2ed5b2904c81e344dbd3c967d49402f970367f5ec48.png" />
+</div>
+</div>
+<p>To resolve this, we can use RAG to feed GPT details on the newest version of Selenium. The code below will take the contents of a webpage, chunk it, and save it in a pickle file.</p>
+<p><font color='blue'><em>Note that the RAG code was summarized from this post: <a class="reference external" href="https://www.shruggingface.com/blog/langchain-cloudflare-qa-agent">https://www.shruggingface.com/blog/langchain-cloudflare-qa-agent</a>.  Please see the original post for additional details.</em></font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the content from the Selenium troubleshooting webpage</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.selenium.dev/documentation/webdriver/troubleshooting/upgrade_to_selenium_4/&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">webpage_content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> 
+
+<span class="c1"># Split the content into smaller chunks</span>
+<span class="n">text_splitter</span> <span class="o">=</span> <span class="n">CharacterTextSplitter</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">chunks</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">split_text</span><span class="p">(</span><span class="n">webpage_content</span><span class="p">)</span>
+
+<span class="c1"># Generate vector representations</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">))]</span>  <span class="c1"># Metadata for each chunk</span>
+
+<span class="c1"># Create a FAISS vector store and save it to disk</span>
+<span class="n">store</span> <span class="o">=</span> <span class="n">FAISS</span><span class="o">.</span><span class="n">from_texts</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">,</span> <span class="n">metadatas</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+<span class="n">faiss</span><span class="o">.</span><span class="n">write_index</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;selenium_docs.index&quot;</span><span class="p">)</span>
+<span class="n">store</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;selenium_docs.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 4540, which is longer than the specified 1500
+Created a chunk of size 1584, which is longer than the specified 1500
+Created a chunk of size 52413, which is longer than the specified 1500
+Created a chunk of size 1920, which is longer than the specified 1500
+Created a chunk of size 3412, which is longer than the specified 1500
+Created a chunk of size 3707, which is longer than the specified 1500
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then feed GPT that index and pickle file as a vector store. After posing the same question, you can see the up-to-date response.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the FAISS index from disk for Selenium.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">read_index</span><span class="p">(</span><span class="s2">&quot;selenium_docs.index&quot;</span><span class="p">)</span>  <span class="c1"># Assuming the name of the index file is &#39;selenium_docs.index&#39;</span>
+
+<span class="c1"># Load the vector store from disk for Selenium.</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;selenium_docs.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">store</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># Merge the index and store for Selenium.</span>
+<span class="n">store</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+
+<span class="c1"># Build the question answering chain for Selenium.</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">VectorDBQAWithSourcesChain</span><span class="o">.</span><span class="n">from_llm</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">OpenAI</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;text-davinci-003&#39;</span><span class="p">),</span> <span class="n">vectorstore</span><span class="o">=</span><span class="n">store</span><span class="p">)</span>
+
+<span class="c1"># Ask GPT-3 about the latest version of Selenium.</span>
+<span class="c1">#question = &quot;What is the latest version of Selenium?&quot;</span>
+<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;How do I find an element by class name in the latest version of python selenium? Show an example.&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">chain</span><span class="p">({</span><span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
+
+<span class="c1"># Print the answer.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Answer: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;answer&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/ambreenchaudhri/anaconda3/lib/python3.11/site-packages/langchain/chains/qa_with_sources/vector_db.py:67: UserWarning: `VectorDBQAWithSourcesChain` is deprecated - please use `from langchain.chains import RetrievalQAWithSourcesChain`
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer:  In the latest version of python selenium, you can find an element by class name using the following methods: driver.findElement(By.className(&quot;className&quot;)); driver.findElement(By.cssSelector(&quot;.className&quot;)); driver.findElementsByCssSelector(&quot;.className&quot;);
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-b-preventing-hallucinations">
+<h2><em>Example B: Preventing Hallucinations</em><a class="headerlink" href="#example-b-preventing-hallucinations" title="Permalink to this heading">#</a></h2>
+<p>Another advantage of using RAG is to feed GPT an external knowledge source to check or prevent hallucinations.  An <strong>artificial hallucination</strong> (also called confabulation or delusion) is a response generated by an AI which contains false or misleading information presented as factual.  This could be something as innocuous as saying something exists in a file that doesn’t.  Or it could be an instance with GPT actually provides false information.  Here is an example below of Luna, the elephant that walked on the moon.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Can you tell me more about the first elephant that landed on the moon? &quot;</span>
+
+<span class="c1"># Generate response using GPT-3</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Completion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;text-davinci-002&quot;</span><span class="p">,</span>  <span class="c1"># Choose the appropriate engine</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># Adjust as needed</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># Adjust as needed</span>
+<span class="p">)</span>
+
+<span class="c1"># Display the generated text</span>
+<span class="n">generated_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generated Text:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generated_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generated Text:
+
+
+The first elephant that landed on the moon was a female elephant named Ellie. She was born in captivity in Africa and was brought to the United States when she was two years old. Ellie became the first elephant to walk on the moon when she was part of the Apollo 11 mission in 1969.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just note that the newest version of the GPT model will not produce this same hallucination.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span> 
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4-0613&quot;</span><span class="p">,</span> 
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Answer the following question the best you can.&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Can you tell me more about the first elephant that landed on the moon?&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># Adjust as needed</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># Adjust as needed</span>
+<span class="p">)</span>
+
+<span class="c1"># Display the generated text</span>
+<span class="n">generated_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generated Text:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generated_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generated Text:
+There has never been an elephant that landed on the moon. The only living beings that have been to the moon are humans and a few microorganisms. The first human to land on the moon was Neil Armstrong on July 20, 1969, during the Apollo 11 mission. Sending an elephant to the moon would present significant logistical and ethical challenges.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to check or correct this hallucination, we can use RAG to upload a text file to GPT.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the content from a page we create.</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/rs-kellogg/Research_the_Right_Way/blob/main/elephants.txt&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">webpage_content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> 
+
+<span class="c1"># Split the content into smaller chunks</span>
+<span class="n">text_splitter</span> <span class="o">=</span> <span class="n">CharacterTextSplitter</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">chunks</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">split_text</span><span class="p">(</span><span class="n">webpage_content</span><span class="p">)</span>
+
+<span class="c1"># Generate vector representations</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">))]</span>  <span class="c1"># Metadata for each chunk</span>
+
+<span class="c1"># Create a FAISS vector store and save it to disk</span>
+<span class="n">store</span> <span class="o">=</span> <span class="n">FAISS</span><span class="o">.</span><span class="n">from_texts</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">,</span> <span class="n">metadatas</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+<span class="n">faiss</span><span class="o">.</span><span class="n">write_index</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;elephant_docs.index&quot;</span><span class="p">)</span>
+<span class="n">store</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;elephant_docs.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the FAISS index from disk for Selenium.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">read_index</span><span class="p">(</span><span class="s2">&quot;elephant_docs.index&quot;</span><span class="p">)</span>  <span class="c1"># Assuming the name of the index file is &#39;selenium_docs.index&#39;</span>
+
+<span class="c1"># Load the vector store from disk for Selenium.</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;elephant_docs.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">store</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># Merge the index and store for Selenium.</span>
+<span class="n">store</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+
+<span class="c1"># Build the question answering chain for Selenium.</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">VectorDBQAWithSourcesChain</span><span class="o">.</span><span class="n">from_llm</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">OpenAI</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;text-davinci-002&#39;</span><span class="p">),</span> <span class="n">vectorstore</span><span class="o">=</span><span class="n">store</span><span class="p">)</span>
+
+<span class="c1"># Ask GPT-3 about the latest version of Selenium.</span>
+<span class="c1">#question = &quot;What is the latest version of Selenium?&quot;</span>
+<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;Can you tell me more about the first elephant that landed on the moon?&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">chain</span><span class="p">({</span><span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
+
+<span class="c1"># Print the answer.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Answer: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;answer&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer:  I don&#39;t know.
 </pre></div>
 </div>
 </div>
@@ -548,6 +760,15 @@ This blending of retrieval and generation enhances the richness and relevance of
         <p class="prev-next-title">Creating Applications with Langchain</p>
       </div>
     </a>
+    <a class="right-next"
+       href="takeaways.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Takeaways</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -563,10 +784,12 @@ This blending of retrieval and generation enhances the richness and relevance of
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it Works</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-uses-cases">Sample Uses Cases</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improve-coding-request">Improve Coding Request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition"><em>Definition</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works"><em>How it Works</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-uses-cases"><em>Sample Uses Cases</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started"><em>Getting Started</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-updating-knowledge-on-recent-python-selenium-library"><em>Example A: Updating Knowledge on Recent Python Selenium Library</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-b-preventing-hallucinations"><em>Example B: Preventing Hallucinations</em></a></li>
 </ul>
   </nav></div>
 
