@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Workshop Outline &#8212; Kellogg Research Support LLM Cookbook</title>
+    <title>Workshop &#8212; Kellogg Research Support LLM Cookbook</title>
   
   
   
@@ -169,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Workshop Outline</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Workshop</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="nav bd-sidenav">
@@ -181,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Converting Speech to Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Speech-to-text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
@@ -190,6 +190,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">Fine-Tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="langchain.html">Creating Applications with Langchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">Retrieval Augmented Generation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Takeaways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="takeaways.html">Takeaways</a></li>
 </ul>
 
     </div>
@@ -360,7 +364,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -371,11 +377,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Workshop Outline</h1>
+    <h1>Workshop</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -385,44 +400,59 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="workshop-outline">
-<h1>Workshop Outline<a class="headerlink" href="#workshop-outline" title="Permalink to this heading">#</a></h1>
-<div class="admonition-introduction admonition">
+  <section class="tex2jax_ignore mathjax_ignore" id="workshop">
+<h1>Workshop<a class="headerlink" href="#workshop" title="Permalink to this heading">#</a></h1>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this heading">#</a></h2>
+<div class="important admonition">
+<p class="admonition-title">Objective</p>
+<p>The goals of this workshop are to look at best practices with regard to:</p>
+<ul class="simple">
+<li><p><b>Scaling</b> jobs using the OpenAI API</p></li>
+<li><p><b>Validating</b> results created using the OpenAI API</p></li>
+<li><p><b>Reproducing</b> results created using the OpenAI API</p></li>
+</ul>
+</div>
+</section>
+<section id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this heading">#</a></h2>
+<div class="important admonition">
 <p class="admonition-title">1. Introduction</p>
 <ul class="simple">
-<li><p>Brief overview of GPTs</p></li>
+<li><p>Brief overview of Generative Pre-trained Transformers (GPTs)</p></li>
 <li><p>High-level overview of what you can do with them</p></li>
-<li><p>OpenAI Setup</p></li>
+<li><p>OpenAI API setup</p></li>
 </ul>
-<div class="attention admonition">
+<div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
-<p>The focus will be on using the OpenAI API, not the ChatGPT Application</p>
+<p>The focus will be on using the API, not the ChatGPT web application</p>
 </div>
 </div>
-<div class="admonition-use-cases admonition">
+<div class="important admonition">
 <p class="admonition-title">2. Use Cases</p>
 <ul class="simple">
-<li><p>Text Analysis (extracting structured information)</p></li>
 <li><p>Text Classification (sentiment analysis)</p></li>
 <li><p>Speech to Text</p></li>
+<li><p>Text Analysis (extracting structured information)</p></li>
 <li><p>Programming Assistance</p></li>
 </ul>
-<div class="attention admonition">
+<div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
 <p>We will discuss topics like prompt engineering, testing, and evaluation of results</p>
 </div>
 </div>
-<div class="admonition-advanced-topics admonition">
+<div class="important admonition">
 <p class="admonition-title">3. Advanced Topics</p>
 <ul class="simple">
-<li><p>Fine-Tuning Models</p></li>
+<li><p>Function calling from prompts</p></li>
 <li><p>Retrival Augmented Generation (RAG)</p></li>
 </ul>
-<div class="attention admonition">
+<div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
-<p>This is a living document, and topics will be updated and extended in the future.</p>
+<p>This is a living document, and topics will be updated and extended in the future. Documentation and code is available from the <a class="reference external" href="https://github.com/rs-kellogg/krs-llm-cookbook">github repo</a></p>
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -479,6 +509,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

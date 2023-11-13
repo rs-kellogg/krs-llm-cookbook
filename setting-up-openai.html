@@ -169,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Workshop Outline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Workshop</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models (LLMs)</span></p>
 <ul class="current nav bd-sidenav">
@@ -181,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="text-classification.html">Text Classification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analyze-text.html">Text Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Converting Speech to Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech-to-text.html">Speech-to-text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-assistance.html">Programming Assistance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
@@ -190,6 +190,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">Fine-Tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="langchain.html">Creating Applications with Langchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">Retrieval Augmented Generation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Takeaways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="takeaways.html">Takeaways</a></li>
 </ul>
 
     </div>
@@ -520,7 +524,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8JLwvtR5pxyRZw7PiatEGYU7SpGft&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. My academic background and practical experience help me understand lion behavior, which is crucial for safe interactions. Here&#39;s an overview of the experience:\n\n1. **Respect for Power**: Lions are among the most powerful predators on the planet. The sheer size and muscle mass of a lion are awe-inspiring. A fully-grown adult male can weigh upwards of 400 pounds (180 kilograms). Being in close proximity to such a formidable animal naturally commands respect for their strength and potential.\n\n2. **Understanding Body Language**: Years of study and interaction with lions allow me to decipher their body language and vocalizations. I must remain vigilant, always observing for signs of discomfort, aggression, or playfulness in the animal. These can include ear positions, tail movements, facial expressions, and sounds.\n\n3. **Emotional Connection**: Despite the danger, a deep bond often forms between a lion and its trainer. This relationship is built on mutual trust and understanding. However, one must never become complacent; a lion is not a domesticated pet and can be unpredictable.\n\n4. **Adrenaline and&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699623297, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KViUYnhlo4kguzGMcm2YjZqMGEUD&#39;, choices=[Choice(finish_reason=&#39;length&#39;, index=0, message=ChatCompletionMessage(content=&quot;Being in the same room as a lion is an exhilarating and intense experience, requiring a deep understanding of lion behavior, a high level of alertness, and an unwavering respect for the animal&#39;s power and instincts. As a lion tamer with a Ph.D. in zoology and an expertise in large cat psychology, I approach interactions with lions with a scientific mindset while prioritizing safety and ethical treatment.\n\nHere are some sensations and considerations I experience when sharing a space with a lion:\n\n1. **Respect for Power**: The immediate recognition of the lion&#39;s strength and potential for danger is palpable. These powerful predators command respect through their sheer size—adult male lions can weigh over 400 pounds (about 180 kilograms) and their muscular build, sharp claws, and formidable teeth serve as constant reminders of their status as apex predators.\n\n2. **Observation**: My knowledge of zoology and animal psychology comes into play as I closely observe the lion&#39;s body language and vocalizations. Understanding tail movements, ear positions, eye contact, and other non-verbal cues is critical to judging the lion&#39;s mood and intentions.\n\n3. **Calm and Control**: Maintaining a calm demeanor is essential. Lions, like many animals, can pick up on anxiety or fear&quot;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699899170, model=&#39;gpt-4-1106-preview&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_a24b4d720c&#39;, usage=CompletionUsage(completion_tokens=256, prompt_tokens=53, total_tokens=309))
 </pre></div>
 </div>
 </div>
@@ -541,15 +545,15 @@ document.write(`
 </div>
 </details>
 </div>
-<p><span class="pasted-text">As a lion tamer with extensive knowledge in zoology and large cat psychology, being in the same room as a lion is a profound mix of exhilaration, respect, and careful calculation. My academic background and practical experience help me understand lion behavior, which is crucial for safe interactions. Here’s an overview of the experience:
+<p><span class="pasted-text">Being in the same room as a lion is an exhilarating and intense experience, requiring a deep understanding of lion behavior, a high level of alertness, and an unwavering respect for the animal’s power and instincts. As a lion tamer with a Ph.D. in zoology and an expertise in large cat psychology, I approach interactions with lions with a scientific mindset while prioritizing safety and ethical treatment.
 
-1. **Respect for Power**: Lions are among the most powerful predators on the planet. The sheer size and muscle mass of a lion are awe-inspiring. A fully-grown adult male can weigh upwards of 400 pounds (180 kilograms). Being in close proximity to such a formidable animal naturally commands respect for their strength and potential.
+Here are some sensations and considerations I experience when sharing a space with a lion:
 
-2. **Understanding Body Language**: Years of study and interaction with lions allow me to decipher their body language and vocalizations. I must remain vigilant, always observing for signs of discomfort, aggression, or playfulness in the animal. These can include ear positions, tail movements, facial expressions, and sounds.
+1. **Respect for Power**: The immediate recognition of the lion’s strength and potential for danger is palpable. These powerful predators command respect through their sheer size—adult male lions can weigh over 400 pounds (about 180 kilograms) and their muscular build, sharp claws, and formidable teeth serve as constant reminders of their status as apex predators.
 
-3. **Emotional Connection**: Despite the danger, a deep bond often forms between a lion and its trainer. This relationship is built on mutual trust and understanding. However, one must never become complacent; a lion is not a domesticated pet and can be unpredictable.
+2. **Observation**: My knowledge of zoology and animal psychology comes into play as I closely observe the lion’s body language and vocalizations. Understanding tail movements, ear positions, eye contact, and other non-verbal cues is critical to judging the lion’s mood and intentions.
 
-4. **Adrenaline and</span></p>
+3. **Calm and Control**: Maintaining a calm demeanor is essential. Lions, like many animals, can pick up on anxiety or fear</span></p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
