@@ -14,3 +14,5 @@ opeanai-whisper
 wave
 pyaudio
 transformers
+pandas
+bs4
