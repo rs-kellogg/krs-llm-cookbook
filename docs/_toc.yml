@@ -17,8 +17,8 @@ parts:
   numbered: false
   chapters:
   - file: text-classification
-  - file: analyze-text
   - file: speech-to-text
+  - file: analyze-text
   - file: programming-assistance
 - caption: Advanced Topics
   numbered: false
