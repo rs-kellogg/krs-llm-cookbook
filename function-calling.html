@@ -191,6 +191,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="langchain.html">Creating Applications with Langchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="augmented-generation.html">Retrieval Augmented Generation</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="takeaways.html">Summary and Takeaways</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -541,7 +545,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8Kg4GYz8z65SbGFjajVYg1EKVb9tb&#39;, choices=[Choice(finish_reason=&#39;function_call&#39;, index=0, message=ChatCompletionMessage(content=None, role=&#39;assistant&#39;, function_call=FunctionCall(arguments=&#39;{\n  &quot;airline_code&quot;: &quot;UA&quot;,\n  &quot;flight_number&quot;: 792,\n  &quot;day&quot;: 12,\n  &quot;month&quot;: 11,\n  &quot;year&quot;: 2023\n}&#39;, name=&#39;get_flight_status&#39;), tool_calls=None))], created=1699938960, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=48, prompt_tokens=119, total_tokens=167))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8KrptAFZpFMd2uic1Gwt7AhMA1VNu&#39;, choices=[Choice(finish_reason=&#39;function_call&#39;, index=0, message=ChatCompletionMessage(content=None, role=&#39;assistant&#39;, function_call=FunctionCall(arguments=&#39;{\n  &quot;airline_code&quot;: &quot;UA&quot;,\n  &quot;flight_number&quot;: 792,\n  &quot;day&quot;: 12,\n  &quot;month&quot;: 11,\n  &quot;year&quot;: 2023\n}&#39;, name=&#39;get_flight_status&#39;), tool_calls=None))], created=1699984197, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=48, prompt_tokens=119, total_tokens=167))
 </pre></div>
 </div>
 </div>
@@ -624,7 +628,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8Kg4H4YWhirFyHPcTySlk60gUzekZ&#39;, choices=[Choice(finish_reason=&#39;stop&#39;, index=0, message=ChatCompletionMessage(content=&#39;The flight status of UA 792 for November 12, 2023 is as follows: \n\n- On time\n- Departing at 06:00 CST\n- Arriving at 09:06 EST&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699938961, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=44, prompt_tokens=150, total_tokens=194))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8Krpv2llrFfsDBkjQ0Mazvp2rSomN&#39;, choices=[Choice(finish_reason=&#39;stop&#39;, index=0, message=ChatCompletionMessage(content=&#39;The flight status of UA 792 for November 12, 2023 is:\n\n- On time\n- Departing at 06:00 CST\n- Arriving at 09:06 EST&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1699984199, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=41, prompt_tokens=150, total_tokens=191))
 </pre></div>
 </div>
 </div>
@@ -639,7 +643,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The flight status of UA 792 for November 12, 2023 is as follows: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The flight status of UA 792 for November 12, 2023 is:
 
 - On time
 - Departing at 06:00 CST

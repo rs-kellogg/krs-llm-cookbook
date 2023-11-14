@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'augmented-generation';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="takeaways.html" />
+    <link rel="next" title="Summary and Takeaways" href="takeaways.html" />
     <link rel="prev" title="Creating Applications with Langchain" href="langchain.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -190,6 +190,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="fine-tuning.html">Fine-Tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="langchain.html">Creating Applications with Langchain</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Retrieval Augmented Generation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="takeaways.html">Summary and Takeaways</a></li>
 </ul>
 
     </div>
@@ -526,19 +530,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: In the latest version of Python Selenium, you can find an element by class name using the `find_element_by_class_name` method of the WebDriver object. Here&#39;s an example of how to do this:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: In the latest version of Python Selenium, you can find an element by class name using the `find_element_by_class_name` method. Here&#39;s an example of how to use it:
 
 ```python
 from selenium import webdriver
 
-# Create a new instance of the Firefox driver
-driver = webdriver.Firefox()
+# Open a browser and navigate to a website
+driver = webdriver.Chrome()
+driver.get(&#39;https://www.example.com&#39;)
 
-# Navigate to a web page
-driver.get(&quot;https://www.example.com&quot;)
-
-# Find an element by its class name
-element = driver.find_element_by_class_name(&quot;example-class&quot;)
+# Find an element by class name
+element = driver.find_element_by_class_name(&#39;example-class&#39;)
 
 # Do something with the element, for example, print its text
 print(element.text)
@@ -547,7 +549,7 @@ print(element.text)
 driver.quit()
 ```
 
-In this example, the `find_element_by_class_name` method is used to locate an element on the web page by its class name. You can then perform various operations on the located element, such as getting its text, clicking it, or interacting with it in other ways.
+In this example, `find_element_by_class_name` is used to locate an element on the webpage based on its class name. After finding the element, you can perform various actions on it, such as retrieving its text, clicking on it, or interacting with its attributes.
 </pre></div>
 </div>
 </div>
@@ -616,7 +618,7 @@ In this example, the `find_element_by_class_name` method is used to locate an el
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 1920, which is longer than the specified 1500
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 3412, which is longer than the specified 1500
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 3513, which is longer than the specified 1500
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 3707, which is longer than the specified 1500
@@ -682,7 +684,7 @@ In this example, the `find_element_by_class_name` method is used to locate an el
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: I&#39;m sorry, but there seems to be a misunderstanding. No elephant has ever landed on the moon. Only human astronauts, spearheaded by the United States&#39; NASA Apollo program, have actually set foot on the moon. The first of these was Neil Armstrong on July 20, 1969.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: I&#39;m sorry, but as far as scientific knowledge and records go, there&#39;s never been an elephant that has landed on the moon. Landing on the moon involves complex space technology and astronauts have to deal with zero gravity and other incredibly specific conditions. It would be highly unrealistic, not to mention ethically and logistically difficult, to send an elephant or any large animal to the moon. So far, only 12 humans (all astronauts) have ever walked on the moon, and they&#39;re the only living beings from Earth to have done so. The first manned moon landing was by Apollo 11 on July 20, 1969.
 </pre></div>
 </div>
 </div>
@@ -726,7 +728,7 @@ In this example, the `find_element_by_class_name` method is used to locate an el
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Based on the given context, there has never been an elephant on the moon.&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Based on the given context, there is no information about the first elephant on the moon.&#39;
 </pre></div>
 </div>
 </div>
@@ -778,7 +780,7 @@ In this example, the `find_element_by_class_name` method is used to locate an el
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Summary and Takeaways</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
