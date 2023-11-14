@@ -526,30 +526,28 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: In the latest version of Python Selenium, you can find an element by class name using the `find_element_by_class_name` method.
-
-Here&#39;s an example of how you can do this:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: In the latest version of Python Selenium, you can find an element by class name using the `find_element_by_class_name` method of the WebDriver object. Here&#39;s an example of how to do this:
 
 ```python
 from selenium import webdriver
 
-# Launch the web browser
-driver = webdriver.Chrome()
+# Create a new instance of the Firefox driver
+driver = webdriver.Firefox()
 
-# Navigate to a webpage
-driver.get(&quot;https://example.com&quot;)
+# Navigate to a web page
+driver.get(&quot;https://www.example.com&quot;)
 
-# Find the element by class name
+# Find an element by its class name
 element = driver.find_element_by_class_name(&quot;example-class&quot;)
 
-# Perform actions with the element
-element.click()
+# Do something with the element, for example, print its text
+print(element.text)
 
-# Close the web browser
+# Close the browser
 driver.quit()
 ```
 
-In this example, the `find_element_by_class_name` method is used to locate an element with the class name &quot;example-class&quot; on the webpage. You can then perform any actions you need with the located element.
+In this example, the `find_element_by_class_name` method is used to locate an element on the web page by its class name. You can then perform various operations on the located element, such as getting its text, clicking it, or interacting with it in other ways.
 </pre></div>
 </div>
 </div>
@@ -684,7 +682,7 @@ In this example, the `find_element_by_class_name` method is used to locate an el
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: I&#39;m afraid there&#39;s been a misunderstanding. No elephant has ever been sent to or landed on the moon. As far as we know, the only living creatures that have been sent to the Moon are humans and a few types of microorganisms. The Apollo missions, conducted by NASA, sent a total of 12 astronauts to the moon between 1969 and 1972.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: I&#39;m sorry, but there seems to be a misunderstanding. No elephant has ever landed on the moon. Only human astronauts, spearheaded by the United States&#39; NASA Apollo program, have actually set foot on the moon. The first of these was Neil Armstrong on July 20, 1969.
 </pre></div>
 </div>
 </div>
