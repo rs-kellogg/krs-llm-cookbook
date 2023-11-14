@@ -2,24 +2,16 @@ from pathlib import Path
 from tqdm import tqdm
 import pandas as pd
 import openai
-import time
 import csv
 import json
-import os
-import typer
-import math
-import tiktoken
 import logging
+from typing import Optional
 import fitz
 from rich import console as cons
-from typing import Optional
-from tenacity import (
-    retry,
-    stop_after_attempt,
-    wait_random_exponential,
-)
-from typing import Dict
+from tenacity import wait_random_exponential
 from openaihelper import functions as F
+import typer
+
 
 # -----------------------------------------------------------------------------
 console = cons.Console(style="green on black")

@@ -4,8 +4,10 @@ import yaml
 import pandas as pd
 from pathlib import Path
 from typing import Dict
+from dotenv import load_dotenv
 
 
+load_dotenv()
 dir_path = Path(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -25,15 +27,14 @@ def config() -> Dict:
         conf = yaml.load(f, Loader=yaml.FullLoader)
         return conf
 
-
-@pytest.fixture(scope="session")
-def openai_api_key(config) -> str:
-    return (dir_path / config["openai_api_key_file"]).read_text()
-
-
 @pytest.fixture(scope="session")
 def sample_1() -> pd.DataFrame:
     return pd.read_csv(dir_path / "data/sample-1.csv")
+
+
+@pytest.fixture(scope="session")
+def sample_10() -> pd.DataFrame:
+    return pd.read_csv(dir_path / "data/sample-10.csv")
 
 
 @pytest.fixture(scope="session")
