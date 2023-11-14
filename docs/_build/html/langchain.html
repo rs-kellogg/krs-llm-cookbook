@@ -430,10 +430,14 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Luckily for us, this dataset has already been preprocessed to remove any unnecessary formatting and identifying information about the employee and their past employers. Each file is essentially plain text saved as a PDF file. Here’s an example of what one of the files looks like.</p>
 <img src="images/resume.png" width="500pix"><p>We can load in the text from a PDF document using one of several PDF loaders available from Python libraries (pypdf,pymupdf,pdfplumer,pdfminer). Langchain acts as a wrapper to unite all of the different APIs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">RESUME_ROOT_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/Documents/resume_data/data/data&#39;</span><span class="p">)</span>
+<span class="n">PERSIST_ROOT_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/Documents/resume_data/persist&#39;</span><span class="p">)</span>
+
 <span class="kn">from</span> <span class="nn">langchain.document_loaders</span> <span class="kn">import</span> <span class="n">PyPDFLoader</span>
 <span class="n">loader</span> <span class="o">=</span> <span class="n">PyPDFLoader</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RESUME_ROOT_DIR</span><span class="p">,</span><span class="s1">&#39;FITNESS&#39;</span><span class="p">,</span><span class="s1">&#39;10428916.pdf&#39;</span><span class="p">))</span>
 <span class="n">pages</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load_and_split</span><span class="p">()</span>
@@ -444,15 +448,28 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">langchain.document_loaders</span> <span class="kn">import</span> <span class="n">PyPDFLoader</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">PyPDFLoader</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RESUME_ROOT_DIR</span><span class="p">,</span><span class="s1">&#39;FITNESS&#39;</span><span class="p">,</span><span class="s1">&#39;10428916.pdf&#39;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load_and_split</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">page_content</span><span class="p">[:</span><span class="mi">550</span><span class="p">])</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">PERSIST_ROOT_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/Documents/resume_data/persist&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">langchain.document_loaders</span> <span class="kn">import</span> <span class="n">PyPDFLoader</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">PyPDFLoader</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RESUME_ROOT_DIR</span><span class="p">,</span><span class="s1">&#39;FITNESS&#39;</span><span class="p">,</span><span class="s1">&#39;10428916.pdf&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load_and_split</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">page_content</span><span class="p">[:</span><span class="mi">550</span><span class="p">])</span>
 
-<span class="ne">NameError</span>: name &#39;RESUME_ROOT_DIR&#39; is not defined
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/langchain/document_loaders/pdf.py:157,</span> in <span class="ni">PyPDFLoader.__init__</span><span class="nt">(self, file_path, password, headers, extract_images)</span>
+<span class="g g-Whitespace">    </span><span class="mi">153</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span>         <span class="s2">&quot;pypdf package not found, please install it with &quot;</span> <span class="s2">&quot;`pip install pypdf`&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">157</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">PyPDFParser</span><span class="p">(</span><span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">extract_images</span><span class="o">=</span><span class="n">extract_images</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/llm-env/lib/python3.11/site-packages/langchain/document_loaders/pdf.py:100,</span> in <span class="ni">BasePDFLoader.__init__</span><span class="nt">(self, file_path, headers)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>         <span class="bp">self</span><span class="o">.</span><span class="n">file_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">temp_pdf</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">100</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;File path </span><span class="si">%s</span><span class="s2"> is not a valid file or url&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: File path /Users/williamthompson/Documents/resume_data/data/data/FITNESS/10428916.pdf is not a valid file or url
 </pre></div>
 </div>
 </div>
@@ -590,7 +607,7 @@ document.write(`
     <span class="n">vector_db</span> <span class="o">=</span> <span class="n">Chroma</span><span class="o">.</span><span class="n">from_documents</span><span class="p">(</span><span class="n">all_documents</span><span class="p">,</span>
                                       <span class="n">ids</span><span class="o">=</span><span class="n">all_ids</span><span class="p">,</span>
                                       <span class="n">embedding</span><span class="o">=</span><span class="n">OpenAIEmbeddings</span><span class="p">(),</span>
-                                      <span class="n">persist_directory</span><span class="o">=</span><span class="n">PERSIST_DIR</span><span class="p">)</span>
+                                      <span class="n">persist_directory</span><span class="o">=</span><span class="n">PERSIST_ROOT_DIR</span><span class="p">)</span>
 
     <span class="n">vector_db</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done.&#39;</span><span class="p">)</span>
@@ -600,9 +617,9 @@ document.write(`
 <span class="c1">## here&#39;s a helper function that will load the vector database from disk if it exists</span>
 <span class="c1">## or will create it if it doesn&#39;t or if we want to refresh it</span>
 <span class="k">def</span> <span class="nf">load_vector_database</span><span class="p">(</span><span class="n">refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">PERSIST_DIR</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">refresh</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">PERSIST_ROOT_DIR</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">refresh</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading vector database from disk...&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="n">vector_db</span> <span class="o">=</span> <span class="n">Chroma</span><span class="o">.</span><span class="n">load_from_disk</span><span class="p">(</span><span class="n">PERSIST_DIR</span><span class="p">)</span>
+        <span class="n">vector_db</span> <span class="o">=</span> <span class="n">Chroma</span><span class="o">.</span><span class="n">load_from_disk</span><span class="p">(</span><span class="n">PERSIST_ROOT_DIR</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done.&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">vector_db</span> <span class="o">=</span> <span class="n">create_vector_database</span><span class="p">()</span>
