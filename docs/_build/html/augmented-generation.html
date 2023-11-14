@@ -528,28 +528,28 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: In the latest version of Selenium using Python, you can use the `find_element_by_class_name` method to locate elements by their class names. Here&#39;s an example of how you can use it:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: To find an element by class name in the latest version of Python Selenium, you can use the `find_element_by_class_name` method. Here&#39;s an example of how to use it:
 
 ```python
 from selenium import webdriver
 
-# Initialize a driver
+# Start the web driver
 driver = webdriver.Chrome()
 
-# Open a website
+# Navigate to a website
 driver.get(&#39;https://example.com&#39;)
 
-# Find an element by its class name
-element = driver.find_element_by_class_name(&#39;example-class&#39;)
+# Find an element by class name
+element = driver.find_element_by_class_name(&#39;your_class_name&#39;)
 
 # Do something with the element
-print(element.text)
+element.click()
 
-# Close the browser
+# Close the web driver
 driver.quit()
 ```
 
-In this example, we&#39;re initializing a Chrome driver, opening a website, finding an element by its class name, and then printing its text. You can replace &#39;example-class&#39; with the actual class name of the element you want to find.
+In this example, `find_element_by_class_name` is used to locate an element with the specified class name on the webpage. You can then perform actions on the found element, such as clicking it, manipulating its contents, or extracting data from it.
 </pre></div>
 </div>
 </div>
@@ -580,7 +580,7 @@ In this example, we&#39;re initializing a Chrome driver, opening a website, find
 <span class="n">chunks</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">split_text</span><span class="p">(</span><span class="n">webpage_content</span><span class="p">)</span>
 
 <span class="c1"># 3.) Embed</span>
-<span class="n">embeddings</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">))</span>
 <span class="n">metadata</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">))]</span>  <span class="c1"># Metadata for each chunk</span>
 
 <span class="c1"># 4.) Store</span>
@@ -590,14 +590,19 @@ In this example, we&#39;re initializing a Chrome driver, opening a website, find
 <span class="c1"># 5.) Retrieve</span>
 
 <span class="c1"># Build the question answering chain</span>
-<span class="n">chain</span> <span class="o">=</span> <span class="n">VectorDBQAWithSourcesChain</span><span class="o">.</span><span class="n">from_llm</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">OpenAI</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;text-davinci-003&#39;</span><span class="p">),</span> <span class="n">vectorstore</span><span class="o">=</span><span class="n">store</span><span class="p">)</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">VectorDBQAWithSourcesChain</span><span class="o">.</span><span class="n">from_llm</span><span class="p">(</span>
+    <span class="n">llm</span><span class="o">=</span><span class="n">OpenAI</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">),</span> 
+               <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> 
+               <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;text-davinci-003&#39;</span><span class="p">),</span> 
+               <span class="n">vectorstore</span><span class="o">=</span><span class="n">store</span>
+<span class="p">)</span>
 
 <span class="c1"># Ask GPT a question</span>
-<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;How do I find an element by class name in the latest version of python selenium? Show an example.&quot;</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">chain</span><span class="p">({</span><span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
+<span class="c1"># question = &quot;How do I find an element by class name in the latest version of python selenium? Show an example.&quot;</span>
+<span class="c1"># result = chain({&quot;question&quot;: question})</span>
 
 <span class="c1"># Print the answer.</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Answer: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;answer&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># print(f&quot;Answer: {result[&#39;answer&#39;]}&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -622,14 +627,21 @@ In this example, we&#39;re initializing a Chrome driver, opening a website, find
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">chunks</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">split_text</span><span class="p">(</span><span class="n">webpage_content</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># 3.) Embed</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">embeddings</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">metadata</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">))]</span>  <span class="c1"># Metadata for each chunk</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
 <span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># 4.) Store</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">store</span> <span class="o">=</span> <span class="n">FAISS</span><span class="o">.</span><span class="n">from_texts</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">,</span> <span class="n">metadatas</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">store</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># 5.) Retrieve</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> 
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="c1"># Build the question answering chain</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">chain</span> <span class="o">=</span> <span class="n">VectorDBQAWithSourcesChain</span><span class="o">.</span><span class="n">from_llm</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">llm</span><span class="o">=</span><span class="n">OpenAI</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">),</span> 
+<span class="g g-Whitespace">     </span><span class="mi">23</span>                <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> 
+<span class="g g-Whitespace">     </span><span class="mi">24</span>                <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;text-davinci-003&#39;</span><span class="p">),</span> 
+<span class="g g-Whitespace">     </span><span class="mi">25</span>                <span class="n">vectorstore</span><span class="o">=</span><span class="n">store</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="p">)</span>
 
-<span class="ne">NameError</span>: name &#39;api_key&#39; is not defined
+<span class="ne">NameError</span>: name &#39;index&#39; is not defined
 </pre></div>
 </div>
 </div>
