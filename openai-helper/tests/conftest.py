@@ -29,14 +29,14 @@ def config() -> Dict:
 
 @pytest.fixture(scope="session")
 def sample_1() -> pd.DataFrame:
-    return pd.read_csv(dir_path / "data/sample-1.csv")
+    return pd.read_csv(dir_path / "data/arxiv_metadata-1.csv")
 
 
 @pytest.fixture(scope="session")
 def sample_10() -> pd.DataFrame:
-    return pd.read_csv(dir_path / "data/sample-10.csv")
+    return pd.read_csv(dir_path / "data/arxiv_metadata-10.csv")
 
 
 @pytest.fixture(scope="session")
 def sample_100() -> pd.DataFrame:
-    return pd.read_csv(dir_path / "data/sample-100.csv")
+    return pd.read_csv(dir_path / "data/arxiv_metadata-100.csv")

@@ -22,10 +22,10 @@ def config(config_file: Path) -> Dict:
 
 # -----------------------------------------------------------------------------
 @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
-def completion_with_backoff(**kwargs) -> str:
+def completion_with_backoff(**kwargs) -> openai.types.chat.chat_completion.ChatCompletion:
     client = openai.OpenAI()
     response = client.chat.completions.create(**kwargs)
-    return json.loads(response.choices[0].message.content)
+    return response
 
 
 # -----------------------------------------------------------------------------
@@ -47,7 +47,7 @@ def chat_complete(
     assert user_prompt is not None and len(user_prompt) > 0
 
     try:
-        result = completion_with_backoff(
+        response = completion_with_backoff(
             model=model_name,
             messages=[
                 {"role": "system", "content": system_prompt},
@@ -61,9 +61,9 @@ def chat_complete(
             presence_penalty=presence_penalty,
             seed=seed,
         )
-        return result
+        return json.dumps(json.loads(response.choices[0].message.content))
     except Exception as e:
-        return str(e)
+        return str(f"{response}")
 
 
 # -----------------------------------------------------------------------------
