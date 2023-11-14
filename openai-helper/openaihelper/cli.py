@@ -21,9 +21,14 @@ from tenacity import (
 from typing import Dict
 from openaihelper import functions as F
 
+# -----------------------------------------------------------------------------
 console = cons.Console(style="green on black")
 
-logging.basicConfig(filename="openai-helper.log", encoding="utf-8", level=logging.INFO)
+logging.basicConfig(
+    filename="openai-helper.log", 
+    encoding="utf-8", 
+    level=logging.INFO
+)
 
 
 # -----------------------------------------------------------------------------
@@ -88,7 +93,7 @@ def speech2text(
 
 # -----------------------------------------------------------------------------
 @app.command()
-def extract_text(
+def pdf2text(
     in_dir: Path = typer.Argument(..., help="Path to input PDF files"),
     out_dir: Optional[Path] = typer.Option(
         Path("."),
@@ -104,18 +109,10 @@ def extract_text(
     assert end_page >= start_page
     if not out_dir.exists():
         out_dir.mkdir(parents=True)
-        
-    logging.basicConfig(
-        filename=f'{out_dir}/extract.log',           
-        level=logging.INFO,  
-            format='%(asctime)s - %(levelname)s - %(message)s',
-            datefmt='%Y-%m-%d %H:%M:%S')
-
-    logger = logging.getLogger()
 
     for pdf in in_dir.glob("*.pdf"):
         console.print(f"processing pdf file: {pdf.name}")
-        logger.info(pdf.name)
+        logging.info(f"extracting text from: {pdf.name}")
         try:
             doc = fitz.open(pdf)
             textfile = out_dir / f"{pdf.stem}.txt"
@@ -170,7 +167,7 @@ def complete_prompt(
     outdir: Path = typer.Option(Path("."), help="Output directory"),
 ):
     """
-    Complete a prompt in a data file and write output to a csv file.
+    Accept a data file with text and complete the prompt for each text and write output to a csv file.
     """
     check_args(data_file_path, config_file_path, outdir)
 
@@ -183,41 +180,45 @@ def complete_prompt(
     system_prompt = config["system_prompt"]
     n_prompt_tokens = F.count_tokens(system_prompt + user_prompt, encoding_name)
 
-    # Read data file
+    # Read the data file and check its format
     df = pd.read_csv(data_file_path)
     assert "id" in df.columns
     assert "text" in df.columns
     texts = list(df["text"])
     ids = list(df["id"])
 
-    # Complete prompt and write results to csv file
+    # Complete prompt for each row and write results to csv file
     out_csv_path = outdir/f"{data_file_path.stem}_responses.csv"
     if not out_csv_path.exists():
         out_csv = open(out_csv_path, "w")
         writer = csv.writer(out_csv)
         writer.writerow(["id", "response"])
         out_csv.close()
-    out_csv = open(f"{outdir}/{data_file_path.stem}_responses.csv", "a")
-    writer = csv.writer(out_csv)
-    client = openai.OpenAI()
-    for i in tqdm(range(len(texts))):
-        n_tokens = F.count_tokens(texts[i], encoding_name)
-        if (n_tokens + n_prompt_tokens) > max_token_len:
-            writer.writerow([ids[i], "TOO_LONG"])
-            logging.warn(f"Data point {ids[i]} not completed")
-        else:
-            response = F.chat_complete (
-                client=client,
-                model_name=model_name, 
-                user_prompt=user_prompt,
-                system_prompt=system_prompt,
-                text=texts[i], 
-            )
-            writer.writerow([ids[i], json.dumps(response)])
-            valid = F.validate_result(response)
-            if valid:
-                logging.info(f"Data point {ids[i]} completed")
-            else:
+
+    with open(f"{outdir}/{data_file_path.stem}_responses.csv", "a") as out_csv:
+        writer = csv.writer(out_csv)
+        client = openai.OpenAI()
+
+        for i in tqdm(range(len(texts))):
+            # check if the text is too long
+            n_tokens = F.count_tokens(texts[i], encoding_name)
+            if (n_tokens + n_prompt_tokens) > max_token_len:
+                writer.writerow([ids[i], "TOO_LONG"])
                 logging.warn(f"Data point {ids[i]} not completed")
-        out_csv.flush()
-    out_csv.close()
+            else:
+                # complete the prompt
+                response = F.chat_complete (
+                    client=client,
+                    model_name=model_name, 
+                    user_prompt=user_prompt,
+                    system_prompt=system_prompt,
+                    text=texts[i], 
+                )
+                # validate the response
+                valid = F.validate_result(response)
+                if valid:
+                    logging.info(f"Data point {ids[i]} completed")
+                    writer.writerow([ids[i], json.dumps(response)])
+                else:
+                    logging.warn(f"Error for data point {ids[i]}: {response}")
+            out_csv.flush()
