@@ -528,28 +528,30 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: To find an element by class name in the latest version of Python Selenium, you can use the `find_element_by_class_name` method. Here&#39;s an example of how to use it:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: In the latest version of Python Selenium, you can find an element by class name using the `find_element_by_class_name` method. Here&#39;s an example of how you can do it:
 
 ```python
 from selenium import webdriver
 
-# Start the web driver
+# Initialize the WebDriver
 driver = webdriver.Chrome()
 
-# Navigate to a website
-driver.get(&#39;https://example.com&#39;)
+# Navigate to a webpage
+driver.get(&#39;https://www.example.com&#39;)
 
 # Find an element by class name
-element = driver.find_element_by_class_name(&#39;your_class_name&#39;)
+element = driver.find_element_by_class_name(&#39;example-class&#39;)
 
-# Do something with the element
-element.click()
+# Do something with the element, for example, print out its text
+print(element.text)
 
-# Close the web driver
+# Close the browser
 driver.quit()
 ```
 
-In this example, `find_element_by_class_name` is used to locate an element with the specified class name on the webpage. You can then perform actions on the found element, such as clicking it, manipulating its contents, or extracting data from it.
+In this example, `example-class` is the name of the class you want to find. You can replace it with the actual class name of the element you are looking for.
+
+I hope this helps! Let me know if you have further questions or issues!
 </pre></div>
 </div>
 </div>
@@ -568,9 +570,7 @@ In this example, `find_element_by_class_name` is used to locate an element with 
 </div>
 <p>To resolve this, we can use RAG to feed GPT details on the newest version of Selenium. The code below will take the contents of a webpage and follow the 5 steps outlined above to retrieve the relevant information about selenium.</p>
 <p><font color='blue'><em>Note that the RAG code was summarized from this post: <a class="reference external" href="https://www.shruggingface.com/blog/langchain-cloudflare-qa-agent">https://www.shruggingface.com/blog/langchain-cloudflare-qa-agent</a>.  Please see the original post for additional details.</em></font></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.) Load</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.) Load</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.selenium.dev/documentation/webdriver/troubleshooting/upgrade_to_selenium_4/&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">webpage_content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> 
@@ -598,53 +598,12 @@ In this example, `find_element_by_class_name` is used to locate an element with 
 <span class="p">)</span>
 
 <span class="c1"># Ask GPT a question</span>
-<span class="c1"># question = &quot;How do I find an element by class name in the latest version of python selenium? Show an example.&quot;</span>
-<span class="c1"># result = chain({&quot;question&quot;: question})</span>
+<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;How do I find an element by class name in the latest version of python selenium? Show an example.&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">chain</span><span class="p">({</span><span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
 
 <span class="c1"># Print the answer.</span>
-<span class="c1"># print(f&quot;Answer: {result[&#39;answer&#39;]}&quot;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Answer: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;answer&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 4540, which is longer than the specified 1500
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 1584, which is longer than the specified 1500
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 52413, which is longer than the specified 1500
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 1920, which is longer than the specified 1500
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 3412, which is longer than the specified 1500
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created a chunk of size 3707, which is longer than the specified 1500
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># 4.) Store</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">store</span> <span class="o">=</span> <span class="n">FAISS</span><span class="o">.</span><span class="n">from_texts</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">,</span> <span class="n">metadatas</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">store</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># 5.) Retrieve</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> 
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="c1"># Build the question answering chain</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">chain</span> <span class="o">=</span> <span class="n">VectorDBQAWithSourcesChain</span><span class="o">.</span><span class="n">from_llm</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">llm</span><span class="o">=</span><span class="n">OpenAI</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">),</span> 
-<span class="g g-Whitespace">     </span><span class="mi">23</span>                <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> 
-<span class="g g-Whitespace">     </span><span class="mi">24</span>                <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;text-davinci-003&#39;</span><span class="p">),</span> 
-<span class="g g-Whitespace">     </span><span class="mi">25</span>                <span class="n">vectorstore</span><span class="o">=</span><span class="n">store</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;index&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="example-b-preventing-hallucinations">
@@ -697,7 +656,7 @@ In this example, `find_element_by_class_name` is used to locate an element with 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: I&#39;m sorry for any misunderstanding, but as of current knowledge and recorded history, no elephant has ever been sent or landed on the moon. The first and only living beings to land on the moon were astronauts from NASA&#39;s Apollo missions, with the first being Apollo 11 on July 20, 1969, which had Neil Armstrong and Buzz Aldrin as the first humans to walk on the lunar surface. Sending large animals like elephants to space has numerous logistical, ethical, and wellbeing concerns.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: I&#39;m sorry for any confusion, but no elephant has ever landed on the moon. The only living beings that have been to the moon are human astronauts, starting with Neil Armstrong and Buzz Aldrin during the Apollo 11 mission in July 1969. Sending an elephant to the moon would involve significant logistical and ethical challenges.
 </pre></div>
 </div>
 </div>
@@ -722,6 +681,23 @@ In this example, `find_element_by_class_name` is used to locate an element with 
 <span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">retriever</span> <span class="o">=</span> <span class="n">vectorstore</span><span class="o">.</span><span class="n">as_retriever</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">template</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Answer the question based only on the following context:</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span><span class="s2"> </span><span class="si">{context}</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span><span class="s2"> Question: </span><span class="si">{question}</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="s2"> &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">model</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;ChatPromptTemplate&#39; is not defined
 </pre></div>
 </div>
 </div>

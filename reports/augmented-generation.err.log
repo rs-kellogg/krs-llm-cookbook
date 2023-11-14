@@ -18,71 +18,38 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# 1.) Load
-url = "https://www.selenium.dev/documentation/webdriver/troubleshooting/upgrade_to_selenium_4/"
-response = requests.get(url)
-webpage_content = response.text 
+# data
+data = "There has never been an elephant on the moon."
 
-# 2.) Transform - Split the content into smaller chunks
-text_splitter = CharacterTextSplitter(chunk_size=1500, separator="\n")
-chunks = text_splitter.split_text(webpage_content)
-
-# 3.) Embed
-embeddings = OpenAIEmbeddings(openai_api_key=os.getenv('OPENAI_API_KEY'))
-metadata = [{"source": url} for _ in range(len(chunks))]  # Metadata for each chunk
-
-# 4.) Store
-store = FAISS.from_texts(chunks, embeddings, metadatas=metadata)
-store.index = index
-
-# 5.) Retrieve
-
-# Build the question answering chain
-chain = VectorDBQAWithSourcesChain.from_llm(
-    llm=OpenAI(openai_api_key=os.getenv('OPENAI_API_KEY'), 
-               temperature=0, max_tokens=1500, 
-               model_name='text-davinci-003'), 
-               vectorstore=store
+# embed and store
+vectorstore = FAISS.from_texts(
+    [data], embedding=OpenAIEmbeddings()
 )
+retriever = vectorstore.as_retriever()
 
-# Ask GPT a question
-# question = "How do I find an element by class name in the latest version of python selenium? Show an example."
-# result = chain({"question": question})
+template = """Answer the question based only on the following context:
+{context}
 
-# Print the answer.
-# print(f"Answer: {result['answer']}")
+Question: {question}
+"""
+prompt = ChatPromptTemplate.from_template(template)
+
+model = ChatOpenAI()
 
 ------------------
 
------ stderr -----
-Created a chunk of size 4540, which is longer than the specified 1500
------ stderr -----
-Created a chunk of size 1584, which is longer than the specified 1500
------ stderr -----
-Created a chunk of size 52413, which is longer than the specified 1500
------ stderr -----
-Created a chunk of size 1920, which is longer than the specified 1500
------ stderr -----
-Created a chunk of size 3412, which is longer than the specified 1500
------ stderr -----
-Created a chunk of size 3707, which is longer than the specified 1500
-------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[6], line 16[0m
-[1;32m     14[0m [38;5;66;03m# 4.) Store[39;00m
-[1;32m     15[0m store [38;5;241m=[39m FAISS[38;5;241m.[39mfrom_texts(chunks, embeddings, metadatas[38;5;241m=[39mmetadata)
-[0;32m---> 16[0m store[38;5;241m.[39mindex [38;5;241m=[39m [43mindex[49m
-[1;32m     18[0m [38;5;66;03m# 5.) Retrieve[39;00m
-[1;32m     19[0m 
-[1;32m     20[0m [38;5;66;03m# Build the question answering chain[39;00m
-[1;32m     21[0m chain [38;5;241m=[39m VectorDBQAWithSourcesChain[38;5;241m.[39mfrom_llm(
-[1;32m     22[0m     llm[38;5;241m=[39mOpenAI(openai_api_key[38;5;241m=[39mos[38;5;241m.[39mgetenv([38;5;124m'[39m[38;5;124mOPENAI_API_KEY[39m[38;5;124m'[39m), 
-[1;32m     23[0m                temperature[38;5;241m=[39m[38;5;241m0[39m, max_tokens[38;5;241m=[39m[38;5;241m1500[39m, 
-[1;32m     24[0m                model_name[38;5;241m=[39m[38;5;124m'[39m[38;5;124mtext-davinci-003[39m[38;5;124m'[39m), 
-[1;32m     25[0m                vectorstore[38;5;241m=[39mstore
-[1;32m     26[0m )
+Cell [0;32mIn[7], line 15[0m
+[1;32m      8[0m retriever [38;5;241m=[39m vectorstore[38;5;241m.[39mas_retriever()
+[1;32m     10[0m template [38;5;241m=[39m [38;5;124m"""[39m[38;5;124mAnswer the question based only on the following context:[39m
+[1;32m     11[0m [38;5;132;01m{context}[39;00m
+[1;32m     12[0m 
+[1;32m     13[0m [38;5;124mQuestion: [39m[38;5;132;01m{question}[39;00m
+[1;32m     14[0m [38;5;124m"""[39m
+[0;32m---> 15[0m prompt [38;5;241m=[39m [43mChatPromptTemplate[49m[38;5;241m.[39mfrom_template(template)
+[1;32m     17[0m model [38;5;241m=[39m ChatOpenAI()
 
-[0;31mNameError[0m: name 'index' is not defined
+[0;31mNameError[0m: name 'ChatPromptTemplate' is not defined
 
