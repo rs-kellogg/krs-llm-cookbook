@@ -1,3 +1,5 @@
+# Summary and Takeaways
+
 :::{admonition} Summary
 :class: note
 - Setting up an OpenAI account
