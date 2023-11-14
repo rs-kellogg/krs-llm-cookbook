@@ -13,12 +13,14 @@ from tenacity import (
 )
 
 
+# -----------------------------------------------------------------------------
 def config(config_file: Path) -> Dict:
     with open(config_file) as f:
         conf = yaml.load(f, Loader=yaml.FullLoader)
         return conf
 
 
+# -----------------------------------------------------------------------------
 @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 def completion_with_backoff(**kwargs) -> str:
     client = openai.OpenAI()
@@ -26,6 +28,7 @@ def completion_with_backoff(**kwargs) -> str:
     return json.loads(response.choices[0].message.content)
 
 
+# -----------------------------------------------------------------------------
 def chat_complete(
     model_name: str, 
     user_prompt: str,
@@ -63,6 +66,7 @@ def chat_complete(
         return str(e)
     
 
+# -----------------------------------------------------------------------------
 def count_tokens(text: str, encoding_name: str) -> int:
     assert text is not None and len(text) > 0
     assert encoding_name is not None and len(encoding_name) > 0
@@ -72,6 +76,17 @@ def count_tokens(text: str, encoding_name: str) -> int:
     return num_tokens
 
 
+# -----------------------------------------------------------------------------
 def validate_result(result: str) -> bool:
     assert result is not None
     return True
+
+
+# -----------------------------------------------------------------------------
+def speech2text(client, text: str):
+    response = client.audio.speech.create(
+        model="tts-1",
+        voice="alloy",
+        input=text,
+    )
+    return response

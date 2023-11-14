@@ -46,6 +46,27 @@ if __name__ == "__main__":
 
 # -----------------------------------------------------------------------------
 @app.command()
+def speech2text(
+    in_dir: Path = typer.Argument(..., help="Path to input text files"),
+    out_dir: Optional[Path] = typer.Option(
+        Path("."),
+        "--dir",
+        help="The directory where the audio files will be created.",
+    ),
+):
+    """
+    Convert a collection of text files to audio files.
+    """
+    client = openai.OpenAI()
+    for text_file in in_dir.glob("*.txt"):
+        console.print(f"processing text file: {text_file.name}")
+        speech_file_path = out_dir / f"{text_file.stem}.mp3"
+        response = F.speech2text(client, text_file.read_text())
+        response.stream_to_file(speech_file_path)
+
+
+# -----------------------------------------------------------------------------
+@app.command()
 def extract_text(
     in_dir: Path = typer.Argument(..., help="Path to input PDF files"),
     out_dir: Optional[Path] = typer.Option(
