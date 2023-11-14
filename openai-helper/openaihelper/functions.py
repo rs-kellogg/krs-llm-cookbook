@@ -31,10 +31,10 @@ def completion_with_backoff(**kwargs) -> str:
 # -----------------------------------------------------------------------------
 def chat_complete(
     client,
-    model_name: str, 
+    model_name: str,
     user_prompt: str,
     system_prompt: str,
-    text: str, 
+    text: str,
     temperature=0,
     max_tokens=2048,
     top_p=1,
@@ -64,7 +64,7 @@ def chat_complete(
         return result
     except Exception as e:
         return str(e)
-    
+
 
 # -----------------------------------------------------------------------------
 def count_tokens(text: str, encoding_name: str) -> int:
@@ -91,6 +91,7 @@ def text2speech(client, text: str, model: str = "tts-1", voice: str = "alloy"):
     )
     return response
 
+
 # -----------------------------------------------------------------------------
 def speech2text(client, audio_file: str, model: str = "whisper-1"):
     response = client.audio.transcriptions.create(
@@ -98,4 +99,3 @@ def speech2text(client, audio_file: str, model: str = "whisper-1"):
         file=audio_file,
     )
     return response
-

@@ -24,11 +24,7 @@ from openaihelper import functions as F
 # -----------------------------------------------------------------------------
 console = cons.Console(style="green on black")
 
-logging.basicConfig(
-    filename="openai-helper.log", 
-    encoding="utf-8", 
-    level=logging.INFO
-)
+logging.basicConfig(filename="openai-helper.log", encoding="utf-8", level=logging.INFO)
 
 
 # -----------------------------------------------------------------------------
@@ -188,7 +184,7 @@ def complete_prompt(
     ids = list(df["id"])
 
     # Complete prompt for each row and write results to csv file
-    out_csv_path = outdir/f"{data_file_path.stem}_responses.csv"
+    out_csv_path = outdir / f"{data_file_path.stem}_responses.csv"
     if not out_csv_path.exists():
         out_csv = open(out_csv_path, "w")
         writer = csv.writer(out_csv)
@@ -207,12 +203,12 @@ def complete_prompt(
                 logging.warn(f"Data point {ids[i]} not completed")
             else:
                 # complete the prompt
-                response = F.chat_complete (
+                response = F.chat_complete(
                     client=client,
-                    model_name=model_name, 
+                    model_name=model_name,
                     user_prompt=user_prompt,
                     system_prompt=system_prompt,
-                    text=texts[i], 
+                    text=texts[i],
                 )
                 # validate the response
                 valid = F.validate_result(response)
