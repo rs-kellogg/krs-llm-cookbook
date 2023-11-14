@@ -37,8 +37,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# Fetch the content from the Selenium troubleshooting webpage', 'url = "https://www.selenium.dev/documentation/webdriver/troubleshooting/upgrade_to_selenium_4/"', 'response = requests.get(url)', 'webpage_content = response.text ', '']
+['# Ask GPT-3 about the Python version', 'prompt = "How do I find an element by class name in the latest version of python selenium?"', '', '# Generate response using GPT-3', 'client = openai.OpenAI()']
 ...
-['store = {"index": index, "metadata": metadata}', '', '# Save the store object', 'with open("selenium_docs.pkl", "wb") as f:', '    pickle.dump(store, f)']
+[')', '', '# Display the generated text', 'generated_text = response.choices[0].message.content', 'print(f"Answer: {generated_text}")']
 -------------------
 
