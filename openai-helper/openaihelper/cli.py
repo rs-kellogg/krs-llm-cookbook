@@ -178,6 +178,7 @@ def complete_prompt(
         out_csv.close()
     out_csv = open(f"{outdir}/{data_file_path.stem}_responses.csv", "a")
     writer = csv.writer(out_csv)
+    client = openai.OpenAI()
     for i in tqdm(range(len(texts))):
         n_tokens = F.count_tokens(texts[i], encoding_name)
         if (n_tokens + n_prompt_tokens) > max_token_len:
@@ -185,6 +186,7 @@ def complete_prompt(
             logging.warn(f"Data point {ids[i]} not completed")
         else:
             response = F.chat_complete (
+                client=client,
                 model_name=model_name, 
                 user_prompt=user_prompt,
                 system_prompt=system_prompt,

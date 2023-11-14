@@ -30,6 +30,7 @@ def completion_with_backoff(**kwargs) -> str:
 
 # -----------------------------------------------------------------------------
 def chat_complete(
+    client,
     model_name: str, 
     user_prompt: str,
     system_prompt: str,
@@ -46,7 +47,6 @@ def chat_complete(
     assert user_prompt is not None and len(user_prompt) > 0
 
     try:
-        client = openai.OpenAI()
         result = completion_with_backoff(
             model=model_name,
             messages=[
