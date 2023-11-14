@@ -80,31 +80,3 @@ def test_chat_complete_success_mode(config: Dict, sample_100: DataFrame):
         assert "longitude" in aff, "longitude not found"
         assert "latitude" in aff, "latitude not found"
 
-
-# @pytest.mark.skipif(
-#     "not config.getoption('--use-api')",
-#     reason="Only run when --use-api is given",
-# )
-# def test_chat_complete_failure_mode(config, sample_100):
-#     prompt = config["prompt"]
-#     model_name = config["model_name"]
-#     text = list(sample_100["text"])[99]
-#     response = F.chat_complete(text, model_name, prompt)
-#     assert type(response) == str
-#     print(response)
-
-
-# def test_chat_complete(client, config):
-#     model_name = config["model_name"]
-#     user_prompt = config["user_prompt"]
-#     system_prompt = config["system_prompt"]
-#     text = "This is a test message."
-#     response = F.chat_complete(
-#         client=client,
-#         model_name=model_name,
-#         user_prompt=user_prompt,
-#         system_prompt=system_prompt,
-#         text=text,
-#     )
-#     assert response is not None
-#     assert isinstance(response, str)def test_count_tokens():
