@@ -34,6 +34,7 @@ width: 400px
 name: testing
 ---
 ```
+:::
 
 :::{admonition} Moving forward
 :class: important
