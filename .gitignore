@@ -6,7 +6,7 @@ Papers/
 **/*.log
 **/.env
 **/openai.txt
-
+docs/_build
 
 # jupyterbook
 _build/**
