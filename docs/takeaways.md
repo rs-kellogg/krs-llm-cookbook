@@ -1,4 +1,4 @@
-# Summary and Takeaways
+# Takeaways
 
 :::{admonition} Summary
 :class: note

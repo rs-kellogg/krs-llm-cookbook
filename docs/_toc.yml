@@ -4,33 +4,22 @@
 format: jb-book
 root: welcome
 parts:
-- caption: Introduction
-  chapters:
-  - file: introduction
-- caption: Large Language Models (LLMs)
+- caption: Large Language Models
   numbered: false
   chapters:
   - file: llm-defined
   - file: llm-use-cases
-  - file: setting-up-openai
-- caption: Use Cases
+- caption: OpenAI
   numbered: false
   chapters:
-  - file: text-classification
-  - file: speech-to-text
-  - file: analyze-text
-  - file: programming-assistance
-- caption: Advanced Topics
+  - file: openai-setup
+  - file: openai-cli
+  - file: openai-api
+- caption: Examples
   numbered: false
   chapters:
-  - file: function-calling
-  - file: fine-tuning
-  - file: langchain
-  - file: augmented-generation
+  - file: openai-text-analysis
 - caption: Summary
   numbered: false
   chapters:
   - file: takeaways
-
-  
-
