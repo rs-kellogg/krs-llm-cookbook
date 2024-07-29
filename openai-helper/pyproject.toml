@@ -3,8 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "openai-helper"
-license = {file = "LICENSE"}
+name = "openaihelper"
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
@@ -15,16 +14,9 @@ classifiers = [
 dynamic = ["version", "description"]
 dependencies = [
     "typer[all]",
-    "typer-cli",
-    "pyyaml", 
-    "pandas",
-    "tqdm",
+    "pyyaml",
+    "polars",
     "openai",
-    "tiktoken",
-    "tenacity",
-    "PyMuPDF",
-    "datasets",
-    "pytest"
 ]
 
 [project.urls]
@@ -39,7 +31,8 @@ lint = [
   "flake8"
 ]
 notebook = [
-  "jupyterlab",
+    "jupyterlab",
+    "jupyterlab-tabular-data-editor",
 ]
 
 [tool.setuptools]
@@ -48,6 +41,9 @@ include-package-data = true
 [tool.setuptools.packages.find]
 namespaces = true
 where = ["openaihelper"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["openaihelper"]
 
 [project.scripts]
 openaihelper = "openaihelper.cli:app"
